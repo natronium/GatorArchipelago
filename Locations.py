@@ -28,6 +28,7 @@ location_table: Dict[str, GatorLocationData] = {
     "Main Island - Twig (Flip Pomeranian) Quest Completion": GatorLocationData("Game"),
     "Main Island - Viraj (Hot Shot Elephant) Quest Completion": GatorLocationData("Game"),
     "Main Island - Eva (Photographer Cat) Quest Completion": GatorLocationData("Game"),
+    "Main Island - Sam (Pencil Fox) Quest Completion": GatorLocationData("Game"),
     "Main Island - Sierra (Origami Rhea) Quest Completion": GatorLocationData("Game"),
     "Main Island - Romeo (Ninja Rat) Quest Completion": GatorLocationData("Game"),
     "Main Island - Oscar (Outcast Tiger) Quest Completion": GatorLocationData("Game"),
