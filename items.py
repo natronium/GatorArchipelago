@@ -16,7 +16,7 @@ item_table: Dict[str, GatorItemData] = {
     "Friend": GatorItemData(ItemClassification.progression_skip_balancing, 48, 0, "Friends"),
     "Friend x2": GatorItemData(ItemClassification.progression_skip_balancing, 3, 0, "Friends"),
     "Friend x4": GatorItemData(ItemClassification.progression_skip_balancing, 1, 0, "Friends"),
-    "Crafting Materials x???": GatorItemData(ItemClassification.filler, 1, 0, "Craft Bits"),
+    "Craft Stuff x15": GatorItemData(ItemClassification.filler, 1, 0, "Crafting Materials"),
     "Bracelet": GatorItemData(ItemClassification.progression, 4, 1, "Traversal"),
     "Glider": GatorItemData(ItemClassification.progression, 1, 1, "Traversal"),
     "Retainer": GatorItemData(ItemClassification.progression, 1, 2, "Quest Items"),
@@ -90,7 +90,12 @@ item_name_groups: Dict[str, Set[str]] = {
 
 # extra groups for the purpose of aliasing items
 extra_groups: Dict[str, Set[str]] = {
-    "Hats": {"Ninja Headband (Recipe)"}
+    "Hats": {"Ninja Headband (Recipe)"},
+    "Cardboard Destroyer": {"Stick (Item)","Sword (Item)","Grabby Hand (Item)","Bug Net (Item)","Nunchaku (Item)","Wrench (Item)","Paleolithic Tool (Item)","Pot Lid (Item)","Platter (Item)","Martin (Item)","Big Leaf (Item)","Trampoline (Item)","Trash Can Lid (Item)","Skipping Rock (Item)","Space Blaster (Item)","Shuriken (Item)","Bowling Bomb (Item)"}
+    # Cardboard Destroyer is limited to items received in item form since it must be an item that you can use to destroy cardboard without already having sufficient Craft Stuff
 }
 
 item_name_groups.update(extra_groups)
+
+shield_items = item_name_groups["Shields"]
+cardboard_destroyer_items = item_name_groups["Cardboard Destroyer"]

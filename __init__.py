@@ -3,6 +3,7 @@ import typing
 from .options import GatorOptions  # the options we defined earlier
 from .items import item_name_to_id  # data used below to add items to the World
 from .locations import location_name_to_id  # same as above
+from .regions import gator_regions
 from worlds.AutoWorld import World
 from BaseClasses import Region, Location, Entrance, Item, RegionType, ItemClassification
 
@@ -25,3 +26,13 @@ class GatorWorld(World):
 
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
+
+
+def create_regions(self) -> None:
+    for region_name in gator_regions:
+        region = Region(region_name, self.player, self.multiworld)
+        self.multiworld.regions.append(region)
+
+    for region_name, exits in gator_regions.items():
+        region = self.multiworld.get_region(region_name, self.player)
+        region.add_exits(exits)
