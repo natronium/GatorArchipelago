@@ -12,6 +12,7 @@ class GatorLocationData(NamedTuple):
 location_base_id = 9999999999 #adjust this
 
 location_table: Dict[str, GatorLocationData] = {
+    # Northwest (Tutorial Island)
     "Tutorial Island - Avery! Hat Recipe": GatorLocationData("Tutorial Island"),
     "Tutorial Island - Avery! Quest Completion": GatorLocationData("Tutorial Island"),
     "Tutorial Island - Stick Pickup": GatorLocationData("Tutorial Island"),
@@ -29,7 +30,8 @@ location_table: Dict[str, GatorLocationData] = {
     "Tutorial Island - Pot between two waterfalls below ???": GatorLocationData("Tutorial Island Breakables","Pot"),
     "Tutorial Island - Pot between two waterfalls on level with ???": GatorLocationData("Tutorial Island Breakables","Pot"),
     "Tutorial Island - Pot on grassy cliff behind races": GatorLocationData("Tutorial Island Breakables","Pot"),
-    "Tutorial Island - Pot on grassy cliff above north east ": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Pot on grassy cliff above north east": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Pot overlooking rope bridge (to the north)": GatorLocationData("Tutorial Island Breakables","Pot"),
     "Tutorial Island - Pot behind tall cliffs to north": GatorLocationData("Tutorial Island Breakables","Pot"),
     "Tutorial Island - Chest behind Gerald": GatorLocationData("Tutorial Island Breakables","Chest"),
     "Tutorial Island - Pot on cliffs in front of Gerald (1)": GatorLocationData("Tutorial Island Breakables","Pot"),
@@ -43,6 +45,18 @@ location_table: Dict[str, GatorLocationData] = {
     "Tutorial Island - Pot on north tall cliffs": GatorLocationData("Tutorial Island Breakables","Pot"),
     "Tutorial Island - Pot on south tall cliffs, north end": GatorLocationData("Tutorial Island Breakables","Pot"),
     "Tutorial Island - Pot on south tall cliffs, middle": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Pot on south tall cliffs, south end": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Chest on south tall cliffs, south end": GatorLocationData("Tutorial Island Breakables","Chest"),
+    "Tutorial Island - Pot southeast of Jill at sea level (1)": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Pot southeast of Jill at sea level (2)": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Chest southeast of Jill": GatorLocationData("Tutorial Island Breakables","Chest"),
+    "Tutorial Island - Pot overlooking Jill": GatorLocationData("Tutorial Island Breakables","Pot"),
+    "Tutorial Island - Chest visible from bone path": GatorLocationData("Tutorial Island Breakables","Chest"),
+    
+    # Central (Ravine)
+    "Central (Ravine) - Esther (Directions Deer) Quest Completion": GatorLocationData("Main Island"),
+    "Central (Ravine) - Pot south of Esther": GatorLocationData("Main Island Breakables", "Pot"),
+    
 
     "Main Island - ??? (Bracelet Monkey) Windmill Bracelet": GatorLocationData("Main Island"),
     "Main Island - ??? (Bracelet Monkey) Mountain Bracelet": GatorLocationData("Main Island"),
@@ -66,7 +80,6 @@ location_table: Dict[str, GatorLocationData] = {
     "Main Island - Pot Kid (Eepy Armadillo) Quest Completion": GatorLocationData("Main Island"),
     "Main Island - Scooter (Ceramic-Allegy Leopard) Quest Completion": GatorLocationData("Main Island"),
     "Main Island - Leeland (Painting Rabbit) Quest Completion": GatorLocationData("Main Island"),
-    "Main Island - Esther (Directions Deer) Quest Completion": GatorLocationData("Main Island"),
     "Main Island - Trish (Invisible Horse) Quest Completion": GatorLocationData("Main Island"),
     "Main Island - Retainer Pickup (Becca's Quest)": GatorLocationData("Main Island"),
     "Main Island - Becca (Retainer Shark) Quest Completion": GatorLocationData("Main Island"),

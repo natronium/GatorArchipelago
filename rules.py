@@ -64,9 +64,11 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location("Tutorial Island - Avery! Hat Recipe", player),lambda state: can_short_climb(state, player, options))
     set_rule(multiworld.get_location("Tutorial Island - Avery! Quest Completion", player), lambda state: can_short_climb(state, player, options) and has_starter_hat(state, player) and has_cardboard_destroyer(state, player)) # erring on the side of requiring a way to make craft stuff?
     set_rule(multiworld.get_location("Tutorial Island - Jill Quest Completion", player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location("Tutorial Island - Franny (Stick Duck) Quest Completion", player), lambda state: has_cardboard_destroyer(state, player)) # requires Jill complete, should check if actually requires stick as well (doesn't seem to)
     set_rule(multiworld.get_location("Tutorial Island - Gerald (Slime Giraffe) Quest Completion", player), lambda state: has_cardboard_destroyer(state, player) and can_short_climb(state, player, options))
     set_rule(multiworld.get_location("Tutorial Island - ??? (Bracelet Monkey) Tutorial Bracelet", player), lambda state: has_cardboard_destroyer(state, player)) # erring on the side of requiring a way to make craft stuff?    
     set_rule(multiworld.get_location("Tutorial Island - Pot on grassy cliff above north east", player), lambda state: can_short_climb(state, player, options))
+    set_rule(multiworld.get_location("Tutorial Island - Pot overlooking rope bridge (to the north)", player), lambda state: has_bracelet(state,player))
     set_rule(multiworld.get_location("Tutorial Island - Pot behind tall cliffs to north", player), lambda state: can_short_climb(state, player, options))
     set_rule(multiworld.get_location("Tutorial Island - Chest behind Gerald", player), lambda state: can_short_climb(state, player, options))
     set_rule(multiworld.get_location("Tutorial Island - Pot on cliffs in front of Gerald (1)", player), lambda state: can_short_climb(state, player, options))
@@ -78,5 +80,11 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location("Tutorial Island - Pot on small triangular outcropping", player), lambda state: can_short_climb(state, player, options))
     set_rule(multiworld.get_location("Tutorial Island - Pot on pillar", player), lambda state: can_short_climb(state, player, options))
     set_rule(multiworld.get_location("Tutorial Island - Pot on south tall cliffs, north end", player), lambda state: (has_bracelet(state, player) and has_glider(state, player)) or can_shield_jump(state, player, options))
-    set_rule(multiworld.get_location("Tutorial Island - Pot on south tall cliffs, north end", player), lambda state: has_bracelet(state, player))
+    set_rule(multiworld.get_location("Tutorial Island - Pot on south tall cliffs, middle", player), lambda state: has_bracelet(state, player))
+    set_rule(multiworld.get_location("Tutorial Island - Pot on south tall cliffs, south end", player), lambda state: has_bracelet(state, player))
+    set_rule(multiworld.get_location("Tutorial Island - Chest on south tall cliffs, south end", player), lambda state: has_bracelet(state, player))
+    set_rule(multiworld.get_location("Tutorial Island - Chest southeast of Jill", player), lambda state: can_short_climb(state, player) and (can_shield_jump or has_glider))
+    set_rule(multiworld.get_location("Tutorial Island - Chest visible from bone path", player), lambda state: can_short_climb(state, player))
+
+
 
