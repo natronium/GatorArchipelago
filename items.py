@@ -13,10 +13,11 @@ item_base_id: 9999999999 #adjust this
 # Items: Friends, items to pick up from ground, recipes for swords/shields/hats/left-right items, bit packets?, purchased items, bracelets
 
 item_table: Dict[str, GatorItemData] = {
-    "Friend": GatorItemData(ItemClassification.progression_skip_balancing, 48, 0, "Friends"),
+    "Friend": GatorItemData(ItemClassification.progression_skip_balancing, 50, 0, "Friends"),
     "Friend x2": GatorItemData(ItemClassification.progression_skip_balancing, 3, 0, "Friends"),
     "Friend x4": GatorItemData(ItemClassification.progression_skip_balancing, 1, 0, "Friends"),
     "Craft Stuff x15": GatorItemData(ItemClassification.filler, 1, 0, "Crafting Materials"),
+    "Craft Stuff x30": GatorItemData(ItemClassification.filler, 1, 0, "Crafting Materials"),
     "Bracelet": GatorItemData(ItemClassification.progression, 4, 1, "Traversal"),
     "Glider": GatorItemData(ItemClassification.progression, 1, 1, "Traversal"),
     "Retainer": GatorItemData(ItemClassification.progression, 1, 2, "Quest Items"),
