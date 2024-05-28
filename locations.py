@@ -121,13 +121,13 @@ location_table: Dict[str, GatorLocationData] = {
     location_names.mmq_jada_quest: GatorLocationData("Main Island"),
     location_names.mmq_duke_quest: GatorLocationData("Main Island"),
     location_names.mmq_martin_quest: GatorLocationData("Main Island"),
-    location_names.j4t_sticky_hand: GatorLocationData("Main Island"),
-    location_names.j4t_trampoline: GatorLocationData("Main Island"),
-    location_names.j4t_trash_lid: GatorLocationData("Main Island"),
-    location_names.j4t_wrench: GatorLocationData("Main Island"),
-    location_names.j4t_space_dome: GatorLocationData("Main Island"),
-    location_names.j4t_grabby_hand: GatorLocationData("Main Island"),
-    location_names.j4t_all_purchases: GatorLocationData("Main Island")
+    location_names.j4t_sticky_hand: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_trampoline: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_trash_lid: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_wrench: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_space_dome: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_grabby_hand: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_all_purchases: GatorLocationData("Junk 4 Trash")
 }
 
 

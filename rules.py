@@ -16,6 +16,30 @@ def has_shield(state: CollectionState, player: int) -> bool:
 def has_glider(state: CollectionState, player: int) -> bool:
     return state.has("Glider", player)
 
+def has_broken_scooter(state: CollectionState, player: int) -> bool:
+    return state.has("Broken Scooter Board", player)
+
+def has_bomb(state: CollectionState, player: int) -> bool:
+    return state.has("Bowling Bomb (Item)", player)
+
+def has_retainer(state: CollectionState, player: int) -> bool:
+    return state.has("Retainer", player)
+
+def has_sorbet(state: CollectionState, player: int) -> bool:
+    return state.has("Sorbet", player)
+
+def has_ore(state: CollectionState, player: int) -> bool:
+    return state.has("Magic Ore", player)
+
+def has_sandwich(state: CollectionState, player: int) -> bool:
+    return state.has("Cheese Sandwich", player)
+
+def has_bug_net(state: CollectionState, player: int) -> bool:
+    return state.has("Bug Net (Item)", player)
+
+def has_rock(state: CollectionState, player: int) -> bool:
+    return state.has("Skipping Rock (Item)", player)
+
 def has_cardboard_destroyer(state: CollectionState, player: int) -> bool:
     return state.has_any(item_name_groups["Cardboard Destroyer"], player)
 
@@ -57,6 +81,7 @@ def set_region_rules(world: "GatorWorld") -> None:
     multiworld.get_entrance("Main Island -> Main Island Races", player).access_rule = lambda state: has_shield(state,player)
     multiworld.get_entrance("Tutorial Island -> Tutorial Island Breakables", player).access_rule = lambda state: has_cardboard_destroyer(state,player)
     multiworld.get_entrance("Main Island -> Main Island Breakables", player).access_rule = lambda state: has_cardboard_destroyer(state,player)
+    multiworld.get_entrance("Main Island -> Junk 4 Trash", player).access_rule = lambda state: has_cardboard_destroyer(state,player)
 
 def set_location_rules(world: "GatorWorld") -> None:
     multiworld = world.multiworld
@@ -101,3 +126,39 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location(location_names.mi_darcie_quest, player), lambda state: has_ranged(state, player))
     ## check skate pug
     set_rule(multiworld.get_location(location_names.mi_skatepug_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_twig_quest, player), lambda state: has_shield(state, player))
+    ## check Viraj
+    ## Check eva
+    set_rule(multiworld.get_location(location_names.mi_eva_quest, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.mi_sierra_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_romeo_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_oscar_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_kasen_quest, player), lambda state: has_broken_scooter(state, player))
+    ## check flint
+    set_rule(multiworld.get_location(location_names.mi_flint_quest, player), lambda state: has_ranged(state, player) or has_bomb(state, player))
+    set_rule(multiworld.get_location(location_names.mi_ssumantha_quest, player), lambda state: has_shield(state, player))
+    set_rule(multiworld.get_location(location_names.mi_potkid_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_scooter_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_leeland_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    ## Check trish
+    set_rule(multiworld.get_location(location_names.mi_becca_quest, player), lambda state: has_retainer(state, player))
+    ## Check Pepperoni
+    ## Check mochi
+    set_rule(multiworld.get_location(location_names.mi_zhu_quest, player), lambda state: has_rock(state, player))
+    set_rule(multiworld.get_location(location_names.mi_tony_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_neil_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_robin_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_penelope_quest, player), lambda state: has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.mi_doddler_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if accessible without bracelet
+    set_rule(multiworld.get_location(location_names.mi_tiffany_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.mi_tanner_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if requires bracelet
+    set_rule(multiworld.get_location(location_names.amq_andromeda_quest, player), lambda state: has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.amq_esme_fangs, player), lambda state: has_sorbet(state, player))
+    set_rule(multiworld.get_location(location_names.amq_esme_quest, player), lambda state: has_sorbet(state, player))
+    set_rule(multiworld.get_location(location_names.amq_avery_quest, player), lambda state: has_sorbet(state, player) and has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.jmq_susanne_quest, player), lambda state: has_ore(state, player))
+    set_rule(multiworld.get_location(location_names.jmq_gene_sandwich, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.jmq_gene_quest, player), lambda state: has_cardboard_destroyer(state, player) and has_sandwich(state, player))
+    set_rule(multiworld.get_location(location_names.jmq_antone_quest, player), lambda state: has_bug_net(state, player))
+    set_rule(multiworld.get_location(location_names.jmq_jill_quest, player), lambda state: has_bug_net(state, player) and has_cardboard_destroyer(state, player) and has_sandwich(state, player) and has_ore(state, player))
+    ### Check the flow of Jada's quest
