@@ -97,6 +97,3 @@ extra_groups: Dict[str, Set[str]] = {
 }
 
 item_name_groups.update(extra_groups)
-
-shield_items = item_name_groups["Shields"]
-cardboard_destroyer_items = item_name_groups["Cardboard Destroyer"]

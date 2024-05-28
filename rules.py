@@ -3,18 +3,21 @@ from typing import TYPE_CHECKING
 from worlds.generic.Rules import set_rule
 from BaseClasses import CollectionState
 from .options import GatorOptions
-from .items import shield_items, cardboard_destroyer_items
+from .items import item_name_groups
 if TYPE_CHECKING:
     from . import GatorWorld
 
 def has_shield(state: CollectionState, player: int) -> bool:
-    return state.has_any(shield_items, player)
+    return state.has_any(item_name_groups["Shield"], player)
 
 def has_glider(state: CollectionState, player: int) -> bool:
     return state.has("Glider", player)
 
 def has_cardboard_destroyer(state: CollectionState, player: int) -> bool:
-    return state.has_any(cardboard_destroyer_items, player)
+    return state.has_any(item_name_groups["Cardboard Destroyer"], player)
+
+def has_ranged(state: CollectionState, player: int) -> bool:
+    return state.has_any(item_name_groups["Ranged"], player)
 
 def has_bracelet(state: CollectionState, player: int) -> bool:
     return state.has("Bracelet", player, 1)
@@ -88,3 +91,10 @@ def set_location_rules(world: "GatorWorld") -> None:
 
 
 
+
+    # quest logic: check for physical accessibility and group by region after
+
+    ## Billy may not need a rule?
+    set_rule(multiworld.get_location("Main Island - Darcie (Balloon Owl) Quest Completion", player), lambda state: has_ranged(state, player))
+    ## check skate pug
+    set_rule(multiworld.get_location("Main Island - Skate Pug (Skate Pug) Quest Completion", player), lambda state: has_cardboard_destroyer(state, player))
