@@ -54,59 +54,70 @@ location_table: Dict[str, GatorLocationData] = {
     location_names.ti_pot_jill_1: GatorLocationData("Tutorial Island Breakables","Pot"),
     location_names.ti_chest_bone: GatorLocationData("Tutorial Island Breakables","Chest"),
     
-    # Central (Ravine)
-    location_names.cr_esther_quest: GatorLocationData("Main Island"),
-    location_names.cr_pot_south_1: GatorLocationData("Main Island Breakables", "Pot"),
-    
 
-    location_names.mi_bracelet_windmill: GatorLocationData("Main Island"),
-    location_names.mi_bracelet_mountain: GatorLocationData("Main Island"),
-    location_names.mi_bracelet_tree: GatorLocationData("Main Island"),
-    location_names.mi_billy_quest: GatorLocationData("Main Island"),
-    location_names.mi_darcie_quest: GatorLocationData("Main Island"),
-    location_names.mi_skatepug_quest: GatorLocationData("Main Island"),
-    location_names.mi_twig_quest: GatorLocationData("Main Island"),
-    location_names.mi_viraj_quest: GatorLocationData("Main Island"),
-    location_names.mi_eva_quest: GatorLocationData("Main Island"),
-    location_names.mi_sam_quest: GatorLocationData("Main Island"),
-    location_names.mi_sierra_quest: GatorLocationData("Main Island"),
-    location_names.mi_romeo_quest: GatorLocationData("Main Island"),
-    location_names.mi_oscar_quest: GatorLocationData("Main Island"),
-    location_names.mi_joe_quest: GatorLocationData("Main Island"),
-    location_names.mi_kasen_brokenscooter: GatorLocationData("Main Island"),
-    location_names.mi_kasen_quest: GatorLocationData("Main Island"),
-    location_names.mi_flint_bomb: GatorLocationData("Main Island"),
-    location_names.mi_flint_quest: GatorLocationData("Main Island"),
-    location_names.mi_ssumantha_quest: GatorLocationData("Main Island"),
-    location_names.mi_potkid_quest: GatorLocationData("Main Island"),
-    location_names.mi_scooter_quest: GatorLocationData("Main Island"),
-    location_names.mi_leeland_quest: GatorLocationData("Main Island"),
-    location_names.mi_trish_quest: GatorLocationData("Main Island"),
-    location_names.mi_becca_retainerpickup: GatorLocationData("Main Island"),
-    location_names.mi_becca_quest: GatorLocationData("Main Island"),
-    location_names.mi_luisa_quest: GatorLocationData("Main Island"),
-    location_names.mi_madeline_quest: GatorLocationData("Main Island"),
-    location_names.mi_pepperoni_quest: GatorLocationData("Main Island"),
-    location_names.mi_mochi_quest: GatorLocationData("Main Island"),
-    location_names.mi_lunch_quest: GatorLocationData("Main Island"),
-    location_names.mi_zhu_rock: GatorLocationData("Main Island"),
-    location_names.mi_zhu_quest: GatorLocationData("Main Island"),
-    location_names.mi_gunther_quest: GatorLocationData("Main Island"),
-    location_names.mi_tony_quest: GatorLocationData("Main Island"),
-    location_names.mi_neil_quest: GatorLocationData("Main Island"),
-    location_names.mi_robin_quest: GatorLocationData("Main Island"),
-    location_names.mi_penelope_quest: GatorLocationData("Main Island"),
-    location_names.mi_doddler_quest: GatorLocationData("Main Island"),
-    location_names.mi_cade_quest: GatorLocationData("Main Island"), #Note, gives 2 friends b/c Marlow!
-    location_names.mi_tiffany_quest: GatorLocationData("Main Island"), #Note, gives 2 friends b/c Carol!
-    location_names.mi_tanner_quest: GatorLocationData("Main Island"),
-    location_names.amq_andromeda_blaster: GatorLocationData("Main Island"), 
-    location_names.amq_andromeda_quest: GatorLocationData("Main Island"), 
-    location_names.amq_velma_quest: GatorLocationData("Main Island"), #Note, gives extra friends b/c kiddos!
-    location_names.amq_esme_sorbet: GatorLocationData("Main Island"),
-    location_names.amq_esme_fangs: GatorLocationData("Main Island"),
-    location_names.amq_esme_quest: GatorLocationData("Main Island"), #Note, gives extra friend b/c ice cream Part-Timer
-    location_names.amq_avery_quest: GatorLocationData("Main Island"),
+    # Northeast (Canyon)
+    location_names.nec_darcie_quest: GatorLocationData("Main Island"),
+    location_names.nec_kasen_brokenscooter: GatorLocationData("Main Island"),
+    location_names.nec_kasen_quest: GatorLocationData("Main Island"),
+    location_names.nec_ssumantha_quest: GatorLocationData("Main Island"),
+    location_names.nec_mochi_quest: GatorLocationData("Main Island"),
+
+
+    # Southeast (Beach)
+    location_names.seb_doddler_quest: GatorLocationData("Main Island"),
+    location_names.seb_cade_quest: GatorLocationData("Main Island"), #Note, gives 2 friends b/c Marlow!
+    location_names.seb_skatepug_quest: GatorLocationData("Main Island"),
+    location_names.seb_viraj_quest: GatorLocationData("Main Island"),
+    location_names.seb_joe_quest: GatorLocationData("Main Island"),
+    location_names.seb_tony_quest: GatorLocationData("Main Island"),
+    location_names.seb_sam_quest: GatorLocationData("Main Island"),
+
+
+    # East (Creeklands)
+    location_names.ec_madeline_quest: GatorLocationData("Main Island"),
+    location_names.ec_becca_retainerpickup: GatorLocationData("Main Island"),
+    location_names.ec_becca_quest: GatorLocationData("Main Island"),
+    location_names.ec_robin_quest: GatorLocationData("Main Island"),
+    location_names.ec_bracelet_windmill: GatorLocationData("Main Island"),
+
+    # Martin's Main Quest in East (Creeklands)
+    location_names.mmq_lucas_shield: GatorLocationData("Main Island"),
+    location_names.mmq_lucas_quest: GatorLocationData("Main Island"),
+    location_names.mmq_jada_clippings: GatorLocationData("Main Island"),
+    location_names.mmq_jada_bucket: GatorLocationData("Main Island"),
+    location_names.mmq_jada_quest: GatorLocationData("Main Island"),
+    location_names.mmq_duke_quest: GatorLocationData("Main Island"),
+    location_names.mmq_martin_quest: GatorLocationData("Main Island"),
+
+    # Junk 4 Trash in East (Creeklands)
+    location_names.j4t_sticky_hand: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_trampoline: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_trash_lid: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_wrench: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_space_dome: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_grabby_hand: GatorLocationData("Junk 4 Trash"),
+    location_names.j4t_all_purchases: GatorLocationData("Junk 4 Trash"),
+
+
+    # South (Jetty)
+    location_names.sj_leeland_quest: GatorLocationData("Main Island"),
+
+
+    # West (Forest)
+    location_names.wf_sierra_quest: GatorLocationData("Main Island"),
+    location_names.wf_romeo_quest: GatorLocationData("Main Island"),
+    location_names.wf_oscar_quest: GatorLocationData("Main Island"),
+    location_names.wf_eva_quest: GatorLocationData("Main Island"),
+    location_names.wf_potkid_quest: GatorLocationData("Main Island"),
+    location_names.wf_trish_quest: GatorLocationData("Main Island"),
+    location_names.wf_pepperoni_quest: GatorLocationData("Main Island"),
+    location_names.wf_lunch_quest: GatorLocationData("Main Island"),
+    location_names.wf_gunther_quest: GatorLocationData("Main Island"),
+    location_names.wf_tiffany_quest: GatorLocationData("Main Island"), #Note, gives 2 friends b/c Carol!
+    location_names.wf_penelope_quest: GatorLocationData("Main Island"),
+    location_names.wf_bracelet_tree: GatorLocationData("Main Island"),
+
+    # Jill's Main Quest in West (Forest)
     location_names.jmq_susanne_ore: GatorLocationData("Main Island"),
     location_names.jmq_susanne_quest: GatorLocationData("Main Island"),
     location_names.jmq_gene_sandwich: GatorLocationData("Main Island"),
@@ -114,20 +125,37 @@ location_table: Dict[str, GatorLocationData] = {
     location_names.jmq_antone_bugnet: GatorLocationData("Main Island"),
     location_names.jmq_antone_quest: GatorLocationData("Main Island"),
     location_names.jmq_jill_quest: GatorLocationData("Main Island"),
-    location_names.mmq_lucas_shield: GatorLocationData("Main Island"),
-    location_names.mmq_lucas_quest: GatorLocationData("Main Island"),
-    location_names.mmq_jada_bucket: GatorLocationData("Main Island"),
-    location_names.mmq_jada_leaf: GatorLocationData("Main Island"),
-    location_names.mmq_jada_quest: GatorLocationData("Main Island"),
-    location_names.mmq_duke_quest: GatorLocationData("Main Island"),
-    location_names.mmq_martin_quest: GatorLocationData("Main Island"),
-    location_names.j4t_sticky_hand: GatorLocationData("Junk 4 Trash"),
-    location_names.j4t_trampoline: GatorLocationData("Junk 4 Trash"),
-    location_names.j4t_trash_lid: GatorLocationData("Junk 4 Trash"),
-    location_names.j4t_wrench: GatorLocationData("Junk 4 Trash"),
-    location_names.j4t_space_dome: GatorLocationData("Junk 4 Trash"),
-    location_names.j4t_grabby_hand: GatorLocationData("Junk 4 Trash"),
-    location_names.j4t_all_purchases: GatorLocationData("Junk 4 Trash")
+
+
+    # North (Mountain)
+    location_names.nm_luisa_quest: GatorLocationData("Main Island"),
+    location_names.nm_twig_quest: GatorLocationData("Main Island"),
+    location_names.nm_flint_bomb: GatorLocationData("Main Island"),
+    location_names.nm_flint_quest: GatorLocationData("Main Island"),
+    location_names.nm_scooter_quest: GatorLocationData("Main Island"),
+    location_names.nm_neil_quest: GatorLocationData("Main Island"),
+    location_names.nm_tanner_quest: GatorLocationData("Main Island"),
+    location_names.nm_bracelet_mountain: GatorLocationData("Main Island"),
+
+    # Avery!'s Main Quest
+    location_names.amq_andromeda_blaster: GatorLocationData("Main Island"), 
+    location_names.amq_andromeda_quest: GatorLocationData("Main Island"), 
+    location_names.amq_velma_quest: GatorLocationData("Main Island"), #Note, gives extra friends b/c kiddos!
+    location_names.amq_esme_sorbet: GatorLocationData("Main Island"),
+    location_names.amq_esme_fangs: GatorLocationData("Main Island"),
+    location_names.amq_esme_quest: GatorLocationData("Main Island"), #Note, gives extra friend b/c ice cream Part-Timer
+    location_names.amq_avery_quest: GatorLocationData("Main Island"),
+
+
+    # Central (Ravine)
+    location_names.cr_esther_quest: GatorLocationData("Main Island"),
+    location_names.cr_pot_south_1: GatorLocationData("Main Island Breakables", "Pot"),
+    
+
+    # Multiple Locations
+    location_names.mi_billy_quest: GatorLocationData("Main Island"),
+    location_names.mi_zhu_rock: GatorLocationData("Main Island"),
+    location_names.mi_zhu_quest: GatorLocationData("Main Island")
 }
 
 

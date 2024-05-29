@@ -27,6 +27,7 @@ item_table: Dict[str, GatorItemData] = {
     "Cheese Sandwich": GatorItemData(ItemClassification.progression, 1, 3, "Quest Items"),
     "Pot?": GatorItemData(ItemClassification.progression, 1, 3, "Quest Items"),
     "Sorbet": GatorItemData(ItemClassification.progression, 1, 3, "Quest Items"),
+    "Grass Clippings":  GatorItemData(ItemClassification.progression, 1, 3, "Quest Items"),
     "Pointy Floppy Thing (Recipe)": GatorItemData(ItemClassification.progression, 1, 20, "Hats"),
     "Slime Hat (Recipe)": GatorItemData(ItemClassification.filler, 1, 20, "Hats"),
     "Artsy Beret (Recipe)": GatorItemData(ItemClassification.filler, 1, 20, "Hats"),

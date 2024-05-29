@@ -10,8 +10,17 @@ import location_names
 if TYPE_CHECKING:
     from . import GatorWorld
 
+def has_sword(state: CollectionState, player: int) -> bool:
+    return state.has_any(item_name_groups["Swords"], player)
+
 def has_shield(state: CollectionState, player: int) -> bool:
-    return state.has_any(item_name_groups["Shield"], player)
+    return state.has_any(item_name_groups["Shields"], player)
+
+def has_cardboard_destroyer(state: CollectionState, player: int) -> bool:
+    return state.has_any(item_name_groups["Cardboard Destroyer"], player)
+
+def has_ranged(state: CollectionState, player: int) -> bool:
+    return state.has_any(item_name_groups["Ranged"], player)
 
 def has_glider(state: CollectionState, player: int) -> bool:
     return state.has("Glider", player)
@@ -37,14 +46,14 @@ def has_sandwich(state: CollectionState, player: int) -> bool:
 def has_bug_net(state: CollectionState, player: int) -> bool:
     return state.has("Bug Net (Item)", player)
 
+def has_clippings(state: CollectionState, player: int) -> bool:
+    return state.has("Grass Clippings", player)
+
+def has_bucket(state: CollectionState, player: int) -> bool:
+    return state.has("Bucket (Item)", player)
+
 def has_rock(state: CollectionState, player: int) -> bool:
     return state.has("Skipping Rock (Item)", player)
-
-def has_cardboard_destroyer(state: CollectionState, player: int) -> bool:
-    return state.has_any(item_name_groups["Cardboard Destroyer"], player)
-
-def has_ranged(state: CollectionState, player: int) -> bool:
-    return state.has_any(item_name_groups["Ranged"], player)
 
 def has_bracelet(state: CollectionState, player: int) -> bool:
     return state.has("Bracelet", player, 1)
@@ -118,47 +127,76 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location(location_names.ti_chest_bone, player), lambda state: can_short_climb(state, player))
 
 
+    # quest logic: check for physical accessibility
 
-
-    # quest logic: check for physical accessibility and group by region after
-
-    ## Billy may not need a rule?
-    set_rule(multiworld.get_location(location_names.mi_darcie_quest, player), lambda state: has_ranged(state, player))
-    ## check skate pug
-    set_rule(multiworld.get_location(location_names.mi_skatepug_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_twig_quest, player), lambda state: has_shield(state, player))
-    ## check Viraj
-    ## Check eva
-    set_rule(multiworld.get_location(location_names.mi_eva_quest, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
-    set_rule(multiworld.get_location(location_names.mi_sierra_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_romeo_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_oscar_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_kasen_quest, player), lambda state: has_broken_scooter(state, player))
-    ## check flint
-    set_rule(multiworld.get_location(location_names.mi_flint_quest, player), lambda state: has_ranged(state, player) or has_bomb(state, player))
-    set_rule(multiworld.get_location(location_names.mi_ssumantha_quest, player), lambda state: has_shield(state, player))
-    set_rule(multiworld.get_location(location_names.mi_potkid_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_scooter_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_leeland_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    ## Check trish
-    set_rule(multiworld.get_location(location_names.mi_becca_quest, player), lambda state: has_retainer(state, player))
-    ## Check Pepperoni
+    # Northeast (Canyon)
+    set_rule(multiworld.get_location(location_names.nec_darcie_quest, player), lambda state: has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.nec_kasen_quest, player), lambda state: has_broken_scooter(state, player))
+    set_rule(multiworld.get_location(location_names.nec_ssumantha_quest, player), lambda state: has_shield(state, player))
     ## Check mochi
-    set_rule(multiworld.get_location(location_names.mi_zhu_quest, player), lambda state: has_rock(state, player))
-    set_rule(multiworld.get_location(location_names.mi_tony_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_neil_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_robin_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_penelope_quest, player), lambda state: has_ranged(state, player))
-    set_rule(multiworld.get_location(location_names.mi_doddler_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if accessible without bracelet
-    set_rule(multiworld.get_location(location_names.mi_tiffany_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    set_rule(multiworld.get_location(location_names.mi_tanner_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if requires bracelet
-    set_rule(multiworld.get_location(location_names.amq_andromeda_quest, player), lambda state: has_ranged(state, player))
-    set_rule(multiworld.get_location(location_names.amq_esme_fangs, player), lambda state: has_sorbet(state, player))
-    set_rule(multiworld.get_location(location_names.amq_esme_quest, player), lambda state: has_sorbet(state, player))
-    set_rule(multiworld.get_location(location_names.amq_avery_quest, player), lambda state: has_sorbet(state, player) and has_ranged(state, player))
+
+    # Southeast (Beach)
+    set_rule(multiworld.get_location(location_names.seb_doddler_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if accessible without bracelet
+    ## check skate pug
+    set_rule(multiworld.get_location(location_names.seb_skatepug_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.seb_tony_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    ## check Viraj
+    
+    # East (Creeklands) in East (Creeklands)
+    set_rule(multiworld.get_location(location_names.ec_becca_quest, player), lambda state: has_retainer(state, player))
+    set_rule(multiworld.get_location(location_names.ec_robin_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    ### Rule for windmill: only 1 bracelet?
+    set_rule(multiworld.get_location(location_names.ec_bracelet_windmill, player), lambda state: has_bracelet(state, player))
+
+    # Martin's Main Quest in East (Creeklands)
+    set_rule(multiworld.get_location(location_names.mmq_jada_clippings, player), lambda state: has_sword(state, player))
+    set_rule(multiworld.get_location(location_names.mmq_jada_bucket, player), lambda state: has_sword(state, player) and has_clippings(state, player))
+    set_rule(multiworld.get_location(location_names.mmq_jada_quest, player), lambda state: has_sword(state, player) and has_clippings(state, player) and has_bucket(state, player))
+    set_rule(multiworld.get_location(location_names.mmq_martin_quest, player), lambda state: has_sword(state, player) and has_clippings(state, player) and has_bucket(state, player))
+
+
+    # South (Jetty)
+    set_rule(multiworld.get_location(location_names.sj_leeland_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    
+
+    # West (Forest)
+    ## Check eva
+    set_rule(multiworld.get_location(location_names.wf_eva_quest, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.wf_sierra_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.wf_romeo_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.wf_oscar_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.wf_potkid_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.wf_penelope_quest, player), lambda state: has_ranged(state, player)) 
+    set_rule(multiworld.get_location(location_names.wf_tiffany_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    ## Check trish
+    ## Check Pepperoni
+
+    # Jill's Main Quest in West (Forest)
     set_rule(multiworld.get_location(location_names.jmq_susanne_quest, player), lambda state: has_ore(state, player))
     set_rule(multiworld.get_location(location_names.jmq_gene_sandwich, player), lambda state: has_cardboard_destroyer(state, player))
     set_rule(multiworld.get_location(location_names.jmq_gene_quest, player), lambda state: has_cardboard_destroyer(state, player) and has_sandwich(state, player))
     set_rule(multiworld.get_location(location_names.jmq_antone_quest, player), lambda state: has_bug_net(state, player))
     set_rule(multiworld.get_location(location_names.jmq_jill_quest, player), lambda state: has_bug_net(state, player) and has_cardboard_destroyer(state, player) and has_sandwich(state, player) and has_ore(state, player))
-    ### Check the flow of Jada's quest
+     
+    
+    # North (Mountain)
+    set_rule(multiworld.get_location(location_names.nm_twig_quest, player), lambda state: has_shield(state, player))
+    ## check flint
+    set_rule(multiworld.get_location(location_names.nm_flint_quest, player), lambda state: has_ranged(state, player) or has_bomb(state, player))
+    set_rule(multiworld.get_location(location_names.nm_scooter_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.nm_neil_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.nm_tanner_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if requires bracelet
+    
+    # Avery!'s Main Quest in North (Mountain)
+    set_rule(multiworld.get_location(location_names.amq_andromeda_quest, player), lambda state: has_ranged(state, player))
+    set_rule(multiworld.get_location(location_names.amq_esme_fangs, player), lambda state: has_sorbet(state, player))
+    set_rule(multiworld.get_location(location_names.amq_esme_quest, player), lambda state: has_sorbet(state, player))
+    set_rule(multiworld.get_location(location_names.amq_avery_quest, player), lambda state: has_sorbet(state, player) and has_ranged(state, player))
+
+    
+    # Central (Ravine)
+
+
+    # Multiple Locations
+    set_rule(multiworld.get_location(location_names.mi_zhu_quest, player), lambda state: has_rock(state, player))
+    ## Billy may not need a rule?
