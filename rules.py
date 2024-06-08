@@ -145,7 +145,6 @@ def set_location_rules(world: "GatorWorld") -> None:
     # East (Creeklands) in East (Creeklands)
     set_rule(multiworld.get_location(location_names.ec_becca_quest, player), lambda state: has_retainer(state, player))
     set_rule(multiworld.get_location(location_names.ec_robin_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    ### Rule for windmill: only 1 bracelet?
     set_rule(multiworld.get_location(location_names.ec_bracelet_windmill, player), lambda state: has_bracelet(state, player))
 
     # Martin's Main Quest in East (Creeklands)
@@ -168,8 +167,10 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location(location_names.wf_potkid_quest, player), lambda state: has_cardboard_destroyer(state, player))
     set_rule(multiworld.get_location(location_names.wf_penelope_quest, player), lambda state: has_ranged(state, player)) 
     set_rule(multiworld.get_location(location_names.wf_tiffany_quest, player), lambda state: has_cardboard_destroyer(state, player))
-    ## Check trish
     ## Check Pepperoni
+    set_rule(multiworld.get_location(location_names.wf_pepperoni_quest, player), lambda state: has_cardboard_destroyer(state, player))
+    set_rule(multiworld.get_location(location_names.wf_bracelet_tree, player), lambda state: has_bracelet(state, player))
+    ## Race by Trish is walkable
 
     # Jill's Main Quest in West (Forest)
     set_rule(multiworld.get_location(location_names.jmq_susanne_quest, player), lambda state: has_ore(state, player))
@@ -186,7 +187,8 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location(location_names.nm_scooter_quest, player), lambda state: has_cardboard_destroyer(state, player))
     set_rule(multiworld.get_location(location_names.nm_neil_quest, player), lambda state: has_cardboard_destroyer(state, player))
     set_rule(multiworld.get_location(location_names.nm_tanner_quest, player), lambda state: has_cardboard_destroyer(state, player)) ## check if requires bracelet
-    
+    set_rule(multiworld.get_location(location_names.nm_bracelet_mountain, player), lambda state: has_bracelet(state, player))
+
     # Avery!'s Main Quest in North (Mountain)
     set_rule(multiworld.get_location(location_names.amq_andromeda_quest, player), lambda state: has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.amq_esme_fangs, player), lambda state: has_sorbet(state, player))
