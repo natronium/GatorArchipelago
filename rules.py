@@ -5,7 +5,7 @@ from BaseClasses import CollectionState
 from .options import GatorOptions
 from .items import item_name_groups
 
-import location_names
+from . import location_names
 
 if TYPE_CHECKING:
     from . import GatorWorld

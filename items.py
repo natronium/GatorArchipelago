@@ -8,7 +8,7 @@ class GatorItemData(NamedTuple):
     item_id_offset: int
     item_group: str = ""
 
-item_base_id: 9999999999 #adjust this
+item_base_id = 9999999999 #adjust this
 
 # Items: Friends, items to pick up from ground, recipes for swords/shields/hats/left-right items, bit packets?, purchased items, bracelets
 
@@ -74,6 +74,7 @@ item_table: Dict[str, GatorItemData] = {
     "Paint Blaster (Recipe)": GatorItemData(ItemClassification.progression, 1, 20, "Ranged"),
     "An Actual Digital Camera (Recipe)": GatorItemData(ItemClassification.filler, 1, 20)
 }
+
 
 item_name_to_id: Dict[str, int] = {name: item_base_id + data.item_id_offset for name, data in item_table.items()}
 

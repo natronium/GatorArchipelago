@@ -1,5 +1,5 @@
 from typing import Dict, NamedTuple, Set, Optional
-import location_names
+from . import location_names
 
 from BaseClasses import Location
 
