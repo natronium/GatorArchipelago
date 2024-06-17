@@ -109,7 +109,7 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location(location_names.ti_avery_quest, player), lambda state: has_starter_hat(state, player) and has_cardboard_destroyer(state, player)) # erring on the side of requiring a way to make craft stuff?
     set_rule(multiworld.get_location(location_names.ti_jill_quest, player), lambda state: has_cardboard_destroyer(state, player))
     set_rule(multiworld.get_location(location_names.ti_franny_quest, player), lambda state: has_cardboard_destroyer(state, player)) # requires Jill complete, should check if actually requires stick as well (doesn't seem to)
-    set_rule(multiworld.get_location(location_names.ti_gerald_quest, player), lambda state: has_cardboard_destroyer(state, player) and can_short_climb(state, player, options))
+    set_rule(multiworld.get_location(location_names.ti_gerald_quest, player), lambda state: has_cardboard_destroyer(state, player))
     set_rule(multiworld.get_location(location_names.ti_bracelet_tutorial, player), lambda state: has_cardboard_destroyer(state, player)) # erring on the side of requiring a way to make craft stuff?    
 
     # Tutorial Island Breakables
