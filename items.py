@@ -16,8 +16,8 @@ item_table: Dict[str, GatorItemData] = {
     "Friend x2": GatorItemData(ItemClassification.progression_skip_balancing, 3, 2, "Friends"),
     "Friend x3": GatorItemData(ItemClassification.progression_skip_balancing, 1, 3, "Friends"),
     "Friend x4": GatorItemData(ItemClassification.progression_skip_balancing, 1, 4, "Friends"),
-    "Craft Stuff x15": GatorItemData(ItemClassification.filler, 1, 5, "Crafting Materials"),
-    "Craft Stuff x30": GatorItemData(ItemClassification.filler, 1, 6, "Crafting Materials"),
+    "Craft Stuff x15": GatorItemData(ItemClassification.filler, 40, 5, "Crafting Materials"), ## TODO: check the feel of these craft stuff numbers?
+    "Craft Stuff x30": GatorItemData(ItemClassification.filler, 46, 6, "Crafting Materials"),
     "Bracelet": GatorItemData(ItemClassification.progression, 4, 7, "Traversal"),
     "Glider": GatorItemData(ItemClassification.progression, 1, 8, "Traversal"),
     "Retainer": GatorItemData(ItemClassification.progression, 1, 9, "Quest Items"),
