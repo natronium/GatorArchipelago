@@ -1,14 +1,13 @@
 import settings
 import typing
 from typing import Dict, Any, List
-from .options import GatorOptions  # the options we defined earlier
+from .options import GatorOptions, gator_options_presets, gator_option_groups
 from .items import item_name_to_id, item_table  # data used below to add items to the World
 from .locations import location_name_to_id, location_table  # same as above
 from .regions import gator_regions
 from .rules import set_location_rules, set_region_rules
-from .presets import options_presets
 from worlds.AutoWorld import World, WebWorld
-from BaseClasses import Region, Location, Entrance, Item, ItemClassification
+from BaseClasses import Region, Location, Entrance, Item, ItemClassification, Tutorial
 
 
 class GatorItem(Item):
@@ -22,10 +21,31 @@ class GatorLocation(Location):
 # class GatorSettings(settings.Group):
 #     """Not sure what goes here?"""
 
+
+class GatorWeb(WebWorld):
+    ## location_descriptions
+    ## item_descriptions
+    theme = "jungle"
+    game = "Lil Gator Game"
+    option_groups = gator_option_groups
+    options_presets = gator_options_presets
+
+    # tutorials = [
+    #     Tutorial(
+    #         tutorial_name="Multiworld Setup Guide",
+    #         description="A guide to setting up the Lil Gator Game Randomizer for Archipelago multiworld games.",
+    #         language="English",
+    #         file_name="setup_en.md",
+    #         link="setup/en",
+    #         authors=[""]
+    #     )
+    # ]
+
 class GatorWorld(World):
     """Embark on an adorable adventure, discover new friends and uncover everything the island has to offer. Climb,
     Swim, Glide and slide your way into the hearts of the many different characters you meet on your travels!"""
     game = "Lil Gator Game"  # name of the game/world
+    web = GatorWeb()
     options_dataclass = GatorOptions  # options the player can set
     options: GatorOptions  # typing hints for option results
     # settings: typing.ClassVar[GatorSettings]  # will be automatically assigned from type hint
@@ -33,6 +53,10 @@ class GatorWorld(World):
 
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
+
+
+    ### Consider: having events for each playground construction
+    ### Need to define Goal
 
     def create_regions(self) -> None:
         for region_name in gator_regions:
@@ -76,8 +100,3 @@ class GatorWorld(World):
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
         return self.options.as_dict("start_with_freeplay", "require_shield_jump")
-
-class GatorWeb(WebWorld):
-    options_presets = options_presets
-    ## location_descriptions
-    ## item_descriptions
