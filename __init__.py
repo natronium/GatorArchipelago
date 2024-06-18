@@ -6,7 +6,8 @@ from .items import item_name_to_id, item_table  # data used below to add items t
 from .locations import location_name_to_id, location_table  # same as above
 from .regions import gator_regions
 from .rules import set_location_rules, set_region_rules
-from worlds.AutoWorld import World
+from .presets import options_presets
+from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Location, Entrance, Item, ItemClassification
 
 
@@ -75,3 +76,8 @@ class GatorWorld(World):
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
         return self.options.as_dict("start_with_freeplay", "require_shield_jump")
+
+class GatorWeb(WebWorld):
+    options_presets = options_presets
+    ## location_descriptions
+    ## item_descriptions
