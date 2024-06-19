@@ -1,4 +1,4 @@
-Shortname,Longname,AP Item ID,Client NameID,Client Resource Amount,Client Item Type,AP Item Classification,AP ItemGroups,AP Item Base Quantity in Item Pool
+shortname,longname,ap_item_id,client_name_id,client_resource_amount,client_item_type,ap_item_classification,ap_item_groups,ap_base_quantity
 friend_1,Friend,2,,1,Friends,progression_skip_balancing,Friends,47
 friend_2,Friend x2,3,,2,Friends,progression_skip_balancing,Friends,3
 friend_3,Friend x3,4,,3,Friends,progression_skip_balancing,Friends,1

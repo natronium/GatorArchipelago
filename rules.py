@@ -17,7 +17,7 @@ def has_shield(state: CollectionState, player: int) -> bool:
     return state.has_any(item_name_groups["Shields"], player) ##Needs to be more complicated because if is recipe shield need a different cardboard destroyer
 
 def has_cardboard_destroyer(state: CollectionState, player: int) -> bool:
-    return state.has_any(item_name_groups["Cardboard Destroyer"], player)
+    return state.has_any(item_name_groups["Cardboard_Destroyer"], player)
 
 def has_ranged(state: CollectionState, player: int) -> bool:
     return state.has_any(item_name_groups["Ranged"], player)

@@ -16,12 +16,11 @@ class Group(enum.Enum):
     Swords = enum.auto()
     Shields = enum.auto()
     Ranged = enum.auto()
-    Recipe = enum.auto()
+    Craft = enum.auto()
     Item = enum.auto()
     Cardboard_Destroyer = enum.auto()
 
 class GatorItemData(NamedTuple):
-    short_name: str
     long_name: str
     item_id: int
     classification: ItemClassification
@@ -41,17 +40,17 @@ def load_item_csv():
     except ImportError:
         from importlib_resources import files  # type: ignore
 
-    items = Dict[str, GatorItemData]
+    items : Dict[str, GatorItemData] = {}
     with files(data).joinpath("item_lookup.csv").open() as file:
         item_reader = csv.DictReader(file)
         for item in item_reader:
-            print(item)
-            id = int(item["AP Item Id"]) if item["AP Item Id"] else None
-            classification = ItemClassification[item["AP Item Classification"]]
-            groups = {Group[group] for group in item["AP ItemGroups"].split(",") if group}
+            id = int(item["ap_item_id"]) if item["ap_item_id"] else None
+            classification = ItemClassification[item["ap_item_classification"]]
+            quantity = int(item["ap_base_quantity"]) if item["ap_base_quantity"] else 0
+            groups = {Group[group] for group in item["ap_item_groups"].split(",") if group}
             if is_destroyer(groups):
-                groups.add(Group["Cardboard Destroyer"])
-        items[item["Shortname"]] = GatorItemData(item["Longname"], id, classification, item["AP Item Base Quantity in Item Pool"], groups)
+                groups.add(Group["Cardboard_Destroyer"])
+            items[item["shortname"]] = GatorItemData(item["longname"], id, classification, quantity, groups)
     return items
 
 item_table: Dict[str, GatorItemData] = load_item_csv()
@@ -64,8 +63,8 @@ filler_items: List[str] = [name for name, data in item_table.items() if data.cla
 # from that group has been collected. Group names can also be used for !hint
 def items_for_group(group: Group) -> List[str]:
     item_names = []
-    for name, data in item_table:
-        if data.groups.issuperset(group):
+    for name, data in item_table.items():
+        if group in data.item_groups:
             item_names.append(name)
     return item_names
 
