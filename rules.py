@@ -64,8 +64,8 @@ def has_starter_hat(state: CollectionState, player: int) -> bool:
 def has_pot_with_lid(state: CollectionState, player: int) -> bool:
     return state.has("Pot?", player)
 
-def has_headband(state: CollectionState, player: int) -> bool:
-    return state.has("Ninja Headband (Recipe)", player) and has_cardboard_destroyer(state, player)
+# def has_headband(state: CollectionState, player: int) -> bool:
+#     return state.has("Ninja Headband (Recipe)", player) and has_cardboard_destroyer(state, player)
 
 # def can_shield_jump(state: CollectionState, player: int, options: GatorOptions):
 #     return has_shield(state, player) and options.require_shield_jump
@@ -212,15 +212,15 @@ def set_location_rules(world: "GatorWorld") -> None:
     set_rule(multiworld.get_location(location_names.nwt_pot_B1_2, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.nwt_pot_C2_1, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.nwt_chest_D1_1, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
-    set_rule(multiworld.get_location(location_names.nwt_race_B2_1, player), lambda state: has_headband(state, player) or has_shield(state, player))
+    set_rule(multiworld.get_location(location_names.nwt_race_B2_1, player), lambda state: has_shield(state, player))
     set_rule(multiworld.get_location(location_names.nwt_race_B3_1, player), lambda state: has_shield(state, player))
     set_rule(multiworld.get_location(location_names.nec_race_B6_1, player), lambda state: has_shield(state, player))
     set_rule(multiworld.get_location(location_names.nec_pot_B8_1, player), lambda state: has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.nm_pot_C3_1, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.nm_pot_C3_2, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.nm_pot_C4_7, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
-    set_rule(multiworld.get_location(location_names.nm_race_C4_1, player), lambda state: (has_headband(state, player) or has_shield(state, player)) and has_bracelet(state, player))
-    set_rule(multiworld.get_location(location_names.nec_race_C7_1, player), lambda state: has_headband(state, player) or has_shield(state, player))
+    set_rule(multiworld.get_location(location_names.nm_race_C4_1, player), lambda state: (has_shield(state, player)) and has_bracelet(state, player))
+    set_rule(multiworld.get_location(location_names.nec_race_C7_1, player), lambda state: has_shield(state, player))
     set_rule(multiworld.get_location(location_names.nm_pot_D3_1, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
     set_rule(multiworld.get_location(location_names.nm_race_D5_1, player), lambda state: has_bracelet(state, player))
     set_rule(multiworld.get_location(location_names.nec_pot_D7_1, player), lambda state: has_bracelet(state, player) or has_ranged(state, player))
