@@ -20,10 +20,10 @@ class GatorLocationData(NamedTuple):
     location_group: LocationGroup
 
 class GatorLocationTable(Dict[str,GatorLocationData]):
-    def get_by_short_name(self, short_name: str):
+    def short_to_long(self, short_name: str) -> str:
         for _, data in self.items():
             if data.short_name == short_name:
-                return data
+                return data.long_name
         return None
 
 # Locations: quest completions, ground pickups, races, bracelet purchases, junk 4 trash

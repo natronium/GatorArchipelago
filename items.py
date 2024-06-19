@@ -29,10 +29,10 @@ class GatorItemData(NamedTuple):
     item_groups: Set[ItemGroup]
 
 class GatorItemTable(Dict[str,GatorItemData]):
-    def get_by_short_name(self, short_name: str):
+    def short_to_long(self, short_name: str) -> str:
         for _, data in self.items():
             if data.short_name == short_name:
-                return data
+                return data.long_name
         return None
 
 # Cardboard Destroyer Group
