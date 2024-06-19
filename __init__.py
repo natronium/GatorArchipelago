@@ -2,8 +2,8 @@ import settings
 import typing
 from typing import Dict, Any, List
 from .options import GatorOptions, gator_options_presets, gator_option_groups
-from .items import item_name_to_id, item_table  # data used below to add items to the World
-from .locations import location_name_to_id, location_table  # same as above
+from .items import item_name_to_id, item_table, item_name_groups  # data used below to add items to the World
+from .locations import location_name_to_id, location_table, location_name_groups  # same as above
 from .regions import gator_regions
 from .rules import set_location_rules, set_region_rules
 from worlds.AutoWorld import World, WebWorld
@@ -53,6 +53,8 @@ class GatorWorld(World):
 
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
+    item_name_groups = item_name_groups
+    location_name_groups = location_name_groups
 
 
     ### Consider: having events for each playground construction
