@@ -12,6 +12,11 @@ class RequireShieldJump(Toggle):
     internal_name = "require_shield_jump"
     display_name = "Require Shield Jump"
 
+# class StartWithCheckFinders(Toggle):
+#     """Start with Megaphone and Text Jill items in inventory for finding checks."""
+#     internal_name = "start_with_check_finder"
+#     display_name = "Start With Check Finders"
+
 @dataclass
 class GatorOptions(PerGameCommonOptions):
     start_with_freeplay: StartWithFreeplay
