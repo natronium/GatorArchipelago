@@ -11,10 +11,10 @@ if TYPE_CHECKING:
     from . import GatorWorld
 
 def has_sword(state: CollectionState, player: int) -> bool:
-    return state.has_any(item_name_groups["Swords"], player)
+    return state.has_any(item_name_groups["Sword"], player)
 
 def has_shield(state: CollectionState, player: int) -> bool:
-    return state.has_any(item_name_groups["Shields"], player) ##Needs to be more complicated because if is recipe shield need a different cardboard destroyer
+    return state.has_any(item_name_groups["Shield"], player) ##Needs to be more complicated because if is recipe shield need a different cardboard destroyer
 
 def has_cardboard_destroyer(state: CollectionState, player: int) -> bool:
     return state.has_any(item_name_groups["Cardboard_Destroyer"], player)
