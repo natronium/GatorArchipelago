@@ -11,7 +11,7 @@ class Group(enum.Enum):
     Friends = enum.auto()
     Crafting_Materials = enum.auto()
     Traversal = enum.auto()
-    Hats = enum.auto()
+    Hat = enum.auto()
     Quest_Item = enum.auto()
     Sword = enum.auto()
     Shield = enum.auto()
