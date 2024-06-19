@@ -1,4 +1,4 @@
-Shortname,Longname,AP Location ID,Client ID,Client NameID,AP Region,AP LocationGroup
+shortname,longname,ap_location_id,client_id,client_name_id,ap_region,ap_location_group
 nwt_pot_A1_1,nwt_pot_A1_1_235,235,235,,Tutorial Island Breakables,Pot
 nwt_pot_A1_2,nwt_pot_A1_2_238,238,238,,Tutorial Island Breakables,Pot
 nwt_pot_A1_3,nwt_pot_A1_3_562,562,562,,Tutorial Island Breakables,Pot
