@@ -29,8 +29,8 @@ class GatorItemData(NamedTuple):
 
 # Cardboard Destroyer Group
 def is_destroyer(groups: Set[Group])  -> bool:
-    sword_destroyer : Set[Group] = {Group["Swords"], Group["Item"]}
-    shield_destroyer : Set[Group] = {Group["Shields"], Group["Item"]}
+    sword_destroyer : Set[Group] = {Group["Sword"], Group["Item"]}
+    shield_destroyer : Set[Group] = {Group["Shield"], Group["Item"]}
     ranged_destroyer : Set[Group] = {Group["Ranged"], Group["Item"]}
     return groups.issuperset(sword_destroyer) or groups.issuperset(shield_destroyer) or groups.issuperset(ranged_destroyer)
 
