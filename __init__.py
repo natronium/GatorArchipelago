@@ -83,7 +83,7 @@ class GatorWorld(World):
         items_to_create: Dict[str, int] = {item: data.quantity_in_item_pool for item, data in item_table.items()}
 
         ## Need to handle: starting inventory? adding extra filler items to match location count
-
+        ### TODO: match count to number of locations
         for item, quantity in items_to_create.items():
             for i in range(0, quantity):
                 gator_item: GatorItem = self.create_item(item)
