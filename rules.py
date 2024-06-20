@@ -72,7 +72,7 @@ def has_pot_q(state: CollectionState, player: int) -> bool:
 # def can_short_climb(state: CollectionState, player: int, options: GatorOptions):
 #     return can_shield_jump(state,player,options) or has_bracelet(state,player)
 
-def can_clear_tutorial(state: CollectionState, player: int, options: GatorOptions):
+def can_clear_tutorial(state: CollectionState, player: int, options: GatorOptions) -> bool:
     if options.start_with_freeplay:
         return True
     elif has_starter_hat(state, player) and has_pot_q(state, player) and has_cardboard_destroyer(state, player):
