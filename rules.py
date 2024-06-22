@@ -485,7 +485,7 @@ def set_location_rules(world: "GatorWorld") -> None:
         and has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_twig_quest"), player),
+        multiworld.get_location(location_table.short_to_long("nm_twig_quest_npc"), player),
         lambda state: has_shield(state, player) and has_bracelet(state, player),
     )
     set_rule(
@@ -545,7 +545,7 @@ def set_location_rules(world: "GatorWorld") -> None:
     )
     set_rule(
         multiworld.get_location(
-            location_table.short_to_long("amq_avery_quest"), player
+            location_table.short_to_long("amq_avery_quest_npc"), player
         ),
         lambda state: has_sorbet(state, player)
         and has_ranged(state, player)
