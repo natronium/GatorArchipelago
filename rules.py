@@ -375,14 +375,14 @@ def set_location_rules(world: "GatorWorld") -> None:
         multiworld.get_location(
             location_table.short_to_long("wf_pepperoni_quest_npc"), player
         ),
-        lambda state: has_cardboard_destroyer(state, player),
-    )  ## Check if need bracelet
+        lambda state: has_cardboard_destroyer(state, player) and has_bracelet(state, player),
+    )
     set_rule(
         multiworld.get_location(
             location_table.short_to_long("wf_pepperoni_quest_item"), player
         ),
-        lambda state: has_cardboard_destroyer(state, player),
-    )  ## Check if need bracelet
+        lambda state: has_cardboard_destroyer(state, player) and has_bracelet(state, player),
+    )
     set_rule(
         multiworld.get_location(
             location_table.short_to_long("wf_potkid_quest_npc"), player
@@ -470,6 +470,9 @@ def set_location_rules(world: "GatorWorld") -> None:
         and has_ore(state, player),
     )
 
+    #TODO: all locations on mountain that need a bracelet should go in a region
+    ## TODO: Billy at playground enables getting on Mountain with Glider only, no bracelet
+
     # North (Mountain)
     set_rule(
         multiworld.get_location(
@@ -529,6 +532,12 @@ def set_location_rules(world: "GatorWorld") -> None:
     # Avery!'s Main Quest in North (Mountain)
     set_rule(
         multiworld.get_location(
+            location_table.short_to_long("amq_andromeda_blaster"), player
+        ),
+        lambda state: has_bracelet(state, player),
+    )
+    set_rule(
+        multiworld.get_location(
             location_table.short_to_long("amq_andromeda_quest_item"), player
         ),
         lambda state: has_ranged(state, player) and has_bracelet(state, player),
@@ -537,6 +546,10 @@ def set_location_rules(world: "GatorWorld") -> None:
         multiworld.get_location(
             location_table.short_to_long("amq_velma_quest_item"), player
         ),
+        lambda state: has_bracelet(state, player),
+    )
+    set_rule(
+        multiworld.get_location(location_table.short_to_long("amq_esme_sorbet"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
@@ -560,6 +573,12 @@ def set_location_rules(world: "GatorWorld") -> None:
             location_table.short_to_long("mi_zhu_quest_npc"), player
         ),
         lambda state: has_rock(state, player),
+    )
+    set_rule(
+        multiworld.get_location(
+            location_table.short_to_long("mi_bracelet_all_npc"), player
+        ),
+        lambda state: has_bracelet(state, player) and has_cardboard_destroyer(state, player),
     )
 
     # Pots, Chests, Races
