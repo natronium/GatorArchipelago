@@ -406,7 +406,7 @@ def set_location_rules(world: "GatorWorld") -> None:
         multiworld.get_location(
             location_table.short_to_long("wf_eva_quest_npc"), player
         ),
-        lambda state: has_bracelet(state, player) or has_ranged(state, player),
+        lambda state: has_bracelet(state, player),
     )
     set_rule(
         multiworld.get_location(
