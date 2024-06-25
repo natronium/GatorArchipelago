@@ -74,8 +74,8 @@ def has_rock(state: CollectionState, player: int) -> bool:
     return state.has(item_table.short_to_long("rock"), player)
 
 
-def has_bracelet(state: CollectionState, player: int, number: int = 1) -> bool:
-    return state.has(item_table.short_to_long("bracelet"), player, number)
+def has_bracelet(state: CollectionState, player: int, count: int = 1) -> bool:
+    return state.has(item_table.short_to_long("bracelet"), player, count)
 
 
 def has_starter_hat(state: CollectionState, player: int) -> bool:
@@ -84,6 +84,9 @@ def has_starter_hat(state: CollectionState, player: int) -> bool:
 
 def has_pot_q(state: CollectionState, player: int) -> bool:
     return state.has(item_table.short_to_long("pot_q"), player)
+
+def has_pencil(state: CollectionState, player: int, count: int = 1) -> bool:
+    return state.has(item_table.short_to_long("thrown_pencil"), player, count)
 
 
 # def has_headband(state: CollectionState, player: int) -> bool:
@@ -235,6 +238,30 @@ def set_location_rules(world: "GatorWorld") -> None:
             location_table.short_to_long("seb_tony_quest_item"), player
         ),
         lambda state: has_cardboard_destroyer(state, player),
+    )
+    set_rule(
+        multiworld.get_location(
+            location_table.short_to_long("seb_sam_thrown_pencil_2"), player
+        ),
+        lambda state: has_pencil(state, player, 1),
+    )
+    set_rule(
+        multiworld.get_location(
+            location_table.short_to_long("seb_sam_thrown_pencil_3"), player
+        ),
+        lambda state: has_pencil(state, player, 2),
+    )
+    set_rule(
+        multiworld.get_location(
+            location_table.short_to_long("seb_sam_quest_npc"), player
+        ),
+        lambda state: has_pencil(state, player, 3),
+    )
+    set_rule(
+        multiworld.get_location(
+            location_table.short_to_long("seb_sam_quest_item"), player
+        ),
+        lambda state: has_pencil(state, player, 3),
     )
     set_rule(
         multiworld.get_location(
