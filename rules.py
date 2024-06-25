@@ -63,6 +63,8 @@ def has_bug_net(state: CollectionState, player: int) -> bool:
 def has_clippings(state: CollectionState, player: int) -> bool:
     return state.has(item_table.short_to_long("clippings"), player)
 
+def has_water(state: CollectionState, player: int) -> bool:
+    return state.has(item_table.short_to_long("water"), player)
 
 def has_bucket(state: CollectionState, player: int) -> bool:
     return state.has(item_table.short_to_long("bucket"), player)
@@ -316,7 +318,8 @@ def set_location_rules(world: "GatorWorld") -> None:
         ),
         lambda state: has_sword(state, player)
         and has_clippings(state, player)
-        and has_bucket(state, player),
+        and has_bucket(state, player)
+        and has_water(state, player),
     )
     set_rule(
         multiworld.get_location(
@@ -324,7 +327,8 @@ def set_location_rules(world: "GatorWorld") -> None:
         ),
         lambda state: has_sword(state, player)
         and has_clippings(state, player)
-        and has_bucket(state, player),
+        and has_bucket(state, player)
+        and has_water(state, player),
     )
 
     # South (Jetty)
