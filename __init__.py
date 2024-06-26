@@ -1,7 +1,7 @@
 import settings
 import typing
 from typing import Dict, Any, List
-from .options import GatorOptions, gator_options_presets, gator_option_groups
+from .options import GatorOptions, gator_options_presets #, gator_option_groups
 from .items import item_name_to_id, item_table, item_name_groups  # data used below to add items to the World
 from .locations import location_name_to_id, location_table, location_name_groups  # same as above
 from .regions import gator_regions
@@ -27,7 +27,7 @@ class GatorWeb(WebWorld):
     ## item_descriptions
     theme = "jungle"
     game = "Lil Gator Game"
-    option_groups = gator_option_groups
+    # option_groups = gator_option_groups
     options_presets = gator_options_presets
 
     # tutorials = [
