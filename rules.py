@@ -614,222 +614,222 @@ def set_location_rules(world: "GatorWorld") -> None:
 
     # Pots, Chests, Races
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_chest_B4_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_chest_B3_494"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B4_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B4_200"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B4_2"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B4_217"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B4_3"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B4_693"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B4_4"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B4_695"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B5_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B5_1695"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B5_2"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B5_1709"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B5_3"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_B5_1712"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C3C4_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C3_696"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C4_52"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_2"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C4_80"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_3"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C4_88"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_4"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C4_101"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_5"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C4_243"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_6"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C4_1625"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_chest_C5_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_chest_C5_1651"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C5_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C5_1662"), player),
         lambda state: has_bracelet(state, player) and has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_pot_A1_4"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_pot_B1_425"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_pot_A2_4"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_pot_A2_427"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_chest_B1_2"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_chest_B1_433"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_pot_B1_1"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_pot_B1_407"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_pot_B1_2"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_pot_B1_412"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_pot_C2_1"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_pot_C2_372"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_chest_D1_1"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_chest_D1_184"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_race_B2_1"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_race_C2_392"), player),
         lambda state: has_shield(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_race_B3_1"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_race_C2_383"), player),
         lambda state: has_shield(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_race_B6_1"), player),
+        multiworld.get_location(location_table.short_to_long("nec_race_B6_814"), player),
         lambda state: has_shield(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_pot_B8_1"), player),
+        multiworld.get_location(location_table.short_to_long("nec_pot_B8_2071"), player),
         lambda state: has_ranged(state, player) or has_bracelet(state, player, 2),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C3_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C3_1157"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C3_2"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C3_1159"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_C4_7"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_C3_1167"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_race_C4_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_race_C4_304"), player),
         lambda state: (has_shield(state, player)) and has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_race_C7_1"), player),
+        multiworld.get_location(location_table.short_to_long("nec_race_C7_754"), player),
         lambda state: has_shield(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_D3_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_pot_D3_1195"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_race_D5_1"), player),
+        multiworld.get_location(location_table.short_to_long("nm_race_D5_1746"), player),
         lambda state: has_bracelet(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_pot_D7_1"), player),
+        multiworld.get_location(location_table.short_to_long("nec_pot_D7_1363"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_pot_D7_2"), player),
+        multiworld.get_location(location_table.short_to_long("nec_pot_D7_1364"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_pot_D7D8_1"), player),
+        multiworld.get_location(location_table.short_to_long("nec_pot_D8_1362"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nec_chest_D8_1"), player),
+        multiworld.get_location(location_table.short_to_long("nec_chest_D8_1361"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("cr_pot_E4_1"), player),
+        multiworld.get_location(location_table.short_to_long("cr_pot_E4_2075"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("cr_pot_F4_1"), player),
+        multiworld.get_location(location_table.short_to_long("cr_pot_F4_2074"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("ec_pot_F8_1"), player),
+        multiworld.get_location(location_table.short_to_long("ec_pot_F8_652"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_race_G0_1"), player),
+        multiworld.get_location(location_table.short_to_long("wf_race_G0_73"), player),
         lambda state: has_shield(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_G4_2"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_G4_1541"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_G4_3"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_G4_1542"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_G4_4"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_G4_1543"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_chest_H4_1"), player),
+        multiworld.get_location(location_table.short_to_long("wf_chest_H4_1519"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_H4_1"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_H4_1521"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("ec_chest_H5_1"), player),
+        multiworld.get_location(location_table.short_to_long("ec_chest_H5_767"), player),
         lambda state: has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("ec_pot_H5_1"), player),
+        multiworld.get_location(location_table.short_to_long("ec_pot_H5_722"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("ec_pot_H5_2"), player),
+        multiworld.get_location(location_table.short_to_long("ec_pot_H5_723"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_I4_1"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_H4_1518"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_J3_2"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_J2_1584"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("seb_pot_J6_2"), player),
+        multiworld.get_location(location_table.short_to_long("seb_pot_J6_102"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("wf_pot_H4_2"), player),
+        multiworld.get_location(location_table.short_to_long("wf_pot_H4_1533"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
