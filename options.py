@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict, Any
 
-from Options import DefaultOnToggle, Toggle, StartInventoryPool, Choice, Range, TextChoice, PerGameCommonOptions #, OptionGroup
+from Options import DefaultOnToggle, Toggle, StartInventoryPool, Choice, Range, TextChoice, PerGameCommonOptions, OptionGroup
 
 class StartWithFreeplay(Toggle):
     """Start with no barrier around Tutorial Island and thus the ability to access checks on the main island."""
@@ -31,9 +31,9 @@ gator_options_presets = {
     }
 }
 
-# gator_option_groups: Dict[str, Dict[str, Any]] = [
-#     OptionGroup("Logic Options", [
-#         StartWithFreeplay,
-#         RequireShieldJump
-#     ])
-# ]
+gator_option_groups: Dict[str, Dict[str, Any]] = [
+    OptionGroup("Logic Options", [
+        StartWithFreeplay,
+        RequireShieldJump
+    ])
+]

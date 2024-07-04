@@ -1,9 +1,9 @@
 import settings
 import typing
 from typing import Dict, Any, List
-from .options import GatorOptions, gator_options_presets #, gator_option_groups
-from .items import item_name_to_id, item_table, item_name_groups  # data used below to add items to the World
-from .locations import location_name_to_id, location_table, location_name_groups  # same as above
+from .options import GatorOptions, gator_options_presets, gator_option_groups
+from .items import item_name_to_id, item_table, item_name_groups
+from .locations import location_name_to_id, location_table, location_name_groups
 from .regions import gator_regions
 from .rules import set_location_rules, set_region_rules
 from worlds.AutoWorld import World, WebWorld
@@ -27,7 +27,7 @@ class GatorWeb(WebWorld):
     ## item_descriptions
     theme = "jungle"
     game = "Lil Gator Game"
-    # option_groups = gator_option_groups
+    option_groups = gator_option_groups
     options_presets = gator_options_presets
 
     # tutorials = [
@@ -82,8 +82,7 @@ class GatorWorld(World):
         gator_items: List[GatorItem] = []
         items_to_create: Dict[str, int] = {item: data.base_quantity_in_item_pool for item, data in item_table.items()}
 
-        ## Need to handle: starting inventory? adding extra filler items to match location count
-        ### TODO: match count to number of locations
+        ## TODO: start_inventory_from_pool handling
         for item, quantity in items_to_create.items():
             for i in range(0, quantity):
                 gator_item: GatorItem = self.create_item(item)
