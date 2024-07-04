@@ -686,7 +686,7 @@ def set_location_rules(world: "GatorWorld") -> None:
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("nwt_pot_A2_427"), player),
+        multiworld.get_location(location_table.short_to_long("nwt_pot_B2_427"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
@@ -778,7 +778,7 @@ def set_location_rules(world: "GatorWorld") -> None:
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
-        multiworld.get_location(location_table.short_to_long("ec_pot_F8_652"), player),
+        multiworld.get_location(location_table.short_to_long("ec_pot_F9_652"), player),
         lambda state: has_bracelet(state, player) or has_ranged(state, player),
     )
     set_rule(
