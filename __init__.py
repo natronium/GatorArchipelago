@@ -1,5 +1,3 @@
-import settings
-import typing
 from typing import Dict, Any, List
 from .options import GatorOptions, gator_options_presets, gator_option_groups
 from .items import item_name_to_id, item_table, item_name_groups
