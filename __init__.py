@@ -85,6 +85,9 @@ class GatorWorld(World):
             for i in range(0, quantity):
                 gator_item: GatorItem = self.create_item(item)
                 gator_items.append(gator_item)
+        
+        junk = len(self.multiworld.get_unfilled_locations(self.player)) - len(gator_items)
+        gator_items += [self.create_item(self.get_filler_item_name()) for _ in range(junk)]
 
         self.multiworld.itempool += gator_items
 
@@ -99,3 +102,6 @@ class GatorWorld(World):
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
         return self.options.as_dict("start_with_freeplay", "require_shield_jump")
+    
+    def get_filler_item_name(self) -> str:
+        return self.random.choice(["Craft Stuff x15", "Craft Stuff x30"])

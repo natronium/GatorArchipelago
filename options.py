@@ -22,6 +22,7 @@ class RequireShieldJump(Toggle):
 class GatorOptions(PerGameCommonOptions):
     start_with_freeplay: StartWithFreeplay
     require_shield_jump: RequireShieldJump
+    start_inventory_from_pool: StartInventoryPool
 
 
 gator_options_presets = {
