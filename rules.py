@@ -124,21 +124,27 @@ def set_region_rules(world: "GatorWorld") -> None:
 
     ## Need to rework entrances once the names are set rather than generated
 
-    multiworld.get_entrance("Tutorial Island -> Main Island", player).access_rule = (
+    multiworld.get_entrance("Tutorial Island -> Big Island", player).access_rule = (
         lambda state: can_clear_tutorial(state, player, options)
     )
     multiworld.get_entrance(
         "Tutorial Island -> Tutorial Island Breakables", player
     ).access_rule = lambda state: has_cardboard_destroyer(state, player)
     multiworld.get_entrance(
-        "Main Island -> Main Island Breakables", player
+        "Tutorial Island -> Pots Shootable from Tutorial Island", player
+    ).access_rule = lambda state: has_ranged(state, player)
+    multiworld.get_entrance(
+        "Big Island -> Big Island Breakables", player
     ).access_rule = lambda state: has_cardboard_destroyer(state, player)
-    multiworld.get_entrance("Main Island -> Junk 4 Trash", player).access_rule = (
+    multiworld.get_entrance("Big Island -> Junk 4 Trash", player).access_rule = (
         lambda state: has_cardboard_destroyer(state, player)
     )
-    multiworld.get_entrance(
-        "Main Island Breakables -> Main Island Mountain Breakables", player
-    ).access_rule = lambda state: has_bracelet(state, player)
+    multiworld.get_entrance("Big Island -> Mountain", player).access_rule = (
+        lambda state: has_bracelet(state, player) or has_glider(state, player)
+    )
+    multiworld.get_entrance("Mountain -> Mountain Breakables", player).access_rule = (
+        lambda state: has_cardboard_destroyer(state, player)
+    )
 
 
 def set_location_rules(world: "GatorWorld") -> None:
@@ -492,12 +498,6 @@ def set_location_rules(world: "GatorWorld") -> None:
     )
     set_rule(
         multiworld.get_location(
-            location_table.short_to_long("jmq_antone_bugnet"), player
-        ),
-        lambda state: has_bug_net(state, player),
-    )
-    set_rule(
-        multiworld.get_location(
             location_table.short_to_long("jmq_jill_quest_npc"), player
         ),
         lambda state: has_bug_net(state, player)
@@ -505,9 +505,6 @@ def set_location_rules(world: "GatorWorld") -> None:
         and has_sandwich(state, player)
         and has_ore(state, player),
     )
-
-    # TODO: all locations on mountain that need a bracelet should go in a region
-    ## TODO: Billy at playground enables getting on Mountain with Glider only, no bracelet
 
     # North (Mountain)
     set_rule(
@@ -574,7 +571,7 @@ def set_location_rules(world: "GatorWorld") -> None:
         multiworld.get_location(
             location_table.short_to_long("amq_andromeda_blaster"), player
         ),
-        lambda state: has_bracelet(state, player),
+        lambda state: has_bracelet(state, player) and has_cardboard_destroyer(state,player),
     )
     set_rule(
         multiworld.get_location(
@@ -625,20 +622,6 @@ def set_location_rules(world: "GatorWorld") -> None:
     )
 
     # Pots, Chests, Races
-    set_rule(
-        multiworld.get_location(
-            location_table.short_to_long("nm_chest_B3_494"), player
-        ),
-        lambda state: has_bracelet(state, player),
-    )
-    set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B4_200"), player),
-        lambda state: has_bracelet(state, player),
-    )
-    set_rule(
-        multiworld.get_location(location_table.short_to_long("nm_pot_B4_217"), player),
-        lambda state: has_bracelet(state, player),
-    )
     set_rule(
         multiworld.get_location(location_table.short_to_long("nm_pot_B4_693"), player),
         lambda state: has_bracelet(state, player),

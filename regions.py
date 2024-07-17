@@ -1,13 +1,27 @@
 from typing import Dict, Set
 
-gator_regions: Dict[str,Set[str]] = {
-    "Menu" : {"Tutorial Island"},
-    "Tutorial Island" : {"Main Island","Tutorial Island Races", "Tutorial Island Breakables"},
-    "Tutorial Island Races" : set(),
-    "Tutorial Island Breakables" : set(),
-    "Main Island" : {"Main Island Races", "Main Island Breakables", "Junk 4 Trash"},
-    "Main Island Races": set(),
-    "Main Island Breakables": {"Main Island Mountain Breakables"},
-    "Main Island Mountain Breakables": set(),
-    "Junk 4 Trash": set()
-    }
+gator_regions: Dict[str, Set[str]] = {
+    "Menu": {"Tutorial Island"},
+    "Tutorial Island": {
+        "Big Island",
+        "Tutorial Island Races",
+        "Tutorial Island Breakables",
+        "Pots Shootable from Tutorial Island",
+    },
+    "Pots Shootable from Tutorial Island": set(),
+    "Tutorial Island Races": set(),
+    "Tutorial Island Breakables": set(),
+    "Big Island": {
+        "Big Island Races",
+        "Big Island Breakables",
+        "Mountain",
+        "Junk 4 Trash",
+        "Big Island Bracelet Shops",
+    },
+    "Big Island Races": set(),
+    "Big Island Breakables": set(),
+    "Mountain": {"Mountain Breakables"},
+    "Mountain Breakables": {"Pots Shootable from Tutorial Island"},
+    "Junk 4 Trash": set(),
+    "Big Island Bracelet Shops": set(),
+}
