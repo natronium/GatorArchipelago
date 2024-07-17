@@ -1,10 +1,7 @@
-import csv
 import enum
-
-from typing import Dict, NamedTuple, Set, Optional, List
+import json
+from typing import Dict, NamedTuple, Set, List
 from . import data
-
-from BaseClasses import Location
 
 class LocationGroup(enum.Enum):
     Pot = enum.auto()
@@ -13,36 +10,63 @@ class LocationGroup(enum.Enum):
 
 class GatorLocationData(NamedTuple):
     long_name: str
-    short_name: str
     location_id: int
     region: str
-    # description: str
     location_group: LocationGroup
+    access_rules: List[str]
 
 class GatorLocationTable(Dict[str,GatorLocationData]):
-    def short_to_long(self, short_name: str) -> str:
-        for _, data in self.items():
-            if data.short_name == short_name:
-                return data.long_name
-        return None
+    def nothing():
+        return
 
-# Locations: quest completions, ground pickups, races, bracelet purchases, junk 4 trash
-def load_location_csv():
+def traverse(dic, path=None):
+    if not path:
+        path=""
+    if isinstance(dic,dict):
+        try:
+            name = dic["name"]
+            local_path = path + "/" + name
+            try:
+                sections = dic["sections"]
+                for section in sections:
+                    for b in traverse(section, local_path):
+                        yield b
+            except:
+                try:
+                    children = dic["children"]
+                    for child in children:
+                        for b in traverse(child, local_path):
+                            yield b
+                except (KeyError):
+                    yield local_path, dic
+        except (KeyError):
+            yield path, dic
+    else: 
+        yield path,dic
+
+def load_location_json() -> GatorLocationTable:
     try:
         from importlib.resources import files
     except ImportError:
         from importlib_resources import files  # type: ignore
 
     locations : GatorLocationTable = GatorLocationTable()
-    with files(data).joinpath("location_lookup.csv").open() as file:
-        item_reader = csv.DictReader(file)
-        for location in item_reader:
-            id = int(location["ap_location_id"]) if location["ap_location_id"] else None
-            group = LocationGroup[location["ap_location_group"]] if location["ap_location_group"] else None
-            locations[location["longname"]] = GatorLocationData(location["longname"], location["shortname"], id, location["ap_region"], group)
+    with files(data).joinpath("locations.json").open() as file:
+        location_reader = json.load(file)
+        for _, location in traverse(location_reader[0]):
+            id = int(location["location_id"])
+            group = LocationGroup[location["location_group"]] if location["location_group"] else None
+            locations[location["name"]] = GatorLocationData(location["name"], id, location["region"], group, location["access_rules"])
     return locations
 
-location_table: GatorLocationTable = load_location_csv()
+def locations_for_group(group: LocationGroup) -> List[str]:
+    location_names = []
+    for name, data in location_table.items():
+        if data.location_group == group:
+            location_names.append(name)
+    return location_names
+
+location_table: GatorLocationTable = load_location_json()
 
 location_name_to_id: Dict[str, int] = {name: data.location_id for name, data in location_table.items()}
 
@@ -51,13 +75,6 @@ for loc_name, loc_data in location_table.items():
     loc_group_name = loc_name.split(" - ", 1)[0]
     location_name_groups.setdefault(loc_group_name, set()).add(loc_name)
 
-def location_for_group(group: LocationGroup) -> List[str]:
-    location_names = []
-    for name, data in location_table.items():
-        if data.location_group == group:
-            location_names.append(name)
-    return location_names
-
 for group in LocationGroup:
-    location_name_groups[group.name] = location_for_group(group)
+    location_name_groups[group.name] = locations_for_group(group)
         
