@@ -1,9 +1,8 @@
-import csv
 import enum
 
+import json
 from typing import NamedTuple, Dict, Set, List
-from itertools import groupby
-from BaseClasses import Item, ItemClassification
+from BaseClasses import ItemClassification
 
 from . import data
 
@@ -42,26 +41,26 @@ def is_destroyer(groups: Set[ItemGroup])  -> bool:
     ranged_destroyer : Set[ItemGroup] = {ItemGroup["Ranged"], ItemGroup["Item"]}
     return groups.issuperset(sword_destroyer) or groups.issuperset(shield_destroyer) or groups.issuperset(ranged_destroyer)
 
-def load_item_csv() -> GatorItemTable:
+def load_item_json() -> GatorItemTable:
     try:
         from importlib.resources import files
     except ImportError:
         from importlib_resources import files  # type: ignore
 
     items : GatorItemTable = GatorItemTable()
-    with files(data).joinpath("item_lookup.csv").open() as file:
-        item_reader = csv.DictReader(file)
-        for item in item_reader:
-            id = int(item["ap_item_id"]) if item["ap_item_id"] else None
-            classification = ItemClassification[item["ap_item_classification"]]
-            quantity = int(item["ap_base_quantity"]) if item["ap_base_quantity"] else 0
-            groups = {ItemGroup[group] for group in item["ap_item_groups"].split(",") if group}
-            if is_destroyer(groups):
-                groups.add(ItemGroup["Cardboard_Destroyer"])
-            items[item["longname"]] = GatorItemData(item["longname"], item["shortname"], id, classification, quantity, groups)
+    with files(data).joinpath("items.json").open() as file:
+        item_reader = json.load(file)
+        item_names = item_reader[0]
+        for item_name in item_names:
+            item = item_names[item_name]
+            id = int(item["item_id"]) if item["item_id"] else None
+            classification = ItemClassification[item["classification"]]
+            quantity = int(item["base_quantity_in_item_pool"]) if item["base_quantity_in_item_pool"] else 0
+            groups = {ItemGroup[group] for group in item["item_groups"].split(",") if group}
+            items[item["long_name"]] = GatorItemData(item["long_name"], item["short_name"], id, classification, quantity, groups)
     return items
 
-item_table: GatorItemTable = load_item_csv()
+item_table: GatorItemTable = load_item_json()
 
 item_name_to_id: Dict[str, int] = {name: data.item_id for name, data in item_table.items()}
 
@@ -79,12 +78,3 @@ def items_for_group(group: ItemGroup) -> List[str]:
 item_name_groups: Dict[str, Set[str]] = {}
 for group in ItemGroup:
     item_name_groups[group.name] = items_for_group(group)
-
-# extra groups for the purpose of aliasing items
-# extra_groups: Dict[str, Set[str]] = {
-#     "Hats": {"Ninja Headband (Recipe)"},
-#     "Cardboard Destroyer": {"Stick (Item)","Sword (Item)","Grabby Hand (Item)","Bug Net (Item)","Nunchaku (Item)","Wrench (Item)","Paleolithic Tool (Item)","Pot Lid (Item)","Platter (Item)","Martin (Item)","Big Leaf (Item)","Trampoline (Item)","Trash Can Lid (Item)","Skipping Rock (Item)","Space Blaster (Item)","Shuriken (Item)","Bowling Bomb (Item)"}
-#     # Cardboard Destroyer is limited to items received in item form since it must be an item that you can use to destroy cardboard without already having sufficient Craft Stuff
-# }
-
-# item_name_groups.update(extra_groups)
