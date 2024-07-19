@@ -90,7 +90,7 @@
         },
         "Cheese Sandwich": {
             "long_name": "Cheese Sandwich",
-            "short_name": "cheese_sandwich",
+            "short_name": "sandwich",
             "item_id": 100000012,
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
@@ -458,7 +458,7 @@
         },
         "Bowling Bomb (Item)": {
             "long_name": "Bowling Bomb (Item)",
-            "short_name": "bowling_bomb",
+            "short_name": "bomb",
             "item_id": 100000058,
             "classification": "useful",
             "base_quantity_in_item_pool": 1,
