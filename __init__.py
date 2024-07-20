@@ -72,6 +72,12 @@ class GatorWorld(World):
             location = GatorLocation(self.player, location_name, location_id, region)
             region.locations.append(location)
 
+        victory_region = self.multiworld.get_region("Playground", self.player)
+        victory_location = GatorLocation(self.player, "Complete The Playground", None, victory_region)
+        victory_location.place_locked_item(GatorItem("Completed Playground", ItemClassification.progression, None, self.player))
+        self.multiworld.completion_condition[self.player] = lambda state: state.has("Completed Playground", self.player)
+        victory_region.locations.append(victory_location)
+
     def create_item(self, name: str) -> GatorItem:
         item_data = item_table[name]
         return GatorItem(name, item_data.classification, self.item_name_to_id[name], self.player)
@@ -94,6 +100,8 @@ class GatorWorld(World):
     def set_rules(self) -> None:
         set_region_rules(self)
         set_location_rules(self)
+
+        self.multiworld.completion_condition[self.player] = lambda state: state.has("Completed Playground", self.player)
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # In order for our game client to handle the generated seed correctly we need to know what the user selected
