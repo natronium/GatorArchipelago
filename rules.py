@@ -69,6 +69,43 @@ def can_clear_tutorial(
         return False
 
 
+def have_enough_friends(state: CollectionState, player: int, options: GatorOptions):
+    friend_count = (
+        state.count("Friend",player)
+        + state.count("Friend x2",player) * 2
+        + state.count("Friend x3",player) * 3
+        + state.count("Friend x4",player) * 4
+    )
+    return friend_count >= 35
+
+
+def can_complete_avery(state: CollectionState, player: int, options: GatorOptions):
+    return has_item("sorbet", state, player) and (
+        has_cardboard_destroyer(state, player, options)
+        or (
+            hard_option_enabled(state, player, options)
+            and has_ranged(state, player, options)
+        )
+    )
+
+
+def can_complete_jill(state: CollectionState, player: int, options: GatorOptions):
+    return (
+        has_item("bug_net", state, player)
+        and has_item("ore", state, player)
+        and has_item("sandwich", state, player)
+        and (has_sword(state, player, options) or has_shield(state, player, options))
+        and has_cardboard_destroyer(state,player,options)
+    )
+
+def can_complete_martin(state: CollectionState, player: int, options: GatorOptions):
+    return (
+        has_item("water", state, player)
+        and has_item("clippings", state, player)
+        and has_item("bucket", state, player)
+        and has_sword(state,player,options)
+    )
+
 def hard_option_enabled(
     state: CollectionState, player: int, options: GatorOptions
 ) -> bool:
@@ -125,6 +162,15 @@ def set_region_rules(world: "GatorWorld") -> None:
     options = world.options
 
     ## Need to rework entrances once the names are set rather than generated
+
+    # Current Victory Condition
+    multiworld.get_entrance("Tutorial Island -> Playground", player).access_rule = (
+            lambda state: can_clear_tutorial(state, player, options)
+            and have_enough_friends(state, player, options)
+            and can_complete_avery(state, player, options)
+            and can_complete_jill(state, player, options)
+            and can_complete_martin(state, player, options)
+        )
 
     multiworld.get_entrance("Tutorial Island -> Big Island", player).access_rule = (
         lambda state: can_clear_tutorial(state, player, options)
