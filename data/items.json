@@ -4,6 +4,9 @@
             "long_name": "Friend",
             "short_name": "friend_1",
             "item_id": 100000001,
+            "client_name_id": "",
+            "client_resource_amount": 1,
+            "client_item_type": "Friends",
             "classification": "progression_skip_balancing",
             "base_quantity_in_item_pool": 47,
             "item_groups": "Friends"
@@ -12,6 +15,9 @@
             "long_name": "Friend x2",
             "short_name": "friend_2",
             "item_id": 100000002,
+            "client_name_id": "",
+            "client_resource_amount": 2,
+            "client_item_type": "Friends",
             "classification": "progression_skip_balancing",
             "base_quantity_in_item_pool": 3,
             "item_groups": "Friends"
@@ -20,6 +26,9 @@
             "long_name": "Friend x3",
             "short_name": "friend_3",
             "item_id": 100000003,
+            "client_name_id": "",
+            "client_resource_amount": 3,
+            "client_item_type": "Friends",
             "classification": "progression_skip_balancing",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Friends"
@@ -28,6 +37,9 @@
             "long_name": "Friend x4",
             "short_name": "friend_4",
             "item_id": 100000004,
+            "client_name_id": "",
+            "client_resource_amount": 4,
+            "client_item_type": "Friends",
             "classification": "progression_skip_balancing",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Friends"
@@ -36,6 +48,9 @@
             "long_name": "Craft Stuff x15",
             "short_name": "craft_15",
             "item_id": 100000005,
+            "client_name_id": "",
+            "client_resource_amount": 15,
+            "client_item_type": "Craft Stuff",
             "classification": "filler",
             "base_quantity_in_item_pool": 0,
             "item_groups": "Crafting_Materials"
@@ -44,6 +59,9 @@
             "long_name": "Craft Stuff x30",
             "short_name": "craft_30",
             "item_id": 100000006,
+            "client_name_id": "",
+            "client_resource_amount": 30,
+            "client_item_type": "Craft Stuff",
             "classification": "filler",
             "base_quantity_in_item_pool": 0,
             "item_groups": "Crafting_Materials"
@@ -52,6 +70,9 @@
             "long_name": "Bracelet",
             "short_name": "bracelet",
             "item_id": 100000007,
+            "client_name_id": "Bracelet",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 4,
             "item_groups": "Traversal"
@@ -60,6 +81,9 @@
             "long_name": "Glider",
             "short_name": "glider",
             "item_id": 100000008,
+            "client_name_id": "Shirt",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Traversal"
@@ -68,6 +92,9 @@
             "long_name": "Retainer",
             "short_name": "retainer",
             "item_id": 100000009,
+            "client_name_id": "QuestItem_Retainer",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -76,6 +103,9 @@
             "long_name": "Magic Ore",
             "short_name": "ore",
             "item_id": 100000010,
+            "client_name_id": "BEACH ROCK",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -84,6 +114,9 @@
             "long_name": "Broken Scooter Board",
             "short_name": "broken_scooter",
             "item_id": 100000011,
+            "client_name_id": "Shield_ScooterBoardGreen",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item,Craft"
@@ -92,6 +125,9 @@
             "long_name": "Cheese Sandwich",
             "short_name": "sandwich",
             "item_id": 100000012,
+            "client_name_id": "HALF A CHEESE SANDWICH",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -100,6 +136,9 @@
             "long_name": "Pot?",
             "short_name": "pot_q",
             "item_id": 100000013,
+            "client_name_id": "POT?",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -108,6 +147,9 @@
             "long_name": "Sorbet",
             "short_name": "sorbet",
             "item_id": 100000014,
+            "client_name_id": "ICE CREAM",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -116,6 +158,9 @@
             "long_name": "Grass Clippings",
             "short_name": "clippings",
             "item_id": 100000015,
+            "client_name_id": "CLIPPINGS",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -124,6 +169,9 @@
             "long_name": "Water",
             "short_name": "water",
             "item_id": 100000016,
+            "client_name_id": "WATER",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Quest_Item"
@@ -132,6 +180,9 @@
             "long_name": "Pointy Floppy Thing (Craft)",
             "short_name": "starter_hat",
             "item_id": 100000017,
+            "client_name_id": "Hat_Basic",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Craft"
@@ -140,6 +191,9 @@
             "long_name": "Slime Hat (Craft)",
             "short_name": "slime_hat",
             "item_id": 100000018,
+            "client_name_id": "Hat_Slime",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Craft"
@@ -148,6 +202,9 @@
             "long_name": "Artsy Beret (Craft)",
             "short_name": "beret_hat",
             "item_id": 100000019,
+            "client_name_id": "Hat_Beret",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Craft"
@@ -156,6 +213,9 @@
             "long_name": "Space Dome (Item)",
             "short_name": "dome_hat",
             "item_id": 100000020,
+            "client_name_id": "Hat_Space",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Item"
@@ -164,6 +224,9 @@
             "long_name": "Plastic Fangs (Item)",
             "short_name": "fangs_hat",
             "item_id": 100000021,
+            "client_name_id": "Hat_Vampire",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Item"
@@ -172,6 +235,9 @@
             "long_name": "Western Wide Brim (Item)",
             "short_name": "western_hat",
             "item_id": 100000022,
+            "client_name_id": "Hat_Western",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Item"
@@ -180,6 +246,9 @@
             "long_name": "Bucket (Item)",
             "short_name": "bucket",
             "item_id": 100000023,
+            "client_name_id": "Hat_Bucket",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Item"
@@ -188,6 +257,9 @@
             "long_name": "Detective Cowl (Craft)",
             "short_name": "cowl_hat",
             "item_id": 100000024,
+            "client_name_id": "Hat_DetectiveCowl",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Craft"
@@ -196,6 +268,9 @@
             "long_name": "Skater Helmet (Craft)",
             "short_name": "skater_hat",
             "item_id": 100000025,
+            "client_name_id": "Hat_SkateHelmet",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Craft"
@@ -204,6 +279,9 @@
             "long_name": "Princess Tiara (Craft)",
             "short_name": "tiara_hat",
             "item_id": 100000026,
+            "client_name_id": "Hat_Princess",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Hat,Craft"
@@ -212,6 +290,9 @@
             "long_name": "Ninja Headband (Craft)",
             "short_name": "headband",
             "item_id": 100000027,
+            "client_name_id": "Hat_Ninja",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "useful",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Traversal,Hat,Craft"
@@ -220,22 +301,31 @@
             "long_name": "Stick (Item)",
             "short_name": "stick",
             "item_id": 100000028,
+            "client_name_id": "Sword_Stick",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Sword (Item)": {
             "long_name": "Sword (Item)",
             "short_name": "sword",
             "item_id": 100000029,
+            "client_name_id": "Sword_Wood",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Paintbrush (Craft)": {
             "long_name": "Paintbrush (Craft)",
             "short_name": "paintbrush",
             "item_id": 100000030,
+            "client_name_id": "Sword_Paintbrush",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft,Sword"
@@ -244,6 +334,9 @@
             "long_name": "Cardboard Spear (Craft)",
             "short_name": "spear",
             "item_id": 100000031,
+            "client_name_id": "Sword_CBSpear",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft,Sword"
@@ -252,14 +345,20 @@
             "long_name": "Grabby Hand (Item)",
             "short_name": "grabby_hand",
             "item_id": 100000032,
+            "client_name_id": "Sword_Grabby",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Laser Sword (Craft)": {
             "long_name": "Laser Sword (Craft)",
             "short_name": "laser_sword",
             "item_id": 100000033,
+            "client_name_id": "Sword_Laser",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft,Sword"
@@ -268,22 +367,31 @@
             "long_name": "Bug Net (Item)",
             "short_name": "bug_net",
             "item_id": 100000034,
+            "client_name_id": "Sword_Net",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Nunchaku (Item)": {
             "long_name": "Nunchaku (Item)",
             "short_name": "nunchucks",
             "item_id": 100000035,
+            "client_name_id": "Sword_Nunchucks",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Thrown Pencil": {
             "long_name": "Thrown Pencil",
             "short_name": "thrown_pencil",
             "item_id": 100000036,
+            "client_name_id": "Thrown_Pencil",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 3,
             "item_groups": "Quest_Item"
@@ -292,6 +400,9 @@
             "long_name": "Oversized Pencil (Craft)",
             "short_name": "pencil",
             "item_id": 100000037,
+            "client_name_id": "Sword_Pencil",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft,Sword"
@@ -300,22 +411,31 @@
             "long_name": "Wrench (Item)",
             "short_name": "wrench",
             "item_id": 100000038,
+            "client_name_id": "Sword_Wrench",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Paleolithic Tool (Item)": {
             "long_name": "Paleolithic Tool (Item)",
             "short_name": "paleolithic",
             "item_id": 100000039,
+            "client_name_id": "Sword_RockHammer",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Sword,Item"
+            "item_groups": "Cardboard_Destroyer,Item,Sword"
         },
         "Princess Wand (Craft)": {
             "long_name": "Princess Wand (Craft)",
             "short_name": "wand",
             "item_id": 100000040,
+            "client_name_id": "Sword_Wand",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft,Sword"
@@ -324,102 +444,141 @@
             "long_name": "Pot Lid (Item)",
             "short_name": "pot_lid",
             "item_id": 100000041,
+            "client_name_id": "Shield_PotLid",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Shield,Item"
+            "item_groups": "Shield,Item,Cardboard_Destroyer"
         },
         "Art Palette (Craft)": {
             "long_name": "Art Palette (Craft)",
             "short_name": "palette",
             "item_id": 100000042,
+            "client_name_id": "Shield_Palette",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Craft,Shield"
+            "item_groups": "Shield,Craft"
         },
         "Inner Tube (Craft)": {
             "long_name": "Inner Tube (Craft)",
             "short_name": "tube",
             "item_id": 100000043,
+            "client_name_id": "Shield_Tube",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Craft,Shield"
+            "item_groups": "Shield,Craft"
         },
         "Platter (Item)": {
             "long_name": "Platter (Item)",
             "short_name": "platter",
             "item_id": 100000044,
+            "client_name_id": "Shield_Platter",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Shield,Item"
+            "item_groups": "Shield,Item,Cardboard_Destroyer"
         },
         "Skateboard (Craft)": {
             "long_name": "Skateboard (Craft)",
             "short_name": "skateboard",
             "item_id": 100000045,
+            "client_name_id": "Shield_Skateboard",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Craft,Shield"
+            "item_groups": "Shield,Craft"
         },
         "Martin (Item)": {
             "long_name": "Martin (Item)",
             "short_name": "martin_shield",
             "item_id": 100000046,
+            "client_name_id": "Shield_Martin",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Shield,Item"
+            "item_groups": "Shield,Item,Cardboard_Destroyer"
         },
         "Chessboard (Craft)": {
             "long_name": "Chessboard (Craft)",
             "short_name": "chessboard",
             "item_id": 100000047,
+            "client_name_id": "Shield_Chessboard",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Craft,Shield"
+            "item_groups": "Shield,Craft"
         },
         "Big Leaf (Item)": {
             "long_name": "Big Leaf (Item)",
             "short_name": "big_leaf",
             "item_id": 100000048,
+            "client_name_id": "Shield_Leaf",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Shield,Item"
+            "item_groups": "Shield,Item,Cardboard_Destroyer"
         },
         "Trampoline (Item)": {
             "long_name": "Trampoline (Item)",
             "short_name": "trampoline",
             "item_id": 100000049,
+            "client_name_id": "Shield_Stretch",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Traversal,Cardboard_Destroyer,Item"
+            "item_groups": "Traversal,Item,Cardboard_Destroyer"
         },
         "Tower Shield (Craft)": {
             "long_name": "Tower Shield (Craft)",
             "short_name": "tower_shield",
             "item_id": 100000050,
+            "client_name_id": "Shield_TowerShield",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Craft,Shield"
+            "item_groups": "Shield,Craft"
         },
         "Trash Can Lid (Item)": {
             "long_name": "Trash Can Lid (Item)",
             "short_name": "trash_can",
             "item_id": 100000051,
+            "client_name_id": "Shield_TrashCanLid",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Cardboard_Destroyer,Shield,Item"
+            "item_groups": "Shield,Item,Cardboard_Destroyer"
         },
         "Blue Scooter Board (Craft)": {
             "long_name": "Blue Scooter Board (Craft)",
             "short_name": "blue_scooter",
             "item_id": 100000052,
+            "client_name_id": "Shield_ScooterBoardBlue",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
-            "item_groups": "Craft,Shield"
+            "item_groups": "Shield,Craft"
         },
         "Ragdoll (Craft)": {
             "long_name": "Ragdoll (Craft)",
             "short_name": "ragdoll",
             "item_id": 100000053,
+            "client_name_id": "Item_Ragdoll",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft"
@@ -428,6 +587,9 @@
             "long_name": "Balloon (Item)",
             "short_name": "balloon",
             "item_id": 100000054,
+            "client_name_id": "Item_Balloon",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "useful",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Traversal,Item"
@@ -436,6 +598,9 @@
             "long_name": "Skipping Rock (Item)",
             "short_name": "rock",
             "item_id": 100000055,
+            "client_name_id": "Rock",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Cardboard_Destroyer,Ranged,Item"
@@ -444,6 +609,9 @@
             "long_name": "Space Blaster (Item)",
             "short_name": "blaster",
             "item_id": 100000056,
+            "client_name_id": "Item_SpaceGun",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Cardboard_Destroyer,Ranged,Item"
@@ -452,6 +620,9 @@
             "long_name": "Shuriken (Item)",
             "short_name": "shuriken",
             "item_id": 100000057,
+            "client_name_id": "Item_Shuriken",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Cardboard_Destroyer,Ranged,Item"
@@ -460,6 +631,9 @@
             "long_name": "Bowling Bomb (Item)",
             "short_name": "bomb",
             "item_id": 100000058,
+            "client_name_id": "Item_Bomb",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "useful",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Cardboard_Destroyer,Item"
@@ -468,6 +642,9 @@
             "long_name": "Bubble Gum (Item)",
             "short_name": "bubblegum",
             "item_id": 100000059,
+            "client_name_id": "Item_Gum",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "useful",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Traversal,Item"
@@ -476,6 +653,9 @@
             "long_name": "Sticky Hand (Item)",
             "short_name": "sticky_hand",
             "item_id": 100000060,
+            "client_name_id": "Item_StickyHand",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Item"
@@ -484,6 +664,9 @@
             "long_name": "Paint Blaster (Item)",
             "short_name": "paint_gun",
             "item_id": 100000061,
+            "client_name_id": "Item_PaintGun",
+            "client_resource_amount": null,
+            "client_item_type": "Item",
             "classification": "progression",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Cardboard_Destroyer,Ranged,Item"
@@ -492,6 +675,9 @@
             "long_name": "An Actual Digital Camera (Craft)",
             "short_name": "camera",
             "item_id": 100000062,
+            "client_name_id": "Item_Camera",
+            "client_resource_amount": null,
+            "client_item_type": "Craft",
             "classification": "filler",
             "base_quantity_in_item_pool": 1,
             "item_groups": "Craft"

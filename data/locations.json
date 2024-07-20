@@ -2203,7 +2203,8 @@
                                 "client_name_id": "NPC_Tut_Dog",
                                 "location_group": "",
                                 "access_rules": [
-                                    "bug_net,cardboard_destroyer,sandwich,ore"
+                                    "bug_net,sword,sandwich,ore",
+                                    "bug_net,ranged,sandwich,ore"
                                 ]
                             }
                         ]
@@ -3947,7 +3948,9 @@
                                         "client_id": null,
                                         "client_name_id": "NPC_Part-Timer",
                                         "location_group": "",
-                                        "access_rules": []
+                                        "access_rules": [
+                                            "sorbet"
+                                        ]
                                     }
                                 ]
                             },
