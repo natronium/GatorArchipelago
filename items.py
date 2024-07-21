@@ -1,7 +1,7 @@
 import enum
 
 import json
-from typing import NamedTuple, Dict, Set, List
+from typing import NamedTuple, Dict, List, Set
 from BaseClasses import ItemClassification
 
 from . import data
@@ -25,7 +25,7 @@ class GatorItemData(NamedTuple):
     item_id: int
     classification: ItemClassification
     base_quantity_in_item_pool: int
-    item_groups: Set[ItemGroup]
+    item_groups: List[ItemGroup]
 
 class GatorItemTable(Dict[str,GatorItemData]):
     def short_to_long(self, short_name: str) -> str:
@@ -35,11 +35,6 @@ class GatorItemTable(Dict[str,GatorItemData]):
         return None
 
 # Cardboard Destroyer Group
-def is_destroyer(groups: Set[ItemGroup])  -> bool:
-    sword_destroyer : Set[ItemGroup] = {ItemGroup["Sword"], ItemGroup["Item"]}
-    shield_destroyer : Set[ItemGroup] = {ItemGroup["Shield"], ItemGroup["Item"]}
-    ranged_destroyer : Set[ItemGroup] = {ItemGroup["Ranged"], ItemGroup["Item"]}
-    return groups.issuperset(sword_destroyer) or groups.issuperset(shield_destroyer) or groups.issuperset(ranged_destroyer)
 
 def load_item_json() -> GatorItemTable:
     try:
