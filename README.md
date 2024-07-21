@@ -1,4 +1,4 @@
-# GatorAP: APWorld for Lil Gator Game
+# GatorArchipelago: APWorld for Lil Gator Game
 Lil Gator Game is a game about being an adorable gator who is getting all of their friends involved in their giant hero quest in order to convince their big sister to stop working on her college assignment and instead play with them.
 
 This project is an apworld that works with Archipelago and a plugin for Lil Gator Game ([mod link](https://github.com/natronium/GatorRando)) to take the things your character would receive throughout the game and randomize them through either a solo or multiworld experience. If you are not familiar with Archipelago, we recommend reading Archipelago's introduction documents starting with the [FAQ](https://archipelago.gg/faq/en/).
