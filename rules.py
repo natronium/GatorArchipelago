@@ -111,7 +111,7 @@ def can_complete_martin(state: CollectionState, player: int, options: GatorOptio
 def hard_option_enabled(
     state: CollectionState, player: int, options: GatorOptions
 ) -> bool:
-    return False
+    return options.harder_ranged_quests
 
 
 def special_rules_dict():

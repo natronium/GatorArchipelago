@@ -13,6 +13,11 @@ class RequireShieldJump(Toggle):
     internal_name = "require_shield_jump"
     display_name = "Require Shield Jump"
 
+class HarderRangedQuests(Toggle):
+    """Logic may require you to complete Penelope (Bastion Beaver) and Andromeda (Space Hawk) without a ranged weapon."""
+    internal_name = "harder_ranged_quests"
+    display_name = "Harder Ranged Quests"
+
 # class StartWithCheckFinders(Toggle):
 #     """Start with Megaphone and Text Jill items in inventory for finding checks."""
 #     internal_name = "start_with_check_finder"
@@ -22,19 +27,22 @@ class RequireShieldJump(Toggle):
 class GatorOptions(PerGameCommonOptions):
     start_with_freeplay: StartWithFreeplay
     require_shield_jump: RequireShieldJump
+    harder_ranged_quests: HarderRangedQuests
     start_inventory_from_pool: StartInventoryPool
 
 
 gator_options_presets = {
     "Maximal Accessibility" : {
         "start_with_freeplay" : True,
-        "require_shield_jump" : False
+        "require_shield_jump" : False,
+        "harder_ranged_quests" : False
     }
 }
 
 gator_option_groups: Dict[str, Dict[str, Any]] = [
     OptionGroup("Logic Options", [
         StartWithFreeplay,
-        RequireShieldJump
+        RequireShieldJump,
+        HarderRangedQuests
     ])
 ]
