@@ -71,10 +71,10 @@ def can_clear_tutorial(
 
 def have_enough_friends(state: CollectionState, player: int, options: GatorOptions):
     friend_count = (
-        state.count("Friend",player)
-        + state.count("Friend x2",player) * 2
-        + state.count("Friend x3",player) * 3
-        + state.count("Friend x4",player) * 4
+        state.count("Friend", player)
+        + state.count("Friend x2", player) * 2
+        + state.count("Friend x3", player) * 3
+        + state.count("Friend x4", player) * 4
     )
     return friend_count >= 35
 
@@ -95,16 +95,18 @@ def can_complete_jill(state: CollectionState, player: int, options: GatorOptions
         and has_item("ore", state, player)
         and has_item("sandwich", state, player)
         and (has_sword(state, player, options) or has_shield(state, player, options))
-        and has_cardboard_destroyer(state,player,options)
+        and has_cardboard_destroyer(state, player, options)
     )
+
 
 def can_complete_martin(state: CollectionState, player: int, options: GatorOptions):
     return (
         has_item("water", state, player)
         and has_item("clippings", state, player)
         and has_item("bucket", state, player)
-        and has_sword(state,player,options)
+        and has_sword(state, player, options)
     )
+
 
 def hard_option_enabled(
     state: CollectionState, player: int, options: GatorOptions
@@ -114,13 +116,15 @@ def hard_option_enabled(
 
 def special_rules_dict():
     return {
-        "can_clear_tutorial": partial(can_clear_tutorial),
-        "sword": partial(has_sword),
-        "shield": partial(has_shield),
-        "ranged": partial(has_ranged),
-        "cardboard_destroyer": partial(has_cardboard_destroyer),
-        "hard": partial(hard_option_enabled),
-        "shield_jump": partial(can_shield_jump),
+        "$can_clear_tutorial": partial(can_clear_tutorial),
+        "$sword": partial(has_sword),
+        "$shield": partial(has_shield),
+        "$ranged": partial(has_ranged),
+        "$cardboard_destroyer": partial(has_cardboard_destroyer),
+        "$hard": partial(hard_option_enabled),
+        "$shield_jump": partial(can_shield_jump),
+        "$has_at_least_n_bracelet": partial(has_item, "bracelet"),
+        "$has_at_least_n_pencil": partial(has_item, "thrown_pencil"),
     }
 
 
@@ -137,12 +141,13 @@ def process_access_rules(
                 this_rule = this_rule and special_rules[rule_component](
                     state, player, options
                 )
-            elif rule_component.split("_")[-1].isnumeric():
-                this_rule = this_rule and has_item(
-                    rule_component.removesuffix("_" + rule_component.split("_")[-1]),
+            elif rule_component.split("|")[-1].isnumeric():
+                this_rule = this_rule and special_rules[
+                    rule_component.removesuffix("|" + rule_component.split("|")[-1])
+                ](
                     state,
                     player,
-                    int(rule_component.split("_")[-1]),
+                    int(rule_component.split("|")[-1]),
                 )
             else:
                 this_rule = this_rule and has_item(
@@ -165,12 +170,12 @@ def set_region_rules(world: "GatorWorld") -> None:
 
     # Current Victory Condition
     multiworld.get_entrance("Tutorial Island -> Playground", player).access_rule = (
-            lambda state: can_clear_tutorial(state, player, options)
-            and have_enough_friends(state, player, options)
-            and can_complete_avery(state, player, options)
-            and can_complete_jill(state, player, options)
-            and can_complete_martin(state, player, options)
-        )
+        lambda state: can_clear_tutorial(state, player, options)
+        and have_enough_friends(state, player, options)
+        and can_complete_avery(state, player, options)
+        and can_complete_jill(state, player, options)
+        and can_complete_martin(state, player, options)
+    )
 
     multiworld.get_entrance("Tutorial Island -> Big Island", player).access_rule = (
         lambda state: can_clear_tutorial(state, player, options)
