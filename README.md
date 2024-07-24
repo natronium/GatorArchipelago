@@ -25,3 +25,7 @@ We recommend starting with the basic yaml template provided in the repo. If you 
 	- After prologue, game will advance to the state on Tutorial Island where Lil Gator will talk to Big Sis to show off their hat, sword, and shield
 	- After talking to Big Sis, the Main Island will be unlocked (no more invisible wall around Tutorial Island), Tom will call, and the Friend Counter will be enabled
 	- Jill, Avery!, and Martin's Tutorial Island Quests will still be available to complete to receive the associated checks 
+- Require Shield Jump
+	- If enabled, logic may require the player to reach higher places than possible with just a jump by using their shield at the top of their jump
+- Harder Ranged Quests
+	- If enabled, for Penelope (Bastion Beaver) and Andromeda (Space Hawk), a ranged weapon is no longer required and logic may require the player to jump off the cliff and knock down the relevant cardboard with another relevant cardboard destroyer.
