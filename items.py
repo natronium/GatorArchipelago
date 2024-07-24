@@ -45,9 +45,8 @@ def load_item_json() -> GatorItemTable:
     items : GatorItemTable = GatorItemTable()
     with files(data).joinpath("items.json").open() as file:
         item_reader = json.load(file)
-        item_names = item_reader[0]
-        for item_name in item_names:
-            item = item_names[item_name]
+        gator_items = item_reader[0]
+        for _, item in gator_items.items():
             id = int(item["item_id"]) if item["item_id"] else None
             classification = ItemClassification[item["classification"]]
             quantity = int(item["base_quantity_in_item_pool"]) if item["base_quantity_in_item_pool"] else 0
