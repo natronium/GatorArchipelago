@@ -16,8 +16,7 @@ class GatorLocationData(NamedTuple):
     access_rules: List[str]
 
 class GatorLocationTable(Dict[str,GatorLocationData]):
-    def nothing():
-        return
+    pass
 
 def traverse(dic, path=None):
     if not path:
