@@ -50,7 +50,7 @@ def load_item_json() -> GatorItemTable:
             id = int(item["item_id"]) if item["item_id"] else None
             classification = ItemClassification[item["classification"]]
             quantity = int(item["base_quantity_in_item_pool"]) if item["base_quantity_in_item_pool"] else 0
-            groups = {ItemGroup[group] for group in item["item_groups"].split(",") if group}
+            groups = [ItemGroup[group] for group in item["item_groups"].split(",") if group]
             items[item["long_name"]] = GatorItemData(item["long_name"], item["short_name"], id, classification, quantity, groups)
     return items
 
