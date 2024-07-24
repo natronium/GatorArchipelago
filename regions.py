@@ -7,7 +7,7 @@ gator_regions: Dict[str, List[str]] = {
         "Tutorial Island Races",
         "Tutorial Island Breakables",
         "Pots Shootable from Tutorial Island",
-        "Playground"
+        "Playground",
     ],
     "Playground": [],
     "Pots Shootable from Tutorial Island": [],
