@@ -15,7 +15,8 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 
 ### Recommendations for Better Play Experiences
 - Download [Poptracker](https://poptracker.github.io/) and use the pack available at https://github.com/natronium/GatorPop.
-- If you are having trouble finding a specific pot, you can search the map available at https://natronium.github.io/GatorMap/ to find all the pots, chests, and races with their locations labeled as they are in the Archipelago.
+- If you are having trouble finding a specific location, you can search the map available at https://natronium.github.io/GatorMap/ to find all the pots, chests, and races with their locations labeled as they are in the Archipelago.
+- Use the text client (which you can also open from the Archipelago Launcher) alongside your game. Using the text client will allow you to see what items you are sending and receiving, as only some sent items currently display in game.
 
 ## Creating your yaml
 We recommend starting with the basic yaml template provided with the [latest release](https://github.com/natronium/GatorArchipelago/releases/latest). If you would like to experiment with options not listed in the basic template provided here, you can check the [advanced yaml instructions](https://archipelago.gg/tutorial/Archipelago/advanced_settings/en) provided by Archipelago.
