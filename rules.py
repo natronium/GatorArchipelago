@@ -11,6 +11,18 @@ if TYPE_CHECKING:
     from . import GatorWorld
 
 
+def remove_prefix(text: str, prefix: str) -> str:
+    if text.startswith(prefix):
+        return text[len(prefix) :]
+    return text
+
+
+def remove_suffix(text: str, suffix: str) -> str:
+    if text.endswith(suffix):
+        return text[: -len(suffix)]
+    return text
+
+
 def has_sword(state: CollectionState, player: int, options: GatorOptions) -> bool:
     return state.has_any(item_name_groups["Sword"], player)
 
@@ -39,8 +51,6 @@ def can_shield_jump(state: CollectionState, player: int, options: GatorOptions):
     return has_shield(state, player, options) and options.require_shield_jump
 
 
-# def can_short_climb(state: CollectionState, player: int, options: GatorOptions):
-#     return can_shield_jump(state,player,options) or has_bracelet(state,player)
 def has_item(
     short_name: str,
     state: CollectionState,
@@ -136,14 +146,14 @@ def process_access_rules(
     for access_rule in access_rules:
         this_rule = True
         for rule_component in access_rule.split(","):
-            rule_component = rule_component.removeprefix(" ")
+            rule_component = remove_prefix(rule_component, " ")
             if rule_component in special_rules:
                 this_rule = this_rule and special_rules[rule_component](
                     state, player, options
                 )
             elif rule_component.split("|")[-1].isnumeric():
                 this_rule = this_rule and special_rules[
-                    rule_component.removesuffix("|" + rule_component.split("|")[-1])
+                    remove_suffix(rule_component, "|" + rule_component.split("|")[-1])
                 ](
                     state,
                     player,
@@ -156,8 +166,6 @@ def process_access_rules(
                     player,
                 )
         collection_rule = collection_rule or this_rule
-        # print(access_rules)
-        # print(collection_rule)
     return collection_rule
 
 
