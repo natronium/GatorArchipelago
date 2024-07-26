@@ -10,6 +10,8 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
    - To create the apworld from scratch: download this repo's source code and zip the whole folder into a file named lil_gator_game.apworld. The zip/apworld file should contain a `lil_gator_game` folder at the top level
 4. Doubleclick the apworld &mdash; it should be "installed" (copied) into the `custom_worlds` folder in your Archipelago installation folder
 5. Set your options in a .yaml file [as described below](#creating-your-yaml), and put that yaml file and yamls for any other players/games in the `Players` folder in your Archipelago installation folder (note that you will need to run the Archipelago Launcher and click on "Generate template options" to create this folder)
+	- Make sure you remove any yamls for people who are not playing this time! If you're planning to play one "world" of Lil Gator Game, there should only be one yaml
+	- The "name" at top of the yamls needs to be unique for each player in the game (sorry, not everyone can be "LilGator")
 6. Push the Generate button in the Launcher.
 7. Host the generated game locally either by hitting Host Game and selecting the AP_{numbers}.zip in the `output` folder (in your Archipelago installation folder) or host it through [archipelago.gg](https://archipelago.gg) by uploading that zip to https://archipelago.gg/uploads
 
@@ -20,6 +22,10 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 
 ## Creating your yaml
 We recommend starting with the basic yaml template provided with the [latest release](https://github.com/natronium/GatorArchipelago/releases/latest). If you would like to experiment with options not listed in the basic template provided here, you can check the [advanced yaml instructions](https://archipelago.gg/tutorial/Archipelago/advanced_settings/en) provided by Archipelago.
+
+### yaml Recommendations
+- If you are playing with other games, we recommend setting `start_with_freeplay: 'true'` if the other games have a lot of early things they can do and `start_with_freeplay: 'false'` if they are limited. Freeplay opens up a lot of places to check, which can be good and bad, depending on your play preference, your group, and your comfort with the game.
+- If you are playing solo, `start_with_freeplay: 'false'` can be a good way to figure out how to play since there's a limited number of places to check, but `start_with_freeplay: 'true'` will provide a more varied experience
 
 ### Lil Gator Game Specific Options
 - Start With Freeplay (If enabled, does the following)
