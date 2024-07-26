@@ -23,14 +23,21 @@ def remove_suffix(text: str, suffix: str) -> str:
     return text
 
 
+# fmt: off
 def has_sword(state: CollectionState, player: int, options: GatorOptions) -> bool:
-    return state.has_any(item_name_groups["Sword"], player)
+    return (
+        state.has_any(item_name_groups["Sword"], player) and
+        has_cardboard_destroyer(state, player, options)
+    )
+# fmt: on
 
-
+# fmt: off
 def has_shield(state: CollectionState, player: int, options: GatorOptions) -> bool:
-    return state.has_any(
-        item_name_groups["Shield"], player
-    )  ##Needs to be more complicated because if is recipe shield need a different cardboard destroyer
+    return (
+        state.has_any(item_name_groups["Shield"], player) and
+        has_cardboard_destroyer(state, player, options)
+    )
+# fmt: on
 
 
 def has_cardboard_destroyer(
