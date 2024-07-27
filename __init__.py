@@ -134,7 +134,9 @@ class GatorWorld(World):
         # A dictionary returned from this method gets set as the slot_data and will be sent to the client after connecting.
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
-        return self.options.as_dict("start_with_freeplay", "require_shield_jump")
+        return self.options.as_dict(
+            "start_with_freeplay", "require_shield_jump", "harder_ranged_quests"
+        )
 
     def get_filler_item_name(self) -> str:
         return self.random.choice(["Craft Stuff x15", "Craft Stuff x30"])
