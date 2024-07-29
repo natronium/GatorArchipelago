@@ -7,6 +7,8 @@
 name: LilGator
 game: Lil Gator Game
 description: Be lil! Be gator! Be game!
+requires:
+  version: 0.5.0
 Lil Gator Game:
   ## Gator-specific options:
   # Start with no barrier around Tutorial Island and thus the ability to access checks on the main island.
