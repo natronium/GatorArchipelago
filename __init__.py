@@ -105,7 +105,14 @@ class GatorWorld(World):
             item: data.base_quantity_in_item_pool for item, data in item_table.items()
         }
 
-        ## TODO: start_inventory_from_pool handling
+        # If start with checkfinders on, add them into the start inventory, otherwise add them to the itempool
+        if self.options.start_with_checkfinders:
+            self.multiworld.push_precollected(self.create_item(item_table.short_to_long("megaphone")))
+            self.multiworld.push_precollected(self.create_item(item_table.short_to_long("texting")))
+        else:
+            items_to_create[item_table.short_to_long("megaphone")] = 1
+            items_to_create[item_table.short_to_long("texting")] = 1
+
         for item, quantity in items_to_create.items():
             for i in range(0, quantity):
                 gator_item: GatorItem = self.create_item(item)
