@@ -24,10 +24,10 @@ class HarderRangedQuests(Toggle):
     display_name = "Harder Ranged Quests"
 
 
-# class StartWithCheckFinders(Toggle):
-#     """Start with Megaphone and Text Jill items in inventory for finding checks."""
-#     internal_name = "start_with_check_finder"
-#     display_name = "Start With Check Finders"
+class StartWithCheckFinders(Toggle):
+    """Start with Megaphone and Text Jill items in inventory for finding checks."""
+    internal_name = "start_with_check_finder"
+    display_name = "Start With Check Finders"
 
 
 @dataclass
@@ -35,6 +35,7 @@ class GatorOptions(PerGameCommonOptions):
     start_with_freeplay: StartWithFreeplay
     require_shield_jump: RequireShieldJump
     harder_ranged_quests: HarderRangedQuests
+    start_with_checkfinders: StartWithCheckFinders
     start_inventory_from_pool: StartInventoryPool
 
 
@@ -43,11 +44,15 @@ gator_options_presets = {
         "start_with_freeplay": True,
         "require_shield_jump": False,
         "harder_ranged_quests": False,
+        "start_with_checkfinders": True,
     }
 }
 
 gator_option_groups: Dict[str, Dict[str, Any]] = [
     OptionGroup(
         "Logic Options", [StartWithFreeplay, RequireShieldJump, HarderRangedQuests]
+    ),
+    OptionGroup(
+        "Convenience Options", [StartWithCheckFinders]
     )
 ]
