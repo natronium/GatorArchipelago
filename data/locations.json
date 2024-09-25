@@ -787,7 +787,7 @@
                         ]
                     },
                     {
-                        "name": "(102.2629, 249.3436)",
+                        "name": "Jada (Cool Boar)",
                         "region": "Big Island",
                         "access_rules": [],
                         "map_locations": [
@@ -3240,7 +3240,7 @@
                                 ]
                             },
                             {
-                                "name": "(148.17, 102.75)",
+                                "name": "Andromeda (Space Hawk)",
                                 "region": "Mountain",
                                 "access_rules": [],
                                 "map_locations": [
@@ -3323,7 +3323,7 @@
                                 ]
                             },
                             {
-                                "name": "(185.7675, 158.2035)",
+                                "name": "Esme (Vampire Bat)",
                                 "region": "Mountain",
                                 "access_rules": [],
                                 "map_locations": [
@@ -3953,7 +3953,7 @@
                         ],
                         "children": [
                             {
-                                "name": "(62.871, 237.2092)",
+                                "name": "??? (Bracelet Monkey) Windmill",
                                 "region": "Big Island Bracelet Shops",
                                 "access_rules": [],
                                 "map_locations": [
