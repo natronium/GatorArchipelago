@@ -204,6 +204,12 @@ def set_region_rules(world: "GatorWorld") -> None:
     multiworld.get_entrance(
         "Big Island -> Big Island Breakables", player
     ).access_rule = lambda state: has_cardboard_destroyer(state, player, options)
+    multiworld.get_entrance(
+        "Big Island -> Big Island Bracelet Shops", player
+    ).access_rule = (
+        lambda state: has_cardboard_destroyer(state, player, options)
+        and has_item("bracelet", state, player)
+    )
     multiworld.get_entrance("Big Island -> Junk 4 Trash", player).access_rule = (
         lambda state: has_cardboard_destroyer(state, player, options)
     )
