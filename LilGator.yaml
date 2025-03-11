@@ -8,11 +8,14 @@ name: LilGator
 game: Lil Gator Game
 description: Be lil! Be gator! Be game!
 requires:
-  version: 0.5.0
+  version: 0.5.1
 Lil Gator Game:
   ## Gator-specific options:
   # Start with no barrier around Tutorial Island and thus the ability to access checks on the main island.
   start_with_freeplay: 'false'
+
+  # Start with Megaphone and Text Jill items in inventory for finding checks.
+  start_with_checkfinders: 'true'
 
   # Logic may require you to execute a shield jump to progress.
   require_shield_jump: 'false'
@@ -23,7 +26,7 @@ Lil Gator Game:
   ## General AP options
   ## See https://archipelago.gg/tutorial/Archipelago/advanced_settings/en for more details
   progression_balancing: '50'
-  accessibility: items
+  accessibility: full
 
   start_inventory: {}
   start_inventory_from_pool: {}
