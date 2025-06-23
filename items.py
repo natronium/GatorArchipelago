@@ -1,4 +1,4 @@
-import enum
+from enum import Enum, auto
 
 import json
 from typing import NamedTuple, Dict, List, Set
@@ -7,81 +7,550 @@ from BaseClasses import ItemClassification
 from . import data
 
 
-class ItemGroup(enum.Enum):
-    Friends = enum.auto()
-    Crafting_Materials = enum.auto()
-    Traversal = enum.auto()
-    Hat = enum.auto()
-    Quest_Item = enum.auto()
-    Sword = enum.auto()
-    Shield = enum.auto()
-    Ranged = enum.auto()
-    Craft = enum.auto()
-    Item = enum.auto()
-    Cardboard_Destroyer = enum.auto()
+class ItemGroup(str, Enum):
+    Friends = auto()
+    Crafting_Materials = auto()
+    Traversal = auto()
+    Hat = auto()
+    Quest_Item = auto()
+    Sword = auto()
+    Shield = auto()
+    Ranged = auto()
+    Craft = auto()
+    Item = auto()
+    Cardboard_Destroyer = auto()
 
+class GatorItemName(str, Enum):
+    FRIEND_1 = "Friend",
+    FRIEND_2 = "Friend x2",
+    FRIEND_3 = "Friend x3",
+    FRIEND_4 = "Friend x4",
+    CRAFT_15 = "Craft Stuff x15",
+    CRAFT_30 = "Craft Stuff x30",
+    BRACELET = "Bracelet",
+    GLIDER = "Glider",
+    RETAINER = "Retainer",
+    ORE = "Magic Ore",
+    BROKEN_SCOOTER = "Broken Scooter Board",
+    SANDWICH = "Cheese Sandwich",
+    POT_Q = "Pot?",
+    SORBET = "Sorbet",
+    CLIPPINGS = "Grass Clippings",
+    WATER = "Water",
+    STARTER_HAT = "Pointy Floppy Thing (Craft)",
+    SLIME_HAT = "Slime Hat (Craft)",
+    BERET_HAT = "Artsy Beret (Craft)",
+    DOME_HAT = "Space Dome (Item)",
+    FANGS_HAT = "Plastic Fangs (Item)",
+    WESTERN_HAT = "Western Wide Brim (Item)",
+    BUCKET = "Bucket (Item)",
+    COWL_HAT = "Detective Cowl (Craft)",
+    SKATER_HAT = "Skater Helmet (Craft)",
+    TIARA_HAT = "Princess Tiara (Craft)",
+    HEADBAND = "Ninja Headband (Craft)",
+    STICK = "Stick (Item)",
+    SWORD = "Sword (Item)",
+    PAINTBRUSH = "Paintbrush (Craft)",
+    SPEAR = "Cardboard Spear (Craft)",
+    GRABBY_HAND = "Grabby Hand (Item)",
+    LASER_SWORD = "Laser Sword (Craft)",
+    BUG_NET = "Bug Net (Item)",
+    NUNCHUCKS = "Nunchaku (Item)",
+    THROWN_PENCIL = "Thrown Pencil",
+    PENCIL = "Oversized Pencil (Craft)",
+    WRENCH = "Wrench (Item)",
+    PALEOLITHIC = "Paleolithic Tool (Item)",
+    WAND = "Princess Wand (Craft)",
+    POT_LID = "Pot Lid (Item)",
+    PALETTE = "Art Palette (Craft)",
+    TUBE = "Inner Tube (Craft)",
+    PLATTER = "Platter (Item)",
+    SKATEBOARD = "Skateboard (Craft)",
+    MARTIN_SHIELD = "Martin (Item)",
+    CHESSBOARD = "Chessboard (Craft)",
+    BIG_LEAF = "Big Leaf (Item)",
+    TRAMPOLINE = "Trampoline (Item)",
+    TOWER_SHIELD = "Tower Shield (Craft)",
+    TRASH_CAN = "Trash Can Lid (Item)",
+    BLUE_SCOOTER = "Blue Scooter Board (Craft)",
+    RAGDOLL = "Ragdoll (Craft)",
+    BALLOON = "Balloon (Item)",
+    ROCK = "Skipping Rock (Item)",
+    BLASTER = "Space Blaster (Item)",
+    SHURIKEN = "Shuriken (Item)",
+    BOMB = "Bowling Bomb (Item)",
+    BUBBLEGUM = "Bubble Gum (Item)",
+    STICKY_HAND = "Sticky Hand (Item)",
+    PAINT_GUN = "Paint Blaster (Item)",
+    CAMERA = "An Actual Digital Camera (Craft)",
+    MEGAPHONE = "Megaphone (Item)",
+    TEXTING = "Texting With Jill (Item)",
 
 class GatorItemData(NamedTuple):
-    long_name: str
-    short_name: str
+    name: GatorItemName
     item_id: int
     classification: ItemClassification
-    base_quantity_in_item_pool: int
+    base_quantity_in_item_pool: int 
     item_groups: List[ItemGroup]
 
-
-class GatorItemTable(Dict[str, GatorItemData]):
-    def short_to_long(self, short_name: str) -> str:
-        for _, data in self.items():
-            if data.short_name == short_name:
-                return data.long_name
-        return None
-
-
-# Cardboard Destroyer Group
-
-
-def load_item_json() -> GatorItemTable:
-    try:
-        from importlib.resources import files
-    except ImportError:
-        from importlib_resources import files  # type: ignore
-
-    items: GatorItemTable = GatorItemTable()
-    with files(data).joinpath("items.json").open() as file:
-        item_reader = json.load(file)
-        gator_items = item_reader[0]
-        for _, item in gator_items.items():
-            id = int(item["item_id"]) if item["item_id"] else None
-            classification = ItemClassification[item["classification"]]
-            quantity = (
-                int(item["base_quantity_in_item_pool"])
-                if item["base_quantity_in_item_pool"]
-                else 0
-            )
-            groups = [
-                ItemGroup[group] for group in item["item_groups"].split(",") if group
-            ]
-            items[item["long_name"]] = GatorItemData(
-                item["long_name"],
-                item["short_name"],
-                id,
-                classification,
-                quantity,
-                groups,
-            )
-    return items
-
-
-item_table: GatorItemTable = load_item_json()
+item_table: List[GatorItemData] = [
+    GatorItemData(
+        GatorItemName.FRIEND_1,
+        100000001,
+        ItemClassification.progression_skip_balancing,
+        47,
+        [ItemGroup.Friends]
+    ),
+    GatorItemData(
+        GatorItemName.FRIEND_2,
+        100000002,
+        ItemClassification.progression_skip_balancing,
+        3,
+        [ItemGroup.Friends]
+    ),
+    GatorItemData(
+        GatorItemName.FRIEND_3,
+        100000003,
+        ItemClassification.progression_skip_balancing,
+        1,
+        [ItemGroup.Friends]
+    ),
+    GatorItemData(
+        GatorItemName.FRIEND_4,
+        100000004,
+        ItemClassification.progression_skip_balancing,
+        1,
+        [ItemGroup.Friends]
+    ),
+    GatorItemData(
+        GatorItemName.CRAFT_15,
+        100000005,
+        ItemClassification.filler,
+        0,
+        [ItemGroup.Crafting_Materials]
+    ),
+    GatorItemData(
+        GatorItemName.CRAFT_30,
+        100000006,
+        ItemClassification.filler,
+        0,
+        [ItemGroup.Crafting_Materials]
+    ),
+    GatorItemData(
+        GatorItemName.BRACELET,
+        100000007,
+        ItemClassification.progression,
+        4,
+        [ItemGroup.Traversal]
+    ),
+    GatorItemData(
+        GatorItemName.GLIDER,
+        100000008,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Traversal]
+    ),
+    GatorItemData(
+        GatorItemName.RETAINER,
+        100000009,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.ORE,
+        100000010,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.BROKEN_SCOOTER,
+        100000011,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.SANDWICH,
+        100000012,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.POT_Q,
+        100000013,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.SORBET,
+        100000014,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.CLIPPINGS,
+        100000015,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.WATER,
+        100000016,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.STARTER_HAT,
+        100000017,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.SLIME_HAT,
+        100000018,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.BERET_HAT,
+        100000019,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.DOME_HAT,
+        100000020,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.FANGS_HAT,
+        100000021,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.WESTERN_HAT,
+        100000022,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.BUCKET,
+        100000023,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Hat,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.COWL_HAT,
+        100000024,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.SKATER_HAT,
+        100000025,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.TIARA_HAT,
+        100000026,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.HEADBAND,
+        100000027,
+        ItemClassification.useful,
+        1,
+        [ItemGroup.Traversal,ItemGroup.Hat,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.STICK,
+        100000028,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Itep.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.SWORD,
+        100000029,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.PAINTBRUSH,
+        100000030,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Craft,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.SPEAR,
+        100000031,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Craft,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.GRABBY_HAND,
+        100000032,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.LASER_SWORD,
+        100000033,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Craft,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.BUG_NET,
+        100000034,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.NUNCHUCKS,
+        100000035,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.THROWN_PENCIL,
+        100000036,
+        ItemClassification.progression,
+        3,
+        [ItemGroup.Quest_Item]
+    ),
+    GatorItemData(
+        GatorItemName.PENCIL,
+        100000037,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Craft,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.WRENCH,
+        100000038,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.PALEOLITHIC,
+        100000039,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.WAND,
+        100000040,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Craft,ItemGroup.Sword]
+    ),
+    GatorItemData(
+        GatorItemName.POT_LID,
+        100000041,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Item,ItemGroup.Cardboard_Destroyer]
+    ),
+    GatorItemData(
+        GatorItemName.PALETTE,
+        100000042,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.TUBE,
+        100000043,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.PLATTER,
+        100000044,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Item,ItemGroup.Cardboard_Destroyer]
+    ),
+    GatorItemData(
+        GatorItemName.SKATEBOARD,
+        100000045,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.MARTIN_SHIELD,
+        100000046,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Item,ItemGroup.Cardboard_Destroyer]
+    ),
+    GatorItemData(
+        GatorItemName.CHESSBOARD,
+        100000047,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.BIG_LEAF,
+        100000048,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Item,ItemGroup.Cardboard_Destroyer]
+    ),
+    GatorItemData(
+        GatorItemName.TRAMPOLINE,
+        100000049,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Traversal,ItemGroup.Item,ItemGroup.Cardboard_Destroyer]
+    ),
+    GatorItemData(
+        GatorItemName.TOWER_SHIELD,
+        100000050,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.TRASH_CAN,
+        100000051,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Item,ItemGroup.Cardboard_Destroyer]
+    ),
+    GatorItemData(
+        GatorItemName.BLUE_SCOOTER,
+        100000052,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Shield,ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.RAGDOLL,
+        100000053,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.BALLOON,
+        100000054,
+        ItemClassification.useful,
+        1,
+        [ItemGroup.Traversal,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.ROCK,
+        100000055,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Ranged,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.BLASTER,
+        100000056,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Ranged,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.SHURIKEN,
+        100000057,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Ranged,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.BOMB,
+        100000058,
+        ItemClassification.useful,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.BUBBLEGUM,
+        100000059,
+        ItemClassification.useful,
+        1,
+        [ItemGroup.Traversal,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.STICKY_HAND,
+        100000060,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.PAINT_GUN,
+        100000061,
+        ItemClassification.progression,
+        1,
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Ranged,ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.CAMERA,
+        100000062,
+        ItemClassification.filler,
+        1,
+        [ItemGroup.Craft]
+    ),
+    GatorItemData(
+        GatorItemName.MEGAPHONE,
+        100000063,
+        ItemClassification.useful,
+        0,
+        [ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.TEXTING,
+        100000064,
+        ItemClassification.useful,
+        0,
+        [ItemGroup.Item]
+    ),
+]
 
 item_name_to_id: Dict[str, int] = {
-    name: data.item_id for name, data in item_table.items()
+    data.name: data.item_id for data in item_table
 }
 
 filler_items: List[str] = [
-    name
-    for name, data in item_table.items()
+    data.name
+    for data in item_table
     if data.classification == ItemClassification.filler
 ]
 
@@ -90,12 +559,14 @@ filler_items: List[str] = [
 # from that group has been collected. Group names can also be used for !hint
 def items_for_group(group: ItemGroup) -> List[str]:
     item_names = []
-    for name, data in item_table.items():
+    for data in item_table:
         if group in data.item_groups:
-            item_names.append(name)
+            item_names.append(data.name)
     return item_names
 
 
 item_name_groups: Dict[str, Set[str]] = {}
 for group in ItemGroup:
     item_name_groups[group.name] = items_for_group(group)
+
+
