@@ -1,11 +1,7 @@
 from enum import Enum, auto
 
-import json
 from typing import NamedTuple, Dict, List, Set
 from BaseClasses import ItemClassification
-
-from . import data
-
 
 class ItemGroup(str, Enum):
     Friends = auto()
@@ -57,7 +53,7 @@ class GatorItemName(str, Enum):
     BUG_NET = "Bug Net (Item)",
     NUNCHUCKS = "Nunchaku (Item)",
     THROWN_PENCIL = "Thrown Pencil",
-    PENCIL = "Oversized Pencil (Craft)",
+    PENCIL_SWORD = "Oversized Pencil (Craft)",
     WRENCH = "Wrench (Item)",
     PALEOLITHIC = "Paleolithic Tool (Item)",
     WAND = "Princess Wand (Craft)",
@@ -288,7 +284,7 @@ item_table: List[GatorItemData] = [
         100000028,
         ItemClassification.progression,
         1,
-        [ItemGroup.Cardboard_Destroyer,ItemGroup.Itep.Sword]
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item, ItemGroup.Sword]
     ),
     GatorItemData(
         GatorItemName.SWORD,
@@ -347,7 +343,7 @@ item_table: List[GatorItemData] = [
         [ItemGroup.Quest_Item]
     ),
     GatorItemData(
-        GatorItemName.PENCIL,
+        GatorItemName.PENCIL_SWORD,
         100000037,
         ItemClassification.progression,
         1,

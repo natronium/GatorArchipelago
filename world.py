@@ -2,12 +2,13 @@ from typing import Dict, Any, List
 
 from rule_builder import RuleWorldMixin
 from .options import GatorOptions, gator_options_presets, gator_option_groups
-from .items import item_name_to_id, item_table, item_name_groups
+from .items import item_name_to_id, item_table, item_name_groups, GatorItemName as I
 from .locations import location_name_to_id, location_table, location_name_groups
-from .regions import GatorRegionName, gator_entrances
-from .rules import set_location_rules, set_region_rules
+from .regions import GatorRegionName as R
+from .entrances import gator_entrances
+from .rules import set_location_rules
 from worlds.AutoWorld import World, WebWorld
-from BaseClasses import Region, Location, Entrance, Item, ItemClassification, Tutorial
+from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 
 
 class GatorItem(Item):
@@ -53,7 +54,7 @@ class GatorWorld(RuleWorldMixin, World):
     ### Consider: having events for each playground construction
 
     def create_regions(self) -> None:
-        for gator_region in GatorRegionName:
+        for gator_region in R:
             region = Region(gator_region.value, self.player, self.multiworld)
             self.multiworld.regions.append(region)
 
@@ -62,14 +63,14 @@ class GatorWorld(RuleWorldMixin, World):
             end_region = self.multiworld.get_region(gator_entrance.ending_region.value, self.player)
             self.create_entrance(start_region, end_region, gator_entrance.rule)
 
-        for location_name, location_id in self.location_name_to_id.items():
+        for location_data in location_table:
             region = self.multiworld.get_region(
-                location_table[location_name].region, self.player
+                location_data.region.value, self.player
             )
-            location = GatorLocation(self.player, location_name, location_id, region)
+            location = GatorLocation(self.player, location_data.name.value, location_data.location_id, region)
             region.locations.append(location)
 
-        victory_region = self.multiworld.get_region("Playground", self.player)
+        victory_region = self.multiworld.get_region(R.PLAYGROUND.value, self.player)
         victory_location = GatorLocation(
             self.player, "Complete The Playground", None, victory_region
         )
@@ -87,7 +88,7 @@ class GatorWorld(RuleWorldMixin, World):
         victory_region.locations.append(victory_location)
 
     def create_item(self, name: str) -> GatorItem:
-        item_data = item_table[name]
+        item_data = next(data for data in item_table if data.name.value == name)
         return GatorItem(
             name, item_data.classification, self.item_name_to_id[name], self.player
         )
@@ -95,16 +96,16 @@ class GatorWorld(RuleWorldMixin, World):
     def create_items(self) -> None:
         gator_items: List[GatorItem] = []
         items_to_create: Dict[str, int] = {
-            item: data.base_quantity_in_item_pool for item, data in item_table.items()
+            data.name.value: data.base_quantity_in_item_pool for data in item_table
         }
 
         # If start with checkfinders on, add them into the start inventory, otherwise add them to the itempool
         if self.options.start_with_checkfinders:
-            self.multiworld.push_precollected(self.create_item(item_table.short_to_long("megaphone")))
-            self.multiworld.push_precollected(self.create_item(item_table.short_to_long("texting")))
+            self.multiworld.push_precollected(self.create_item(I.MEGAPHONE.value))
+            self.multiworld.push_precollected(self.create_item(I.TEXTING.value))
         else:
-            items_to_create[item_table.short_to_long("megaphone")] = 1
-            items_to_create[item_table.short_to_long("texting")] = 1
+            items_to_create[I.MEGAPHONE.value] = 1
+            items_to_create[I.TEXTING.value] = 1
 
         for item, quantity in items_to_create.items():
             for i in range(0, quantity):
@@ -121,7 +122,6 @@ class GatorWorld(RuleWorldMixin, World):
         self.multiworld.itempool += gator_items
 
     def set_rules(self) -> None:
-        set_region_rules(self)
         set_location_rules(self)
 
         self.multiworld.completion_condition[self.player] = lambda state: state.has(
@@ -139,4 +139,4 @@ class GatorWorld(RuleWorldMixin, World):
         )
 
     def get_filler_item_name(self) -> str:
-        return self.random.choice(["Craft Stuff x15", "Craft Stuff x30"])
+        return self.random.choice([I.CRAFT_15.value, I.CRAFT_30.value])

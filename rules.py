@@ -1,462 +1,303 @@
-from typing import TYPE_CHECKING, List
-from functools import partial
+from typing import TYPE_CHECKING, List, Any
+from typing_extensions import override
+# from functools import partial
+import dataclasses
 
-from worlds.generic.Rules import CollectionRule, set_rule
+# from worlds.generic.Rules import CollectionRule, set_rule
 from BaseClasses import CollectionState
-from .options import GatorOptions
-from .items import item_name_groups, item_table
+from .options import RequireShieldJump, StartWithFreeplay, HarderRangedQuests
+from .items import item_name_groups, ItemGroup as IG, GatorItemName as I
 from .locations import location_table, GatorLocationName
-from rule_builder import Has, HasAny, Rule
+from rule_builder import Rule, True_, OptionFilter
+import rule_builder as RB
+from collections.abc import Iterable
 
 if TYPE_CHECKING:
     from . import GatorWorld
 
+@dataclasses.dataclass()
+class HasEnoughFriends(Rule["GatorWorld"], game="Lil Gator Game"):
+    def _instantiate(self, world: "GatorWorld") -> "Resolved":
+        return self.Resolved(player=world.player)
+    
+    class Resolved(Rule.Resolved):
+        def _evaluate(self, state: "CollectionState") -> bool:
+            friend_count = (
+                state.count("Friend", self.player)
+                + state.count("Friend x2", self.player) * 2
+                + state.count("Friend x3", self.player) * 3
+                + state.count("Friend x4", self.player) * 4
+            )
+            return friend_count >= 35
+        
+        def item_dependencies(self) -> dict[str, set[int]]:
+            return {I.FRIEND_1: {id(self)}, I.FRIEND_2: {id(self)}, I.FRIEND_3: {id(self)}, I.FRIEND_4: {id(self)}}
 
-def remove_prefix(text: str, prefix: str) -> str:
-    if text.startswith(prefix):
-        return text[len(prefix) :]
-    return text
+@dataclasses.dataclass
+class Has(RB.Has, game="Lil Gator Game"):
 
+    @override
+    def __init__(self, item_name: I, count = 1, options: "Iterable[OptionFilter[Any]]" = ()) -> None:
+        super().__init__(item_name.value, count=count, options=options)
 
-def remove_suffix(text: str, suffix: str) -> str:
-    if text.endswith(suffix):
-        return text[: -len(suffix)]
-    return text
+@dataclasses.dataclass()
+class HasAny(RB.HasAny, game="Lil Gator Game"):
 
+    @override
+    def __init__(self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()) -> None:
+        super().__init__(*tuple(item_name.value for item_name in item_names), options=options)
 
-# fmt: off
-def has_sword(state: CollectionState, player: int, options: GatorOptions) -> bool:
-    return (
-        state.has_any(item_name_groups["Sword"], player) and
-        has_cardboard_destroyer(state, player, options)
-    )
-# fmt: on
+@dataclasses.dataclass()
+class HasAll(RB.HasAll, game="Lil Gator Game"):
 
-# fmt: off
-def has_shield(state: CollectionState, player: int, options: GatorOptions) -> bool:
-    return (
-        state.has_any(item_name_groups["Shield"], player) and
-        has_cardboard_destroyer(state, player, options)
-    )
-# fmt: on
-
-
-def has_cardboard_destroyer(
-    state: CollectionState, player: int, options: GatorOptions
-) -> bool:
-    return state.has_any(item_name_groups["Cardboard_Destroyer"], player)
-
-
-def has_ranged(state: CollectionState, player: int, options: GatorOptions) -> bool:
-    return state.has_any(item_name_groups["Ranged"], player)
-
-
-# def has_headband(state: CollectionState, player: int) -> bool:
-#     return state.has(item_table.get_by_short_name("headband"), player) and has_cardboard_destroyer(state, player)
+    @override
+    def __init__(self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()) -> None:
+        super().__init__(*tuple(item_name.value for item_name in item_names), options=options)
 
 
-def can_shield_jump(state: CollectionState, player: int, options: GatorOptions):
-    return has_shield(state, player, options) and options.require_shield_jump
+has_cardboard_destroyer = HasAny(*item_name_groups[IG.Cardboard_Destroyer.name])
+
+has_sword = has_cardboard_destroyer & HasAny(*item_name_groups[IG.Sword.name])
+has_shield = has_cardboard_destroyer & HasAny(*item_name_groups[IG.Shield.name])
+has_ranged = HasAny(*item_name_groups[IG.Ranged.name])
+
+can_clear_tutorial = True_(options=[OptionFilter(StartWithFreeplay, 1)]) | (HasAll(I.STARTER_HAT, I.POT_Q) & has_cardboard_destroyer)
+can_complete_avery = Has(I.SORBET) & (has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged)
+can_complete_jill = HasAll(I.BUG_NET, I.ORE, I.SANDWICH) & (has_sword | has_ranged) # TODO: Check which items work on Susanne
+can_complete_martin = HasAll(I.WATER, I.CLIPPINGS, I.BUCKET) & has_sword
+can_complete_game = can_clear_tutorial & can_complete_avery & can_complete_jill & can_complete_martin & HasEnoughFriends()
+
+can_shield_jump = True_(options=[OptionFilter(RequireShieldJump, 1)]) & has_shield
 
 
-def has_item(
-    short_name: str,
-    state: CollectionState,
-    player: int,
-    count: int = 1,
-):
-    if item_table.short_to_long(short_name):
-        return state.has(item_table.short_to_long(short_name), player, count)
-    else:
-        print(short_name + " is not a valid item name")
-        return False
-
-
-def can_clear_tutorial(
-    state: CollectionState, player: int, options: GatorOptions
-) -> bool:
-    if options.start_with_freeplay:
-        return True
-    elif (
-        has_item("starter_hat", state, player)
-        and has_item("pot_q", state, player)
-        and has_cardboard_destroyer(state, player, options)
-    ):
-        return True
-    else:
-        return False
-
-
-def have_enough_friends(state: CollectionState, player: int, options: GatorOptions):
-    friend_count = (
-        state.count("Friend", player)
-        + state.count("Friend x2", player) * 2
-        + state.count("Friend x3", player) * 3
-        + state.count("Friend x4", player) * 4
-    )
-    return friend_count >= 35
-
-
-def can_complete_avery(state: CollectionState, player: int, options: GatorOptions):
-    return has_item("sorbet", state, player) and (
-        has_cardboard_destroyer(state, player, options)
-        or (
-            hard_option_enabled(state, player, options)
-            and has_ranged(state, player, options)
-        )
-    )
-
-
-def can_complete_jill(state: CollectionState, player: int, options: GatorOptions):
-    return (
-        has_item("bug_net", state, player)
-        and has_item("ore", state, player)
-        and has_item("sandwich", state, player)
-        and (has_sword(state, player, options) or has_shield(state, player, options))
-        and has_cardboard_destroyer(state, player, options)
-    )
-
-
-def can_complete_martin(state: CollectionState, player: int, options: GatorOptions):
-    return (
-        has_item("water", state, player)
-        and has_item("clippings", state, player)
-        and has_item("bucket", state, player)
-        and has_sword(state, player, options)
-    )
-
-
-def hard_option_enabled(
-    state: CollectionState, player: int, options: GatorOptions
-) -> bool:
-    return options.harder_ranged_quests
-
-
-def special_rules_dict():
-    return {
-        "$can_clear_tutorial": partial(can_clear_tutorial),
-        "$sword": partial(has_sword),
-        "$shield": partial(has_shield),
-        "$ranged": partial(has_ranged),
-        "$cardboard_destroyer": partial(has_cardboard_destroyer),
-        "$hard": partial(hard_option_enabled),
-        "$shield_jump": partial(can_shield_jump),
-        "$has_at_least_n_bracelet": partial(has_item, "bracelet"),
-        "$has_at_least_n_pencil": partial(has_item, "thrown_pencil"),
-    }
-
-
-def process_access_rules(
-    state: CollectionState, player: int, options: GatorOptions, access_rules: List[str]
-) -> bool:
-    collection_rule = False
-    special_rules = special_rules_dict()
-    for access_rule in access_rules:
-        this_rule = True
-        for rule_component in access_rule.split(","):
-            rule_component = remove_prefix(rule_component, " ")
-            if rule_component in special_rules:
-                this_rule = this_rule and special_rules[rule_component](
-                    state, player, options
-                )
-            elif rule_component.split("|")[-1].isnumeric():
-                this_rule = this_rule and special_rules[
-                    remove_suffix(rule_component, "|" + rule_component.split("|")[-1])
-                ](
-                    state,
-                    player,
-                    int(rule_component.split("|")[-1]),
-                )
-            else:
-                this_rule = this_rule and has_item(
-                    rule_component,
-                    state,
-                    player,
-                )
-        collection_rule = collection_rule or this_rule
-    return collection_rule
-
-
-def set_region_rules(world: "GatorWorld") -> None:
-    multiworld = world.multiworld
-    player = world.player
-    options = world.options
-
-    ## Need to rework entrances once the names are set rather than generated
-
-    # Current Victory Condition
-    multiworld.get_entrance("Tutorial Island -> Playground", player).access_rule = (
-        lambda state: can_clear_tutorial(state, player, options)
-        and have_enough_friends(state, player, options)
-        and can_complete_avery(state, player, options)
-        and can_complete_jill(state, player, options)
-        and can_complete_martin(state, player, options)
-    )
-
-    multiworld.get_entrance("Tutorial Island -> Big Island", player).access_rule = (
-        lambda state: can_clear_tutorial(state, player, options)
-    )
-    multiworld.get_entrance(
-        "Tutorial Island -> Tutorial Island Breakables", player
-    ).access_rule = lambda state: has_cardboard_destroyer(state, player, options)
-    multiworld.get_entrance(
-        "Tutorial Island -> Pots Shootable from Tutorial Island", player
-    ).access_rule = lambda state: has_ranged(state, player, options)
-    multiworld.get_entrance(
-        "Big Island -> Big Island Breakables", player
-    ).access_rule = lambda state: has_cardboard_destroyer(state, player, options)
-    multiworld.get_entrance(
-        "Big Island -> Big Island Bracelet Shops", player
-    ).access_rule = (
-        lambda state: has_cardboard_destroyer(state, player, options)
-        and has_item("bracelet", state, player)
-    )
-    multiworld.get_entrance("Big Island -> Junk 4 Trash", player).access_rule = (
-        lambda state: has_cardboard_destroyer(state, player, options)
-    )
-    multiworld.get_entrance("Big Island -> Mountain", player).access_rule = (
-        lambda state: has_item("bracelet", state, player)
-        or has_item("glider", state, player)
-    )
-    multiworld.get_entrance("Mountain -> Mountain Breakables", player).access_rule = (
-        lambda state: has_cardboard_destroyer(state, player, options)
-    )
-
+gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
+    GatorLocationName.AVERY_Q_ANDROMEDA_ITEM: has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged,
+    GatorLocationName.AVERY_Q_ESME_NPC: Has(I.SORBET),
+    GatorLocationName.AVERY_Q_NERF_BLASTER: has_cardboard_destroyer,
+    GatorLocationName.AVERY_Q_NPCS: can_complete_avery,
+    GatorLocationName.AVERY_Q_PLASTIC_FANGS: Has(I.SORBET),
+    GatorLocationName.AVERY_Q_SORBET: None,
+    GatorLocationName.AVERY_Q_VELMA_ITEM: None,
+    GatorLocationName.BCH_CADE_NPCS: None,
+    GatorLocationName.BCH_CHEST_H9: None,
+    GatorLocationName.BCH_JOE_NPC: None,
+    GatorLocationName.BCH_MR_DODDLER_ITEM: has_cardboard_destroyer,
+    GatorLocationName.BCH_MR_DODDLER_NPC: has_cardboard_destroyer,
+    GatorLocationName.BCH_POT_H8: None,
+    GatorLocationName.BCH_POT_I6: None,
+    GatorLocationName.BCH_POT_I9_E: None,
+    GatorLocationName.BCH_POT_I9_W: None,
+    GatorLocationName.BCH_POT_J6: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.BCH_SAM_ITEM: Has(I.THROWN_PENCIL, count=3),
+    GatorLocationName.BCH_SAM_NPC: Has(I.THROWN_PENCIL, count=3),
+    GatorLocationName.BCH_SKATE_PUG_ITEM: has_cardboard_destroyer,
+    GatorLocationName.BCH_SKATE_PUG_NPCS: has_cardboard_destroyer,
+    GatorLocationName.BCH_THROWN_PENCIL_1: None,
+    GatorLocationName.BCH_THROWN_PENCIL_2: Has(I.THROWN_PENCIL, count=1),
+    GatorLocationName.BCH_THROWN_PENCIL_3: Has(I.THROWN_PENCIL, count=2),
+    GatorLocationName.BCH_TONY_ITEM: has_cardboard_destroyer,
+    GatorLocationName.BCH_TONY_NPC: has_cardboard_destroyer,
+    GatorLocationName.BCH_VIRAJ_NPC: has_cardboard_destroyer,
+    GatorLocationName.BI_BILLY_ITEM: None,
+    GatorLocationName.BI_BILLY_NPC: None,
+    GatorLocationName.BI_BRACELET_MONKEY_ALL_BRACELETS_NPC: None,
+    GatorLocationName.BI_ROCK: None,
+    GatorLocationName.BI_ZHU_NPC: Has(I.ROCK),
+    GatorLocationName.CAN_BROKEN_SCOOTER_BOARD: None,
+    GatorLocationName.CAN_CHEST_D8: has_ranged | Has(I.BRACELET),
+    GatorLocationName.CAN_DARCIE_ITEM: has_ranged,
+    GatorLocationName.CAN_DARCIE_NPC: has_ranged,
+    GatorLocationName.CAN_KASEN_ITEM: Has(I.BROKEN_SCOOTER),
+    GatorLocationName.CAN_KASEN_NPC: Has(I.BROKEN_SCOOTER),
+    GatorLocationName.CAN_MOCHI_NPC: None,
+    GatorLocationName.CAN_POT_A8_N: None,
+    GatorLocationName.CAN_POT_A8_W: None,
+    GatorLocationName.CAN_POT_B8: has_ranged | Has(I.BRACELET, 2),
+    GatorLocationName.CAN_POT_C7: None,
+    GatorLocationName.CAN_POT_C8_MOCHI: None,
+    GatorLocationName.CAN_POT_C8_OUTCROP: None,
+    GatorLocationName.CAN_POT_C9_LOWER: None,
+    GatorLocationName.CAN_POT_C9_UPPER: None,
+    GatorLocationName.CAN_POT_D6: None,
+    GatorLocationName.CAN_POT_D7_N: has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump,
+    GatorLocationName.CAN_POT_D7_S: has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump,
+    GatorLocationName.CAN_POT_D8: has_ranged | Has(I.BRACELET),
+    GatorLocationName.CAN_RACE_B6: has_shield,
+    GatorLocationName.CAN_RACE_C7: has_shield,
+    GatorLocationName.CAN_SSUMANTHA_ITEM: has_shield,
+    GatorLocationName.CAN_SSUMANTHA_NPC: has_shield,
+    GatorLocationName.CRL_BECCA_NPC: Has(I.RETAINER),
+    GatorLocationName.CRL_BRACELET_MONKEY_WINDMILL: None,
+    GatorLocationName.CRL_CHEST_G6: None,
+    GatorLocationName.CRL_CHEST_G8: None,
+    GatorLocationName.CRL_CHEST_H5: has_ranged | Has(I.BRACELET),
+    GatorLocationName.CRL_MADELINE_NPC: None,
+    GatorLocationName.CRL_POT_D8: None,
+    GatorLocationName.CRL_POT_E7_NE: None,
+    GatorLocationName.CRL_POT_E7_NW: None,
+    GatorLocationName.CRL_POT_E7_SE: None,
+    GatorLocationName.CRL_POT_E7_SW: None,
+    GatorLocationName.CRL_POT_F7: None,
+    GatorLocationName.CRL_POT_F9: has_ranged | Has(I.BRACELET),
+    GatorLocationName.CRL_POT_G5: None,
+    GatorLocationName.CRL_POT_H5_N: has_ranged | Has(I.BRACELET),
+    GatorLocationName.CRL_POT_H5_S: has_ranged | Has(I.BRACELET),
+    GatorLocationName.CRL_RETAINER: None,
+    GatorLocationName.CRL_ROBIN_ITEM: has_cardboard_destroyer,
+    GatorLocationName.CRL_ROBIN_NPC: has_cardboard_destroyer,
+    GatorLocationName.FOR_BRACELET_MONKEY_TREE: None,
+    GatorLocationName.FOR_CHEST_H4: has_ranged | Has(I.BRACELET),
+    GatorLocationName.FOR_EVA_ITEM: Has(I.BRACELET),
+    GatorLocationName.FOR_EVA_NPC: Has(I.BRACELET),
+    GatorLocationName.FOR_GUNTHER_NPC: None,
+    GatorLocationName.FOR_NINJA_CLAN_ITEM: (has_cardboard_destroyer & Has(I.BRACELET)) | has_ranged,
+    GatorLocationName.FOR_NINJA_CLAN_NPCS: (has_cardboard_destroyer & Has(I.BRACELET)) | has_ranged,
+    GatorLocationName.FOR_PENELOPE_ITEM: has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged,
+    GatorLocationName.FOR_PENELOPE_NPC: has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged,
+    GatorLocationName.FOR_PEPPERONI_ITEM: has_cardboard_destroyer & Has(I.BRACELET),
+    GatorLocationName.FOR_PEPPERONI_NPCS: has_cardboard_destroyer & Has(I.BRACELET),
+    GatorLocationName.FOR_POT_E1_LOWER_E: None,
+    GatorLocationName.FOR_POT_E1_UPPER_E: None,
+    GatorLocationName.FOR_POT_E1_UPPER_W: None,
+    GatorLocationName.FOR_POT_F3: None,
+    GatorLocationName.FOR_POT_G3_CLIFF: None,
+    GatorLocationName.FOR_POT_G3_POND: None,
+    GatorLocationName.FOR_POT_G4_DEAD_POND: None,
+    GatorLocationName.FOR_POT_G4_E_E: has_ranged | Has(I.BRACELET),
+    GatorLocationName.FOR_POT_G4_E_W: has_ranged | Has(I.BRACELET),
+    GatorLocationName.FOR_POT_G4_S: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.FOR_POT_H2: None,
+    GatorLocationName.FOR_POT_H4_E: has_ranged | Has(I.BRACELET),
+    GatorLocationName.FOR_POT_H4_N: has_ranged | Has(I.BRACELET),
+    GatorLocationName.FOR_POT_H4_S: has_ranged | Has(I.BRACELET),
+    GatorLocationName.FOR_POT_J0: None,
+    GatorLocationName.FOR_POT_J1_SE: None,
+    GatorLocationName.FOR_POT_J1_SW: None,
+    GatorLocationName.FOR_POT_J3_E: None,
+    GatorLocationName.FOR_POT_J3_W: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.FOR_POT_KID_NPC: has_cardboard_destroyer,
+    GatorLocationName.FOR_RACE_F4: None,
+    GatorLocationName.FOR_RACE_G0: has_shield,
+    GatorLocationName.FOR_RACE_H1: None,
+    GatorLocationName.FOR_ROMEO_NUNCHUCKS: (has_cardboard_destroyer & Has(I.BRACELET)) | has_ranged,
+    GatorLocationName.FOR_SIERRA_ITEM: has_cardboard_destroyer,
+    GatorLocationName.FOR_SIERRA_NPC: has_cardboard_destroyer,
+    GatorLocationName.FOR_SORIN_ROE_BEERITNEY_ITEM: None,
+    GatorLocationName.FOR_SORIN_ROE_BEERITNEY_NPCS: None,
+    GatorLocationName.FOR_TIFFANY_ITEM: has_cardboard_destroyer,
+    GatorLocationName.FOR_TIFFANY_NPCS: has_cardboard_destroyer,
+    GatorLocationName.FOR_TRISH_NPC: None,
+    GatorLocationName.J4T_GRABBY_HAND: None,
+    GatorLocationName.J4T_PAINT_GUN: None,
+    GatorLocationName.J4T_ROY_ALL_PURCHASES_NPC: None,
+    GatorLocationName.J4T_STICKY_HAND: None,
+    GatorLocationName.J4T_TRAMPOLINE: None,
+    GatorLocationName.J4T_TRASH_CAN_LID: None,
+    GatorLocationName.J4T_WRENCH: None,
+    GatorLocationName.JET_LEELAND_ITEM: has_cardboard_destroyer,
+    GatorLocationName.JET_LEELAND_NPC: has_cardboard_destroyer,
+    GatorLocationName.JILL_Q_BUG_NET_GIFT: None,
+    GatorLocationName.JILL_Q_CHEESE_SANDWICH: has_cardboard_destroyer,
+    GatorLocationName.JILL_Q_GENE_ITEM: has_cardboard_destroyer & Has(I.SANDWICH),
+    GatorLocationName.JILL_Q_MAGIC_ORE: None,
+    GatorLocationName.JILL_Q_NPCS: can_complete_jill,
+    GatorLocationName.JILL_Q_SUSANNE: Has(I.ORE) & (has_ranged | has_sword),
+    GatorLocationName.MARTIN_Q_BUCKET_GIFT: Has(I.CLIPPINGS) & has_sword,
+    GatorLocationName.MARTIN_Q_DUKE_ITEM: None,
+    GatorLocationName.MARTIN_Q_GRASSING_CLIPPINGS: has_sword,
+    GatorLocationName.MARTIN_Q_JADA_ITEM: can_complete_martin,
+    GatorLocationName.MARTIN_Q_LUCAS_ITEM: None,
+    GatorLocationName.MARTIN_Q_NPCS: can_complete_martin,
+    GatorLocationName.MARTIN_Q_WATER: HasAll(I.CLIPPINGS, I.BUCKET) & has_sword,
+    GatorLocationName.MTN_BOWLING_BOMB_GIFT: None,
+    GatorLocationName.MTN_BRACELET_MONKEY_MOUNTAIN: None,
+    GatorLocationName.MTN_CHEST_B3: None,
+    GatorLocationName.MTN_CHEST_C5: None,
+    GatorLocationName.MTN_FLINT_NPC: has_ranged | Has(I.BOMB),
+    GatorLocationName.MTN_LUISA_ITEM: None,
+    GatorLocationName.MTN_LUISA_NPC: None,
+    GatorLocationName.MTN_NEIL_ITEM: has_cardboard_destroyer,
+    GatorLocationName.MTN_NEIL_NPC: has_cardboard_destroyer,
+    GatorLocationName.MTN_POT_B4_CENTER: has_ranged | Has(I.BRACELET),
+    GatorLocationName.MTN_POT_B4_E: None,
+    GatorLocationName.MTN_POT_B4_NE: has_ranged | Has(I.BRACELET),
+    GatorLocationName.MTN_POT_B4_W: None,
+    GatorLocationName.MTN_POT_B5_ROCK: None,
+    GatorLocationName.MTN_POT_B5_SW: None,
+    GatorLocationName.MTN_POT_B5_TANNER: None,
+    GatorLocationName.MTN_POT_C3_CLIFFFACE: has_ranged | HasAny(I.BRACELET, I.GLIDER),
+    GatorLocationName.MTN_POT_C3_DOWN_FROM_TWIG: None,
+    GatorLocationName.MTN_POT_C3_RAISED: None,
+    GatorLocationName.MTN_POT_C3_SW: None,
+    GatorLocationName.MTN_POT_C4_NE: None,
+    GatorLocationName.MTN_POT_C4_NW_TALL: has_ranged | Has(I.BRACELET),
+    GatorLocationName.MTN_POT_C4_PEAK_E: has_ranged | Has(I.BRACELET),
+    GatorLocationName.MTN_POT_C4_SW: has_ranged | Has(I.BRACELET),
+    GatorLocationName.MTN_POT_C4_W: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.MTN_POT_C4_PEAK_W: has_ranged | Has(I.BRACELET),
+    GatorLocationName.MTN_POT_C5: has_ranged | Has(I.BRACELET, count=2),
+    GatorLocationName.MTN_POT_D3: has_ranged | HasAny(I.BRACELET, I.GLIDER),
+    GatorLocationName.MTN_RACE_C4: Has(I.BRACELET) & has_shield,
+    GatorLocationName.MTN_RACE_D5: Has(I.BRACELET),
+    GatorLocationName.MTN_SCOOTER_NPC: (Has(I.BRACELET) & has_cardboard_destroyer) | has_ranged,
+    GatorLocationName.MTN_TANNER_NPC: has_cardboard_destroyer,
+    GatorLocationName.MTN_TWIG_NPC: has_shield,
+    GatorLocationName.RAV_CHEST_E4: None,
+    GatorLocationName.RAV_ESTHER_NPC: None,
+    GatorLocationName.RAV_POT_E2: None,
+    GatorLocationName.RAV_POT_E3_BEACH: None,
+    GatorLocationName.RAV_POT_E3_RIVER: None,
+    GatorLocationName.RAV_POT_E4: has_ranged | Has(I.BRACELET),
+    GatorLocationName.RAV_POT_F4: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.TI_AVERY: Has(I.STARTER_HAT) & has_cardboard_destroyer,
+    GatorLocationName.TI_AVERY_HAT_RECIPE: None,
+    GatorLocationName.TI_BRACELET_MONKEY_TUTORIAL: has_cardboard_destroyer,
+    GatorLocationName.TI_CHEST_A3: None,
+    GatorLocationName.TI_CHEST_B1_MID_CLIFF: None,
+    GatorLocationName.TI_CHEST_B1_TALLEST: Has(I.BRACELET),
+    GatorLocationName.TI_CHEST_D1: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.TI_FRANNY_ITEM: has_cardboard_destroyer,
+    GatorLocationName.TI_FRANNY_NPC: has_cardboard_destroyer,
+    GatorLocationName.TI_GERALD_ITEM: has_cardboard_destroyer,
+    GatorLocationName.TI_GERALD_NPC: has_cardboard_destroyer,
+    GatorLocationName.TI_MARTIN: Has(I.POT_Q),
+    GatorLocationName.TI_POT_A1: None,
+    GatorLocationName.TI_POT_A3_BELOW_E: None,
+    GatorLocationName.TI_POT_A3_WITHIN_CLIFFS: None,
+    GatorLocationName.TI_POT_B0_BONE_PATH: None,
+    GatorLocationName.TI_POT_B0_SW: None,
+    GatorLocationName.TI_POT_B1_MIDDLE_ROPE: None,
+    GatorLocationName.TI_POT_B1_PEAK_N: has_ranged | Has(I.BRACELET),
+    GatorLocationName.TI_POT_B1_PEAK_S: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.TI_POT_B1_WATERFALL_BELOW: None,
+    GatorLocationName.TI_POT_B1_WATERFALL_NEXT_TO: None,
+    GatorLocationName.TI_POT_B1_WATERFALL_PILLAR: None,
+    GatorLocationName.TI_POT_B1_W_ROPE: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.TI_POT_B2_BELOW_E: None,
+    GatorLocationName.TI_POT_B2_BELOW_MIDDLE: None,
+    GatorLocationName.TI_POT_B2_BELOW_W: None,
+    GatorLocationName.TI_POT_B2_NW: None,
+    GatorLocationName.TI_POT_B2_SIMON_E: None,
+    GatorLocationName.TI_POT_B2_TALL: has_ranged | Has(I.BRACELET),
+    GatorLocationName.TI_POT_C1_HILL: None,
+    GatorLocationName.TI_POT_C1_STICK: None,
+    GatorLocationName.TI_POT_C2: has_ranged | Has(I.BRACELET) | can_shield_jump,
+    GatorLocationName.TI_POT_D0: None,
+    GatorLocationName.TI_POT_D1: None,
+    GatorLocationName.TI_POT_Q: None,
+    GatorLocationName.TI_RACE_C2_CLIFF: has_shield,
+    GatorLocationName.TI_RACE_C2_MARTIN: has_shield,
+    GatorLocationName.TI_SIMON_ITEM: None,
+    GatorLocationName.TI_SIMON_NPC: None,
+    GatorLocationName.TI_STICK: None,
+}
 
 def set_location_rules(world: "GatorWorld") -> None:
     multiworld = world.multiworld
     player = world.player
-    options = world.options
 
-    for location_name, location_data in location_table.items():
-        if location_data.access_rules:
-            multiworld.get_location(location_name, player).access_rule = (
-                lambda state, access_rules=location_data.access_rules: process_access_rules(
-                    state, player, options, access_rules
-                )
-            )
-
-
-
-
-gator_location_rules: dict[GatorLocationName, Rule[GatorWorld]] = {
-    GatorLocationName.AVERY_Q_ANDROMEDA_ITEM: ['$ranged', '$hard,$cardboard_destroyer'],
-    GatorLocationName.AVERY_Q_ESME_NPC: ['sorbet'],
-    GatorLocationName.AVERY_Q_NERF_BLASTER: ['$cardboard_destroyer'],
-    GatorLocationName.AVERY_Q_NPCS: ['sorbet,$ranged', '$hard,sorbet,$cardboard_destroyer'],
-    GatorLocationName.AVERY_Q_PLASTIC_FANGS: ['sorbet'],
-    GatorLocationName.AVERY_Q_SORBET: [],
-    GatorLocationName.AVERY_Q_VELMA_ITEM: [],
-    GatorLocationName.BCH_CADE_NPCS: [],
-    GatorLocationName.BCH_CHEST_H9: [],
-    GatorLocationName.BCH_JOE_NPC: [],
-    GatorLocationName.BCH_MR_DODDLER_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.BCH_MR_DODDLER_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.BCH_POT_H8: [],
-    GatorLocationName.BCH_POT_I6: [],
-    GatorLocationName.BCH_POT_I9_E: [],
-    GatorLocationName.BCH_POT_I9_W: [],
-    GatorLocationName.BCH_POT_J6: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.BCH_SAM_ITEM: ['$has_at_least_n_pencil|3'],
-    GatorLocationName.BCH_SAM_NPC: ['$has_at_least_n_pencil|3'],
-    GatorLocationName.BCH_SKATE_PUG_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.BCH_SKATE_PUG_NPCS: ['$cardboard_destroyer'],
-    GatorLocationName.BCH_THROWN_PENCIL_1: [],
-    GatorLocationName.BCH_THROWN_PENCIL_2: ['$has_at_least_n_pencil|1'],
-    GatorLocationName.BCH_THROWN_PENCIL_3: ['$has_at_least_n_pencil|2'],
-    GatorLocationName.BCH_TONY_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.BCH_TONY_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.BCH_VIRAJ_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.BI_BILLY_ITEM: [],
-    GatorLocationName.BI_BILLY_NPC: [],
-    GatorLocationName.BI_BRACELET_MONKEY_ALL_BRACELETS_NPC: [],
-    GatorLocationName.BI_ROCK: [],
-    GatorLocationName.BI_ZHU_NPC: ['rock'],
-    GatorLocationName.CAN_BROKEN_SCOOTER_BOARD: [],
-    GatorLocationName.CAN_CHEST_D8: ['$ranged', 'bracelet'],
-    GatorLocationName.CAN_DARCIE_ITEM: ['$ranged'],
-    GatorLocationName.CAN_DARCIE_NPC: ['$ranged'],
-    GatorLocationName.CAN_KASEN_ITEM: ['broken_scooter'],
-    GatorLocationName.CAN_KASEN_NPC: ['broken_scooter'],
-    GatorLocationName.CAN_MOCHI_NPC: [],
-    GatorLocationName.CAN_POT_A8_N: [],
-    GatorLocationName.CAN_POT_A8_W: [],
-    GatorLocationName.CAN_POT_B8: ['$ranged', '$has_at_least_n_bracelet|2'],
-    GatorLocationName.CAN_POT_C7: [],
-    GatorLocationName.CAN_POT_C8_MOCHI: [],
-    GatorLocationName.CAN_POT_C8_OUTCROP: [],
-    GatorLocationName.CAN_POT_C9_LOWER: [],
-    GatorLocationName.CAN_POT_C9_UPPER: [],
-    GatorLocationName.CAN_POT_D6: [],
-    GatorLocationName.CAN_POT_D7_N: ['$ranged', 'bracelet', 'glider', '$shield_jump'],
-    GatorLocationName.CAN_POT_D7_S: ['$ranged', 'bracelet', 'glider', '$shield_jump'],
-    GatorLocationName.CAN_POT_D8: ['$ranged', 'bracelet'],
-    GatorLocationName.CAN_RACE_B6: ['$shield'],
-    GatorLocationName.CAN_RACE_C7: ['$shield'],
-    GatorLocationName.CAN_SSUMANTHA_ITEM: ['$shield'],
-    GatorLocationName.CAN_SSUMANTHA_NPC: ['$shield'],
-    GatorLocationName.CRL_BECCA_NPC: ['retainer'],
-    GatorLocationName.CRL_BRACELET_MONKEY_WINDMILL: [],
-    GatorLocationName.CRL_CHEST_G6: [],
-    GatorLocationName.CRL_CHEST_G8: [],
-    GatorLocationName.CRL_CHEST_H5: ['$ranged', 'bracelet'],
-    GatorLocationName.CRL_MADELINE_NPC: [],
-    GatorLocationName.CRL_POT_D8: [],
-    GatorLocationName.CRL_POT_E7_NE: [],
-    GatorLocationName.CRL_POT_E7_NW: [],
-    GatorLocationName.CRL_POT_E7_SE: [],
-    GatorLocationName.CRL_POT_E7_SW: [],
-    GatorLocationName.CRL_POT_F7: [],
-    GatorLocationName.CRL_POT_F9: ['$ranged', 'bracelet'],
-    GatorLocationName.CRL_POT_G5: [],
-    GatorLocationName.CRL_POT_H5_N: ['$ranged', 'bracelet'],
-    GatorLocationName.CRL_POT_H5_S: ['$ranged', 'bracelet'],
-    GatorLocationName.CRL_RETAINER: [],
-    GatorLocationName.CRL_ROBIN_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.CRL_ROBIN_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.FOR_BRACELET_MONKEY_TREE: [],
-    GatorLocationName.FOR_CHEST_H4: ['$ranged', 'bracelet'],
-    GatorLocationName.FOR_EVA_ITEM: ['bracelet'],
-    GatorLocationName.FOR_EVA_NPC: ['bracelet'],
-    GatorLocationName.FOR_GUNTHER_NPC: [],
-    GatorLocationName.FOR_NINJA_CLAN_ITEM: ['$cardboard_destroyer,bracelet', '$ranged'],
-    GatorLocationName.FOR_NINJA_CLAN_NPCS: ['$cardboard_destroyer,bracelet', '$ranged'],
-    GatorLocationName.FOR_PENELOPE_ITEM: ['$ranged', '$hard,$cardboard_destroyer'],
-    GatorLocationName.FOR_PENELOPE_NPC: ['$ranged', '$hard,$cardboard_destroyer'],
-    GatorLocationName.FOR_PEPPERONI_ITEM: ['$cardboard_destroyer,bracelet'],
-    GatorLocationName.FOR_PEPPERONI_NPCS: ['$cardboard_destroyer,bracelet'],
-    GatorLocationName.FOR_POT_E1_LOWER_E: [],
-    GatorLocationName.FOR_POT_E1_UPPER_E: [],
-    GatorLocationName.FOR_POT_E1_UPPER_W: [],
-    GatorLocationName.FOR_POT_F3: [],
-    GatorLocationName.FOR_POT_G3_CLIFF: [],
-    GatorLocationName.FOR_POT_G3_POND: [],
-    GatorLocationName.FOR_POT_G4_DEAD_POND: [],
-    GatorLocationName.FOR_POT_G4_E_E: ['$ranged', 'bracelet'],
-    GatorLocationName.FOR_POT_G4_E_W: ['$ranged', 'bracelet'],
-    GatorLocationName.FOR_POT_G4_S: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.FOR_POT_H2: [],
-    GatorLocationName.FOR_POT_H4_E: ['$ranged', 'bracelet'],
-    GatorLocationName.FOR_POT_H4_N: ['$ranged', 'bracelet'],
-    GatorLocationName.FOR_POT_H4_S: ['$ranged', 'bracelet'],
-    GatorLocationName.FOR_POT_J0: [],
-    GatorLocationName.FOR_POT_J1_SE: [],
-    GatorLocationName.FOR_POT_J1_SW: [],
-    GatorLocationName.FOR_POT_J3_E: [],
-    GatorLocationName.FOR_POT_J3_W: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.FOR_POT_KID_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.FOR_RACE_F4: [],
-    GatorLocationName.FOR_RACE_G0: ['$shield'],
-    GatorLocationName.FOR_RACE_H1: [],
-    GatorLocationName.FOR_ROMEO_NUNCHUCKS: ['$cardboard_destroyer,bracelet', '$ranged'],
-    GatorLocationName.FOR_SIERRA_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.FOR_SIERRA_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.FOR_SORIN_ROE_BEERITNEY_ITEM: [],
-    GatorLocationName.FOR_SORIN_ROE_BEERITNEY_NPCS: [],
-    GatorLocationName.FOR_TIFFANY_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.FOR_TIFFANY_NPCS: ['$cardboard_destroyer'],
-    GatorLocationName.FOR_TRISH_NPC: [],
-    GatorLocationName.J4T_GRABBY_HAND: [],
-    GatorLocationName.J4T_PAINT_GUN: [],
-    GatorLocationName.J4T_ROY_ALL_PURCHASES_NPC: [],
-    GatorLocationName.J4T_STICKY_HAND: [],
-    GatorLocationName.J4T_TRAMPOLINE: [],
-    GatorLocationName.J4T_TRASH_CAN_LID: [],
-    GatorLocationName.J4T_WRENCH: [],
-    GatorLocationName.JET_LEELAND_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.JET_LEELAND_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.JILL_Q_BUG_NET_GIFT: [],
-    GatorLocationName.JILL_Q_CHEESE_SANDWICH: ['$cardboard_destroyer'],
-    GatorLocationName.JILL_Q_GENE_ITEM: ['$cardboard_destroyer,sandwich'],
-    GatorLocationName.JILL_Q_MAGIC_ORE: [],
-    GatorLocationName.JILL_Q_NPCS: ['bug_net,$sword,sandwich,ore', 'bug_net,$ranged,sandwich,ore'],
-    GatorLocationName.JILL_Q_SUSANNE: ['ore,$ranged', 'ore,$sword'],
-    GatorLocationName.MARTIN_Q_BUCKET_GIFT: ['$sword,clippings'],
-    GatorLocationName.MARTIN_Q_DUKE_ITEM: [],
-    GatorLocationName.MARTIN_Q_GRASSING_CLIPPINGS: ['$sword'],
-    GatorLocationName.MARTIN_Q_JADA_ITEM: ['$sword,clippings,bucket,water'],
-    GatorLocationName.MARTIN_Q_LUCAS_ITEM: [],
-    GatorLocationName.MARTIN_Q_NPCS: ['$sword,clippings,bucket,water'],
-    GatorLocationName.MARTIN_Q_WATER: ['$sword,clippings,bucket'],
-    GatorLocationName.MTN_BOWLING_BOMB_GIFT: [],
-    GatorLocationName.MTN_BRACELET_MONKEY_MOUNTAIN: [],
-    GatorLocationName.MTN_CHEST_B3: [],
-    GatorLocationName.MTN_CHEST_C5: [],
-    GatorLocationName.MTN_FLINT_NPC: ['$ranged', 'bomb'],
-    GatorLocationName.MTN_LUISA_ITEM: [],
-    GatorLocationName.MTN_LUISA_NPC: [],
-    GatorLocationName.MTN_NEIL_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.MTN_NEIL_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.MTN_POT_B4_CENTER: ['$ranged', 'bracelet'],
-    GatorLocationName.MTN_POT_B4_E: [],
-    GatorLocationName.MTN_POT_B4_NE: ['$ranged', 'bracelet'],
-    GatorLocationName.MTN_POT_B4_W: [],
-    GatorLocationName.MTN_POT_B5_ROCK: [],
-    GatorLocationName.MTN_POT_B5_SW: [],
-    GatorLocationName.MTN_POT_B5_TANNER: [],
-    GatorLocationName.MTN_POT_C3_CLIFFFACE: ['$ranged', 'bracelet', 'glider'],
-    GatorLocationName.MTN_POT_C3_DOWN_FROM_TWIG: [],
-    GatorLocationName.MTN_POT_C3_RAISED: [],
-    GatorLocationName.MTN_POT_C3_SW: [],
-    GatorLocationName.MTN_POT_C4_NE: [],
-    GatorLocationName.MTN_POT_C4_NW_TALL: ['$ranged', 'bracelet'],
-    GatorLocationName.MTN_POT_C4_PEAK_E: ['$ranged', 'bracelet'],
-    GatorLocationName.MTN_POT_C4_SW: ['$ranged', 'bracelet'],
-    GatorLocationName.MTN_POT_C4_W: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.MTN_POT_C4_W: ['$ranged', 'bracelet'],
-    GatorLocationName.MTN_POT_C5: ['$ranged', '$has_at_least_n_bracelet|2'],
-    GatorLocationName.MTN_POT_D3: ['$ranged', 'bracelet', 'glider'],
-    GatorLocationName.MTN_RACE_C4: ['$shield,bracelet'],
-    GatorLocationName.MTN_RACE_D5: ['bracelet'],
-    GatorLocationName.MTN_SCOOTER_NPC: ['bracelet,$cardboard_destroyer', '$ranged'],
-    GatorLocationName.MTN_TANNER_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.MTN_TWIG_NPC: ['$shield'],
-    GatorLocationName.RAV_CHEST_E4: [],
-    GatorLocationName.RAV_ESTHER_NPC: [],
-    GatorLocationName.RAV_POT_E2: [],
-    GatorLocationName.RAV_POT_E3_BEACH: [],
-    GatorLocationName.RAV_POT_E3_RIVER: [],
-    GatorLocationName.RAV_POT_E4: ['$ranged', 'bracelet'],
-    GatorLocationName.RAV_POT_F4: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.TI_AVERY: ['starter_hat,$cardboard_destroyer'],
-    GatorLocationName.TI_AVERY_HAT_RECIPE: [],
-    GatorLocationName.TI_BRACELET_MONKEY_TUTORIAL: ['$cardboard_destroyer'],
-    GatorLocationName.TI_CHEST_A3: [],
-    GatorLocationName.TI_CHEST_B1_MID_CLIFF: [],
-    GatorLocationName.TI_CHEST_B1_TALLEST: ['bracelet'],
-    GatorLocationName.TI_CHEST_D1: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.TI_FRANNY_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.TI_FRANNY_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.TI_GERALD_ITEM: ['$cardboard_destroyer'],
-    GatorLocationName.TI_GERALD_NPC: ['$cardboard_destroyer'],
-    GatorLocationName.TI_MARTIN: ['pot_q'],
-    GatorLocationName.TI_POT_A1: [],
-    GatorLocationName.TI_POT_A3_BELOW_E: [],
-    GatorLocationName.TI_POT_A3_WITHIN_CLIFFS: [],
-    GatorLocationName.TI_POT_B0_BONE_PATH: [],
-    GatorLocationName.TI_POT_B0_SW: [],
-    GatorLocationName.TI_POT_B1_MIDDLE_ROPE: [],
-    GatorLocationName.TI_POT_B1_PEAK_N: ['$ranged', 'bracelet'],
-    GatorLocationName.TI_POT_B1_PEAK_S: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.TI_POT_B1_WATERFALL_BELOW: [],
-    GatorLocationName.TI_POT_B1_WATERFALL_NEXT_TO: [],
-    GatorLocationName.TI_POT_B1_WATERFALL_PILLAR: [],
-    GatorLocationName.TI_POT_B1_W_ROPE: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.TI_POT_B2_BELOW_E: [],
-    GatorLocationName.TI_POT_B2_BELOW_MIDDLE: [],
-    GatorLocationName.TI_POT_B2_BELOW_W: [],
-    GatorLocationName.TI_POT_B2_NW: [],
-    GatorLocationName.TI_POT_B2_SIMON_E: [],
-    GatorLocationName.TI_POT_B2_TALL: ['$ranged', 'bracelet'],
-    GatorLocationName.TI_POT_C1_HILL: [],
-    GatorLocationName.TI_POT_C1_STICK: [],
-    GatorLocationName.TI_POT_C2: ['$ranged', 'bracelet', '$shield_jump'],
-    GatorLocationName.TI_POT_D0: [],
-    GatorLocationName.TI_POT_D1: [],
-    GatorLocationName.TI_POT_Q: [],
-    GatorLocationName.TI_RACE_C2_CLIFF: ['$shield'],
-    GatorLocationName.TI_RACE_C2_MARTIN: ['$shield'],
-    GatorLocationName.TI_SIMON_ITEM: [],
-    GatorLocationName.TI_SIMON_NPC: [],
-    GatorLocationName.TI_STICK: [],
-}
+    for location_data in location_table:
+        rule = gator_location_rules[location_data.name]
+        if rule is not None:
+            location = multiworld.get_location(location_data.name.value, player)
+            world.set_rule(location, rule)
