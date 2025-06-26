@@ -1,4 +1,4 @@
-from typing import Dict, Any, List
+from typing import ClassVar, Dict, Any, List
 
 from rule_builder import RuleWorldMixin
 from .options import GatorOptions, gator_options_presets, gator_option_groups
@@ -9,6 +9,9 @@ from .entrances import gator_entrances
 from .rules import set_location_rules
 from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
+from .tracker import tracker_world
+
+gator_version = 102
 
 
 class GatorItem(Item):
@@ -50,6 +53,22 @@ class GatorWorld(RuleWorldMixin, World):
     location_name_to_id = location_name_to_id
     item_name_groups = item_name_groups
     location_name_groups = location_name_groups
+
+
+    #  UT Integration
+    tracker_world: ClassVar = tracker_world
+    ut_can_gen_without_yaml = True
+    @staticmethod
+    def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
+
+        # Adapted from ClassicSpeed's SADX implementation of this feature
+        if "ModVersion" in slot_data and slot_data["ModVersion"] != gator_version:
+            current_version = f"v{gator_version // 100}.{(gator_version // 10) % 10}.{gator_version % 10}"
+            slot_version = f"v{slot_data['ModVersion'] // 100}.{(slot_data['ModVersion'] // 10) % 10}.{slot_data['ModVersion'] % 10}"
+
+            raise Exception(
+                f"Lil Gator Game version error: The version of apworld used to generate this world ({slot_version}) does not match the version of your installed apworld ({current_version}).")
+        return slot_data
 
     ### Consider: having events for each playground construction
 
@@ -134,9 +153,11 @@ class GatorWorld(RuleWorldMixin, World):
         # A dictionary returned from this method gets set as the slot_data and will be sent to the client after connecting.
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
-        return self.options.as_dict(
+        slot_data = self.options.as_dict(
             "start_with_freeplay", "require_shield_jump", "harder_ranged_quests"
         )
+        slot_data["ModVersion"] = gator_version
+        return slot_data
 
     def get_filler_item_name(self) -> str:
         return self.random.choice([I.CRAFT_15.value, I.CRAFT_30.value])

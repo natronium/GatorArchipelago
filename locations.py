@@ -1032,7 +1032,7 @@ location_table: List[GatorLocationData] = [
     GatorLocationData(
         GatorLocationName.MTN_POT_C3_SW,
         100000695,
-        GatorRegionName.MOUNTAIN_BREAKABLES,
+        GatorRegionName.POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND,
         LocationGroup.Pot),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_NE,
@@ -1347,17 +1347,17 @@ def locations_for_group(group: LocationGroup) -> List[str]:
     location_names = []
     for data in location_table:
         if data.location_group == group:
-            location_names.append(data.name)
+            location_names.append(data.name.value)
     return location_names
 
 location_name_to_id: Dict[str, int] = {
-    data.name: data.location_id for data in location_table
+    data.name.value: data.location_id for data in location_table
 }
 
 location_name_groups: Dict[str, Set[str]] = {}
 for loc_data in location_table:
-    loc_group_name = loc_data.name.split(" - ", 1)[0]
-    location_name_groups.setdefault(loc_group_name, set()).add(loc_data.name)
+    loc_group_name = loc_data.name.value.split(" - ", 1)[0]
+    location_name_groups.setdefault(loc_group_name, set()).add(loc_data.name.value)
 
 for group in LocationGroup:
     location_name_groups[group.name] = locations_for_group(group)

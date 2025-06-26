@@ -55,15 +55,15 @@ class HasAll(RB.HasAll, game="Lil Gator Game"):
         super().__init__(*tuple(item_name.value for item_name in item_names), options=options)
 
 
-has_cardboard_destroyer = HasAny(*item_name_groups[IG.Cardboard_Destroyer.name])
+has_cardboard_destroyer = RB.HasAny(*item_name_groups[IG.Cardboard_Destroyer.name])
 
-has_sword = has_cardboard_destroyer & HasAny(*item_name_groups[IG.Sword.name])
-has_shield = has_cardboard_destroyer & HasAny(*item_name_groups[IG.Shield.name])
-has_ranged = HasAny(*item_name_groups[IG.Ranged.name])
+has_sword = has_cardboard_destroyer & RB.HasAny(*item_name_groups[IG.Sword.name])
+has_shield = has_cardboard_destroyer & RB.HasAny(*item_name_groups[IG.Shield.name])
+has_ranged = RB.HasAny(*item_name_groups[IG.Ranged.name])
 
 can_clear_tutorial = True_(options=[OptionFilter(StartWithFreeplay, 1)]) | (HasAll(I.STARTER_HAT, I.POT_Q) & has_cardboard_destroyer)
 can_complete_avery = Has(I.SORBET) & (has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged)
-can_complete_jill = HasAll(I.BUG_NET, I.ORE, I.SANDWICH) & (has_sword | has_ranged) # TODO: Check which items work on Susanne
+can_complete_jill = HasAll(I.BUG_NET, I.ORE, I.SANDWICH) & (has_sword | has_ranged)
 can_complete_martin = HasAll(I.WATER, I.CLIPPINGS, I.BUCKET) & has_sword
 can_complete_game = can_clear_tutorial & can_complete_avery & can_complete_jill & can_complete_martin & HasEnoughFriends()
 

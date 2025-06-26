@@ -1,0 +1,3819 @@
+[
+    {
+        "name": "Tutorial Island",
+        "children": [
+            {
+                "name": "Avery!",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 317,
+                        "y": 218
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Avery! Hat Recipe"
+                    },
+                    {
+                        "name": "Tutorial Island - Avery! Quest Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Stick Pickup",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 180,
+                        "y": 455
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Stick Pickup"
+                    }
+                ]
+            },
+            {
+                "name": "Pot? Pickup",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 606,
+                        "y": 564
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot? Pickup"
+                    }
+                ]
+            },
+            {
+                "name": "Martin",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 630,
+                        "y": 423
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Martin Quest Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Simon (Ragdoll Bear)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 250,
+                        "y": 297
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Simon (Ragdoll Bear) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Tutorial Island - Simon (Ragdoll Bear) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Franny (Stick Duck)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 182,
+                        "y": 457
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Franny (Stick Duck) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Tutorial Island - Franny (Stick Duck) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Gerald (Slime Giraffe)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 570,
+                        "y": 174
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Gerald (Slime Giraffe) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Tutorial Island - Gerald (Slime Giraffe) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "??? (Bracelet Monkey) Tutorial Bracelet",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 461,
+                        "y": 310
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - ??? (Bracelet Monkey) Tutorial Bracelet"
+                    },
+                    {
+                        "name": "Big Island - ??? (Bracelet Monkey) All Bracelets NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Tutorial Island Races",
+                "children": [
+                    {
+                        "name": "Race (C2) starting near Martin's lawn chairs",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 607,
+                                "y": 418
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Tutorial Island - Race (C2) starting near Martin's lawn chairs"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Race (C2) starting near grassy cliff",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 526,
+                                "y": 414
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Tutorial Island - Race (C2) starting near grassy cliff"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Pots Shootable from Tutorial Island",
+                "children": [
+                    {
+                        "name": "Pot (C3) on cliff area across from Martin's deck (on raised section)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 767,
+                                "y": 488
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "North (Mountain) - Pot (C3) on cliff area across from Martin's deck (on raised section)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C3) on cliff outcropping northwest and down from Twig",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 734,
+                                "y": 603
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "North (Mountain) - Pot (C3) on cliff outcropping northwest and down from Twig"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C3) on cliff area across from Martin's deck (next to cliffface)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 815,
+                                "y": 513
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "North (Mountain) - Pot (C3) on cliff area across from Martin's deck (next to cliffface)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (D3) on cliff outcropping west and down from Twig",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 758,
+                                "y": 654
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "North (Mountain) - Pot (D3) on cliff outcropping west and down from Twig"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Big Island",
+        "children": [
+            {
+                "name": "Darcie (Balloon Owl)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1515,
+                        "y": 202
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Darcie (Balloon Owl) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Northeast (Canyon) - Darcie (Balloon Owl) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Broken Scooter Board Pickup (Kasen's Quest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1694,
+                        "y": 478
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Broken Scooter Board Pickup (Kasen's Quest)"
+                    }
+                ]
+            },
+            {
+                "name": "Kasen (Scooter Vulture)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1621,
+                        "y": 476
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Kasen (Scooter Vulture) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Northeast (Canyon) - Kasen (Scooter Vulture) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Ssumantha (Waders Opposum)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1863,
+                        "y": 556
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Ssumantha (Waders Opposum) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Northeast (Canyon) - Ssumantha (Waders Opposum) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Mochi (Heights Bear)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1613,
+                        "y": 580
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Mochi (Heights Bear) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Tony (Chess Strategist Eagle)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1274,
+                        "y": 1631
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Tony (Chess Strategist Eagle) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Tony (Chess Strategist Eagle) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Sam (Pencil Jackal)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1645,
+                        "y": 1584
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Thrown Pencil 1 (Sam's Quest)"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Thrown Pencil 2 (Sam's Quest)"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Thrown Pencil 3 (Sam's Quest)"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Sam (Pencil Jackal) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Sam (Pencil Jackal) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Viraj (Hot Shot Elephant)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1896,
+                        "y": 1427
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Viraj (Hot Shot Elephant) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Mr. Doddler (No Littering Sloth)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1501,
+                        "y": 1571
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Mr. Doddler (No Littering Sloth) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Mr. Doddler (No Littering Sloth) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Cade (Floofy Bull) Quest Completion NPCs",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1522,
+                        "y": 1715
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Cade (Floofy Bull) Quest Completion NPCs"
+                    }
+                ]
+            },
+            {
+                "name": "Skate Pug (Skate Pug)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1868,
+                        "y": 1692
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Skate Pug (Skate Pug) Quest Completion NPCs"
+                    },
+                    {
+                        "name": "Southeast (Beach) - Skate Pug (Skate Pug) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Joe (Pose Hawk)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1503,
+                        "y": 1498
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Joe (Pose Hawk) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Madeline (Little Thing Mouse)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1466,
+                        "y": 856
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Madeline (Little Thing Mouse) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Robin (Scared-to-Look Robin)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1361,
+                        "y": 1009
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Robin (Scared-to-Look Robin) Quest Completion NPC"
+                    },
+                    {
+                        "name": "East (Creeklands) - Robin (Scared-to-Look Robin) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Retainer Pickup (Becca's Quest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1810,
+                        "y": 1388
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Retainer Pickup (Becca's Quest)"
+                    }
+                ]
+            },
+            {
+                "name": "Becca (Retainer Shark)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1750,
+                        "y": 1197
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Becca (Retainer Shark) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Lucas (Cool Wolf) Quest Completion Item",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1708,
+                        "y": 1766
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Martin's Main Quest - Lucas (Cool Wolf) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Jada (Cool Boar)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1768,
+                        "y": 908
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Martin's Main Quest - Grassing Clippings Collect (Jada's Quest)"
+                    },
+                    {
+                        "name": "Martin's Main Quest - Bucket Gift (Jada's Quest)"
+                    },
+                    {
+                        "name": "Martin's Main Quest - Water Collect (Jada's Quest)"
+                    },
+                    {
+                        "name": "Martin's Main Quest - Jada (Cool Boar) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Duke (Cool Goose) Quest Completion Item",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1891,
+                        "y": 1273
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Martin's Main Quest - Duke (Cool Goose) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Martin's Main Quest Completion NPCs",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1581,
+                        "y": 1043
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Martin's Main Quest - Martin's Main Quest Completion NPCs"
+                    }
+                ]
+            },
+            {
+                "name": "Leeland (Painting Rabbit)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1297,
+                        "y": 1933
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "South (Jetty) - Leeland (Painting Rabbit) Quest Completion NPC"
+                    },
+                    {
+                        "name": "South (Jetty) - Leeland (Painting Rabbit) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Sierra (Origami Crane)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 243,
+                        "y": 1653
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Sierra (Origami Crane) Quest Completion NPC"
+                    },
+                    {
+                        "name": "West (Forest) - Sierra (Origami Crane) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Ninja Clan",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 249,
+                        "y": 1678
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Romeo (Ninja Anteater) Nunchucks"
+                    },
+                    {
+                        "name": "West (Forest) - Ninja Clan Quest Completion NPCs"
+                    },
+                    {
+                        "name": "West (Forest) - Ninja Clan Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Pepperoni (Obstacle Ostrich)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 823,
+                        "y": 1745
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pepperoni (Obstacle Ostrich) Quest Completion NPCs"
+                    },
+                    {
+                        "name": "West (Forest) - Pepperoni (Obstacle Ostrich) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Sorin, Roe, Beeritney (Lunch Trio)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 157,
+                        "y": 899
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Sorin, Roe, Beeritney (Lunch Trio) Quest Completion NPCs"
+                    },
+                    {
+                        "name": "West (Forest) - Sorin, Roe, Beeritney (Lunch Trio) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Pot Kid (Eepy Armadillo)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 720,
+                        "y": 1588
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot Kid (Eepy Armadillo) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Penelope (Bastion Beaver)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 445,
+                        "y": 1041
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Penelope (Bastion Beaver) Quest Completion NPC"
+                    },
+                    {
+                        "name": "West (Forest) - Penelope (Bastion Beaver) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Eva (Photographer Cat)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 379,
+                        "y": 1305
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Eva (Photographer Cat) Quest Completion NPC"
+                    },
+                    {
+                        "name": "West (Forest) - Eva (Photographer Cat) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Gunther (Sidekick Hippo)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 616,
+                        "y": 1183
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Gunther (Sidekick Hippo) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Trish (Invisible Horse)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 517,
+                        "y": 1591
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Trish (Invisible Horse) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Tiffany (Princess Cat)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 973,
+                        "y": 1418
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Tiffany (Princess Cat) Quest Completion NPCs"
+                    },
+                    {
+                        "name": "West (Forest) - Tiffany (Princess Cat) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Magic Ore Pickup (Susanne's Quest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 121,
+                        "y": 1254
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jill's Main Quest - Magic Ore Pickup (Susanne's Quest)"
+                    }
+                ]
+            },
+            {
+                "name": "Susanne (Paleolithic Gazelle)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 529,
+                        "y": 1394
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jill's Main Quest - Susanne (Paleolithic Gazelle) Quest Completion"
+                    }
+                ]
+            },
+            {
+                "name": "Cheese Sandwich Pickup (Gene's Quest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 347,
+                        "y": 1204
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jill's Main Quest - Cheese Sandwich Pickup (Gene's Quest)"
+                    }
+                ]
+            },
+            {
+                "name": "Gene (Merchant Beaver) Quest Completion Item",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 511,
+                        "y": 1333
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jill's Main Quest - Gene (Merchant Beaver) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Bug Net Gift (Antone's Quest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 514,
+                        "y": 1343
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jill's Main Quest - Bug Net Gift (Antone's Quest)"
+                    }
+                ]
+            },
+            {
+                "name": "Jill's Main Quest Completion NPCs",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 572,
+                        "y": 1354
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jill's Main Quest - Jill's Main Quest Completion NPCs"
+                    }
+                ]
+            },
+            {
+                "name": "Flint (BombBowl Mole)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1019,
+                        "y": 201
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Bowling Bomb Gift (Flint's Quest)"
+                    },
+                    {
+                        "name": "North (Mountain) - Flint (BombBowl Mole) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Esther (Directions Deer)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 683,
+                        "y": 895
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Esther (Directions Deer) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Billy (Whale)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 186,
+                        "y": 1263
+                    },
+                    {
+                        "map": "the_island",
+                        "x": 1838,
+                        "y": 213
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Big Island - Billy (Whale) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Island - Billy (Whale) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Zhu (Skipping Fox)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 350,
+                        "y": 1684
+                    },
+                    {
+                        "map": "the_island",
+                        "x": 1470,
+                        "y": 654
+                    },
+                    {
+                        "map": "the_island",
+                        "x": 895,
+                        "y": 890
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Big Island - Rock (Zhu's Quest)"
+                    },
+                    {
+                        "name": "Big Island - Zhu (Skipping Fox) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Big Island Breakables",
+                "children": [
+                    {
+                        "name": "Pot (D6) on island in middle of pond northeast of playground",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1317,
+                                "y": 759
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (D6) on island in middle of pond northeast of playground"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (F3) on north cliff edge of pond with dead trees",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 816,
+                                "y": 1215
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (F3) on north cliff edge of pond with dead trees"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E7) northwest of Splash Pad below cliff to northeast",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1503,
+                                "y": 902
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad below cliff to northeast"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (I9) on south end of Skate Pug's island (west)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1920,
+                                "y": 1782
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Southeast (Beach) - Pot (I9) on south end of Skate Pug's island (west)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (I9) on south end of Skate Pug's island (east)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1926,
+                                "y": 1777
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Southeast (Beach) - Pot (I9) on south end of Skate Pug's island (east)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H8) on taller section northwest of Skate Pug",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1765,
+                                "y": 1612
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Southeast (Beach) - Pot (H8) on taller section northwest of Skate Pug"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H2) above Trish (Invisible Horse)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 524,
+                                "y": 1597
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (H2) above Trish (Invisible Horse)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (J6) on small tall island east of Leeland's peninsula",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1371,
+                                "y": 1931
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Southeast (Beach) - Pot (J6) on small tall island east of Leeland's peninsula"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (I6) on small island south of Marlow's deck",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1413,
+                                "y": 1833
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Southeast (Beach) - Pot (I6) on small island south of Marlow's deck"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (F7) south of Splash Pad",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1579,
+                                "y": 1209
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (F7) south of Splash Pad"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (G8) on peak south of Splash Pad",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1680,
+                                "y": 1319
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Chest (G8) on peak south of Splash Pad"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (H9) on north end of Skate Pug's island",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1907,
+                                "y": 1560
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Southeast (Beach) - Chest (H9) on north end of Skate Pug's island"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (E4) under overhang near river",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 843,
+                                "y": 827
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Central (Ravine) - Chest (E4) under overhang near river"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (D8) northwest of Jada's pump below taller cliffs",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1734,
+                                "y": 802
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (D8) northwest of Jada's pump below taller cliffs"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G3) on west edge of pond with dead trees",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 802,
+                                "y": 1246
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (G3) on west edge of pond with dead trees"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G4) on south edge of pond with dead trees",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 840,
+                                "y": 1292
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (G4) on south edge of pond with dead trees"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (F9) on peak north of Duke's pump",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1870,
+                                "y": 1141
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (F9) on peak north of Duke's pump"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E7) northwest of Splash Pad on cliff (southwest)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1468,
+                                "y": 924
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad on cliff (southwest)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H5) on pair of peaks northwest of Tony's chessboard (south)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1189,
+                                "y": 1583
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (H5) on pair of peaks northwest of Tony's chessboard (south)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H5) on pair of peaks northwest of Tony's chessboard (north)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1191,
+                                "y": 1526
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (H5) on pair of peaks northwest of Tony's chessboard (north)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (H5) on peak north-northwest of Tony's chessboard",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1187,
+                                "y": 1448
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Chest (H5) on peak north-northwest of Tony's chessboard"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E2) on hill on path east from Penelope's waterfall",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 606,
+                                "y": 1023
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Central (Ravine) - Pot (E2) on hill on path east from Penelope's waterfall"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E3) south of beach where Esther roams",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 650,
+                                "y": 942
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Central (Ravine) - Pot (E3) south of beach where Esther roams"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E3) south of central river east of path south from Esther",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 800,
+                                "y": 984
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Central (Ravine) - Pot (E3) south of central river east of path south from Esther"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C8) at end of Kasen's stone outcropping",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1673,
+                                "y": 467
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (C8) at end of Kasen's stone outcropping"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C7) on cliffside west of and below Mochi",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1591,
+                                "y": 565
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (C7) on cliffside west of and below Mochi"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C8) on cliffside east of and below Mochi",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1646,
+                                "y": 582
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (C8) on cliffside east of and below Mochi"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (D8) on peak northwest of Jada's pump",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1707,
+                                "y": 787
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Chest (D8) on peak northwest of Jada's pump"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (D8) on peak northwest of Jada's pump",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1665,
+                                "y": 731
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (D8) on peak northwest of Jada's pump"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (D7) on peak by ropes north of Splash Pan (north)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1537,
+                                "y": 789
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (D7) on peak by ropes north of Splash Pan (north)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (D7) on peak by ropes north of Splash Pan (south)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1538,
+                                "y": 797
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (D7) on peak by ropes north of Splash Pan (south)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E1) on cliff side west of Penelope's waterfall (west and up the cliff)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 343,
+                                "y": 981
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (E1) on cliff side west of Penelope's waterfall (west and up the cliff)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E1) on cliff side west of Penelope's waterfall (east and down the cliff)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 290,
+                                "y": 973
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (E1) on cliff side west of Penelope's waterfall (east and down the cliff)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E1) on cliff side west of Penelope's waterfall (east and up the cliff)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 347,
+                                "y": 997
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (E1) on cliff side west of Penelope's waterfall (east and up the cliff)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E7) northwest of Splash Pad on cliff (northwest)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1469,
+                                "y": 915
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad on cliff (northwest)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E7) northwest of Splash Pad on cliff (southeast)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1485,
+                                "y": 922
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad on cliff (southeast)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G3) on cliff overlooking pond with dead trees from the west side",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 752,
+                                "y": 1282
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (G3) on cliff overlooking pond with dead trees from the west side"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (A8) on west peak accessible from Billy",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1809,
+                                "y": 169
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (A8) on west peak accessible from Billy"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (A8) on north peak accessible from Billy",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1762,
+                                "y": 179
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (A8) on north peak accessible from Billy"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H4) south of tallest peak north of Pepperoni's obstacle course",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 903,
+                                "y": 1635
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (H4) south of tallest peak north of Pepperoni's obstacle course"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (H4) on tallest peak north of Pepperoni's obstacle course",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 914,
+                                "y": 1558
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Chest (H4) on tallest peak north of Pepperoni's obstacle course"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H4) east of tallest peak north of Pepperoni's obstacle course",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 956,
+                                "y": 1555
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (H4) east of tallest peak north of Pepperoni's obstacle course"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (H4) north of tallest peak north of Pepperoni's obstacle course",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 919,
+                                "y": 1499
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (H4) north of tallest peak north of Pepperoni's obstacle course"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G4) on tall peak east of pond with dead trees (east)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 901,
+                                "y": 1237
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (G4) on tall peak east of pond with dead trees (east)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G4) on tall peak east of pond with dead trees (west)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 893,
+                                "y": 1237
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (G4) on tall peak east of pond with dead trees (west)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G4) south of tall peak east of pond with dead trees",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 883,
+                                "y": 1279
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (G4) south of tall peak east of pond with dead trees"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (J3) on peninsula with stumps southeast of Ninja Clan (west)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 610,
+                                "y": 1959
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (J3) on peninsula with stumps southeast of Ninja Clan (west)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (J3) on peninsula with stumps southeast of Ninja Clan (east)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 639,
+                                "y": 1938
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (J3) on peninsula with stumps southeast of Ninja Clan (east)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (J0) in tidepool in southwest corner of island (northwest)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 201,
+                                "y": 1862
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (J0) in tidepool in southwest corner of island (northwest)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (J1) in tidepool in southwest corner of island (southwest)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 206,
+                                "y": 1881
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (J1) in tidepool in southwest corner of island (southwest)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (J1) in tidepool in southwest corner of island (southeast)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 211,
+                                "y": 1878
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "West (Forest) - Pot (J1) in tidepool in southwest corner of island (southeast)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (G5) west of Junk4Trash in secluded area filled with ninjas and mimics",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1203,
+                                "y": 1292
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Pot (G5) west of Junk4Trash in secluded area filled with ninjas and mimics"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Chest (G6) north of Junk4Trash",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1383,
+                                "y": 1269
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "East (Creeklands) - Chest (G6) north of Junk4Trash"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (B8) on tall rock southwest from Billy's Canyon location",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1691,
+                                "y": 309
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (B8) on tall rock southwest from Billy's Canyon location"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C9) on Ssumantha's island (lower)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1865,
+                                "y": 533
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (C9) on Ssumantha's island (lower)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (C9) on Ssumantha's island (upper)",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 1845,
+                                "y": 560
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Northeast (Canyon) - Pot (C9) on Ssumantha's island (upper)"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (F4) on southern tall peak west of playground",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 875,
+                                "y": 1107
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Central (Ravine) - Pot (F4) on southern tall peak west of playground"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Pot (E4) on northern tall peak west of playground",
+                        "map_locations": [
+                            {
+                                "map": "the_island",
+                                "x": 936,
+                                "y": 986
+                            }
+                        ],
+                        "sections": [
+                            {
+                                "name": "Central (Ravine) - Pot (E4) on northern tall peak west of playground"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Junk 4 Trash",
+                "children": []
+            }
+        ]
+    },
+    {
+        "name": "Big Island Races",
+        "children": [
+            {
+                "name": "Race (G0) starting from island west of Billy's Forest location",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 108,
+                        "y": 1318
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Race (G0) starting from island west of Billy's Forest location"
+                    }
+                ]
+            },
+            {
+                "name": "Race (C4) starting on western peak of the Mountain",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 902,
+                        "y": 590
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Race (C4) starting on western peak of the Mountain"
+                    }
+                ]
+            },
+            {
+                "name": "Race (C7) starting west of Kasen",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1496,
+                        "y": 473
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Race (C7) starting west of Kasen"
+                    }
+                ]
+            },
+            {
+                "name": "Race (B6) starting east of waterfall on north side of Mountain",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1383,
+                        "y": 265
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Race (B6) starting east of waterfall on north side of Mountain"
+                    }
+                ]
+            },
+            {
+                "name": "Race (H1) starting from southwest of The Tree",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 390,
+                        "y": 1530
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Race (H1) starting from southwest of The Tree"
+                    }
+                ]
+            },
+            {
+                "name": "Race (F4) starting from west path exit from playground",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 902,
+                        "y": 1176
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Race (F4) starting from west path exit from playground"
+                    }
+                ]
+            },
+            {
+                "name": "Race (D5) starting north of the playground and heading up the Mountain",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1192,
+                        "y": 779
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Race (D5) starting north of the playground and heading up the Mountain"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Big Island Breakables",
+        "children": [
+            {
+                "name": "Pot (D6) on island in middle of pond northeast of playground",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1317,
+                        "y": 759
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (D6) on island in middle of pond northeast of playground"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (F3) on north cliff edge of pond with dead trees",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 816,
+                        "y": 1215
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (F3) on north cliff edge of pond with dead trees"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E7) northwest of Splash Pad below cliff to northeast",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1503,
+                        "y": 902
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad below cliff to northeast"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (I9) on south end of Skate Pug's island (west)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1920,
+                        "y": 1782
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Pot (I9) on south end of Skate Pug's island (west)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (I9) on south end of Skate Pug's island (east)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1926,
+                        "y": 1777
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Pot (I9) on south end of Skate Pug's island (east)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H8) on taller section northwest of Skate Pug",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1765,
+                        "y": 1612
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Pot (H8) on taller section northwest of Skate Pug"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H2) above Trish (Invisible Horse)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 524,
+                        "y": 1597
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (H2) above Trish (Invisible Horse)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (J6) on small tall island east of Leeland's peninsula",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1371,
+                        "y": 1931
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Pot (J6) on small tall island east of Leeland's peninsula"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (I6) on small island south of Marlow's deck",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1413,
+                        "y": 1833
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Pot (I6) on small island south of Marlow's deck"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (F7) south of Splash Pad",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1579,
+                        "y": 1209
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (F7) south of Splash Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (G8) on peak south of Splash Pad",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1680,
+                        "y": 1319
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Chest (G8) on peak south of Splash Pad"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (H9) on north end of Skate Pug's island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1907,
+                        "y": 1560
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Southeast (Beach) - Chest (H9) on north end of Skate Pug's island"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (E4) under overhang near river",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 843,
+                        "y": 827
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Chest (E4) under overhang near river"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D8) northwest of Jada's pump below taller cliffs",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1734,
+                        "y": 802
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (D8) northwest of Jada's pump below taller cliffs"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G3) on west edge of pond with dead trees",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 802,
+                        "y": 1246
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (G3) on west edge of pond with dead trees"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G4) on south edge of pond with dead trees",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 840,
+                        "y": 1292
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (G4) on south edge of pond with dead trees"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (F9) on peak north of Duke's pump",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1870,
+                        "y": 1141
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (F9) on peak north of Duke's pump"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E7) northwest of Splash Pad on cliff (southwest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1468,
+                        "y": 924
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad on cliff (southwest)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H5) on pair of peaks northwest of Tony's chessboard (south)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1189,
+                        "y": 1583
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (H5) on pair of peaks northwest of Tony's chessboard (south)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H5) on pair of peaks northwest of Tony's chessboard (north)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1191,
+                        "y": 1526
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (H5) on pair of peaks northwest of Tony's chessboard (north)"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (H5) on peak north-northwest of Tony's chessboard",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1187,
+                        "y": 1448
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Chest (H5) on peak north-northwest of Tony's chessboard"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E2) on hill on path east from Penelope's waterfall",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 606,
+                        "y": 1023
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Pot (E2) on hill on path east from Penelope's waterfall"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E3) south of beach where Esther roams",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 650,
+                        "y": 942
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Pot (E3) south of beach where Esther roams"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E3) south of central river east of path south from Esther",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 800,
+                        "y": 984
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Pot (E3) south of central river east of path south from Esther"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C8) at end of Kasen's stone outcropping",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1673,
+                        "y": 467
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (C8) at end of Kasen's stone outcropping"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C7) on cliffside west of and below Mochi",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1591,
+                        "y": 565
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (C7) on cliffside west of and below Mochi"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C8) on cliffside east of and below Mochi",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1646,
+                        "y": 582
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (C8) on cliffside east of and below Mochi"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (D8) on peak northwest of Jada's pump",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1707,
+                        "y": 787
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Chest (D8) on peak northwest of Jada's pump"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D8) on peak northwest of Jada's pump",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1665,
+                        "y": 731
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (D8) on peak northwest of Jada's pump"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D7) on peak by ropes north of Splash Pan (north)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1537,
+                        "y": 789
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (D7) on peak by ropes north of Splash Pan (north)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D7) on peak by ropes north of Splash Pan (south)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1538,
+                        "y": 797
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (D7) on peak by ropes north of Splash Pan (south)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E1) on cliff side west of Penelope's waterfall (west and up the cliff)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 343,
+                        "y": 981
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (E1) on cliff side west of Penelope's waterfall (west and up the cliff)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E1) on cliff side west of Penelope's waterfall (east and down the cliff)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 290,
+                        "y": 973
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (E1) on cliff side west of Penelope's waterfall (east and down the cliff)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E1) on cliff side west of Penelope's waterfall (east and up the cliff)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 347,
+                        "y": 997
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (E1) on cliff side west of Penelope's waterfall (east and up the cliff)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E7) northwest of Splash Pad on cliff (northwest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1469,
+                        "y": 915
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad on cliff (northwest)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E7) northwest of Splash Pad on cliff (southeast)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1485,
+                        "y": 922
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (E7) northwest of Splash Pad on cliff (southeast)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G3) on cliff overlooking pond with dead trees from the west side",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 752,
+                        "y": 1282
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (G3) on cliff overlooking pond with dead trees from the west side"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (A8) on west peak accessible from Billy",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1809,
+                        "y": 169
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (A8) on west peak accessible from Billy"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (A8) on north peak accessible from Billy",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1762,
+                        "y": 179
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (A8) on north peak accessible from Billy"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H4) south of tallest peak north of Pepperoni's obstacle course",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 903,
+                        "y": 1635
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (H4) south of tallest peak north of Pepperoni's obstacle course"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (H4) on tallest peak north of Pepperoni's obstacle course",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 914,
+                        "y": 1558
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Chest (H4) on tallest peak north of Pepperoni's obstacle course"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H4) east of tallest peak north of Pepperoni's obstacle course",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 956,
+                        "y": 1555
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (H4) east of tallest peak north of Pepperoni's obstacle course"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (H4) north of tallest peak north of Pepperoni's obstacle course",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 919,
+                        "y": 1499
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (H4) north of tallest peak north of Pepperoni's obstacle course"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G4) on tall peak east of pond with dead trees (east)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 901,
+                        "y": 1237
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (G4) on tall peak east of pond with dead trees (east)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G4) on tall peak east of pond with dead trees (west)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 893,
+                        "y": 1237
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (G4) on tall peak east of pond with dead trees (west)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G4) south of tall peak east of pond with dead trees",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 883,
+                        "y": 1279
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (G4) south of tall peak east of pond with dead trees"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (J3) on peninsula with stumps southeast of Ninja Clan (west)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 610,
+                        "y": 1959
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (J3) on peninsula with stumps southeast of Ninja Clan (west)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (J3) on peninsula with stumps southeast of Ninja Clan (east)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 639,
+                        "y": 1938
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (J3) on peninsula with stumps southeast of Ninja Clan (east)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (J0) in tidepool in southwest corner of island (northwest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 201,
+                        "y": 1862
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (J0) in tidepool in southwest corner of island (northwest)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (J1) in tidepool in southwest corner of island (southwest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 206,
+                        "y": 1881
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (J1) in tidepool in southwest corner of island (southwest)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (J1) in tidepool in southwest corner of island (southeast)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 211,
+                        "y": 1878
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - Pot (J1) in tidepool in southwest corner of island (southeast)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (G5) west of Junk4Trash in secluded area filled with ninjas and mimics",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1203,
+                        "y": 1292
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Pot (G5) west of Junk4Trash in secluded area filled with ninjas and mimics"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (G6) north of Junk4Trash",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1383,
+                        "y": 1269
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - Chest (G6) north of Junk4Trash"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B8) on tall rock southwest from Billy's Canyon location",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1691,
+                        "y": 309
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (B8) on tall rock southwest from Billy's Canyon location"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C9) on Ssumantha's island (lower)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1865,
+                        "y": 533
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (C9) on Ssumantha's island (lower)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C9) on Ssumantha's island (upper)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1845,
+                        "y": 560
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Northeast (Canyon) - Pot (C9) on Ssumantha's island (upper)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (F4) on southern tall peak west of playground",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 875,
+                        "y": 1107
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Pot (F4) on southern tall peak west of playground"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (E4) on northern tall peak west of playground",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 936,
+                        "y": 986
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Central (Ravine) - Pot (E4) on northern tall peak west of playground"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Mountain",
+        "children": [
+            {
+                "name": "Twig (Flip Pomeranian)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 849,
+                        "y": 714
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Twig (Flip Pomeranian) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Neil (Peptalk Rat)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1273,
+                        "y": 562
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Neil (Peptalk Rat) Quest Completion NPC"
+                    },
+                    {
+                        "name": "North (Mountain) - Neil (Peptalk Rat) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Luisa (Tripping Lizard)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 845,
+                        "y": 468
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Luisa (Tripping Lizard) Quest Completion NPC"
+                    },
+                    {
+                        "name": "North (Mountain) - Luisa (Tripping Lizard) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Andromeda (Space Hawk)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1142,
+                        "y": 712
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Avery!'s Main Quest - Nerf Blaster (Andromeda's Quest)"
+                    },
+                    {
+                        "name": "Avery!'s Main Quest - Andromeda (Space Hawk) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Velma (Western Cow) Quest Completion Item",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 923,
+                        "y": 405
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Avery!'s Main Quest - Velma (Western Cow) Quest Completion Item"
+                    }
+                ]
+            },
+            {
+                "name": "Sorbet (Esme's Quest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1509,
+                        "y": 603
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Avery!'s Main Quest - Sorbet (Esme's Quest)"
+                    }
+                ]
+            },
+            {
+                "name": "Esme (Vampire Bat)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1379,
+                        "y": 551
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Avery!'s Main Quest - Plastic Fangs (Esme's Quest)"
+                    },
+                    {
+                        "name": "Avery!'s Main Quest - Esme (Vampire Bat) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Avery!'s Main Quest",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1166,
+                        "y": 598
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Avery!'s Main Quest - Avery!'s Main Quest Quest Completion NPCs"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Mountain Breakables",
+        "children": [
+            {
+                "name": "Pot (C4) part of Scooter's allergy quest (west)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 975,
+                        "y": 570
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C4) part of Scooter's allergy quest (west)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C4) part of Scooter's allergy quest (peak northwest, east)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 982,
+                        "y": 534
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C4) part of Scooter's allergy quest (peak northwest, east)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C4) part of Scooter's allergy quest (peak northwest, west)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 974,
+                        "y": 537
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C4) part of Scooter's allergy quest (peak northwest, west)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C4) part of Scooter's allergy quest (southwest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 975,
+                        "y": 586
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C4) part of Scooter's allergy quest (southwest)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B4) on cliffside cutout east of raised area in northwest corner of Mountain (east)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 921,
+                        "y": 356
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B4) on cliffside cutout east of raised area in northwest corner of Mountain (east)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B4) on cliffside cutout east of raised area in northwest corner of Mountain (west)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 914,
+                        "y": 358
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B4) on cliffside cutout east of raised area in northwest corner of Mountain (west)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C4) part of Scooter's allergy quest (northeast)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1006,
+                        "y": 553
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C4) part of Scooter's allergy quest (northeast)"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (B3) on northwest cliffside of Mountain",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 805,
+                        "y": 337
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Chest (B3) on northwest cliffside of Mountain"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B4) on raised area in northwest corner of Mountain (northeast)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 846,
+                        "y": 376
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B4) on raised area in northwest corner of Mountain (northeast)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B4) on raised area in northwest corner of Mountain (center)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 822,
+                        "y": 400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B4) on raised area in northwest corner of Mountain (center)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C3) on raised area in northwest corner of Mountain (southwest)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 801,
+                        "y": 442
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C3) on raised area in northwest corner of Mountain (southwest)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C4) on northwest tall peak, north of race",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 879,
+                        "y": 541
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C4) on northwest tall peak, north of race"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (C5) below rope northwest of stage area",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1046,
+                        "y": 485
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Chest (C5) below rope northwest of stage area"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C5) west and up from stage",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1075,
+                        "y": 594
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C5) west and up from stage"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B5) part of Tanner's Pot Mimic quest (up on rock formation)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1176,
+                        "y": 314
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B5) part of Tanner's Pot Mimic quest (up on rock formation)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B5) part of Tanner's Pot Mimic quest (next to Tanner)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1172,
+                        "y": 301
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B5) part of Tanner's Pot Mimic quest (next to Tanner)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B5) part of Tanner's Pot Mimic quest (southwest of Tanner)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1156,
+                        "y": 323
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (B5) part of Tanner's Pot Mimic quest (southwest of Tanner)"
+                    }
+                ]
+            },
+            {
+                "name": "Tanner (Pot Mimic Elk)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1183,
+                        "y": 294
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Tanner (Pot Mimic Elk) Quest Completion NPC"
+                    }
+                ]
+            },
+            {
+                "name": "Scooter (Ceramic-Allergy Cougar)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 995,
+                        "y": 576
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Scooter (Ceramic-Allergy Cougar) Quest Completion NPC"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Junk 4 Trash",
+        "children": []
+    },
+    {
+        "name": "Big Island Bracelet Shops",
+        "children": [
+            {
+                "name": "??? (Bracelet Monkey) Windmill",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1716,
+                        "y": 1076
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "East (Creeklands) - ??? (Bracelet Monkey) Windmill Bracelet"
+                    },
+                    {
+                        "name": "Big Island - ??? (Bracelet Monkey) All Bracelets NPC"
+                    }
+                ]
+            },
+            {
+                "name": "??? (Bracelet Monkey) Tree Bracelet",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 523,
+                        "y": 1348
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "West (Forest) - ??? (Bracelet Monkey) Tree Bracelet"
+                    },
+                    {
+                        "name": "Big Island - ??? (Bracelet Monkey) All Bracelets NPC"
+                    }
+                ]
+            },
+            {
+                "name": "??? (Bracelet Monkey) Mountain Bracelet",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 1088,
+                        "y": 526
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - ??? (Bracelet Monkey) Mountain Bracelet"
+                    },
+                    {
+                        "name": "Big Island - ??? (Bracelet Monkey) All Bracelets NPC"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Tutorial Island Races",
+        "children": [
+            {
+                "name": "Race (C2) starting near Martin's lawn chairs",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 607,
+                        "y": 418
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Race (C2) starting near Martin's lawn chairs"
+                    }
+                ]
+            },
+            {
+                "name": "Race (C2) starting near grassy cliff",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 526,
+                        "y": 414
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Race (C2) starting near grassy cliff"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Tutorial Island Breakables",
+        "children": [
+            {
+                "name": "Pot (B1) between two waterfalls below ???'s Tutorial Island location",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 388,
+                        "y": 359
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) between two waterfalls below ???'s Tutorial Island location"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B1) on pillar by waterfalls",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 404,
+                        "y": 301
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) on pillar by waterfalls"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B2) on green cliff east of Simon's starting location",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 531,
+                        "y": 272
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B2) on green cliff east of Simon's starting location"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B0) at the end of the bone path on the west of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 115,
+                        "y": 395
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B0) at the end of the bone path on the west of Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (D1) on small island south of Jill's picnic table",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 260,
+                        "y": 717
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Chest (D1) on small island south of Jill's picnic table"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (A3) below Gerald to east",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 618,
+                        "y": 177
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Chest (A3) below Gerald to east"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B2) below Gerald to the south near water level (westmost)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 558,
+                        "y": 226
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B2) below Gerald to the south near water level (westmost)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D0) on small peninsula southwest of Jill's picnic table",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 179,
+                        "y": 715
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (D0) on small peninsula southwest of Jill's picnic table"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B2) on green cliff northwest of Martin's lawn chairs",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 550,
+                        "y": 314
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B2) on green cliff northwest of Martin's lawn chairs"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B2) below Gerald to the south near water level (eastmost)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 607,
+                        "y": 216
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B2) below Gerald to the south near water level (eastmost)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B1) between two waterfalls on same level as ???'s Tutorial Island location",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 397,
+                        "y": 350
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) between two waterfalls on same level as ???'s Tutorial Island location"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B2) below Gerald to the south near water level (middle)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 584,
+                        "y": 218
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B2) below Gerald to the south near water level (middle)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D1) on small island with chest south of Jill's picnic table",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 280,
+                        "y": 741
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (D1) on small island with chest south of Jill's picnic table"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B0) southwest of the three ropes in northwest of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 183,
+                        "y": 218
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B0) southwest of the three ropes in northwest of Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B1) near middle rope of the three ropes in northwest of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 243,
+                        "y": 213
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) near middle rope of the three ropes in northwest of Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C1) on rock near Stick pickup location",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 250,
+                        "y": 427
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (C1) on rock near Stick pickup location"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C1) on hill overlooking Jill's picnic table",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 330,
+                        "y": 532
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (C1) on hill overlooking Jill's picnic table"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C2) on cliff overlooking rope crossing the waterfall",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 490,
+                        "y": 429
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (C2) on cliff overlooking rope crossing the waterfall"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (B1) on mid-cliff outcropping visible from bone path on the west of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 176,
+                        "y": 260
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Chest (B1) on mid-cliff outcropping visible from bone path on the west of Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B1) on peak north of tallest peak on Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 218,
+                        "y": 331
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) on peak north of tallest peak on Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B1) west of rope to tallest peaks on Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 243,
+                        "y": 277
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) west of rope to tallest peaks on Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (A3) on green outcropping below and east of cliffs east of three ropes",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 450,
+                        "y": 163
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (A3) on green outcropping below and east of cliffs east of three ropes"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B1) on peak south of the three ropes in northwest of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 279,
+                        "y": 213
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B1) on peak south of the three ropes in northwest of Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (A3) on green outcropping within cliffs east of three ropes",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 412,
+                        "y": 182
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (A3) on green outcropping within cliffs east of three ropes"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (B2) on tall peak west of Gerald",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 465,
+                        "y": 222
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (B2) on tall peak west of Gerald"
+                    }
+                ]
+            },
+            {
+                "name": "Chest (B1) on tallest peak of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 257,
+                        "y": 332
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Chest (B1) on tallest peak of Tutorial Island"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (A1) near highest rope of the three ropes in northwest of Tutorial Island",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 287,
+                        "y": 201
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Tutorial Island - Pot (A1) near highest rope of the three ropes in northwest of Tutorial Island"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Pots Shootable from Tutorial Island",
+        "children": [
+            {
+                "name": "Pot (C3) on cliff area across from Martin's deck (on raised section)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 767,
+                        "y": 488
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C3) on cliff area across from Martin's deck (on raised section)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C3) on cliff outcropping northwest and down from Twig",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 734,
+                        "y": 603
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C3) on cliff outcropping northwest and down from Twig"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (C3) on cliff area across from Martin's deck (next to cliffface)",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 815,
+                        "y": 513
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (C3) on cliff area across from Martin's deck (next to cliffface)"
+                    }
+                ]
+            },
+            {
+                "name": "Pot (D3) on cliff outcropping west and down from Twig",
+                "map_locations": [
+                    {
+                        "map": "the_island",
+                        "x": 758,
+                        "y": 654
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "North (Mountain) - Pot (D3) on cliff outcropping west and down from Twig"
+                    }
+                ]
+            }
+        ]
+    }
+]

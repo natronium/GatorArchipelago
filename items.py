@@ -541,11 +541,11 @@ item_table: List[GatorItemData] = [
 ]
 
 item_name_to_id: Dict[str, int] = {
-    data.name: data.item_id for data in item_table
+    data.name.value: data.item_id for data in item_table
 }
 
 filler_items: List[str] = [
-    data.name
+    data.name.value
     for data in item_table
     if data.classification == ItemClassification.filler
 ]
@@ -557,7 +557,7 @@ def items_for_group(group: ItemGroup) -> List[str]:
     item_names = []
     for data in item_table:
         if group in data.item_groups:
-            item_names.append(data.name)
+            item_names.append(data.name.value)
     return item_names
 
 
