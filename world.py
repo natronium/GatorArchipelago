@@ -2,7 +2,7 @@ from typing import ClassVar, Dict, Any, List
 
 from rule_builder import RuleWorldMixin
 from .options import GatorOptions, gator_options_presets, gator_option_groups
-from .items import item_name_to_id, item_table, item_name_groups, GatorItemName as I
+from .items import item_name_to_id, item_table, item_name_groups, GatorItemName as I, GatorEventName as E
 from .locations import location_name_to_id, location_table, location_name_groups
 from .regions import GatorRegionName as R
 from .entrances import gator_entrances
@@ -56,8 +56,10 @@ class GatorWorld(RuleWorldMixin, World):
 
 
     #  UT Integration
-    tracker_world: ClassVar = tracker_world
-    ut_can_gen_without_yaml = True
+    tracker_world: ClassVar[dict[str, Any]] = tracker_world
+    ut_can_gen_without_yaml: ClassVar[bool] = True
+    glitches_item_name: ClassVar[str] = E.OOL.value
+
     @staticmethod
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
 
@@ -107,6 +109,11 @@ class GatorWorld(RuleWorldMixin, World):
         victory_region.locations.append(victory_location)
 
     def create_item(self, name: str) -> GatorItem:
+        # if the name provided is an event, create it as an event
+        if name in [member.value for member in E]:
+            return GatorItem(name, ItemClassification.progression, None, self.player)
+        
+        # otherwise, look up the item data
         item_data = next(data for data in item_table if data.name.value == name)
         return GatorItem(
             name, item_data.classification, self.item_name_to_id[name], self.player

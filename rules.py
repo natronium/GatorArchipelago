@@ -1,12 +1,10 @@
-from typing import TYPE_CHECKING, List, Any
+from typing import TYPE_CHECKING, Any
 from typing_extensions import override
-# from functools import partial
 import dataclasses
 
-# from worlds.generic.Rules import CollectionRule, set_rule
 from BaseClasses import CollectionState
 from .options import RequireShieldJump, StartWithFreeplay, HarderRangedQuests
-from .items import item_name_groups, ItemGroup as IG, GatorItemName as I
+from .items import ItemGroup as IG, GatorItemName as I, GatorEventName as E
 from .locations import location_table, GatorLocationName
 from rule_builder import Rule, True_, OptionFilter
 import rule_builder as RB
@@ -15,11 +13,12 @@ from collections.abc import Iterable
 if TYPE_CHECKING:
     from . import GatorWorld
 
+
 @dataclasses.dataclass()
 class HasEnoughFriends(Rule["GatorWorld"], game="Lil Gator Game"):
     def _instantiate(self, world: "GatorWorld") -> "Resolved":
         return self.Resolved(player=world.player)
-    
+
     class Resolved(Rule.Resolved):
         def _evaluate(self, state: "CollectionState") -> bool:
             friend_count = (
@@ -29,49 +28,94 @@ class HasEnoughFriends(Rule["GatorWorld"], game="Lil Gator Game"):
                 + state.count("Friend x4", self.player) * 4
             )
             return friend_count >= 35
-        
+
         def item_dependencies(self) -> dict[str, set[int]]:
-            return {I.FRIEND_1: {id(self)}, I.FRIEND_2: {id(self)}, I.FRIEND_3: {id(self)}, I.FRIEND_4: {id(self)}}
+            return {
+                I.FRIEND_1: {id(self)},
+                I.FRIEND_2: {id(self)},
+                I.FRIEND_3: {id(self)},
+                I.FRIEND_4: {id(self)},
+            }
+
 
 @dataclasses.dataclass
 class Has(RB.Has, game="Lil Gator Game"):
 
     @override
-    def __init__(self, item_name: I, count = 1, options: "Iterable[OptionFilter[Any]]" = ()) -> None:
+    def __init__(
+        self, item_name: I | E, count=1, options: "Iterable[OptionFilter[Any]]" = ()
+    ) -> None:
         super().__init__(item_name.value, count=count, options=options)
+
 
 @dataclasses.dataclass()
 class HasAny(RB.HasAny, game="Lil Gator Game"):
 
     @override
-    def __init__(self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()) -> None:
-        super().__init__(*tuple(item_name.value for item_name in item_names), options=options)
+    def __init__(
+        self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()
+    ) -> None:
+        super().__init__(
+            *tuple(item_name.value for item_name in item_names), options=options
+        )
+
 
 @dataclasses.dataclass()
 class HasAll(RB.HasAll, game="Lil Gator Game"):
 
     @override
-    def __init__(self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()) -> None:
-        super().__init__(*tuple(item_name.value for item_name in item_names), options=options)
+    def __init__(
+        self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()
+    ) -> None:
+        super().__init__(
+            *tuple(item_name.value for item_name in item_names), options=options
+        )
 
 
-has_cardboard_destroyer = RB.HasAny(*item_name_groups[IG.Cardboard_Destroyer.name])
+@dataclasses.dataclass
+class HasGroup(RB.HasGroup, game="Lil Gator Game"):
 
-has_sword = has_cardboard_destroyer & RB.HasAny(*item_name_groups[IG.Sword.name])
-has_shield = has_cardboard_destroyer & RB.HasAny(*item_name_groups[IG.Shield.name])
-has_ranged = RB.HasAny(*item_name_groups[IG.Ranged.name])
+    @override
+    def __init__(
+        self, item_name_group: IG, count=1, options: "Iterable[OptionFilter[Any]]" = ()
+    ) -> None:
+        super().__init__(item_name_group.value, count=count, options=options)
 
-can_clear_tutorial = True_(options=[OptionFilter(StartWithFreeplay, 1)]) | (HasAll(I.STARTER_HAT, I.POT_Q) & has_cardboard_destroyer)
-can_complete_avery = Has(I.SORBET) & (has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged)
+# Key items
+has_cardboard_destroyer = HasGroup(IG.Cardboard_Destroyer)
+
+has_sword = has_cardboard_destroyer & HasGroup(IG.Sword)
+has_shield = has_cardboard_destroyer & HasGroup(IG.Shield)
+has_ranged = HasGroup(IG.Ranged)
+
+# option related
+can_shield_jump = (
+    True_(options=[OptionFilter(RequireShieldJump, 1)]) | Has(E.OOL)
+) & has_shield
+can_do_hard_ranged_quests = (
+    has_cardboard_destroyer
+    & (True_(options=[OptionFilter(HarderRangedQuests, 1)]) | Has(E.OOL))
+    | has_ranged
+)
+
+# Main quests
+can_clear_tutorial = True_(options=[OptionFilter(StartWithFreeplay, 1)]) | (
+    HasAll(I.STARTER_HAT, I.POT_Q) & has_cardboard_destroyer
+)
+can_complete_avery = Has(I.SORBET) & can_do_hard_ranged_quests
 can_complete_jill = HasAll(I.BUG_NET, I.ORE, I.SANDWICH) & (has_sword | has_ranged)
 can_complete_martin = HasAll(I.WATER, I.CLIPPINGS, I.BUCKET) & has_sword
-can_complete_game = can_clear_tutorial & can_complete_avery & can_complete_jill & can_complete_martin & HasEnoughFriends()
-
-can_shield_jump = True_(options=[OptionFilter(RequireShieldJump, 1)]) & has_shield
+can_complete_game = (
+    can_clear_tutorial
+    & can_complete_avery
+    & can_complete_jill
+    & can_complete_martin
+    & HasEnoughFriends()
+)
 
 
 gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
-    GatorLocationName.AVERY_Q_ANDROMEDA_ITEM: has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged,
+    GatorLocationName.AVERY_Q_ANDROMEDA_ITEM: can_do_hard_ranged_quests,
     GatorLocationName.AVERY_Q_ESME_NPC: Has(I.SORBET),
     GatorLocationName.AVERY_Q_NERF_BLASTER: has_cardboard_destroyer,
     GatorLocationName.AVERY_Q_NPCS: can_complete_avery,
@@ -119,8 +163,12 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.CAN_POT_C9_LOWER: None,
     GatorLocationName.CAN_POT_C9_UPPER: None,
     GatorLocationName.CAN_POT_D6: None,
-    GatorLocationName.CAN_POT_D7_N: has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump,
-    GatorLocationName.CAN_POT_D7_S: has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump,
+    GatorLocationName.CAN_POT_D7_N: has_ranged
+    | HasAny(I.BRACELET, I.GLIDER)
+    | can_shield_jump,
+    GatorLocationName.CAN_POT_D7_S: has_ranged
+    | HasAny(I.BRACELET, I.GLIDER)
+    | can_shield_jump,
     GatorLocationName.CAN_POT_D8: has_ranged | Has(I.BRACELET),
     GatorLocationName.CAN_RACE_B6: has_shield,
     GatorLocationName.CAN_RACE_C7: has_shield,
@@ -150,10 +198,12 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.FOR_EVA_ITEM: Has(I.BRACELET),
     GatorLocationName.FOR_EVA_NPC: Has(I.BRACELET),
     GatorLocationName.FOR_GUNTHER_NPC: None,
-    GatorLocationName.FOR_NINJA_CLAN_ITEM: (has_cardboard_destroyer & Has(I.BRACELET)) | has_ranged,
-    GatorLocationName.FOR_NINJA_CLAN_NPCS: (has_cardboard_destroyer & Has(I.BRACELET)) | has_ranged,
-    GatorLocationName.FOR_PENELOPE_ITEM: has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged,
-    GatorLocationName.FOR_PENELOPE_NPC: has_cardboard_destroyer & True_(options=[OptionFilter(HarderRangedQuests, 1)]) | has_ranged,
+    GatorLocationName.FOR_NINJA_CLAN_ITEM: (has_cardboard_destroyer & Has(I.BRACELET))
+    | has_ranged,
+    GatorLocationName.FOR_NINJA_CLAN_NPCS: (has_cardboard_destroyer & Has(I.BRACELET))
+    | has_ranged,
+    GatorLocationName.FOR_PENELOPE_ITEM: can_do_hard_ranged_quests,
+    GatorLocationName.FOR_PENELOPE_NPC: can_do_hard_ranged_quests,
     GatorLocationName.FOR_PEPPERONI_ITEM: has_cardboard_destroyer & Has(I.BRACELET),
     GatorLocationName.FOR_PEPPERONI_NPCS: has_cardboard_destroyer & Has(I.BRACELET),
     GatorLocationName.FOR_POT_E1_LOWER_E: None,
@@ -179,7 +229,8 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.FOR_RACE_F4: None,
     GatorLocationName.FOR_RACE_G0: has_shield,
     GatorLocationName.FOR_RACE_H1: None,
-    GatorLocationName.FOR_ROMEO_NUNCHUCKS: (has_cardboard_destroyer & Has(I.BRACELET)) | has_ranged,
+    GatorLocationName.FOR_ROMEO_NUNCHUCKS: (has_cardboard_destroyer & Has(I.BRACELET))
+    | has_ranged,
     GatorLocationName.FOR_SIERRA_ITEM: has_cardboard_destroyer,
     GatorLocationName.FOR_SIERRA_NPC: has_cardboard_destroyer,
     GatorLocationName.FOR_SORIN_ROE_BEERITNEY_ITEM: None,
@@ -239,7 +290,8 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.MTN_POT_D3: has_ranged | HasAny(I.BRACELET, I.GLIDER),
     GatorLocationName.MTN_RACE_C4: Has(I.BRACELET) & has_shield,
     GatorLocationName.MTN_RACE_D5: Has(I.BRACELET),
-    GatorLocationName.MTN_SCOOTER_NPC: (Has(I.BRACELET) & has_cardboard_destroyer) | has_ranged,
+    GatorLocationName.MTN_SCOOTER_NPC: (Has(I.BRACELET) & has_cardboard_destroyer)
+    | has_ranged,
     GatorLocationName.MTN_TANNER_NPC: has_cardboard_destroyer,
     GatorLocationName.MTN_TWIG_NPC: has_shield,
     GatorLocationName.RAV_CHEST_E4: None,
@@ -291,6 +343,7 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.TI_SIMON_NPC: None,
     GatorLocationName.TI_STICK: None,
 }
+
 
 def set_location_rules(world: "GatorWorld") -> None:
     multiworld = world.multiworld

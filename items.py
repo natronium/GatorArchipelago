@@ -1,20 +1,20 @@
-from enum import Enum, auto
+from enum import Enum
 
 from typing import NamedTuple, Dict, List, Set
 from BaseClasses import ItemClassification
 
 class ItemGroup(str, Enum):
-    Friends = auto()
-    Crafting_Materials = auto()
-    Traversal = auto()
-    Hat = auto()
-    Quest_Item = auto()
-    Sword = auto()
-    Shield = auto()
-    Ranged = auto()
-    Craft = auto()
-    Item = auto()
-    Cardboard_Destroyer = auto()
+    Friends = "Friends"
+    Crafting_Materials = "Crafting Materials"
+    Traversal = "Traversal"
+    Hat = "Hat"
+    Quest_Item = "Quest Item"
+    Sword = "Sword"
+    Shield = "Shield"
+    Ranged = "Ranged"
+    Craft = "Craft"
+    Item = "Item"
+    Cardboard_Destroyer = "Cardboard Destroyer"
 
 class GatorItemName(str, Enum):
     FRIEND_1 = "Friend",
@@ -33,58 +33,62 @@ class GatorItemName(str, Enum):
     SORBET = "Sorbet",
     CLIPPINGS = "Grass Clippings",
     WATER = "Water",
-    STARTER_HAT = "Pointy Floppy Thing (Craft)",
-    SLIME_HAT = "Slime Hat (Craft)",
-    BERET_HAT = "Artsy Beret (Craft)",
-    DOME_HAT = "Space Dome (Item)",
-    FANGS_HAT = "Plastic Fangs (Item)",
-    WESTERN_HAT = "Western Wide Brim (Item)",
-    BUCKET = "Bucket (Item)",
-    COWL_HAT = "Detective Cowl (Craft)",
-    SKATER_HAT = "Skater Helmet (Craft)",
-    TIARA_HAT = "Princess Tiara (Craft)",
-    HEADBAND = "Ninja Headband (Craft)",
-    STICK = "Stick (Item)",
-    SWORD = "Sword (Item)",
-    PAINTBRUSH = "Paintbrush (Craft)",
-    SPEAR = "Cardboard Spear (Craft)",
-    GRABBY_HAND = "Grabby Hand (Item)",
-    LASER_SWORD = "Laser Sword (Craft)",
-    BUG_NET = "Bug Net (Item)",
-    NUNCHUCKS = "Nunchaku (Item)",
+    STARTER_HAT = "Pointy Floppy Thing",
+    SLIME_HAT = "Slime Hat",
+    BERET_HAT = "Artsy Beret",
+    DOME_HAT = "Space Dome",
+    FANGS_HAT = "Plastic Fangs",
+    WESTERN_HAT = "Western Wide Brim",
+    BUCKET = "Bucket",
+    COWL_HAT = "Detective Cowl",
+    SKATER_HAT = "Skater Helmet",
+    TIARA_HAT = "Princess Tiara",
+    HEADBAND = "Ninja Headband",
+    STICK = "Stick",
+    SWORD = "Sword",
+    PAINTBRUSH = "Paintbrush",
+    SPEAR = "Cardboard Spear",
+    GRABBY_HAND = "Grabby Hand",
+    LASER_SWORD = "Laser Sword",
+    BUG_NET = "Bug Net",
+    NUNCHUCKS = "Nunchaku",
     THROWN_PENCIL = "Thrown Pencil",
-    PENCIL_SWORD = "Oversized Pencil (Craft)",
-    WRENCH = "Wrench (Item)",
-    PALEOLITHIC = "Paleolithic Tool (Item)",
-    WAND = "Princess Wand (Craft)",
-    POT_LID = "Pot Lid (Item)",
-    PALETTE = "Art Palette (Craft)",
-    TUBE = "Inner Tube (Craft)",
-    PLATTER = "Platter (Item)",
-    SKATEBOARD = "Skateboard (Craft)",
-    MARTIN_SHIELD = "Martin (Item)",
-    CHESSBOARD = "Chessboard (Craft)",
-    BIG_LEAF = "Big Leaf (Item)",
-    TRAMPOLINE = "Trampoline (Item)",
-    TOWER_SHIELD = "Tower Shield (Craft)",
-    TRASH_CAN = "Trash Can Lid (Item)",
-    BLUE_SCOOTER = "Blue Scooter Board (Craft)",
-    RAGDOLL = "Ragdoll (Craft)",
-    BALLOON = "Balloon (Item)",
-    ROCK = "Skipping Rock (Item)",
-    BLASTER = "Space Blaster (Item)",
-    SHURIKEN = "Shuriken (Item)",
-    BOMB = "Bowling Bomb (Item)",
-    BUBBLEGUM = "Bubble Gum (Item)",
-    STICKY_HAND = "Sticky Hand (Item)",
-    PAINT_GUN = "Paint Blaster (Item)",
-    CAMERA = "An Actual Digital Camera (Craft)",
-    MEGAPHONE = "Megaphone (Item)",
-    TEXTING = "Texting With Jill (Item)",
+    PENCIL_SWORD = "Oversized Pencil",
+    WRENCH = "Wrench",
+    PALEOLITHIC = "Paleolithic Tool",
+    WAND = "Princess Wand",
+    POT_LID = "Pot Lid",
+    PALETTE = "Art Palette",
+    TUBE = "Inner Tube",
+    PLATTER = "Platter",
+    SKATEBOARD = "Skateboard",
+    MARTIN_SHIELD = "Martin",
+    CHESSBOARD = "Chessboard",
+    BIG_LEAF = "Big Leaf",
+    TRAMPOLINE = "Trampoline",
+    TOWER_SHIELD = "Tower Shield",
+    TRASH_CAN = "Trash Can Lid",
+    BLUE_SCOOTER = "Blue Scooter Board",
+    RAGDOLL = "Ragdoll",
+    BALLOON = "Balloon",
+    ROCK = "Skipping Rock",
+    BLASTER = "Space Blaster",
+    SHURIKEN = "Shuriken",
+    BOMB = "Bowling Bomb",
+    BUBBLEGUM = "Bubble Gum",
+    STICKY_HAND = "Sticky Hand",
+    PAINT_GUN = "Paint Blaster",
+    CAMERA = "An Actual Digital Camera",
+    MEGAPHONE = "Megaphone",
+    TEXTING = "Texting With Jill",
+
+class GatorEventName(str, Enum):
+    PLAYGROUND = "Playground Complete",
+    OOL = "Out of Logic Item"
 
 class GatorItemData(NamedTuple):
     name: GatorItemName
-    item_id: int
+    item_id: int | None
     classification: ItemClassification
     base_quantity_in_item_pool: int 
     item_groups: List[ItemGroup]
@@ -563,6 +567,6 @@ def items_for_group(group: ItemGroup) -> List[str]:
 
 item_name_groups: Dict[str, Set[str]] = {}
 for group in ItemGroup:
-    item_name_groups[group.name] = items_for_group(group)
+    item_name_groups[group.value] = items_for_group(group)
 
 
