@@ -233,6 +233,8 @@ class GatorLocationName(str, Enum):
     TI_SIMON_NPC = "Tutorial Island - Simon (Ragdoll Bear) Quest Completion NPC"
     TI_STICK = "Tutorial Island - Stick Pickup"
 
+class GatorEventLocationName(str, Enum):
+    PLAYGROUND = "Complete the Playground"
 
 class GatorLocationData(NamedTuple):
     name: GatorLocationName

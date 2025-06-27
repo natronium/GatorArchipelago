@@ -3,10 +3,10 @@ from typing import ClassVar, Dict, Any, List
 from rule_builder import RuleWorldMixin
 from .options import GatorOptions, gator_options_presets, gator_option_groups
 from .items import item_name_to_id, item_table, item_name_groups, GatorItemName as I, GatorEventName as E
-from .locations import location_name_to_id, location_table, location_name_groups
+from .locations import location_name_to_id, location_table, location_name_groups, GatorEventLocationName as EL
 from .regions import GatorRegionName as R
 from .entrances import gator_entrances
-from .rules import set_location_rules
+from .rules import Has, set_location_rules
 from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
@@ -91,22 +91,13 @@ class GatorWorld(RuleWorldMixin, World):
             location = GatorLocation(self.player, location_data.name.value, location_data.location_id, region)
             region.locations.append(location)
 
+        # Currently, only goal is complete the playground
         victory_region = self.multiworld.get_region(R.PLAYGROUND.value, self.player)
         victory_location = GatorLocation(
-            self.player, "Complete The Playground", None, victory_region
-        )
-        victory_location.place_locked_item(
-            GatorItem(
-                "Completed Playground",
-                ItemClassification.progression,
-                None,
-                self.player,
-            )
-        )
-        self.multiworld.completion_condition[self.player] = lambda state: state.has(
-            "Completed Playground", self.player
+            self.player, EL.PLAYGROUND.value, None, victory_region
         )
         victory_region.locations.append(victory_location)
+        victory_location.place_locked_item(self.create_item(E.PLAYGROUND.value))
 
     def create_item(self, name: str) -> GatorItem:
         # if the name provided is an event, create it as an event
@@ -150,9 +141,7 @@ class GatorWorld(RuleWorldMixin, World):
     def set_rules(self) -> None:
         set_location_rules(self)
 
-        self.multiworld.completion_condition[self.player] = lambda state: state.has(
-            "Completed Playground", self.player
-        )
+        self.set_completion_rule(Has(E.PLAYGROUND))
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # In order for our game client to handle the generated seed correctly we need to know what the user selected
