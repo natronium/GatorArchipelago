@@ -6,8 +6,10 @@ from BaseClasses import CollectionState
 from .options import RequireShieldJump, StartWithFreeplay, HarderRangedQuests
 from .items import ItemGroup as IG, GatorItemName as I, GatorEventName as E
 from .locations import location_table, GatorLocationName
-from rule_builder import Rule, True_, OptionFilter
-import rule_builder as RB
+try:
+    from rule_builder import Rule, True_, OptionFilter, Has as RBHas, HasAll as RBHasAll, HasAny as RBHasAny, HasGroup as RBHasGroup
+except ModuleNotFoundError:
+    from .rule_builder import Rule, True_, OptionFilter, Has as RBHas, HasAll as RBHasAll, HasAny as RBHasAny, HasGroup as RBHasGroup
 from collections.abc import Iterable
 
 if TYPE_CHECKING:
@@ -22,10 +24,10 @@ class HasEnoughFriends(Rule["GatorWorld"], game="Lil Gator Game"):
     class Resolved(Rule.Resolved):
         def _evaluate(self, state: "CollectionState") -> bool:
             friend_count = (
-                state.count("Friend", self.player)
-                + state.count("Friend x2", self.player) * 2
-                + state.count("Friend x3", self.player) * 3
-                + state.count("Friend x4", self.player) * 4
+                state.count(I.FRIEND_1.value, self.player)
+                + state.count(I.FRIEND_2.value, self.player) * 2
+                + state.count(I.FRIEND_3.value, self.player) * 3
+                + state.count(I.FRIEND_4.value, self.player) * 4
             )
             return friend_count >= 35
 
@@ -39,7 +41,7 @@ class HasEnoughFriends(Rule["GatorWorld"], game="Lil Gator Game"):
 
 
 @dataclasses.dataclass
-class Has(RB.Has, game="Lil Gator Game"):
+class Has(RBHas, game="Lil Gator Game"):
 
     @override
     def __init__(
@@ -49,7 +51,7 @@ class Has(RB.Has, game="Lil Gator Game"):
 
 
 @dataclasses.dataclass()
-class HasAny(RB.HasAny, game="Lil Gator Game"):
+class HasAny(RBHasAny, game="Lil Gator Game"):
 
     @override
     def __init__(
@@ -61,7 +63,7 @@ class HasAny(RB.HasAny, game="Lil Gator Game"):
 
 
 @dataclasses.dataclass()
-class HasAll(RB.HasAll, game="Lil Gator Game"):
+class HasAll(RBHasAll, game="Lil Gator Game"):
 
     @override
     def __init__(
@@ -73,7 +75,7 @@ class HasAll(RB.HasAll, game="Lil Gator Game"):
 
 
 @dataclasses.dataclass
-class HasGroup(RB.HasGroup, game="Lil Gator Game"):
+class HasGroup(RBHasGroup, game="Lil Gator Game"):
 
     @override
     def __init__(

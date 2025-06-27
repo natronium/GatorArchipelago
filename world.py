@@ -1,6 +1,9 @@
 from typing import ClassVar, Dict, Any, List
 
-from rule_builder import RuleWorldMixin
+try:
+    from rule_builder import RuleWorldMixin
+except ModuleNotFoundError:
+    from .rule_builder import RuleWorldMixin
 from .options import GatorOptions, gator_options_presets, gator_option_groups
 from .items import item_name_to_id, item_table, item_name_groups, GatorItemName as I, GatorEventName as E
 from .locations import location_name_to_id, location_table, location_name_groups, GatorEventLocationName as EL
@@ -82,7 +85,12 @@ class GatorWorld(RuleWorldMixin, World):
         for gator_entrance in gator_entrances:
             start_region = self.multiworld.get_region(gator_entrance.starting_region.value, self.player)
             end_region = self.multiworld.get_region(gator_entrance.ending_region.value, self.player)
-            self.create_entrance(start_region, end_region, gator_entrance.rule)
+            if gator_entrance.ending_region == R.MOUNTAIN_BREAKABLES:
+                self.create_entrance(start_region, end_region, gator_entrance.rule, "You can shoot things on the mountain")
+            elif gator_entrance.ending_region == R.BIG_ISLAND:
+                self.create_entrance(start_region, end_region, gator_entrance.rule, "Cleared Tutorial")
+            else:
+                self.create_entrance(start_region, end_region, gator_entrance.rule)
 
         for location_data in location_table:
             region = self.multiworld.get_region(
