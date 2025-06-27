@@ -18,6 +18,21 @@ if TYPE_CHECKING:
 else:
     World = object
 
+from worlds.AutoWorld import LogicMixin
+
+class RuleBuilderLogicMixin(LogicMixin):
+    multiworld: "MultiWorld"
+    rule_cache: dict[int, dict[int, bool]]
+
+    def init_mixin(self, multiworld: "MultiWorld") -> None:
+        players = multiworld.get_all_ids()
+        self.rule_cache = {player: {} for player in players}
+
+    def copy_mixin(self, new_state: "RuleBuilderLogicMixin") -> "RuleBuilderLogicMixin":
+        new_state.rule_cache = {
+            player: rule_results.copy() for player, rule_results in self.rule_cache.items()
+        }
+        return new_state
 
 class RuleWorldMixin(World):
     """A World mixin that provides helpers for interacting with the rule builder"""
@@ -115,7 +130,7 @@ class RuleWorldMixin(World):
     def set_rule(self, spot: "Location | Entrance", rule: "Rule[Self]") -> None:
         """Resolve and set a rule on a location or entrance"""
         resolved_rule = self.resolve_rule(rule)
-        spot.access_rule = resolved_rule
+        spot.access_rule = resolved_rule.test
         if self.explicit_indirect_conditions and isinstance(spot, Entrance):
             self.register_rule_connections(resolved_rule, spot)
 
@@ -134,7 +149,7 @@ class RuleWorldMixin(World):
 
         entrance = from_region.connect(to_region)
         if resolved_rule:
-            entrance.access_rule = resolved_rule
+            entrance.access_rule = resolved_rule.test
         if resolved_rule is not None:
             self.register_rule_connections(resolved_rule, entrance)
         return entrance

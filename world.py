@@ -85,12 +85,7 @@ class GatorWorld(RuleWorldMixin, World):
         for gator_entrance in gator_entrances:
             start_region = self.multiworld.get_region(gator_entrance.starting_region.value, self.player)
             end_region = self.multiworld.get_region(gator_entrance.ending_region.value, self.player)
-            if gator_entrance.ending_region == R.MOUNTAIN_BREAKABLES:
-                self.create_entrance(start_region, end_region, gator_entrance.rule, "You can shoot things on the mountain")
-            elif gator_entrance.ending_region == R.BIG_ISLAND:
-                self.create_entrance(start_region, end_region, gator_entrance.rule, "Cleared Tutorial")
-            else:
-                self.create_entrance(start_region, end_region, gator_entrance.rule)
+            self.create_entrance(start_region, end_region, gator_entrance.rule)
 
         for location_data in location_table:
             region = self.multiworld.get_region(
