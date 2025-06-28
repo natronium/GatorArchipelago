@@ -15,6 +15,7 @@ class ItemGroup(str, Enum):
     Craft = "Craft"
     Item = "Item"
     Cardboard_Destroyer = "Cardboard Destroyer"
+    Unlock = "Unlock Item"
 
 class GatorItemName(str, Enum):
     FRIEND_1 = "Friend"
@@ -81,6 +82,15 @@ class GatorItemName(str, Enum):
     CAMERA = "An Actual Digital Camera"
     MEGAPHONE = "Megaphone"
     TEXTING = "Texting With Jill"
+    OAR = "Oar"
+    SLEEP_MASK = "Sleep Mask"
+    GIANT_SOCKS = "Giant Socks"
+    TIGER_FORM = "Tiger Form"
+    GUITAR = "Guitar of Space"
+    KEY = "Key"
+    FINISH_FLAG = "Finish Flag"
+
+
 
 class GatorEventName(str, Enum):
     PLAYGROUND = "Playground Complete",
@@ -541,6 +551,55 @@ item_table: List[GatorItemData] = [
         ItemClassification.useful,
         0,
         [ItemGroup.Item]
+    ),
+    GatorItemData(
+        GatorItemName.OAR,
+        100000065,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
+    ),
+    GatorItemData(
+        GatorItemName.SLEEP_MASK,
+        100000066,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
+    ),
+    GatorItemData(
+        GatorItemName.GIANT_SOCKS,
+        100000067,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
+    ),
+    GatorItemData(
+        GatorItemName.TIGER_FORM,
+        100000068,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
+    ),
+    GatorItemData(
+        GatorItemName.GUITAR,
+        100000069,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
+    ),
+    GatorItemData(
+        GatorItemName.KEY,
+        100000070,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
+    ),
+    GatorItemData(
+        GatorItemName.FINISH_FLAG,
+        100000071,
+        ItemClassification.progression,
+        0,
+        [ItemGroup.Unlock]
     ),
 ]
 

@@ -126,6 +126,20 @@ class GatorWorld(RuleWorldMixin, World):
         else:
             items_to_create[I.MEGAPHONE.value] = 1
             items_to_create[I.TEXTING.value] = 1
+        
+        if self.options.lock_pots_behind_items:
+            items_to_create[I.OAR.value] = 1
+            items_to_create[I.TIGER_FORM.value] = 1
+            items_to_create[I.GIANT_SOCKS.value] = 1
+            items_to_create[I.SLEEP_MASK.value] = 1
+            items_to_create[I.GUITAR.value] = 1
+        
+        if self.options.lock_chests_behind_key:
+            items_to_create[I.KEY.value] = 1
+        
+        if self.options.lock_races_behind_flag:
+            items_to_create[I.FINISH_FLAG.value] = 1
+        
 
         for item, quantity in items_to_create.items():
             for i in range(0, quantity):
@@ -153,7 +167,7 @@ class GatorWorld(RuleWorldMixin, World):
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
         slot_data = self.options.as_dict(
-            "start_with_freeplay", "require_shield_jump", "harder_ranged_quests"
+            "start_with_freeplay", "require_shield_jump", "harder_ranged_quests", "lock_pots_behind_items", "lock_chests_behind_key", "lock_races_behind_flag"
         )
         slot_data["ModVersion"] = gator_version
         return slot_data
