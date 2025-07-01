@@ -12,7 +12,7 @@ from .options import (
     LockRacesBehindFlag,
 )
 from .items import ItemGroup as IG, GatorItemName as I, GatorEventName as E
-from .locations import location_table, GatorLocationName, LocationGroup as LG
+from .locations import location_table, GatorLocationName
 
 try:
     from rule_builder import (

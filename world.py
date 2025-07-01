@@ -68,9 +68,9 @@ class GatorWorld(RuleWorldMixin, World):
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
 
         # Adapted from ClassicSpeed's SADX implementation of this feature
-        if "ModVersion" in slot_data and slot_data["ModVersion"] != gator_version:
+        if "APWorldVersion" in slot_data and slot_data["APWorldVersion"] != gator_version:
             current_version = f"v{gator_version // 100}.{(gator_version // 10) % 10}.{gator_version % 10}"
-            slot_version = f"v{slot_data['ModVersion'] // 100}.{(slot_data['ModVersion'] // 10) % 10}.{slot_data['ModVersion'] % 10}"
+            slot_version = f"v{slot_data['APWorldVersion'] // 100}.{(slot_data['APWorldVersion'] // 10) % 10}.{slot_data['APWorldVersion'] % 10}"
 
             raise Exception(
                 f"Lil Gator Game version error: The version of apworld used to generate this world ({slot_version}) does not match the version of your installed apworld ({current_version}).")
@@ -173,7 +173,7 @@ class GatorWorld(RuleWorldMixin, World):
         slot_data = self.options.as_dict(
             "start_with_freeplay", "require_shield_jump", "harder_ranged_quests", "lock_pots_behind_items", "lock_chests_behind_key", "lock_races_behind_flag"
         )
-        slot_data["ModVersion"] = gator_version
+        slot_data["APWorldVersion"] = gator_version
         return slot_data
 
     def get_filler_item_name(self) -> str:
