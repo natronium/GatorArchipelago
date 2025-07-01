@@ -12,7 +12,7 @@ def generate_rule_json():
             rule_dict = dict()
             rule_dict["starting_region"] = gator_entrance.starting_region
             rule_dict["ending_region"] = gator_entrance.ending_region
-            rule_dict["rule_json"] = gator_entrance.rule.to_json()
+            rule_dict["rule_json"] = gator_entrance.rule.to_dict()
             json_accumulator.append(rule_dict)
 
     for location_data in location_table:
@@ -22,7 +22,7 @@ def generate_rule_json():
                 rule_dict["location_name"] = location_data.name.value
                 rule_dict["location_id"] = location_data.location_id
                 rule_dict["region"] = location_data.region
-                rule_dict["rule_json"] = rule.to_json()
+                rule_dict["rule_json"] = rule.to_dict()
                 json_accumulator.append(rule_dict)
 
     with open('rules.json', 'w') as f:
