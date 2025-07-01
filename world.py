@@ -13,6 +13,7 @@ from .rules import Has, set_location_rules
 from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
+from .json_generator import generate_rule_json
 
 gator_version = 102
 
@@ -159,6 +160,9 @@ class GatorWorld(RuleWorldMixin, World):
         set_location_rules(self)
 
         self.set_completion_rule(Has(E.PLAYGROUND))
+
+        # generate_rule_json()
+
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # In order for our game client to handle the generated seed correctly we need to know what the user selected
