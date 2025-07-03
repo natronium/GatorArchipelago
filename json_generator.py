@@ -5,7 +5,7 @@ from .rules import gator_location_rules
 import json
 
 def generate_rule_json():
-    json_accumulator: List[Dict[str, Any]] = list()
+    entrance_json_accumulator: List[Dict[str, Any]] = list()
 
     for gator_entrance in gator_entrances:
         if gator_entrance.rule is not None:
@@ -13,7 +13,13 @@ def generate_rule_json():
             rule_dict["starting_region"] = gator_entrance.starting_region
             rule_dict["ending_region"] = gator_entrance.ending_region
             rule_dict["rule_json"] = gator_entrance.rule.to_dict()
-            json_accumulator.append(rule_dict)
+            entrance_json_accumulator.append(rule_dict)
+
+    with open('EntranceRules.json', 'w') as f:
+        json.dump(entrance_json_accumulator, f)
+
+
+    location_json_accumulator: List[Dict[str, Any]] = list()
 
     for location_data in location_table:
             rule = gator_location_rules[location_data.name]
@@ -23,8 +29,8 @@ def generate_rule_json():
                 rule_dict["location_id"] = location_data.location_id
                 rule_dict["region"] = location_data.region
                 rule_dict["rule_json"] = rule.to_dict()
-                json_accumulator.append(rule_dict)
+                location_json_accumulator.append(rule_dict)
 
-    with open('rules.json', 'w') as f:
-            json.dump(json_accumulator, f)
+    with open('LocationRules.json', 'w') as f:
+        json.dump(location_json_accumulator, f)
 
