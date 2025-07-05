@@ -127,7 +127,7 @@ class RuleWorldMixin(World):
     def set_rule(self, spot: "Location | Entrance", rule: "Rule[Self]") -> None:
         """Resolve and set a rule on a location or entrance"""
         resolved_rule = self.resolve_rule(rule)
-        spot.access_rule = resolved_rule
+        spot.access_rule = resolved_rule.test
         if self.explicit_indirect_conditions and isinstance(spot, Entrance):
             self.register_rule_connections(resolved_rule, spot)
 
@@ -147,7 +147,7 @@ class RuleWorldMixin(World):
 
         entrance = from_region.connect(to_region, name)
         if resolved_rule:
-            entrance.access_rule = resolved_rule
+            entrance.access_rule = resolved_rule.test
         if resolved_rule is not None:
             self.register_rule_connections(resolved_rule, entrance)
         return entrance
@@ -547,9 +547,9 @@ class Rule(Generic[TWorld]):
             if cls.__qualname__ in custom_rules:
                 raise TypeError(f"Rule {cls.__qualname__} has already been registered for game {game}")
             custom_rules[cls.__qualname__] = cls
-        elif cls.__module__ != "rule_builder":
-            # TODO: test to make sure this works on frozen
-            raise TypeError("You cannot define custom rules for the base Archipelago world")
+        # elif cls.__module__ != "rule_builder":
+        #     # TODO: test to make sure this works on frozen
+        #     raise TypeError("You cannot define custom rules for the base Archipelago world")
         cls.game_name = game
 
     class Resolved(metaclass=CustomRuleRegister):

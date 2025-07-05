@@ -1,7 +1,6 @@
 from enum import Enum
 
 class GatorRegionName(str, Enum):
-    MENU = "Menu"
     TUTORIAL_ISLAND = "Tutorial Island"
     PLAYGROUND = "Playground"
     POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND = "Pots Shootable from Tutorial Island"

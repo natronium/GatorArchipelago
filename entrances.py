@@ -13,7 +13,6 @@ class GatorEntrance(NamedTuple):
     rule: Rule | None
 
 gator_entrances: List[GatorEntrance] = [
-    GatorEntrance(R.MENU, R.TUTORIAL_ISLAND, None),
     GatorEntrance(R.TUTORIAL_ISLAND, R.BIG_ISLAND, can_clear_tutorial),
     GatorEntrance(R.TUTORIAL_ISLAND, R.TUTORIAL_ISLAND_RACES, can_race),
     GatorEntrance(R.TUTORIAL_ISLAND, R.TUTORIAL_ISLAND_BREAKABLES, has_cardboard_destroyer),
