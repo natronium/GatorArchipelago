@@ -5,7 +5,7 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 
 ## Instructions
 1. Setup the [GatorRando mod](https://github.com/natronium/GatorRando) as described in its README.
-2. Install [Archipelago 0.5.1+](https://github.com/ArchipelagoMW/Archipelago/releases/tag/0.5.1) (or follow their instructions to run from source)
+2. Install [Archipelago 0.6.2+](https://github.com/ArchipelagoMW/Archipelago/releases/) (or follow their instructions to run from source)
 3. Download the latest apworld provided on the [releases page](https://github.com/natronium/GatorArchipelago/releases/latest)
 	- Check to make sure the name of your download does not have any artifacts (i.e. no (1) or other browser added names). The apworld should be named "lil_gator_game.apworld"
 	- To create the apworld from scratch: download this repo's source code and zip the whole folder into a file named lil_gator_game.apworld. The zip/apworld file should contain a `lil_gator_game` folder at the top level 
@@ -17,7 +17,7 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 7. Host the generated game locally either by hitting Host Game and selecting the AP_{numbers}.zip in the `output` folder (in your Archipelago installation folder) or host it through [archipelago.gg](https://archipelago.gg) by uploading that zip to https://archipelago.gg/uploads
 
 ### Recommendations for Better Play Experiences
-- Download [Poptracker](https://poptracker.github.io/) and use the pack available at https://github.com/natronium/GatorPop.
+- Download [Universal Tracker](https://github.com/FarisTheAncient/Archipelago/releases) and use it to track which locations are in logic and your position on the map.
 - If you are having trouble finding a specific location, you can search the map available at https://natronium.github.io/GatorMap/ to find all the pots, chests, and races with their locations labeled as they are in the Archipelago.
 - Use the text client (which you can also open from the Archipelago Launcher) alongside your game. Using the text client will allow you to see what items you are sending and receiving, as only some sent items currently display in game.
 

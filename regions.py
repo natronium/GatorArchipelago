@@ -1,29 +1,17 @@
-from typing import Dict, List
+from enum import Enum
 
-gator_regions: Dict[str, List[str]] = {
-    "Menu": ["Tutorial Island"],
-    "Tutorial Island": [
-        "Big Island",
-        "Tutorial Island Races",
-        "Tutorial Island Breakables",
-        "Pots Shootable from Tutorial Island",
-        "Playground",
-    ],
-    "Playground": [],
-    "Pots Shootable from Tutorial Island": [],
-    "Tutorial Island Races": [],
-    "Tutorial Island Breakables": [],
-    "Big Island": [
-        "Big Island Races",
-        "Big Island Breakables",
-        "Mountain",
-        "Junk 4 Trash",
-        "Big Island Bracelet Shops",
-    ],
-    "Big Island Races": [],
-    "Big Island Breakables": [],
-    "Mountain": ["Mountain Breakables"],
-    "Mountain Breakables": ["Pots Shootable from Tutorial Island"],
-    "Junk 4 Trash": [],
-    "Big Island Bracelet Shops": [],
-}
+class GatorRegionName(str, Enum):
+    TUTORIAL_ISLAND = "Tutorial Island"
+    PLAYGROUND = "Playground"
+    POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND = "Pots Shootable from Tutorial Island"
+    TUTORIAL_ISLAND_RACES = "Tutorial Island Races"
+    TUTORIAL_ISLAND_BREAKABLES = "Tutorial Island Breakables"
+    BIG_ISLAND = "Big Island"
+    BIG_ISLAND_RACES = "Big Island Races"
+    BIG_ISLAND_BREAKABLES = "Big Island Breakables"
+    MOUNTAIN = "Mountain"
+    MOUNTAIN_BREAKABLES = "Mountain Breakables"
+    JUNK_4_TRASH = "Junk 4 Trash"
+    BIG_ISLAND_BRACELET_SHOPS = "Big Island Bracelet Shops"
+
+
