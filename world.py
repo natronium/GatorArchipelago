@@ -77,7 +77,7 @@ class GatorWorld(RuleWorldMixin, World):
 
     #  UT Integration
     tracker_world: ClassVar[dict[str, Any]] = tracker_world
-    ut_can_gen_without_yaml: ClassVar[bool] = True
+    # ut_can_gen_without_yaml: ClassVar[bool] = True
     glitches_item_name: ClassVar[str] = E.OOL.value
 
     @staticmethod
