@@ -77,7 +77,7 @@ class GatorWorld(RuleWorldMixin, World):
 
     #  UT Integration
     tracker_world: ClassVar[dict[str, Any]] = tracker_world
-    # ut_can_gen_without_yaml: ClassVar[bool] = True
+    ut_can_gen_without_yaml: ClassVar[bool] = True
     glitches_item_name: ClassVar[str] = E.OOL.value
 
     @staticmethod
@@ -103,9 +103,8 @@ class GatorWorld(RuleWorldMixin, World):
             # Get the passed through slot data from the real generation
             slot_data: dict[str, Any] = re_gen_passthrough[self.game]
 
-            slot_options: dict[str, Any] = slot_data.get("options", {})
             # Set all your options here instead of getting them from the yaml
-            for key, value in slot_options.items():
+            for key, value in slot_data.items():
                 opt: Option[Any] | None = getattr(self.options, key, None)
                 if opt is not None:
                     # You can also set .value directly but that won't work if you have OptionSets
