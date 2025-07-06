@@ -216,7 +216,7 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.CRL_POT_E7_SE: no_pot_break_item | Has(I.TIGER_FORM),
     GatorLocationName.CRL_POT_E7_SW: no_pot_break_item | Has(I.SLEEP_MASK),
     GatorLocationName.CRL_POT_F7: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.CRL_POT_F9: (has_ranged | Has(I.BRACELET)) | (no_pot_break_item | Has(I.SLEEP_MASK)),
+    GatorLocationName.CRL_POT_F9: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
     GatorLocationName.CRL_POT_G5: no_pot_break_item | Has(I.GUITAR),
     GatorLocationName.CRL_POT_H5_N: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
     GatorLocationName.CRL_POT_H5_S: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.TIGER_FORM)),
