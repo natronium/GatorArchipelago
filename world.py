@@ -198,7 +198,7 @@ class GatorWorld(RuleWorldMixin, World):
 
         self.set_completion_rule(Has(E.PLAYGROUND))
 
-        generate_rule_json()
+        # generate_rule_json()
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # In order for our game client to handle the generated seed correctly we need to know what the user selected
