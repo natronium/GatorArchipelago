@@ -23,6 +23,15 @@ Lil Gator Game:
   # If 'true, start with Megaphone and Text Jill items in inventory for finding checks.
   start_with_checkfinders: 'true'
 
+  # Lock pots behind items for each type of pot (each corresponding item unlocks all of that style of pot).
+  lock_pots_behind_items: 'false'
+  
+  # Lock chests behind receiving a key (which unlocks all chests).
+  lock_chests_behind_key: 'false'
+
+  # Lock chests behind receiving a finish flag (which unlocks all races).
+  lock_races_behind_flag: 'false'
+
   ## General AP options
   ## See https://archipelago.gg/tutorial/Archipelago/advanced_settings/en for more details
   progression_balancing: '50'
