@@ -322,7 +322,7 @@ gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
     GatorLocationName.MTN_RACE_D5: Has(I.BRACELET),
     GatorLocationName.MTN_SCOOTER_NPC: ((Has(I.BRACELET) & has_cardboard_destroyer)
     | has_ranged) & (no_pot_break_item | HasAll(I.OAR, I.TIGER_FORM, I.SLEEP_MASK, I.GUITAR, I.GIANT_SOCKS)),
-    GatorLocationName.MTN_TANNER_NPC: has_cardboard_destroyer & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    GatorLocationName.MTN_TANNER_NPC: has_cardboard_destroyer,
     GatorLocationName.MTN_TWIG_NPC: has_shield,
     GatorLocationName.RAV_CHEST_E4: can_open_chests,
     GatorLocationName.RAV_ESTHER_NPC: None,
