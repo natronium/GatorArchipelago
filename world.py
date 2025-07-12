@@ -29,7 +29,7 @@ from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
 from .json_generator import generate_rule_json
 
-gator_version = 106
+gator_version = 107
 
 
 class GatorItem(Item):
@@ -198,7 +198,7 @@ class GatorWorld(RuleWorldMixin, World):
 
         self.set_completion_rule(Has(E.PLAYGROUND))
 
-        generate_rule_json()
+        # generate_rule_json()
 
     def fill_slot_data(self) -> Dict[str, Any]:
         # In order for our game client to handle the generated seed correctly we need to know what the user selected
