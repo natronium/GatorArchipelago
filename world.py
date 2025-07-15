@@ -29,7 +29,7 @@ from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
 from .json_generator import generate_rule_json
 
-gator_version = 107
+gator_version = 108
 
 
 class GatorItem(Item):

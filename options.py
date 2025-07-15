@@ -36,7 +36,7 @@ class LockChestsBehindKey(Toggle):
     display_name = "Lock Chests Behind Key"
 
 class LockRacesBehindFlag(Toggle):
-    """Lock chests behind receiving a finish flag (which unlocks all races)."""
+    """Lock races behind receiving a finish flag (which unlocks all races)."""
 
     internal_name = "lock_races_behind_flag"
     display_name = "Lock Race Behind Flag"
