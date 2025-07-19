@@ -21,7 +21,7 @@ gator_entrances: List[GatorEntrance] = [
     GatorEntrance(R.BIG_ISLAND, R.BIG_ISLAND_BREAKABLES, has_cardboard_destroyer),
     GatorEntrance(R.BIG_ISLAND, R.BIG_ISLAND_BRACELET_SHOPS, has_cardboard_destroyer & Has(I.BRACELET)),
     GatorEntrance(R.BIG_ISLAND, R.JUNK_4_TRASH, has_cardboard_destroyer),
-    GatorEntrance(R.BIG_ISLAND, R.PLAYGROUND, can_complete_game),
+    GatorEntrance(R.BIG_ISLAND, R.PLAYGROUND, None),
     GatorEntrance(R.BIG_ISLAND, R.MOUNTAIN, HasAny(I.GLIDER, I.BRACELET)),
     GatorEntrance(R.MOUNTAIN, R.MOUNTAIN_BREAKABLES, has_cardboard_destroyer),
     GatorEntrance(R.MOUNTAIN_BREAKABLES, R.POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND, None),
