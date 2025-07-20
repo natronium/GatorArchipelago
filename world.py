@@ -23,13 +23,13 @@ from .locations import (
 )
 from .regions import GatorRegionName as R
 from .entrances import gator_entrances
-from .rules import Has, set_location_rules
+from .rules import Has, set_location_rules, can_complete_game
 from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
 from .json_generator import generate_rule_json
 
-gator_version = 107
+gator_version = 111
 
 
 class GatorItem(Item):
@@ -117,6 +117,13 @@ class GatorWorld(RuleWorldMixin, World):
             region = Region(gator_region.value, self.player, self.multiworld)
             self.multiworld.regions.append(region)
 
+        for location_data in location_table:
+            region = self.multiworld.get_region(location_data.region.value, self.player)
+            location = GatorLocation(
+                self.player, location_data.name.value, location_data.location_id, region
+            )
+            region.locations.append(location)
+
         for gator_entrance in gator_entrances:
             start_region = self.multiworld.get_region(
                 gator_entrance.starting_region.value, self.player
@@ -126,19 +133,13 @@ class GatorWorld(RuleWorldMixin, World):
             )
             self.create_entrance(start_region, end_region, gator_entrance.rule)
 
-        for location_data in location_table:
-            region = self.multiworld.get_region(location_data.region.value, self.player)
-            location = GatorLocation(
-                self.player, location_data.name.value, location_data.location_id, region
-            )
-            region.locations.append(location)
-
         # Currently, only goal is complete the playground
         victory_region = self.multiworld.get_region(R.PLAYGROUND.value, self.player)
         victory_location = GatorLocation(
             self.player, EL.PLAYGROUND.value, None, victory_region
         )
         victory_region.locations.append(victory_location)
+        self.set_rule(victory_location, can_complete_game)
         victory_location.place_locked_item(self.create_item(E.PLAYGROUND.value))
 
     def create_item(self, name: str) -> GatorItem:
@@ -197,6 +198,7 @@ class GatorWorld(RuleWorldMixin, World):
         set_location_rules(self)
 
         self.set_completion_rule(Has(E.PLAYGROUND))
+        self.register_dependencies()
 
         # generate_rule_json()
 

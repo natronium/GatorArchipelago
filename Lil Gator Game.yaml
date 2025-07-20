@@ -16,7 +16,7 @@ Lil Gator Game:
 
   # If 'true', logic may require you to execute a shield jump to progress.
   require_shield_jump: 'false'
-    
+  
   # If 'true', logic may require you to complete Penelope (Bastion Beaver) and Andromeda (Space Hawk) without a ranged weapon.
   harder_ranged_quests: 'false'
 
@@ -29,7 +29,7 @@ Lil Gator Game:
   # Lock chests behind receiving a key (which unlocks all chests).
   lock_chests_behind_key: 'false'
 
-  # Lock chests behind receiving a finish flag (which unlocks all races).
+  # Lock races behind receiving a finish flag (which unlocks all races).
   lock_races_behind_flag: 'false'
 
   ## General AP options

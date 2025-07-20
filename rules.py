@@ -12,7 +12,7 @@ from .options import (
     LockRacesBehindFlag,
 )
 from .items import ItemGroup as IG, GatorItemName as I, GatorEventName as E
-from .locations import location_table, GatorLocationName
+from .locations import location_table, GatorLocationName as L
 
 try:
     from rule_builder import (
@@ -23,6 +23,7 @@ try:
         HasAll as RBHasAll,
         HasAny as RBHasAny,
         HasGroup as RBHasGroup,
+        CanReachLocation as RBCanReachLocation,
     )
 except ModuleNotFoundError:
     from .rule_builder import (
@@ -33,6 +34,7 @@ except ModuleNotFoundError:
         HasAll as RBHasAll,
         HasAny as RBHasAny,
         HasGroup as RBHasGroup,
+        CanReachLocation as RBCanReachLocation,
     )
 from collections.abc import Iterable
 
@@ -108,6 +110,16 @@ class HasGroup(RBHasGroup, game="Lil Gator Game"):
     ) -> None:
         super().__init__(item_name_group.value, count=count, options=options)
 
+@dataclasses.dataclass
+class CanReachLocation(RBCanReachLocation, game="Lil Gator Game"):
+
+    @override
+    def __init__(
+        self, location_name: L, options: "Iterable[OptionFilter[Any]]" = ()
+    ) -> None:
+        super().__init__(location_name.value, options=options)
+
+
 
 # Key items
 has_cardboard_destroyer = HasGroup(IG.Cardboard_Destroyer)
@@ -125,8 +137,12 @@ can_do_hard_ranged_quests = (
     & (True_(options=[OptionFilter(HarderRangedQuests, 1)]) | Has(E.OOL))
     | has_ranged
 )
+can_do_andromeda = has_cardboard_destroyer & (
+    (Has(I.GLIDER, options=[OptionFilter(HarderRangedQuests, 1)]) | Has(E.OOL))
+    | has_ranged
+)
 
-no_pot_break_item = True_(options=[OptionFilter(LockPotsBehindItems,0)])
+no_pot_break_item = True_(options=[OptionFilter(LockPotsBehindItems, 0)])
 can_open_chests = True_(options=[OptionFilter(LockChestsBehindKey, 0)]) | Has(I.KEY)
 can_race = True_(options=[OptionFilter(LockRacesBehindFlag, 0)]) | Has(I.FINISH_FLAG)
 
@@ -134,244 +150,284 @@ can_race = True_(options=[OptionFilter(LockRacesBehindFlag, 0)]) | Has(I.FINISH_
 can_clear_tutorial = True_(options=[OptionFilter(StartWithFreeplay, 1)]) | (
     HasAll(I.STARTER_HAT, I.POT_Q) & has_cardboard_destroyer
 )
-can_complete_avery = Has(I.SORBET) & can_do_hard_ranged_quests
+can_complete_avery = Has(I.SORBET) & can_do_andromeda # missing mountain access condition
 can_complete_jill = HasAll(I.BUG_NET, I.ORE, I.SANDWICH) & (has_sword | has_ranged)
 can_complete_martin = HasAll(I.WATER, I.CLIPPINGS, I.BUCKET) & has_sword
 can_complete_game = (
     can_clear_tutorial
-    & can_complete_avery
+    & CanReachLocation(L.AVERY_Q_NPCS)
     & can_complete_jill
     & can_complete_martin
     & HasEnoughFriends()
+    & Has(I.BRACELET)
 )
 
 
-gator_location_rules: dict[GatorLocationName, Rule["GatorWorld"] | None] = {
-    GatorLocationName.AVERY_Q_ANDROMEDA_ITEM: can_do_hard_ranged_quests,
-    GatorLocationName.AVERY_Q_ESME_NPC: Has(I.SORBET),
-    GatorLocationName.AVERY_Q_NERF_BLASTER: has_cardboard_destroyer,
-    GatorLocationName.AVERY_Q_NPCS: can_complete_avery,
-    GatorLocationName.AVERY_Q_PLASTIC_FANGS: Has(I.SORBET),
-    GatorLocationName.AVERY_Q_SORBET: None,
-    GatorLocationName.AVERY_Q_VELMA_ITEM: None,
-    GatorLocationName.BCH_CADE_NPCS: None,
-    GatorLocationName.BCH_CHEST_H9: can_open_chests,
-    GatorLocationName.BCH_JOE_NPC: None,
-    GatorLocationName.BCH_MR_DODDLER_ITEM: has_cardboard_destroyer,
-    GatorLocationName.BCH_MR_DODDLER_NPC: has_cardboard_destroyer,
-    GatorLocationName.BCH_POT_H8: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.BCH_POT_I6: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.BCH_POT_I9_E: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.BCH_POT_I9_W: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.BCH_POT_J6: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.BCH_SAM_ITEM: Has(I.THROWN_PENCIL, count=3),
-    GatorLocationName.BCH_SAM_NPC: Has(I.THROWN_PENCIL, count=3),
-    GatorLocationName.BCH_SKATE_PUG_ITEM: has_cardboard_destroyer,
-    GatorLocationName.BCH_SKATE_PUG_NPCS: has_cardboard_destroyer,
-    GatorLocationName.BCH_THROWN_PENCIL_1: None,
-    GatorLocationName.BCH_THROWN_PENCIL_2: Has(I.THROWN_PENCIL, count=1),
-    GatorLocationName.BCH_THROWN_PENCIL_3: Has(I.THROWN_PENCIL, count=2),
-    GatorLocationName.BCH_TONY_ITEM: has_cardboard_destroyer,
-    GatorLocationName.BCH_TONY_NPC: has_cardboard_destroyer,
-    GatorLocationName.BCH_VIRAJ_NPC: has_cardboard_destroyer,
-    GatorLocationName.BI_BILLY_ITEM: None,
-    GatorLocationName.BI_BILLY_NPC: None,
-    GatorLocationName.BI_BRACELET_MONKEY_ALL_BRACELETS_NPC: None,
-    GatorLocationName.BI_ROCK: None,
-    GatorLocationName.BI_ZHU_NPC: Has(I.ROCK),
-    GatorLocationName.CAN_BROKEN_SCOOTER_BOARD: None,
-    GatorLocationName.CAN_CHEST_D8: (has_ranged | Has(I.BRACELET)) & can_open_chests,
-    GatorLocationName.CAN_DARCIE_ITEM: has_ranged,
-    GatorLocationName.CAN_DARCIE_NPC: has_ranged,
-    GatorLocationName.CAN_KASEN_ITEM: Has(I.BROKEN_SCOOTER),
-    GatorLocationName.CAN_KASEN_NPC: Has(I.BROKEN_SCOOTER),
-    GatorLocationName.CAN_MOCHI_NPC: None,
-    GatorLocationName.CAN_POT_A8_N: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.CAN_POT_A8_W: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.CAN_POT_B8: (has_ranged | Has(I.BRACELET, 2)) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.CAN_POT_C7: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.CAN_POT_C8_MOCHI: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.CAN_POT_C8_OUTCROP: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.CAN_POT_C9_LOWER: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.CAN_POT_C9_UPPER: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.CAN_POT_D6: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.CAN_POT_D7_N: (has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump) & (no_pot_break_item | Has(I.TIGER_FORM)),
-    GatorLocationName.CAN_POT_D7_S: (has_ranged
-    | HasAny(I.BRACELET, I.GLIDER)
-    | can_shield_jump) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.CAN_POT_D8: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GUITAR)),
-    GatorLocationName.CAN_RACE_B6: has_shield,
-    GatorLocationName.CAN_RACE_C7: has_shield,
-    GatorLocationName.CAN_SSUMANTHA_ITEM: has_shield,
-    GatorLocationName.CAN_SSUMANTHA_NPC: has_shield,
-    GatorLocationName.CRL_BECCA_NPC: Has(I.RETAINER),
-    GatorLocationName.CRL_BRACELET_MONKEY_WINDMILL: None,
-    GatorLocationName.CRL_CHEST_G6: can_open_chests,
-    GatorLocationName.CRL_CHEST_G8: can_open_chests,
-    GatorLocationName.CRL_CHEST_H5: (has_ranged | Has(I.BRACELET)) & can_open_chests,
-    GatorLocationName.CRL_MADELINE_NPC: None,
-    GatorLocationName.CRL_POT_D8: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.CRL_POT_E7_NE: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.CRL_POT_E7_NW: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.CRL_POT_E7_SE: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.CRL_POT_E7_SW: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.CRL_POT_F7: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.CRL_POT_F9: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.CRL_POT_G5: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.CRL_POT_H5_N: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.CRL_POT_H5_S: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.TIGER_FORM)),
-    GatorLocationName.CRL_RETAINER: None,
-    GatorLocationName.CRL_ROBIN_ITEM: has_cardboard_destroyer,
-    GatorLocationName.CRL_ROBIN_NPC: has_cardboard_destroyer,
-    GatorLocationName.FOR_BRACELET_MONKEY_TREE: None,
-    GatorLocationName.FOR_CHEST_H4: (has_ranged | Has(I.BRACELET)) & can_open_chests,
-    GatorLocationName.FOR_EVA_ITEM: Has(I.BRACELET),
-    GatorLocationName.FOR_EVA_NPC: Has(I.BRACELET),
-    GatorLocationName.FOR_GUNTHER_NPC: None,
-    GatorLocationName.FOR_NINJA_CLAN_ITEM: (has_cardboard_destroyer & Has(I.BRACELET))
+gator_location_rules: dict[L, Rule["GatorWorld"] | None] = {
+    L.AVERY_Q_ANDROMEDA_ITEM: can_do_andromeda,
+    L.AVERY_Q_ESME_NPC: Has(I.SORBET),
+    L.AVERY_Q_NERF_BLASTER: has_cardboard_destroyer,
+    L.AVERY_Q_NPCS: can_complete_avery,
+    L.AVERY_Q_PLASTIC_FANGS: Has(I.SORBET),
+    L.AVERY_Q_SORBET: None,
+    L.AVERY_Q_VELMA_ITEM: None,
+    L.BCH_CADE_NPCS: None,
+    L.BCH_CHEST_H9: can_open_chests,
+    L.BCH_JOE_NPC: None,
+    L.BCH_MR_DODDLER_ITEM: has_cardboard_destroyer,
+    L.BCH_MR_DODDLER_NPC: has_cardboard_destroyer,
+    L.BCH_POT_H8: no_pot_break_item | Has(I.TIGER_FORM),
+    L.BCH_POT_I6: no_pot_break_item | Has(I.OAR),
+    L.BCH_POT_I9_E: no_pot_break_item | Has(I.GUITAR),
+    L.BCH_POT_I9_W: no_pot_break_item | Has(I.TIGER_FORM),
+    L.BCH_POT_J6: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.OAR)),
+    L.BCH_SAM_ITEM: Has(I.THROWN_PENCIL, count=3),
+    L.BCH_SAM_NPC: Has(I.THROWN_PENCIL, count=3),
+    L.BCH_SKATE_PUG_ITEM: has_cardboard_destroyer,
+    L.BCH_SKATE_PUG_NPCS: has_cardboard_destroyer,
+    L.BCH_THROWN_PENCIL_1: None,
+    L.BCH_THROWN_PENCIL_2: Has(I.THROWN_PENCIL, count=1),
+    L.BCH_THROWN_PENCIL_3: Has(I.THROWN_PENCIL, count=2),
+    L.BCH_TONY_ITEM: has_cardboard_destroyer,
+    L.BCH_TONY_NPC: has_cardboard_destroyer,
+    L.BCH_VIRAJ_NPC: has_cardboard_destroyer,
+    L.BI_BILLY_ITEM: None,
+    L.BI_BILLY_NPC: None,
+    L.BI_BRACELET_MONKEY_ALL_BRACELETS_NPC: None,
+    L.BI_ROCK: None,
+    L.BI_ZHU_NPC: Has(I.ROCK),
+    L.CAN_BROKEN_SCOOTER_BOARD: None,
+    L.CAN_CHEST_D8: (has_ranged | Has(I.BRACELET)) & can_open_chests,
+    L.CAN_DARCIE_ITEM: has_ranged,
+    L.CAN_DARCIE_NPC: has_ranged,
+    L.CAN_KASEN_ITEM: Has(I.BROKEN_SCOOTER),
+    L.CAN_KASEN_NPC: Has(I.BROKEN_SCOOTER),
+    L.CAN_MOCHI_NPC: Has(I.BRACELET),
+    L.CAN_POT_A8_N: no_pot_break_item | Has(I.TIGER_FORM),
+    L.CAN_POT_A8_W: no_pot_break_item | Has(I.GUITAR),
+    L.CAN_POT_B8: (has_ranged | Has(I.BRACELET, 2))
+    & (no_pot_break_item | Has(I.OAR)),
+    L.CAN_POT_C7: no_pot_break_item | Has(I.TIGER_FORM),
+    L.CAN_POT_C8_MOCHI: no_pot_break_item | Has(I.GUITAR),
+    L.CAN_POT_C8_OUTCROP: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.CAN_POT_C9_LOWER: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.CAN_POT_C9_UPPER: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.CAN_POT_D6: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.CAN_POT_D7_N: (
+        has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump
+    )
+    & (no_pot_break_item | Has(I.TIGER_FORM)),
+    L.CAN_POT_D7_S: (
+        has_ranged | HasAny(I.BRACELET, I.GLIDER) | can_shield_jump
+    )
+    & (no_pot_break_item | Has(I.OAR)),
+    L.CAN_POT_D8: Has(I.BRACELET) & (no_pot_break_item | Has(I.GUITAR)),
+    L.CAN_RACE_B6: has_shield,
+    L.CAN_RACE_C7: has_shield,
+    L.CAN_SSUMANTHA_ITEM: has_shield,
+    L.CAN_SSUMANTHA_NPC: has_shield,
+    L.CRL_BECCA_NPC: Has(I.RETAINER),
+    L.CRL_BRACELET_MONKEY_WINDMILL: None,
+    L.CRL_CHEST_G6: can_open_chests,
+    L.CRL_CHEST_G8: can_open_chests,
+    L.CRL_CHEST_H5: (has_ranged | Has(I.BRACELET)) & can_open_chests,
+    L.CRL_MADELINE_NPC: None,
+    L.CRL_POT_D8: no_pot_break_item | Has(I.GUITAR),
+    L.CRL_POT_E7_NE: no_pot_break_item | Has(I.OAR),
+    L.CRL_POT_E7_NW: no_pot_break_item | Has(I.GUITAR),
+    L.CRL_POT_E7_SE: no_pot_break_item | Has(I.TIGER_FORM),
+    L.CRL_POT_E7_SW: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.CRL_POT_F7: no_pot_break_item | Has(I.OAR),
+    L.CRL_POT_F9: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.CRL_POT_G5: no_pot_break_item | Has(I.GUITAR),
+    L.CRL_POT_H5_N: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.CRL_POT_H5_S: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.TIGER_FORM)),
+    L.CRL_RETAINER: None,
+    L.CRL_ROBIN_ITEM: has_cardboard_destroyer,
+    L.CRL_ROBIN_NPC: has_cardboard_destroyer,
+    L.FOR_BRACELET_MONKEY_TREE: None,
+    L.FOR_CHEST_H4: (has_ranged | Has(I.BRACELET)) & can_open_chests,
+    L.FOR_EVA_ITEM: Has(I.BRACELET),
+    L.FOR_EVA_NPC: Has(I.BRACELET),
+    L.FOR_GUNTHER_NPC: None,
+    L.FOR_NINJA_CLAN_ITEM: (has_cardboard_destroyer & Has(I.BRACELET))
     | has_ranged,
-    GatorLocationName.FOR_NINJA_CLAN_NPCS: (has_cardboard_destroyer & Has(I.BRACELET))
+    L.FOR_NINJA_CLAN_NPCS: (has_cardboard_destroyer & Has(I.BRACELET))
     | has_ranged,
-    GatorLocationName.FOR_PENELOPE_ITEM: can_do_hard_ranged_quests,
-    GatorLocationName.FOR_PENELOPE_NPC: can_do_hard_ranged_quests,
-    GatorLocationName.FOR_PEPPERONI_ITEM: has_cardboard_destroyer & Has(I.BRACELET),
-    GatorLocationName.FOR_PEPPERONI_NPCS: has_cardboard_destroyer & Has(I.BRACELET),
-    GatorLocationName.FOR_POT_E1_LOWER_E: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.FOR_POT_E1_UPPER_E: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.FOR_POT_E1_UPPER_W: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.FOR_POT_F3: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.FOR_POT_G3_CLIFF: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.FOR_POT_G3_POND: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.FOR_POT_G4_DEAD_POND: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.FOR_POT_G4_E_E: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.FOR_POT_G4_E_W: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.FOR_POT_G4_S: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.GIANT_SOCKS)),
-    GatorLocationName.FOR_POT_H2: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.FOR_POT_H4_E: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GIANT_SOCKS)),
-    GatorLocationName.FOR_POT_H4_N: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.FOR_POT_H4_S: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GUITAR)),
-    GatorLocationName.FOR_POT_J0: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.FOR_POT_J1_SE: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.FOR_POT_J1_SW: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.FOR_POT_J3_E: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.FOR_POT_J3_W: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.GIANT_SOCKS)),
-    GatorLocationName.FOR_POT_KID_NPC: has_cardboard_destroyer,
-    GatorLocationName.FOR_RACE_F4: None,
-    GatorLocationName.FOR_RACE_G0: has_shield,
-    GatorLocationName.FOR_RACE_H1: None,
-    GatorLocationName.FOR_ROMEO_NUNCHUCKS: (has_cardboard_destroyer & Has(I.BRACELET))
+    L.FOR_PENELOPE_ITEM: can_do_hard_ranged_quests,
+    L.FOR_PENELOPE_NPC: can_do_hard_ranged_quests,
+    L.FOR_PEPPERONI_ITEM: has_cardboard_destroyer & Has(I.BRACELET),
+    L.FOR_PEPPERONI_NPCS: has_cardboard_destroyer & Has(I.BRACELET),
+    L.FOR_POT_E1_LOWER_E: no_pot_break_item | Has(I.OAR),
+    L.FOR_POT_E1_UPPER_E: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.FOR_POT_E1_UPPER_W: no_pot_break_item | Has(I.TIGER_FORM),
+    L.FOR_POT_F3: no_pot_break_item | Has(I.OAR),
+    L.FOR_POT_G3_CLIFF: no_pot_break_item | Has(I.GUITAR),
+    L.FOR_POT_G3_POND: no_pot_break_item | Has(I.TIGER_FORM),
+    L.FOR_POT_G4_DEAD_POND: no_pot_break_item | Has(I.TIGER_FORM),
+    L.FOR_POT_G4_E_E: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.OAR)),
+    L.FOR_POT_G4_E_W: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.FOR_POT_G4_S: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.GIANT_SOCKS)),
+    L.FOR_POT_H2: no_pot_break_item | Has(I.OAR),
+    L.FOR_POT_H4_E: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.GIANT_SOCKS)),
+    L.FOR_POT_H4_N: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.OAR)),
+    L.FOR_POT_H4_S: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.GUITAR)),
+    L.FOR_POT_J0: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.FOR_POT_J1_SE: no_pot_break_item | Has(I.OAR),
+    L.FOR_POT_J1_SW: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.FOR_POT_J3_E: no_pot_break_item | Has(I.GUITAR),
+    L.FOR_POT_J3_W: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.GIANT_SOCKS)),
+    L.FOR_POT_KID_NPC: has_cardboard_destroyer,
+    L.FOR_RACE_F4: None,
+    L.FOR_RACE_G0: has_shield,
+    L.FOR_RACE_H1: None,
+    L.FOR_ROMEO_NUNCHUCKS: (has_cardboard_destroyer & Has(I.BRACELET))
     | has_ranged,
-    GatorLocationName.FOR_SIERRA_ITEM: has_cardboard_destroyer,
-    GatorLocationName.FOR_SIERRA_NPC: has_cardboard_destroyer,
-    GatorLocationName.FOR_SORIN_ROE_BEERITNEY_ITEM: None,
-    GatorLocationName.FOR_SORIN_ROE_BEERITNEY_NPCS: None,
-    GatorLocationName.FOR_TIFFANY_ITEM: has_cardboard_destroyer,
-    GatorLocationName.FOR_TIFFANY_NPCS: has_cardboard_destroyer,
-    GatorLocationName.FOR_TRISH_NPC: None,
-    GatorLocationName.J4T_GRABBY_HAND: None,
-    GatorLocationName.J4T_PAINT_GUN: None,
-    GatorLocationName.J4T_ROY_ALL_PURCHASES_NPC: None,
-    GatorLocationName.J4T_STICKY_HAND: None,
-    GatorLocationName.J4T_TRAMPOLINE: None,
-    GatorLocationName.J4T_TRASH_CAN_LID: None,
-    GatorLocationName.J4T_WRENCH: None,
-    GatorLocationName.JET_LEELAND_ITEM: has_cardboard_destroyer,
-    GatorLocationName.JET_LEELAND_NPC: has_cardboard_destroyer,
-    GatorLocationName.JILL_Q_BUG_NET_GIFT: None,
-    GatorLocationName.JILL_Q_CHEESE_SANDWICH: has_cardboard_destroyer,
-    GatorLocationName.JILL_Q_GENE_ITEM: has_cardboard_destroyer & Has(I.SANDWICH),
-    GatorLocationName.JILL_Q_MAGIC_ORE: None,
-    GatorLocationName.JILL_Q_NPCS: can_complete_jill,
-    GatorLocationName.JILL_Q_SUSANNE: Has(I.ORE) & (has_ranged | has_sword),
-    GatorLocationName.MARTIN_Q_BUCKET_GIFT: Has(I.CLIPPINGS) & has_sword,
-    GatorLocationName.MARTIN_Q_DUKE_ITEM: None,
-    GatorLocationName.MARTIN_Q_GRASSING_CLIPPINGS: has_sword,
-    GatorLocationName.MARTIN_Q_JADA_ITEM: can_complete_martin,
-    GatorLocationName.MARTIN_Q_LUCAS_ITEM: None,
-    GatorLocationName.MARTIN_Q_NPCS: can_complete_martin,
-    GatorLocationName.MARTIN_Q_WATER: HasAll(I.CLIPPINGS, I.BUCKET) & has_sword,
-    GatorLocationName.MTN_BOWLING_BOMB_GIFT: None,
-    GatorLocationName.MTN_BRACELET_MONKEY_MOUNTAIN: None,
-    GatorLocationName.MTN_CHEST_B3: can_open_chests,
-    GatorLocationName.MTN_CHEST_C5: can_open_chests,
-    GatorLocationName.MTN_FLINT_NPC: has_ranged | Has(I.BOMB),
-    GatorLocationName.MTN_LUISA_ITEM: None,
-    GatorLocationName.MTN_LUISA_NPC: None,
-    GatorLocationName.MTN_NEIL_ITEM: has_cardboard_destroyer,
-    GatorLocationName.MTN_NEIL_NPC: has_cardboard_destroyer,
-    GatorLocationName.MTN_POT_B4_CENTER: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.MTN_POT_B4_E: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.MTN_POT_B4_NE: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GUITAR)),
-    GatorLocationName.MTN_POT_B4_W: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.MTN_POT_B5_ROCK: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.MTN_POT_B5_SW: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.MTN_POT_B5_TANNER: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.MTN_POT_C3_CLIFFFACE: (has_ranged | HasAny(I.BRACELET, I.GLIDER)) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.MTN_POT_C3_DOWN_FROM_TWIG: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.MTN_POT_C3_RAISED: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.MTN_POT_C3_SW: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.MTN_POT_C4_NE: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.MTN_POT_C4_NW_TALL: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.MTN_POT_C4_PEAK_E: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.MTN_POT_C4_SW: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GUITAR)),
-    GatorLocationName.MTN_POT_C4_W: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.TIGER_FORM)),
-    GatorLocationName.MTN_POT_C4_PEAK_W: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GIANT_SOCKS)),
-    GatorLocationName.MTN_POT_C5: (has_ranged | Has(I.BRACELET, count=2)) & (no_pot_break_item | Has(I.GUITAR)),
-    GatorLocationName.MTN_POT_D3: (has_ranged | HasAny(I.BRACELET, I.GLIDER)) & (no_pot_break_item | Has(I.TIGER_FORM)),
-    GatorLocationName.MTN_RACE_C4: Has(I.BRACELET) & has_shield,
-    GatorLocationName.MTN_RACE_D5: Has(I.BRACELET),
-    GatorLocationName.MTN_SCOOTER_NPC: ((Has(I.BRACELET) & has_cardboard_destroyer)
-    | has_ranged) & (no_pot_break_item | HasAll(I.OAR, I.TIGER_FORM, I.SLEEP_MASK, I.GUITAR, I.GIANT_SOCKS)),
-    GatorLocationName.MTN_TANNER_NPC: has_cardboard_destroyer,
-    GatorLocationName.MTN_TWIG_NPC: has_shield,
-    GatorLocationName.RAV_CHEST_E4: can_open_chests,
-    GatorLocationName.RAV_ESTHER_NPC: None,
-    GatorLocationName.RAV_POT_E2: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.RAV_POT_E3_BEACH: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.RAV_POT_E3_RIVER: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.RAV_POT_E4: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.RAV_POT_F4: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.TIGER_FORM)),
-    GatorLocationName.TI_AVERY: Has(I.STARTER_HAT) & has_cardboard_destroyer,
-    GatorLocationName.TI_AVERY_HAT_RECIPE: None,
-    GatorLocationName.TI_BRACELET_MONKEY_TUTORIAL: has_cardboard_destroyer,
-    GatorLocationName.TI_CHEST_A3: can_open_chests,
-    GatorLocationName.TI_CHEST_B1_MID_CLIFF: can_open_chests,
-    GatorLocationName.TI_CHEST_B1_TALLEST: Has(I.BRACELET) & can_open_chests,
-    GatorLocationName.TI_CHEST_D1: (has_ranged | Has(I.BRACELET) | can_shield_jump) & can_open_chests,
-    GatorLocationName.TI_FRANNY_ITEM: has_cardboard_destroyer,
-    GatorLocationName.TI_FRANNY_NPC: has_cardboard_destroyer,
-    GatorLocationName.TI_GERALD_ITEM: has_cardboard_destroyer,
-    GatorLocationName.TI_GERALD_NPC: has_cardboard_destroyer,
-    GatorLocationName.TI_MARTIN: Has(I.POT_Q),
-    GatorLocationName.TI_POT_A1: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.TI_POT_A3_BELOW_E: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.TI_POT_A3_WITHIN_CLIFFS: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.TI_POT_B0_BONE_PATH: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.TI_POT_B0_SW: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.TI_POT_B1_MIDDLE_ROPE: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.TI_POT_B1_PEAK_N: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.GIANT_SOCKS)),
-    GatorLocationName.TI_POT_B1_PEAK_S: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.TI_POT_B1_WATERFALL_BELOW: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.TI_POT_B1_WATERFALL_NEXT_TO: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.TI_POT_B1_WATERFALL_PILLAR: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.TI_POT_B1_W_ROPE: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    GatorLocationName.TI_POT_B2_BELOW_E: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.TI_POT_B2_BELOW_MIDDLE: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.TI_POT_B2_BELOW_W: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.TI_POT_B2_NW: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.TI_POT_B2_SIMON_E: no_pot_break_item | Has(I.OAR),
-    GatorLocationName.TI_POT_B2_TALL: (has_ranged | Has(I.BRACELET)) & (no_pot_break_item | Has(I.OAR)),
-    GatorLocationName.TI_POT_C1_HILL: no_pot_break_item | Has(I.SLEEP_MASK),
-    GatorLocationName.TI_POT_C1_STICK: no_pot_break_item | Has(I.GUITAR),
-    GatorLocationName.TI_POT_C2: (has_ranged | Has(I.BRACELET) | can_shield_jump) & (no_pot_break_item | Has(I.GIANT_SOCKS)),
-    GatorLocationName.TI_POT_D0: no_pot_break_item | Has(I.TIGER_FORM),
-    GatorLocationName.TI_POT_D1: no_pot_break_item | Has(I.GIANT_SOCKS),
-    GatorLocationName.TI_POT_Q: None,
-    GatorLocationName.TI_RACE_C2_CLIFF: has_shield,
-    GatorLocationName.TI_RACE_C2_MARTIN: has_shield,
-    GatorLocationName.TI_SIMON_ITEM: None,
-    GatorLocationName.TI_SIMON_NPC: None,
-    GatorLocationName.TI_STICK: None,
+    L.FOR_SIERRA_ITEM: has_cardboard_destroyer,
+    L.FOR_SIERRA_NPC: has_cardboard_destroyer,
+    L.FOR_SORIN_ROE_BEERITNEY_ITEM: None,
+    L.FOR_SORIN_ROE_BEERITNEY_NPCS: None,
+    L.FOR_TIFFANY_ITEM: has_cardboard_destroyer,
+    L.FOR_TIFFANY_NPCS: has_cardboard_destroyer,
+    L.FOR_TRISH_NPC: None,
+    L.J4T_GRABBY_HAND: None,
+    L.J4T_PAINT_GUN: None,
+    L.J4T_ROY_ALL_PURCHASES_NPC: None,
+    L.J4T_STICKY_HAND: None,
+    L.J4T_TRAMPOLINE: None,
+    L.J4T_TRASH_CAN_LID: None,
+    L.J4T_WRENCH: None,
+    L.JET_LEELAND_ITEM: has_cardboard_destroyer,
+    L.JET_LEELAND_NPC: has_cardboard_destroyer,
+    L.JILL_Q_BUG_NET_GIFT: None,
+    L.JILL_Q_CHEESE_SANDWICH: has_cardboard_destroyer,
+    L.JILL_Q_GENE_ITEM: has_cardboard_destroyer & Has(I.SANDWICH),
+    L.JILL_Q_MAGIC_ORE: None,
+    L.JILL_Q_NPCS: can_complete_jill,
+    L.JILL_Q_SUSANNE: Has(I.ORE) & (has_ranged | has_sword),
+    L.MARTIN_Q_BUCKET_GIFT: Has(I.CLIPPINGS) & has_sword,
+    L.MARTIN_Q_DUKE_ITEM: None,
+    L.MARTIN_Q_GRASSING_CLIPPINGS: has_sword,
+    L.MARTIN_Q_JADA_ITEM: can_complete_martin,
+    L.MARTIN_Q_LUCAS_ITEM: None,
+    L.MARTIN_Q_NPCS: can_complete_martin,
+    L.MARTIN_Q_WATER: HasAll(I.CLIPPINGS, I.BUCKET) & has_sword,
+    L.MTN_BOWLING_BOMB_GIFT: None,
+    L.MTN_BRACELET_MONKEY_MOUNTAIN: None,
+    L.MTN_CHEST_B3: can_open_chests,
+    L.MTN_CHEST_C5: can_open_chests,
+    L.MTN_FLINT_NPC: has_ranged | Has(I.BOMB),
+    L.MTN_LUISA_ITEM: None,
+    L.MTN_LUISA_NPC: None,
+    L.MTN_NEIL_ITEM: has_cardboard_destroyer,
+    L.MTN_NEIL_NPC: has_cardboard_destroyer,
+    L.MTN_POT_B4_CENTER: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.MTN_POT_B4_E: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.MTN_POT_B4_NE: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.GUITAR)),
+    L.MTN_POT_B4_W: no_pot_break_item | Has(I.GUITAR),
+    L.MTN_POT_B5_ROCK: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.MTN_POT_B5_SW: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.MTN_POT_B5_TANNER: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.MTN_POT_C3_CLIFFFACE: (has_ranged | HasAny(I.BRACELET, I.GLIDER))
+    & (no_pot_break_item | Has(I.OAR)),
+    L.MTN_POT_C3_DOWN_FROM_TWIG: no_pot_break_item | Has(I.GUITAR),
+    L.MTN_POT_C3_RAISED: no_pot_break_item | Has(I.OAR),
+    L.MTN_POT_C3_SW: no_pot_break_item | Has(I.TIGER_FORM),
+    L.MTN_POT_C4_NE: no_pot_break_item | Has(I.OAR),
+    L.MTN_POT_C4_NW_TALL: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.OAR)),
+    L.MTN_POT_C4_PEAK_E: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.MTN_POT_C4_SW: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.GUITAR)),
+    L.MTN_POT_C4_W: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.TIGER_FORM)),
+    L.MTN_POT_C4_PEAK_W: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.GIANT_SOCKS)),
+    L.MTN_POT_C5: (has_ranged | Has(I.BRACELET, count=2))
+    & (no_pot_break_item | Has(I.GUITAR)),
+    L.MTN_POT_D3: (has_ranged | HasAny(I.BRACELET, I.GLIDER))
+    & (no_pot_break_item | Has(I.TIGER_FORM)),
+    L.MTN_RACE_C4: Has(I.BRACELET) & has_shield,
+    L.MTN_RACE_D5: Has(I.BRACELET),
+    L.MTN_SCOOTER_NPC: (
+        (Has(I.BRACELET) & has_cardboard_destroyer) | has_ranged
+    )
+    & (
+        no_pot_break_item
+        | HasAll(I.OAR, I.TIGER_FORM, I.SLEEP_MASK, I.GUITAR, I.GIANT_SOCKS)
+    ),
+    L.MTN_TANNER_NPC: has_cardboard_destroyer,
+    L.MTN_TWIG_NPC: has_shield,
+    L.RAV_CHEST_E4: can_open_chests,
+    L.RAV_ESTHER_NPC: None,
+    L.RAV_POT_E2: no_pot_break_item | Has(I.TIGER_FORM),
+    L.RAV_POT_E3_BEACH: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.RAV_POT_E3_RIVER: no_pot_break_item | Has(I.GUITAR),
+    L.RAV_POT_E4: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.RAV_POT_F4: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.TIGER_FORM)),
+    L.TI_AVERY: Has(I.STARTER_HAT) & has_cardboard_destroyer,
+    L.TI_AVERY_HAT_RECIPE: None,
+    L.TI_BRACELET_MONKEY_TUTORIAL: has_cardboard_destroyer,
+    L.TI_CHEST_A3: can_open_chests,
+    L.TI_CHEST_B1_MID_CLIFF: can_open_chests,
+    L.TI_CHEST_B1_TALLEST: Has(I.BRACELET) & can_open_chests,
+    L.TI_CHEST_D1: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & can_open_chests,
+    L.TI_FRANNY_ITEM: has_cardboard_destroyer,
+    L.TI_FRANNY_NPC: has_cardboard_destroyer,
+    L.TI_GERALD_ITEM: has_cardboard_destroyer,
+    L.TI_GERALD_NPC: has_cardboard_destroyer,
+    L.TI_MARTIN: Has(I.POT_Q),
+    L.TI_POT_A1: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.TI_POT_A3_BELOW_E: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.TI_POT_A3_WITHIN_CLIFFS: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.TI_POT_B0_BONE_PATH: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.TI_POT_B0_SW: no_pot_break_item | Has(I.OAR),
+    L.TI_POT_B1_MIDDLE_ROPE: no_pot_break_item | Has(I.OAR),
+    L.TI_POT_B1_PEAK_N: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.GIANT_SOCKS)),
+    L.TI_POT_B1_PEAK_S: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.TI_POT_B1_WATERFALL_BELOW: no_pot_break_item | Has(I.TIGER_FORM),
+    L.TI_POT_B1_WATERFALL_NEXT_TO: no_pot_break_item | Has(I.OAR),
+    L.TI_POT_B1_WATERFALL_PILLAR: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.TI_POT_B1_W_ROPE: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.SLEEP_MASK)),
+    L.TI_POT_B2_BELOW_E: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.TI_POT_B2_BELOW_MIDDLE: no_pot_break_item | Has(I.TIGER_FORM),
+    L.TI_POT_B2_BELOW_W: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.TI_POT_B2_NW: no_pot_break_item | Has(I.OAR),
+    L.TI_POT_B2_SIMON_E: no_pot_break_item | Has(I.OAR),
+    L.TI_POT_B2_TALL: (has_ranged | Has(I.BRACELET))
+    & (no_pot_break_item | Has(I.OAR)),
+    L.TI_POT_C1_HILL: no_pot_break_item | Has(I.SLEEP_MASK),
+    L.TI_POT_C1_STICK: no_pot_break_item | Has(I.GUITAR),
+    L.TI_POT_C2: (has_ranged | Has(I.BRACELET) | can_shield_jump)
+    & (no_pot_break_item | Has(I.GIANT_SOCKS)),
+    L.TI_POT_D0: no_pot_break_item | Has(I.TIGER_FORM),
+    L.TI_POT_D1: no_pot_break_item | Has(I.GIANT_SOCKS),
+    L.TI_POT_Q: None,
+    L.TI_RACE_C2_CLIFF: has_shield,
+    L.TI_RACE_C2_MARTIN: has_shield,
+    L.TI_SIMON_ITEM: None,
+    L.TI_SIMON_NPC: None,
+    L.TI_STICK: None,
 }
 
 

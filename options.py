@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Dict, Any
 
-from Options import Toggle, StartInventoryPool, PerGameCommonOptions, OptionGroup
+from Options import DefaultOnToggle, Toggle, StartInventoryPool, PerGameCommonOptions, OptionGroup
 
 class StartWithFreeplay(Toggle):
     """Start with no barrier around Tutorial Island and thus the ability to access checks on the main island."""
@@ -36,12 +36,12 @@ class LockChestsBehindKey(Toggle):
     display_name = "Lock Chests Behind Key"
 
 class LockRacesBehindFlag(Toggle):
-    """Lock chests behind receiving a finish flag (which unlocks all races)."""
+    """Lock races behind receiving a finish flag (which unlocks all races)."""
 
     internal_name = "lock_races_behind_flag"
     display_name = "Lock Race Behind Flag"
 
-class StartWithCheckFinders(Toggle):
+class StartWithCheckFinders(DefaultOnToggle):
     """Start with Megaphone and Text Jill items in inventory for finding checks."""
     internal_name = "start_with_check_finder"
     display_name = "Start With Check Finders"
