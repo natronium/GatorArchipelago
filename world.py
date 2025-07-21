@@ -68,7 +68,7 @@ class GatorWorld(RuleWorldMixin, World):
     options_dataclass = GatorOptions  # options the player can set
     options: GatorOptions  # typing hints for option results
     topology_present = True  # show path to required location checks in spoiler
-    origin_region_name = "Tutorial Island"
+    origin_region_name = R.TUTORIAL_ISLAND.value
 
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
