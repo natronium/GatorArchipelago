@@ -246,9 +246,6 @@ class GatorLocationData(NamedTuple):
     location_id: int
     region: GatorRegionName
     location_groups: List[LocationGroup]
-  
-    def __repr__(self) -> str:
-        return f"GatorLocationData(\n{self.name},\n{self.location_id},\n{self.region},\n{self.location_group},\n{self.access_rules})\n"
 
 location_table: List[GatorLocationData] = [
     GatorLocationData(
