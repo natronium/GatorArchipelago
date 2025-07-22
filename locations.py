@@ -1345,8 +1345,6 @@ location_table: List[GatorLocationData] = [
         [LocationGroup.Main_Quest]),
 ]
 
-location_table.sort(key = lambda entry: entry.name.name)
-
 def locations_for_group(group: LocationGroup) -> List[str]:
     location_names = []
     for data in location_table:
