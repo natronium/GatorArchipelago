@@ -59,15 +59,15 @@ class HasEnoughFriends(Rule["GatorWorld"], game="Lil Gator Game"):
 
         def item_dependencies(self) -> dict[str, set[int]]:
             return {
-                I.FRIEND_1: {id(self)},
-                I.FRIEND_2: {id(self)},
-                I.FRIEND_3: {id(self)},
-                I.FRIEND_4: {id(self)},
+                I.FRIEND_1.value: {id(self)},
+                I.FRIEND_2.value: {id(self)},
+                I.FRIEND_3.value: {id(self)},
+                I.FRIEND_4.value: {id(self)},
             }
 
 
 # Override Has, etc. to take GatorItemName enum instead of string
-@dataclasses.dataclass
+@dataclasses.dataclass()
 class Has(RBHas, game="Lil Gator Game"):
 
     @override
@@ -101,7 +101,7 @@ class HasAll(RBHasAll, game="Lil Gator Game"):
         )
 
 
-@dataclasses.dataclass
+@dataclasses.dataclass()
 class HasGroup(RBHasGroup, game="Lil Gator Game"):
 
     @override
@@ -110,7 +110,7 @@ class HasGroup(RBHasGroup, game="Lil Gator Game"):
     ) -> None:
         super().__init__(item_name_group.value, count=count, options=options)
 
-@dataclasses.dataclass
+@dataclasses.dataclass()
 class CanReachLocation(RBCanReachLocation, game="Lil Gator Game"):
 
     @override

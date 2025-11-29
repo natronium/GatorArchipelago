@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Dict, Any
+from typing import Any
 
 from Options import DefaultOnToggle, Toggle, StartInventoryPool, PerGameCommonOptions, OptionGroup
 
@@ -80,7 +80,7 @@ gator_options_presets = {
     }
 }
 
-gator_option_groups: Dict[str, Dict[str, Any]] = [
+gator_option_groups: list[OptionGroup] = [
     OptionGroup(
         "Logic Options", [StartWithFreeplay, RequireShieldJump, HarderRangedQuests, LockPotsBehindItems, LockChestsBehindKey, LockRacesBehindFlag]
     ),
