@@ -46,6 +46,12 @@ class StartWithCheckFinders(DefaultOnToggle):
     internal_name = "start_with_check_finder"
     display_name = "Start With Check Finders"
 
+class MakeAwkwardCardboardDestroyersProgression(Toggle):
+    """Marks Sticky Hand, Balloon, Bubble Gum, and Ragdoll as progression, which means the generator can put them as your first logical Cardboard Destroyer."""
+
+    internal_name = "awkward_progression"
+    display_name = "Make Awkward Cardboard Destroyers Progression"
+
 
 @dataclass
 class GatorOptions(PerGameCommonOptions):
@@ -56,10 +62,11 @@ class GatorOptions(PerGameCommonOptions):
     lock_chests_behind_key: LockChestsBehindKey
     lock_races_behind_flag: LockRacesBehindFlag
     start_with_checkfinders: StartWithCheckFinders
+    awkward_progression: MakeAwkwardCardboardDestroyersProgression
     start_inventory_from_pool: StartInventoryPool
 
 
-gator_options_presets = {
+gator_options_presets: dict[str, dict[str, Any]] = {
     "Maximal Accessibility": {
         "start_with_freeplay": True,
         "require_shield_jump": False,
@@ -68,6 +75,7 @@ gator_options_presets = {
         "lock_chests_behind_key": False,
         "lock_races_behind_flag": False,
         "start_with_checkfinders": True,
+        "awkward_progression": False,
     },
     "Locked Down": {
         "start_with_freeplay": False,
@@ -77,12 +85,13 @@ gator_options_presets = {
         "lock_chests_behind_key": True,
         "lock_races_behind_flag": True,
         "start_with_checkfinders": True,
+        "awkward_progression": False,
     }
 }
 
 gator_option_groups: Dict[str, Dict[str, Any]] = [
     OptionGroup(
-        "Logic Options", [StartWithFreeplay, RequireShieldJump, HarderRangedQuests, LockPotsBehindItems, LockChestsBehindKey, LockRacesBehindFlag]
+        "Logic Options", [StartWithFreeplay, RequireShieldJump, HarderRangedQuests, LockPotsBehindItems, LockChestsBehindKey, LockRacesBehindFlag, MakeAwkwardCardboardDestroyersProgression]
     ),
     OptionGroup(
         "Convenience Options", [StartWithCheckFinders]

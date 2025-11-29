@@ -5,7 +5,7 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 
 ## Instructions
 1. Setup the [GatorRando mod](https://github.com/natronium/GatorRando) as described in its README.
-2. Install [Archipelago 0.6.2+](https://github.com/ArchipelagoMW/Archipelago/releases/) (or follow their instructions to run from source)
+2. Install [Archipelago 0.6.4+](https://github.com/ArchipelagoMW/Archipelago/releases/) (or follow their instructions to run from source)
 3. Download the latest apworld provided on the [releases page](https://github.com/natronium/GatorArchipelago/releases/latest)
 	- Check to make sure the name of your download does not have any artifacts (i.e. no (1) or other browser added names). The apworld should be named "lil_gator_game.apworld"
 	- To create the apworld from scratch: download this repo's source code and zip the whole folder into a file named lil_gator_game.apworld. The zip/apworld file should contain a `lil_gator_game` folder at the top level 
@@ -19,13 +19,13 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 ### Recommendations for Better Play Experiences
 - Download [Universal Tracker](https://github.com/FarisTheAncient/Archipelago/releases) and use it to track which locations are in logic and your position on the map.
 - If you are having trouble finding a specific location, you can search the map available at https://natronium.github.io/GatorMap/ to find all the pots, chests, and races with their locations labeled as they are in the Archipelago.
-- Use the text client (which you can also open from the Archipelago Launcher) alongside your game. Using the text client will allow you to see what items you are sending and receiving, as only some sent items currently display in game.
+- Use the text client (which you can also open from the Archipelago Launcher) alongside your game
 
 ## Creating your yaml
 We recommend starting with the basic yaml template provided with the [latest release](https://github.com/natronium/GatorArchipelago/releases/latest). If you would like to experiment with options not listed in the basic template provided here, you can check the [advanced yaml instructions](https://archipelago.gg/tutorial/Archipelago/advanced_settings/en) provided by Archipelago.
 
 ### yaml Recommendations
-- Especially if you are playing the randomizer for the first time, set `start_with_checkfinders: 'true'`. You will start with the Mgaphone and Texting With Jill, which can point you towards checks that are "in logic" (available to you based on your current items and settings). You'll need to change the settings for these items in your in-game Settings menu
+- Especially if you are playing the randomizer for the first time, set `start_with_checkfinders: 'true'`. You will start with the Mgaphone and Texting With Jill, which can point you towards checks that are "in logic" (available to you based on your current items and settings). You'll need to change the settings for these items in your in-game Rando Settings menu
 - If you are playing with other games, we recommend setting `start_with_freeplay: 'true'` if the other games have a lot of early things they can do and `start_with_freeplay: 'false'` if they are limited. Freeplay opens up a lot of places to check, which can be good and bad, depending on your play preference, your group, and your comfort with the game
 - If you are playing solo, `start_with_freeplay: 'false'` can be a good way to figure out how to play since there's a limited number of places to check, but `start_with_freeplay: 'true'` will provide a more varied experience
 
@@ -41,3 +41,7 @@ We recommend starting with the basic yaml template provided with the [latest rel
 	- If enabled, logic may require the player to reach higher places than possible with just a jump by using their shield at the top of their jump
 - Harder Ranged Quests
 	- If enabled, for Penelope (Bastion Beaver) and Andromeda (Space Hawk), a ranged weapon is no longer required and logic may require the player to jump off the cliff and knock down the relevant cardboard with another relevant cardboard destroyer.
+- Lock Pots/Chests/Races
+	- Three options with similar effects. Locks the ability to do those checks behind an item. There is one unlock item for each of 5 types of pots, one key for chests, and one finish flag for races.
+- Make Awkward Cardboard Destroyers Progression
+	- Marks Sticky Hand, Balloon, Bubble Gum, and Ragdoll as progression, which means they can be logically required to be used to break things. Not recommended for new players.
