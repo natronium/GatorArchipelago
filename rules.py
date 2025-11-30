@@ -203,7 +203,7 @@ gator_location_rules: dict[L, Rule["GatorWorld"] | None] = {
     L.CAN_DARCIE_NPC: has_ranged,
     L.CAN_KASEN_ITEM: Has(I.BROKEN_SCOOTER),
     L.CAN_KASEN_NPC: Has(I.BROKEN_SCOOTER),
-    L.CAN_MOCHI_NPC: Has(I.BRACELET),
+    L.CAN_MOCHI_NPC: Has(I.BRACELET) | can_shield_jump,
     L.CAN_POT_A8_N: no_pot_break_item | Has(I.TIGER_FORM),
     L.CAN_POT_A8_W: no_pot_break_item | Has(I.GUITAR),
     L.CAN_POT_B8: (has_ranged | Has(I.BRACELET, 2))
@@ -351,7 +351,7 @@ gator_location_rules: dict[L, Rule["GatorWorld"] | None] = {
     & (no_pot_break_item | Has(I.OAR)),
     L.MTN_POT_C4_PEAK_E: (has_ranged | Has(I.BRACELET))
     & (no_pot_break_item | Has(I.SLEEP_MASK)),
-    L.MTN_POT_C4_SW: (has_ranged | Has(I.BRACELET))
+    L.MTN_POT_C4_SW: (has_ranged | Has(I.BRACELET) | can_shield_jump)
     & (no_pot_break_item | Has(I.GUITAR)),
     L.MTN_POT_C4_W: (has_ranged | Has(I.BRACELET) | can_shield_jump)
     & (no_pot_break_item | Has(I.TIGER_FORM)),
