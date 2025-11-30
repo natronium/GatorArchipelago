@@ -29,7 +29,7 @@ from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
 from .json_generator import generate_rule_json
 
-gator_version = 111
+gator_version = "1.1.2"
 
 
 class GatorItem(Item):
@@ -46,16 +46,17 @@ class GatorWeb(WebWorld):
     option_groups = gator_option_groups
     options_presets = gator_options_presets
 
-    # tutorials = [
-    #     Tutorial(
-    #         tutorial_name="Multiworld Setup Guide",
-    #         description="A guide to setting up the Lil Gator Game Randomizer for Archipelago multiworld games.",
-    #         language="English",
-    #         file_name="setup_en.md",
-    #         link="setup/en",
-    #         authors=[""]
-    #     )
-    # ]
+    tutorials = [
+        Tutorial(
+            tutorial_name="Multiworld Setup Guide",
+            description="A guide to setting up the Lil Gator Game Randomizer for Archipelago multiworld games.",
+            language="English",
+            file_name="setup_en.md",
+            link="setup/en",
+            authors=["rose.as.romeo","Natronium"],
+        )
+    ]
+    game_info_languages = ["en"]
 
 
 class GatorWorld(RuleWorldMixin, World):
@@ -88,8 +89,8 @@ class GatorWorld(RuleWorldMixin, World):
             "APWorldVersion" in slot_data
             and slot_data["APWorldVersion"] != gator_version
         ):
-            current_version = f"v{gator_version // 100}.{(gator_version // 10) % 10}.{gator_version % 10}"
-            slot_version = f"v{slot_data['APWorldVersion'] // 100}.{(slot_data['APWorldVersion'] // 10) % 10}.{slot_data['APWorldVersion'] % 10}"
+            current_version = f"v{gator_version}"
+            slot_version = f"v{slot_data['APWorldVersion']}"
 
             raise Exception(
                 f"Lil Gator Game version error: The version of apworld used to generate this world ({slot_version}) does not match the version of your installed apworld ({current_version})."

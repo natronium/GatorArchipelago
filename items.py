@@ -46,7 +46,7 @@ class GatorItemName(str, Enum):
     TIARA_HAT = "Princess Tiara"
     HEADBAND = "Ninja Headband"
     STICK = "Stick"
-    SWORD = "Sword"
+    SWORD = "Wooden Sword"
     PAINTBRUSH = "Paintbrush"
     SPEAR = "Cardboard Spear"
     GRABBY_HAND = "Grabby Hand"
@@ -93,12 +93,12 @@ class GatorItemName(str, Enum):
 
 
 class GatorEventName(str, Enum):
-    PLAYGROUND = "Playground Complete",
+    PLAYGROUND = "Playground Complete"
     OOL = "Out of Logic Item"
 
 class GatorItemData(NamedTuple):
     name: GatorItemName
-    item_id: int | None
+    item_id: int
     classification: ItemClassification
     base_quantity_in_item_pool: int 
     item_groups: List[ItemGroup]
@@ -616,11 +616,11 @@ filler_items: List[str] = [
 
 # Items can be grouped using their names to allow easy checking if any item
 # from that group has been collected. Group names can also be used for !hint
-def items_for_group(group: ItemGroup) -> List[str]:
-    item_names = []
+def items_for_group(group: ItemGroup) -> Set[str]:
+    item_names = set()
     for data in item_table:
         if group in data.item_groups:
-            item_names.append(data.name.value)
+            item_names.add(data.name.value)
     return item_names
 
 
