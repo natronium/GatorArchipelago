@@ -149,9 +149,14 @@ class GatorWorld(RuleWorldMixin, World):
 
         # otherwise, look up the item data
         item_data = next(data for data in item_table if data.name.value == name)
-        return GatorItem(
-            name, item_data.classification, self.item_name_to_id[name], self.player
-        )
+        if self.options.awkward_progression and item_data.name in [I.BALLOON, I.BUBBLEGUM, I.RAGDOLL, I.STICKY_HAND]:
+            return GatorItem(
+                name, ItemClassification.progression, self.item_name_to_id[name], self.player
+            )
+        else:
+            return GatorItem(
+                name, item_data.classification, self.item_name_to_id[name], self.player
+            )
 
     def create_items(self) -> None:
         gator_items: List[GatorItem] = []

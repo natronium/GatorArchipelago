@@ -473,14 +473,14 @@ item_table: List[GatorItemData] = [
         100000053,
         ItemClassification.filler,
         1,
-        [ItemGroup.Craft]
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Craft]
     ),
     GatorItemData(
         GatorItemName.BALLOON,
         100000054,
         ItemClassification.useful,
         1,
-        [ItemGroup.Traversal,ItemGroup.Item]
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Traversal,ItemGroup.Item]
     ),
     GatorItemData(
         GatorItemName.ROCK,
@@ -506,7 +506,7 @@ item_table: List[GatorItemData] = [
     GatorItemData(
         GatorItemName.BOMB,
         100000058,
-        ItemClassification.useful,
+        ItemClassification.progression,
         1,
         [ItemGroup.Cardboard_Destroyer,ItemGroup.Item]
     ),
@@ -515,14 +515,14 @@ item_table: List[GatorItemData] = [
         100000059,
         ItemClassification.useful,
         1,
-        [ItemGroup.Traversal,ItemGroup.Item]
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Traversal,ItemGroup.Item]
     ),
     GatorItemData(
         GatorItemName.STICKY_HAND,
         100000060,
         ItemClassification.filler,
         1,
-        [ItemGroup.Item]
+        [ItemGroup.Cardboard_Destroyer,ItemGroup.Item]
     ),
     GatorItemData(
         GatorItemName.PAINT_GUN,
