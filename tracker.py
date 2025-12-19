@@ -13,11 +13,11 @@ def location_icon_coords(index: int | None, coords: dict[str, Any]) -> tuple[int
         map_y = ((pos_x + 165))/480*MAP_IMAGE_SIDE_LENGTH_PX
         return round(map_y)
 
-    def pos_y_to_map_y(pos_y: float) -> int:
+    def pos_y_to_map_x(pos_y: float) -> int:
         map_x = (480-(pos_y + 165))/480*MAP_IMAGE_SIDE_LENGTH_PX
         return round(map_x)
     
-    return pos_x_to_map_y(coords.get("X", 0)), pos_y_to_map_y(coords.get("Y", 0)), f"images/icons/lil_gator_icon_outline.png"
+    return pos_x_to_map_y(coords.get("X", 0)), pos_y_to_map_x(coords.get("Y", 0)), f"images/icons/lil_gator_icon_outline.png"
 
 tracker_world = {
     "map_page_folder" : "tracker",
