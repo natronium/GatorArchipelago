@@ -219,6 +219,7 @@ class GatorWorld(RuleWorldMixin, World):
             "lock_pots_behind_items",
             "lock_chests_behind_key",
             "lock_races_behind_flag",
+            "awkward_progression",
         )
         slot_data["APWorldVersion"] = self.world_version
         return slot_data
