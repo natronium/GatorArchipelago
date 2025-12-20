@@ -29,8 +29,6 @@ from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
 from .tracker import tracker_world
 from .json_generator import generate_rule_json
 
-gator_version = "1.1.2"
-
 
 class GatorItem(Item):
     game: str = "Lil Gator Game"
@@ -87,9 +85,9 @@ class GatorWorld(RuleWorldMixin, World):
         # Adapted from ClassicSpeed's SADX implementation of this feature
         if (
             "APWorldVersion" in slot_data
-            and slot_data["APWorldVersion"] != gator_version
+            and slot_data["APWorldVersion"] != GatorWorld.world_version
         ):
-            current_version = f"v{gator_version}"
+            current_version = f"v{GatorWorld.world_version}"
             slot_version = f"v{slot_data['APWorldVersion']}"
 
             raise Exception(
@@ -222,7 +220,7 @@ class GatorWorld(RuleWorldMixin, World):
             "lock_chests_behind_key",
             "lock_races_behind_flag",
         )
-        slot_data["APWorldVersion"] = gator_version
+        slot_data["APWorldVersion"] = self.world_version
         return slot_data
 
     def get_filler_item_name(self) -> str:
