@@ -81,18 +81,16 @@ class GatorWorld(RuleWorldMixin, World):
 
     @staticmethod
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
-
-        # Adapted from ClassicSpeed's SADX implementation of this feature
         if (
             "APWorldVersion" in slot_data
-            and slot_data["APWorldVersion"] != GatorWorld.world_version
         ):
-            current_version = f"v{GatorWorld.world_version}"
-            slot_version = f"v{slot_data['APWorldVersion']}"
+            if slot_data["APWorldVersion"][0] != GatorWorld.world_version.major or slot_data["APWorldVersion"][1] != GatorWorld.world_version.minor:
+                current_version = f"v{GatorWorld.world_version.as_simple_string}"
+                reported_version = f"v{slot_data['APWorldVersion']}"
 
-            raise Exception(
-                f"Lil Gator Game version error: The version of apworld used to generate this world ({slot_version}) does not match the version of your installed apworld ({current_version})."
-            )
+                raise Exception(
+                    f"Lil Gator Game version error: The version of apworld used to generate this world ({reported_version}) does not match the version of your installed apworld ({current_version})."
+                )
         return slot_data
     
     @override
