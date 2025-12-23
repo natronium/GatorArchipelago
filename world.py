@@ -7,7 +7,7 @@ try:
     from rule_builder import RuleWorldMixin
 except ModuleNotFoundError:
     from .rule_builder import RuleWorldMixin
-from .options import GatorOptions, gator_options_presets, gator_option_groups
+from .options import GatorOptions, TrapTypeWeights, gator_options_presets, gator_option_groups
 from .items import (
     item_name_to_id,
     item_table,
@@ -158,6 +158,10 @@ class GatorWorld(RuleWorldMixin, World):
             )
 
     def create_items(self) -> None:
+        def choose_trap(trap_weights: TrapTypeWeights) -> str:
+            trap_weights_sum = sum(trap_weights.values())
+            return self.random.choices(list(k for k in trap_weights.keys()), list((w/trap_weights_sum) for w in trap_weights.values()))[0]
+        
         gator_items: List[GatorItem] = []
         items_to_create: Dict[str, int] = {
             data.name.value: data.base_quantity_in_item_pool for data in item_table
@@ -192,8 +196,16 @@ class GatorWorld(RuleWorldMixin, World):
         junk = len(self.multiworld.get_unfilled_locations(self.player)) - len(
             gator_items
         )
+        
+        # Add traps
+        trap_weights = self.options.trap_type_weights
+        trap_chance = self.options.trap_chance / 100
+        trap_number = self.random.binomialvariate(junk, trap_chance)
         gator_items += [
-            self.create_item(self.get_filler_item_name()) for _ in range(junk)
+            self.create_item(self.get_filler_item_name()) for _ in range(junk - trap_number)
+        ]
+        gator_items += [
+            self.create_item(choose_trap(trap_weights)) for _ in range(trap_number)
         ]
 
         self.multiworld.itempool += gator_items
