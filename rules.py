@@ -337,7 +337,7 @@ gator_location_rules: dict[L, Rule["GatorWorld"] | None] = {
     L.MTN_POT_B4_E: no_pot_break_item | Has(I.SLEEP_MASK),
     L.MTN_POT_B4_NE: (has_ranged | Has(I.BRACELET))
     & (no_pot_break_item | Has(I.GUITAR)),
-    L.MTN_POT_B4_W: no_pot_break_item | Has(I.GUITAR),
+    L.MTN_POT_B4_W: no_pot_break_item | Has(I.TIGER_FORM),
     L.MTN_POT_B5_ROCK: no_pot_break_item | Has(I.SLEEP_MASK),
     L.MTN_POT_B5_SW: no_pot_break_item | Has(I.SLEEP_MASK),
     L.MTN_POT_B5_TANNER: no_pot_break_item | Has(I.SLEEP_MASK),

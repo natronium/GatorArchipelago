@@ -1285,7 +1285,7 @@ location_table: List[GatorLocationData] = [
         GatorLocationName.MTN_POT_B4_W,
         100000216,
         R.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Pot, LocationGroup.OoT_Pot],
+        [LocationGroup.Pot, LocationGroup.TP_Pot],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B5_ROCK,
