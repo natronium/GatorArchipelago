@@ -3,10 +3,7 @@ from typing_extensions import override
 
 from Options import Option
 
-try:
-    from rule_builder import RuleWorldMixin
-except ModuleNotFoundError:
-    from .rule_builder import RuleWorldMixin
+# from rule_builder.rules import RuleWorldMixin
 from .options import GatorOptions, TrapTypeWeights, gator_options_presets, gator_option_groups
 from .items import (
     item_name_to_id,
@@ -57,7 +54,7 @@ class GatorWeb(WebWorld):
     game_info_languages = ["en"]
 
 
-class GatorWorld(RuleWorldMixin, World):
+class GatorWorld(World):
     """Embark on an adorable adventure, discover new friends and uncover everything the island has to offer. Climb,
     Swim, Glide and slide your way into the hearts of the many different characters you meet on your travels!
     """
@@ -212,7 +209,6 @@ class GatorWorld(RuleWorldMixin, World):
         set_location_rules(self)
 
         self.set_completion_rule(Has(E.PLAYGROUND))
-        self.register_dependencies()
 
         # generate_rule_json()
 

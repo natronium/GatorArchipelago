@@ -5,7 +5,7 @@ This project is an [Archipelago](https://archipelago.gg/) apworld for [Lil Gator
 
 ## Instructions
 1. Setup the [GatorRando mod](https://github.com/natronium/GatorRando) as described in its README.
-2. Install [Archipelago 0.6.4+](https://github.com/ArchipelagoMW/Archipelago/releases/) (or follow their instructions to run from source)
+2. Install [Archipelago 0.6.7+](https://github.com/ArchipelagoMW/Archipelago/releases/) (or follow their instructions to run from source)
 3. Download the latest apworld provided on the [releases page](https://github.com/natronium/GatorArchipelago/releases/latest)
 	- Check to make sure the name of your download does not have any artifacts (i.e. no (1) or other browser added names). The apworld should be named "lil_gator_game.apworld"
 	- To create the apworld from scratch: download this repo's source code and zip the whole folder into a file named lil_gator_game.apworld. The zip/apworld file should contain a `lil_gator_game` folder at the top level 

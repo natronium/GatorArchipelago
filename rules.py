@@ -14,28 +14,16 @@ from .options import (
 from .items import ItemGroup as IG, GatorItemName as I, GatorEventName as E
 from .locations import location_table, GatorLocationName as L
 
-try:
-    from rule_builder import (
-        Rule,
-        True_,
-        OptionFilter,
-        Has as RBHas,
-        HasAll as RBHasAll,
-        HasAny as RBHasAny,
-        HasGroup as RBHasGroup,
-        CanReachLocation as RBCanReachLocation,
-    )
-except ModuleNotFoundError:
-    from .rule_builder import (
-        Rule,
-        True_,
-        OptionFilter,
-        Has as RBHas,
-        HasAll as RBHasAll,
-        HasAny as RBHasAny,
-        HasGroup as RBHasGroup,
-        CanReachLocation as RBCanReachLocation,
-    )
+from rule_builder.rules import (
+    Rule,
+    True_,
+    OptionFilter,
+    Has as RBHas,
+    HasAll as RBHasAll,
+    HasAny as RBHasAny,
+    HasGroup as RBHasGroup,
+    CanReachLocation as RBCanReachLocation,
+)
 from collections.abc import Iterable
 
 if TYPE_CHECKING:
@@ -72,7 +60,7 @@ class Has(RBHas, game="Lil Gator Game"):
 
     @override
     def __init__(
-        self, item_name: I | E, count=1, options: "Iterable[OptionFilter[Any]]" = ()
+        self, item_name: I | E, count=1, options: "Iterable[OptionFilter]" = ()
     ) -> None:
         super().__init__(item_name.value, count=count, options=options)
 
@@ -82,7 +70,7 @@ class HasAny(RBHasAny, game="Lil Gator Game"):
 
     @override
     def __init__(
-        self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()
+        self, *item_names: I, options: "Iterable[OptionFilter]" = ()
     ) -> None:
         super().__init__(
             *tuple(item_name.value for item_name in item_names), options=options
@@ -94,7 +82,7 @@ class HasAll(RBHasAll, game="Lil Gator Game"):
 
     @override
     def __init__(
-        self, *item_names: I, options: "Iterable[OptionFilter[Any]]" = ()
+        self, *item_names: I, options: "Iterable[OptionFilter]" = ()
     ) -> None:
         super().__init__(
             *tuple(item_name.value for item_name in item_names), options=options
@@ -106,7 +94,7 @@ class HasGroup(RBHasGroup, game="Lil Gator Game"):
 
     @override
     def __init__(
-        self, item_name_group: IG, count=1, options: "Iterable[OptionFilter[Any]]" = ()
+        self, item_name_group: IG, count=1, options: "Iterable[OptionFilter]" = ()
     ) -> None:
         super().__init__(item_name_group.value, count=count, options=options)
 
@@ -115,7 +103,7 @@ class CanReachLocation(RBCanReachLocation, game="Lil Gator Game"):
 
     @override
     def __init__(
-        self, location_name: L, options: "Iterable[OptionFilter[Any]]" = ()
+        self, location_name: L, options: "Iterable[OptionFilter]" = ()
     ) -> None:
         super().__init__(location_name.value, options=options)
 
