@@ -1,8 +1,5 @@
 from typing import List, NamedTuple
-try:
-    from rule_builder import Rule
-except ModuleNotFoundError:
-    from .rule_builder import Rule
+from rule_builder.rules import Rule
 from .rules import can_clear_tutorial, has_cardboard_destroyer, has_ranged, can_complete_game, can_race, Has, HasAny
 from .items import GatorItemName as I
 from .regions import GatorRegionName as R

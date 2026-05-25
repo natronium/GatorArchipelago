@@ -1,9 +1,6 @@
 from typing import Any, Dict, List
 
-try:
-    from rule_builder import True_
-except ModuleNotFoundError:
-    from .rule_builder import True_
+from rule_builder.rules import True_
 from .entrances import gator_entrances
 from .locations import location_table
 from .rules import gator_location_rules
