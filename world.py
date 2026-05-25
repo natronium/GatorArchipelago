@@ -4,22 +4,34 @@ from typing_extensions import override
 from Options import Option
 
 # from rule_builder.rules import RuleWorldMixin
-from .options import GatorOptions, TrapTypeWeights, gator_options_presets, gator_option_groups
+from .options import (
+    GatorOptions,
+    TrapTypeWeights,
+    gator_options_presets,
+    gator_option_groups,
+)
 from .items import (
     item_name_to_id,
     item_table,
+    surface_item_table,
+    underground_item_table,
     item_name_groups,
     GatorItemName as I,
     GatorEventName as E,
 )
 from .locations import (
     location_name_to_id,
-    location_table,
+    surface_location_table,
+    underground_location_table,
     location_name_groups,
     GatorEventLocationName as EL,
 )
-from .regions import GatorRegionName as R
-from .entrances import gator_entrances
+from .regions import (
+    GatorRegionName as R,
+    GatorSurfaceRegionName as SR,
+    GatorITDRegionName as UR,
+)
+from .entrances import surface_entrances, underground_entrances
 from .rules import Has, set_location_rules, can_complete_game
 from worlds.AutoWorld import World, WebWorld
 from BaseClasses import Region, Location, Item, ItemClassification, Tutorial
@@ -48,7 +60,7 @@ class GatorWeb(WebWorld):
             language="English",
             file_name="setup_en.md",
             link="setup/en",
-            authors=["rose.as.romeo","Natronium"],
+            authors=["rose.as.romeo", "Natronium"],
         )
     ]
     game_info_languages = ["en"]
@@ -64,7 +76,7 @@ class GatorWorld(World):
     options_dataclass = GatorOptions  # options the player can set
     options: GatorOptions  # typing hints for option results
     topology_present = True  # show path to required location checks in spoiler
-    origin_region_name = R.TUTORIAL_ISLAND.value
+    origin_region_name = SR.TUTORIAL_ISLAND.value
 
     item_name_to_id = item_name_to_id
     location_name_to_id = location_name_to_id
@@ -78,10 +90,11 @@ class GatorWorld(World):
 
     @staticmethod
     def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
-        if (
-            "APWorldVersion" in slot_data
-        ):
-            if slot_data["APWorldVersion"][0] != GatorWorld.world_version.major or slot_data["APWorldVersion"][1] != GatorWorld.world_version.minor:
+        if "APWorldVersion" in slot_data:
+            if (
+                slot_data["APWorldVersion"][0] != GatorWorld.world_version.major
+                or slot_data["APWorldVersion"][1] != GatorWorld.world_version.minor
+            ):
                 current_version = f"v{GatorWorld.world_version.as_simple_string}"
                 reported_version = f"v{slot_data['APWorldVersion']}"
 
@@ -89,7 +102,7 @@ class GatorWorld(World):
                     f"Lil Gator Game version error: The version of apworld used to generate this world ({reported_version}) does not match the version of your installed apworld ({current_version})."
                 )
         return slot_data
-    
+
     @override
     def generate_early(self) -> None:
         re_gen_passthrough = getattr(self.multiworld, "re_gen_passthrough", {})
@@ -107,18 +120,18 @@ class GatorWorld(World):
     ### Consider: having events for each playground construction
 
     def create_regions(self) -> None:
-        for gator_region in R:
-            region = Region(gator_region.value, self.player, self.multiworld)
+        for itd_region in SR:
+            region = Region(itd_region.value, self.player, self.multiworld)
             self.multiworld.regions.append(region)
 
-        for location_data in location_table:
+        for location_data in surface_location_table:
             region = self.multiworld.get_region(location_data.region.value, self.player)
             location = GatorLocation(
                 self.player, location_data.name.value, location_data.location_id, region
             )
             region.locations.append(location)
 
-        for gator_entrance in gator_entrances:
+        for gator_entrance in surface_entrances:
             start_region = self.multiworld.get_region(
                 gator_entrance.starting_region.value, self.player
             )
@@ -127,8 +140,34 @@ class GatorWorld(World):
             )
             self.create_entrance(start_region, end_region, gator_entrance.rule)
 
+        if self.options.include_itd:
+            for itd_region in UR:
+                region = Region(itd_region.value, self.player, self.multiworld)
+                self.multiworld.regions.append(region)
+
+            for location_data in underground_location_table:
+                region = self.multiworld.get_region(
+                    location_data.region.value, self.player
+                )
+                location = GatorLocation(
+                    self.player,
+                    location_data.name.value,
+                    location_data.location_id,
+                    region,
+                )
+                region.locations.append(location)
+
+            for gator_entrance in underground_entrances:
+                start_region = self.multiworld.get_region(
+                    gator_entrance.starting_region.value, self.player
+                )
+                end_region = self.multiworld.get_region(
+                    gator_entrance.ending_region.value, self.player
+                )
+                self.create_entrance(start_region, end_region, gator_entrance.rule)
+
         # Currently, only goal is complete the playground
-        victory_region = self.multiworld.get_region(R.PLAYGROUND.value, self.player)
+        victory_region = self.multiworld.get_region(SR.PLAYGROUND.value, self.player)
         victory_location = GatorLocation(
             self.player, EL.PLAYGROUND.value, None, victory_region
         )
@@ -143,9 +182,17 @@ class GatorWorld(World):
 
         # otherwise, look up the item data
         item_data = next(data for data in item_table if data.name.value == name)
-        if self.options.awkward_progression and item_data.name in [I.BALLOON, I.BUBBLEGUM, I.RAGDOLL, I.STICKY_HAND]:
+        if self.options.awkward_progression and item_data.name in [
+            I.BALLOON,
+            I.BUBBLEGUM,
+            I.RAGDOLL,
+            I.STICKY_HAND,
+        ]:
             return GatorItem(
-                name, ItemClassification.progression, self.item_name_to_id[name], self.player
+                name,
+                ItemClassification.progression,
+                self.item_name_to_id[name],
+                self.player,
             )
         else:
             return GatorItem(
@@ -155,11 +202,15 @@ class GatorWorld(World):
     def create_items(self) -> None:
         def choose_trap(trap_weights: TrapTypeWeights) -> str:
             trap_weights_sum = sum(trap_weights.values())
-            return self.random.choices(list(k for k in trap_weights.keys()), list((w/trap_weights_sum) for w in trap_weights.values()))[0]
-        
+            return self.random.choices(
+                list(k for k in trap_weights.keys()),
+                list((w / trap_weights_sum) for w in trap_weights.values()),
+            )[0]
+
         gator_items: List[GatorItem] = []
         items_to_create: Dict[str, int] = {
-            data.name.value: data.base_quantity_in_item_pool for data in item_table
+            data.name.value: data.base_quantity_in_item_pool
+            for data in surface_item_table
         }
 
         # If start with checkfinders on, add them into the start inventory, otherwise add them to the itempool
@@ -183,6 +234,10 @@ class GatorWorld(World):
         if self.options.lock_races_behind_flag:
             items_to_create[I.FINISH_FLAG.value] = 1
 
+        if self.options.include_itd:
+            for data in underground_item_table:
+                items_to_create[data.name.value] = data.base_quantity_in_item_pool
+
         for item, quantity in items_to_create.items():
             for i in range(0, quantity):
                 gator_item: GatorItem = self.create_item(item)
@@ -191,13 +246,14 @@ class GatorWorld(World):
         junk = len(self.multiworld.get_unfilled_locations(self.player)) - len(
             gator_items
         )
-        
+
         # Add traps
         trap_weights = self.options.trap_type_weights
         trap_chance = self.options.trap_chance / 100
         trap_number = self.random.binomialvariate(junk, trap_chance)
         gator_items += [
-            self.create_item(self.get_filler_item_name()) for _ in range(junk - trap_number)
+            self.create_item(self.get_filler_item_name())
+            for _ in range(junk - trap_number)
         ]
         gator_items += [
             self.create_item(choose_trap(trap_weights)) for _ in range(trap_number)
@@ -219,6 +275,7 @@ class GatorWorld(World):
         # The options dataclass has a method to return a `Dict[str, Any]` of each option name provided and the relevant
         # option's value.
         slot_data = self.options.as_dict(
+            "include_itd",
             "start_with_freeplay",
             "require_shield_jump",
             "harder_ranged_quests",
@@ -232,5 +289,3 @@ class GatorWorld(World):
 
     def get_filler_item_name(self) -> str:
         return self.random.choice([I.CRAFT_15.value, I.CRAFT_30.value])
-
-

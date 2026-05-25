@@ -1,6 +1,9 @@
 from enum import Enum
 
 class GatorRegionName(str, Enum):
+    pass
+
+class GatorSurfaceRegionName(GatorRegionName):
     TUTORIAL_ISLAND = "Tutorial Island"
     PLAYGROUND = "Playground"
     POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND = "Pots Shootable from Tutorial Island"
@@ -13,5 +16,8 @@ class GatorRegionName(str, Enum):
     MOUNTAIN_BREAKABLES = "Mountain Breakables"
     JUNK_4_TRASH = "Junk 4 Trash"
     BIG_ISLAND_BRACELET_SHOPS = "Big Island Bracelet Shops"
+
+class GatorITDRegionName(GatorRegionName):
+    UNDERGROUND_ENTRANCE = "Underground Entrance"
 
 

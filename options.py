@@ -14,6 +14,13 @@ from Options import (
 )
 
 
+class IncludeITD(Toggle):
+    """Include In the Dark DLC in randomization. Only set to true if you own the In the Dark DLC, the mod WILL NOT connect to a slot that has In the Dark enabled if the DLC is not installed."""
+
+    internal_name = "include_itd"
+    display_name = "Include In the Dark"
+
+
 class StartWithFreeplay(Toggle):
     """Start with no barrier around Tutorial Island and thus the ability to access checks on the main island."""
 
@@ -110,6 +117,7 @@ class TrapTypeWeights(OptionDict):
 
 @dataclass
 class GatorOptions(PerGameCommonOptions):
+    include_itd: IncludeITD
     start_with_freeplay: StartWithFreeplay
     require_shield_jump: RequireShieldJump
     harder_ranged_quests: HarderRangedQuests
@@ -150,6 +158,7 @@ gator_option_groups: list[OptionGroup] = [
     OptionGroup(
         "Logic Options",
         [
+            IncludeITD,
             StartWithFreeplay,
             RequireShieldJump,
             HarderRangedQuests,

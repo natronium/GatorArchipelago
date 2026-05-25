@@ -1,7 +1,7 @@
 from typing import Any, Dict, List
 
 from rule_builder.rules import True_
-from .entrances import gator_entrances
+from .entrances import entrances
 from .locations import location_table
 from .rules import gator_location_rules
 import json
@@ -10,7 +10,7 @@ import json
 def generate_rule_json():
     entrance_json_accumulator: List[Dict[str, Any]] = list()
 
-    for gator_entrance in gator_entrances:
+    for gator_entrance in entrances:
         rule_dict = dict()
         rule_dict["starting_region"] = gator_entrance.starting_region
         rule_dict["ending_region"] = gator_entrance.ending_region

@@ -12,7 +12,7 @@ from .options import (
     LockRacesBehindFlag,
 )
 from .items import ItemGroup as IG, GatorItemName as I, GatorEventName as E
-from .locations import location_table, GatorLocationName as L
+from .locations import location_table, GatorLocationName as L, LocationGroup as LG
 
 from rule_builder.rules import (
     Rule,
@@ -425,6 +425,6 @@ def set_location_rules(world: "GatorWorld") -> None:
 
     for location_data in location_table:
         rule = gator_location_rules[location_data.name]
-        if rule is not None:
+        if rule is not None and (world.options.include_itd or LG.Surface in location_data.location_groups):
             location = multiworld.get_location(location_data.name.value, player)
             world.set_rule(location, rule)
