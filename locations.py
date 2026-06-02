@@ -1,7 +1,11 @@
 from enum import Enum, auto
 from typing import Dict, NamedTuple, Set, List
 
-from .regions import GatorRegionName as R, GatorSurfaceRegionName as SR, GatorITDRegionName as UR
+from .regions import (
+    GatorRegionName as R,
+    GatorSurfaceRegionName as SR,
+    GatorITDRegionName as UR,
+)
 
 
 class LocationGroup(Enum):
@@ -379,6 +383,117 @@ class GatorLocationName(str, Enum):
     TI_SIMON_NPC = "Tutorial Island - Simon (Ragdoll Bear) Quest Completion NPC"
     TI_STICK = "Tutorial Island - Stick Pickup"
 
+    # Underground
+    PICKAXE_PICKUP = "Underground Entrance - Pickaxe Pickup"
+    JAR_1168_H7 = "Jar 1168 H7"
+    JAR_801_C5 = "Jar 801 C5"
+    JAR_1161_H7 = "Jar 1161 H7"
+    JAR_1171_I8 = "Jar 1171 I8"
+    JAR_908_G5 = "Jar 908 G5"
+    JAR_1148_H6 = "Jar 1148 H6"
+    JAR_602_G5 = "Jar 602 G5"
+    JAR_580_G8 = "Jar 580 G8"
+    JAR_873_F4 = "Jar 873 F4"
+    JAR_1166_H6 = "Jar 1166 H6"
+    JAR_1167_H6 = "Jar 1167 H6"
+    JAR_1213_E5 = "Jar 1213 E5"
+    JAR_931_G3 = "Jar 931 G3"
+    JAR_576_H6 = "Jar 576 H6"
+    JAR_579_I8 = "Jar 579 I8"
+    JAR_578_H8 = "Jar 578 H8"
+    JAR_890_G4 = "Jar 890 G4"
+    JAR_1334_E3 = "Jar 1334 E3"
+    JAR_577_I8 = "Jar 577 I8"
+    JAR_875_F3 = "Jar 875 F3"
+    JAR_945_G3 = "Jar 945 G3"
+    JAR_910_F2 = "Jar 910 F2"
+    JAR_760_B4 = "Jar 760 B4"
+    JAR_792_C5 = "Jar 792 C5"
+    JAR_840_F2 = "Jar 840 F2"
+    CHEST_909_G2 = "Chest 909 G2"
+    CHEST_594_G5 = "Chest 594 G5"
+    CHEST_604_A5 = "Chest 604 A5"
+    CHEST_968_H3 = "Chest 968 H3"
+    CHEST_610_B4 = "Chest 610 B4"
+    CHEST_601_G7 = "Chest 601 G7"
+    RACE_417_B5 = "Race 417 B5"
+    RACE_499_H8 = "Race 499 H8"
+    RACE_418_G2 = "Race 418 G2"
+    RACE_491_G7 = "Race 491 G7"
+    RACE_484_D6 = "Race 484 D6"
+    RACE_413_H2 = "Race 413 H2"
+    RACE_468_B4 = "Race 468 B4"
+    RACE_503_F8 = "Race 503 F8"
+    WALL_121_H1 = "Wall 121 H1"
+    WALL_132_B6 = "Wall 132 B6"
+    WALL_119_E6 = "Wall 119 E6"
+    WALL_126_D4 = "Wall 126 D4"
+    WALL_130_B6 = "Wall 130 B6"
+    WALL_146_B5 = "Wall 146 B5"
+    WALL_175_F8 = "Wall 175 F8"
+    WALL_148_B5 = "Wall 148 B5"
+    WALL_117_F6 = "Wall 117 F6"
+    WALL_177_G8 = "Wall 177 G8"
+    WALL_181_H6 = "Wall 181 H6"
+    WALL_135_G1 = "Wall 135 G1"
+    WALL_180_I6 = "Wall 180 I6"
+    WALL_209_C7 = "Wall 209 C7"
+    WALL_129_C6 = "Wall 129 C6"
+    WALL_138_F1 = "Wall 138 F1"
+    WALL_127_E4 = "Wall 127 E4"
+    WALL_125_D2 = "Wall 125 D2"
+    WALL_208_C7 = "Wall 208 C7"
+    WALL_149_B5 = "Wall 149 B5"
+    WALL_201_I2 = "Wall 201 I2"
+    WALL_137_F2 = "Wall 137 F2"
+    WALL_131_B6 = "Wall 131 B6"
+    WALL_128_E5 = "Wall 128 E5"
+    WALL_136_E1 = "Wall 136 E1"
+    WALL_134_E7 = "Wall 134 E7"
+    WALL_207_I1 = "Wall 207 I1"
+    WALL_120_H2 = "Wall 120 H2"
+    WALL_147_B5 = "Wall 147 B5"
+    WALL_179_H5 = "Wall 179 H5"
+    WALL_133_E7 = "Wall 133 E7"
+    WALL_123_G1 = "Wall 123 G1"
+    WALL_118_F7 = "Wall 118 F7"
+    WALL_122_H2 = "Wall 122 H2"
+    WALL_176_H6 = "Wall 176 H6"
+    CRYPTID_HOLY_B5 = "Cryptid Holy B5"
+    CRYPTID_LOOKY_C5 = "Cryptid Looky C5"
+    CRYPTID_FLOOFY_F4 = "Cryptid Floofy F4"
+    CRYPTID_DRIPPY_G5 = "Cryptid Drippy G5"
+    CRYPTID_TREEY_E2 = "Cryptid Treey E2"
+    CRYPTID_FINNY_G8 = "Cryptid Finny G8"
+    CRYPTID_BUBBLY_G7 = "Cryptid Bubbly G7"
+    CRYPTID_CAKEY_B4 = "Cryptid Cakey B4"
+    CRYPTID_THORNY_G2 = "Cryptid Thorny G2"
+    NPC_VAL1_G3 = "NPC Val1 G3"
+    NPC_NODD1_G2 = "NPC Nodd1 G2"
+    NPC_HAI_D3 = "NPC Hai D3"
+    NPC_MADSON_C5 = "NPC Madson C5"
+    NPC_DAVE_H2 = "NPC Dave H2"
+    NPC_JESSIE_G5 = "NPC Jessie G5"
+    NPC_TURTLE_B5 = "NPC turtle B5"
+    NPC_ARLOTTE_G4 = "NPC Arlotte G4"
+    NPC_JANE_D6 = "NPC Jane D6"
+    NPC_VAL2_H5 = "NPC Val2 H5"
+    NPC_LOLA_C7 = "NPC Lola C7"
+    NPC_HARREN_D3 = "NPC Harren D3"
+    NPC_NODD2_G6 = "NPC Nodd2 G6"
+    NPC_BODIE_E8 = "NPC Bodie E8"
+    NPC_NODD3_C5 = "NPC Nodd3 C5"
+    NPC_HEATHER_B7 = "NPC Heather B7"
+    NPC_MATTHEW_H1 = "NPC Matthew H1"
+    NPC_CRAYFISH_H8 = "NPC crayfish H8"
+    NPC_GHOST_C3 = "NPC ghost C3"
+    NPC_CASEY_H6 = "NPC Casey H6"
+    NPC_CASSIRON_E3 = "NPC Cass Iron E3"
+    NPC_ESTHER_E3 = "NPC Esther E3"
+    NPC_EMILIO_C4 = "NPC Emilio C4"
+    NPC_RUTH_G2 = "NPC Ruth G2"
+    NPC_AMBERLY_G7 = "NPC Amberly G7"
+
 
 class GatorEventLocationName(str, Enum):
     PLAYGROUND = "Complete the Playground"
@@ -468,31 +583,56 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.BCH_POT_H8,
         100000082,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.BCH_POT_I6,
         100000115,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.BCH_POT_I9_E,
         100000077,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.BCH_POT_I9_W,
         100000069,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.BCH_POT_J6,
         100000101,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.BCH_SAM_ITEM,
@@ -573,7 +713,10 @@ surface_location_table: List[GatorLocationData] = [
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
-        GatorLocationName.BI_ROCK, 100002289, SR.BIG_ISLAND, [LocationGroup.Surface, LocationGroup.Side_Quest]
+        GatorLocationName.BI_ROCK,
+        100002289,
+        SR.BIG_ISLAND,
+        [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.BI_ZHU_NPC,
@@ -627,73 +770,133 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.CAN_POT_A8_N,
         100001463,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_A8_W,
         100001456,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_B8,
         100002070,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_C7,
         100001350,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_C8_MOCHI,
         100001351,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_C8_OUTCROP,
         100001349,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_C9_LOWER,
         100002071,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_C9_UPPER,
         100002072,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_D6,
         100000006,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_D7_N,
         100001362,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_D7_S,
         100001363,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_POT_D8,
         100001361,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CAN_RACE_B6,
@@ -759,61 +962,111 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.CRL_POT_D8,
         100000491,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_E7_NE,
         100000062,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_E7_NW,
         100001431,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_E7_SE,
         100001444,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_E7_SW,
         100000655,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_F7,
         100000117,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_F9,
         100000651,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_G5,
         100002012,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_H5_N,
         100000722,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_POT_H5_S,
         100000721,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.CRL_RETAINER,
@@ -903,115 +1156,210 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.FOR_POT_E1_LOWER_E,
         100001381,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_E1_UPPER_E,
         100001382,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_E1_UPPER_W,
         100001380,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_F3,
         100000025,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_G3_CLIFF,
         100001450,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_G3_POND,
         100000545,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_G4_DEAD_POND,
         100000546,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_G4_E_E,
         100001540,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_G4_E_W,
         100001541,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_G4_S,
         100001542,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_H2,
         100000094,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_H4_E,
         100001520,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_H4_N,
         100001532,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_H4_S,
         100001517,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_J0,
         100001593,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_J1_SE,
         100001596,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_J1_SW,
         100001594,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_J3_E,
         100001584,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_J3_W,
         100001583,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.FOR_POT_KID_NPC,
@@ -1092,7 +1440,10 @@ surface_location_table: List[GatorLocationData] = [
         [LocationGroup.Surface, LocationGroup.Shop],
     ),
     GatorLocationData(
-        GatorLocationName.J4T_PAINT_GUN, 100002241, SR.JUNK_4_TRASH, [LocationGroup.Surface, LocationGroup.Shop]
+        GatorLocationName.J4T_PAINT_GUN,
+        100002241,
+        SR.JUNK_4_TRASH,
+        [LocationGroup.Surface, LocationGroup.Shop],
     ),
     GatorLocationData(
         GatorLocationName.J4T_ROY_ALL_PURCHASES_NPC,
@@ -1119,7 +1470,10 @@ surface_location_table: List[GatorLocationData] = [
         [LocationGroup.Surface, LocationGroup.Shop],
     ),
     GatorLocationData(
-        GatorLocationName.J4T_WRENCH, 100002240, SR.JUNK_4_TRASH, [LocationGroup.Surface, LocationGroup.Shop]
+        GatorLocationName.J4T_WRENCH,
+        100002240,
+        SR.JUNK_4_TRASH,
+        [LocationGroup.Surface, LocationGroup.Shop],
     ),
     GatorLocationData(
         GatorLocationName.JET_LEELAND_ITEM,
@@ -1269,115 +1623,226 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.MTN_POT_B4_CENTER,
         100000694,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B4_E,
         100000199,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B4_NE,
         100000692,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B4_W,
         100000216,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B5_ROCK,
         100001694,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B5_SW,
         100001711,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_B5_TANNER,
         100001708,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C3_CLIFFFACE,
         100001166,
         SR.POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C3_DOWN_FROM_TWIG,
         100001158,
         SR.POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C3_RAISED,
         100001156,
         SR.POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C3_SW,
         100000695,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_NE,
         100000242,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_NW_TALL,
         100001624,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_PEAK_E,
         100000079,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_SW,
         100000100,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_W,
         100000051,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C4_PEAK_W,
         100000087,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.Side_Quest, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.Side_Quest,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_C5,
         100001661,
         SR.MOUNTAIN_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_POT_D3,
         100001194,
         SR.POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.MTN_RACE_C4,
@@ -1425,31 +1890,56 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.RAV_POT_E2,
         100001123,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.RAV_POT_E3_BEACH,
         100001126,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.RAV_POT_E3_RIVER,
         100001145,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.RAV_POT_E4,
         100002074,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.RAV_POT_F4,
         100002073,
         SR.BIG_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_AVERY,
@@ -1527,139 +2017,254 @@ surface_location_table: List[GatorLocationData] = [
         GatorLocationName.TI_POT_A1,
         100000561,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_A3_BELOW_E,
         100000422,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_A3_WITHIN_CLIFFS,
         100000425,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B0_BONE_PATH,
         100000179,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B0_SW,
         100000234,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_MIDDLE_ROPE,
         100000237,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_PEAK_N,
         100000406,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_PEAK_S,
         100000424,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_WATERFALL_BELOW,
         100000225,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_WATERFALL_NEXT_TO,
         100000167,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_WATERFALL_PILLAR,
         100000168,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B1_W_ROPE,
         100000411,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B2_BELOW_E,
         100000219,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B2_BELOW_MIDDLE,
         100000228,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B2_BELOW_W,
         100000189,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B2_NW,
         100000202,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B2_SIMON_E,
         100000175,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_B2_TALL,
         100000426,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.WW_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.WW_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_C1_HILL,
         100000366,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.LA_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.LA_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_C1_STICK,
         100000365,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.OoT_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.OoT_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_C2,
         100000371,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_D0,
         100000190,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.TP_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.TP_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_D1,
         100000232,
         SR.TUTORIAL_ISLAND_BREAKABLES,
-        [LocationGroup.Surface, LocationGroup.Pot, LocationGroup.Surface, LocationGroup.MC_Pot],
+        [
+            LocationGroup.Surface,
+            LocationGroup.Pot,
+            LocationGroup.Surface,
+            LocationGroup.MC_Pot,
+        ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_Q,
@@ -1700,9 +2305,16 @@ surface_location_table: List[GatorLocationData] = [
 ]
 
 underground_location_table: List[GatorLocationData] = [
+    GatorLocationData(
+        GatorLocationName.NPC_ESTHER_E3,
+        200000001,
+        UR.UNDERGROUND_ENTRANCE,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
 ]
 
 location_table = surface_location_table + underground_location_table
+
 
 def locations_for_group(group: LocationGroup) -> Set[str]:
     location_names = set()

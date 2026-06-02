@@ -5,5 +5,12 @@
         "location_icon_size": 80,
         "location_border_thickness": 4,
         "img": "images/maps/gator_map_zoom3.png"
+    },
+    {
+        "name": "the_underground",
+        "location_size": 24,
+        "location_icon_size": 80,
+        "location_border_thickness": 4,
+        "img": "images/maps/gator_ug_map_zoom3.png"
     }
 ]

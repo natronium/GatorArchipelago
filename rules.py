@@ -416,6 +416,7 @@ gator_location_rules: dict[L, Rule["GatorWorld"] | None] = {
     L.TI_SIMON_ITEM: None,
     L.TI_SIMON_NPC: None,
     L.TI_STICK: None,
+    L.NPC_ESTHER_E3: None,
 }
 
 

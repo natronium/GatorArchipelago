@@ -209,7 +209,7 @@
                     {
                         "name": "Northeast (Canyon) - Pot (C9) on Ssumantha's island (upper)"
                     },
-                                        {
+                    {
                         "name": "Northeast (Canyon) - Pot (C9) on Ssumantha's island (lower)"
                     }
                 ]
@@ -2445,6 +2445,1811 @@
                 "sections": [
                     {
                         "name": "North (Mountain) - Pot (D3) on cliff outcropping west and down from Twig"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Underground Entrance",
+        "children": [
+            {
+                "name": "Jar 598 G4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1023,
+                        "y": 1296
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 598 G4"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1180 E5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1089,
+                        "y": 849
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1180 E5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 981 H2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 603,
+                        "y": 1537
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 981 H2"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 595 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1040,
+                        "y": 1306
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 595 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 907 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1075,
+                        "y": 1241
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 907 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 906 F4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1003,
+                        "y": 1206
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 906 F4"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 894 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1074,
+                        "y": 1249
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 894 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1153 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1305,
+                        "y": 1447
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1153 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 876 F3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 754,
+                        "y": 1205
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 876 F3"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 874 F4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 893,
+                        "y": 1053
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 874 F4"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1170 I7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1637,
+                        "y": 1643
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1170 I7"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 597 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1038,
+                        "y": 1319
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 597 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1168 H7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1598,
+                        "y": 1545
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1168 H7"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 801 C5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1132,
+                        "y": 517
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 801 C5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1161 H7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1546,
+                        "y": 1527
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1161 H7"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1171 I8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1653,
+                        "y": 1646
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1171 I8"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 908 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1042,
+                        "y": 1247
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 908 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1148 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1316,
+                        "y": 1436
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1148 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 602 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1035,
+                        "y": 1313
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 602 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 580 G8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1673,
+                        "y": 1347
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 580 G8"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 873 F4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 918,
+                        "y": 1080
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 873 F4"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1166 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1342,
+                        "y": 1526
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1166 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1167 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1300,
+                        "y": 1446
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1167 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1213 E5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1083,
+                        "y": 852
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1213 E5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 931 G3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 710,
+                        "y": 1322
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 931 G3"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 576 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1332,
+                        "y": 1523
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 576 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 579 I8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1641,
+                        "y": 1667
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 579 I8"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 578 H8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1646,
+                        "y": 1438
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 578 H8"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 890 G4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 931,
+                        "y": 1306
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 890 G4"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 1334 E3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 627,
+                        "y": 823
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 1334 E3"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 577 I8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1644,
+                        "y": 1661
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 577 I8"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 875 F3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 758,
+                        "y": 1221
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 875 F3"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 945 G3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 713,
+                        "y": 1314
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 945 G3"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 910 F2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 579,
+                        "y": 1074
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 910 F2"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 760 B4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 899,
+                        "y": 369
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 760 B4"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 792 C5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1143,
+                        "y": 495
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 792 C5"
+                    }
+                ]
+            },
+            {
+                "name": "Jar 840 F2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 608,
+                        "y": 1107
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Jar 840 F2"
+                    }
+                ]
+            },
+            {
+                "name": "Chest 909 G2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 512,
+                        "y": 1331
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Chest 909 G2"
+                    }
+                ]
+            },
+            {
+                "name": "Chest 594 G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1034,
+                        "y": 1296
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Chest 594 G5"
+                    }
+                ]
+            },
+            {
+                "name": "Chest 604 A5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1039,
+                        "y": 179
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Chest 604 A5"
+                    }
+                ]
+            },
+            {
+                "name": "Chest 968 H3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 748,
+                        "y": 1488
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Chest 968 H3"
+                    }
+                ]
+            },
+            {
+                "name": "Chest 610 B4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 887,
+                        "y": 264
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Chest 610 B4"
+                    }
+                ]
+            },
+            {
+                "name": "Chest 601 G7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1591,
+                        "y": 1361
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Chest 601 G7"
+                    }
+                ]
+            },
+            {
+                "name": "Race 417 B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1041,
+                        "y": 397
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 417 B5"
+                    }
+                ]
+            },
+            {
+                "name": "Race 499 H8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1643,
+                        "y": 1585
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 499 H8"
+                    }
+                ]
+            },
+            {
+                "name": "Race 418 G2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 412,
+                        "y": 1300
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 418 G2"
+                    }
+                ]
+            },
+            {
+                "name": "Race 491 G7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1466,
+                        "y": 1407
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 491 G7"
+                    }
+                ]
+            },
+            {
+                "name": "Race 484 D6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1248,
+                        "y": 660
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 484 D6"
+                    }
+                ]
+            },
+            {
+                "name": "Race 413 H2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 466,
+                        "y": 1618
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 413 H2"
+                    }
+                ]
+            },
+            {
+                "name": "Race 468 B4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1006,
+                        "y": 303
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 468 B4"
+                    }
+                ]
+            },
+            {
+                "name": "Race 503 F8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1667,
+                        "y": 1208
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Race 503 F8"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 121 H1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 378,
+                        "y": 1477
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 121 H1"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 132 B6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1362,
+                        "y": 305
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 132 B6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 119 E6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1388,
+                        "y": 953
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 119 E6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 126 D4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 943,
+                        "y": 737
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 126 D4"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 130 B6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1242,
+                        "y": 268
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 130 B6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 146 B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1116,
+                        "y": 373
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 146 B5"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 175 F8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1773,
+                        "y": 1200
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 175 F8"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 148 B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1107,
+                        "y": 245
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 148 B5"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 117 F6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1314,
+                        "y": 1065
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 117 F6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 177 G8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1754,
+                        "y": 1266
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 177 G8"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 181 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1299,
+                        "y": 1584
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 181 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 135 G1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 322,
+                        "y": 1322
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 135 G1"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 180 I6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1315,
+                        "y": 1660
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 180 I6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 209 C7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1563,
+                        "y": 437
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 209 C7"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 129 C6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1370,
+                        "y": 416
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 129 C6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 138 F1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 389,
+                        "y": 1192
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 138 F1"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 127 E4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 961,
+                        "y": 913
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 127 E4"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 125 D2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 525,
+                        "y": 698
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 125 D2"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 208 C7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1625,
+                        "y": 596
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 208 C7"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 149 B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1211,
+                        "y": 347
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 149 B5"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 201 I2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 447,
+                        "y": 1664
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 201 I2"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 137 F2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 477,
+                        "y": 1072
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 137 F2"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 131 B6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1252,
+                        "y": 399
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 131 B6"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 128 E5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1111,
+                        "y": 896
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 128 E5"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 136 E1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 227,
+                        "y": 995
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 136 E1"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 134 E7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1499,
+                        "y": 847
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 134 E7"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 207 I1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 330,
+                        "y": 1676
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 207 I1"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 120 H2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 465,
+                        "y": 1467
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 120 H2"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 147 B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1040,
+                        "y": 312
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 147 B5"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 179 H5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1163,
+                        "y": 1638
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 179 H5"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 133 E7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1565,
+                        "y": 943
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 133 E7"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 123 G1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 377,
+                        "y": 1426
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 123 G1"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 118 F7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1435,
+                        "y": 1026
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 118 F7"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 122 H2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 425,
+                        "y": 1461
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 122 H2"
+                    }
+                ]
+            },
+            {
+                "name": "Wall 176 H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1241,
+                        "y": 1555
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Wall 176 H6"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Holy B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1177,
+                        "y": 256
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Holy B5"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Looky C5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1051,
+                        "y": 614
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Looky C5"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Floofy F4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 845,
+                        "y": 1186
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Floofy F4"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Drippy G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1199,
+                        "y": 1261
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Drippy G5"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Treey E2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 553,
+                        "y": 987
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Treey E2"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Finny G8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1663,
+                        "y": 1400
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Finny G8"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Bubbly G7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1528,
+                        "y": 1356
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Bubbly G7"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Cakey B4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 852,
+                        "y": 216
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Cakey B4"
+                    }
+                ]
+            },
+            {
+                "name": "Cryptid Thorny G2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 428,
+                        "y": 1418
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Cryptid Thorny G2"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Val1 G3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 632,
+                        "y": 1431
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Val1 G3"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Nodd1 G2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 602,
+                        "y": 1391
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Nodd1 G2"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Hai D3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 754,
+                        "y": 627
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Hai D3"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Madson C5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1066,
+                        "y": 510
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Madson C5"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Dave H2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 469,
+                        "y": 1463
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Dave H2"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Jessie G5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1140,
+                        "y": 1301
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Jessie G5"
+                    }
+                ]
+            },
+            {
+                "name": "NPC turtle B5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1147,
+                        "y": 383
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC turtle B5"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Arlotte G4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 827,
+                        "y": 1308
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Arlotte G4"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Jane D6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1375,
+                        "y": 716
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Jane D6"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Val2 H5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1086,
+                        "y": 1585
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Val2 H5"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Lola C7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1490,
+                        "y": 522
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Lola C7"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Harren D3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 791,
+                        "y": 617
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Harren D3"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Nodd2 G6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1427,
+                        "y": 1431
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Nodd2 G6"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Bodie E8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1722,
+                        "y": 1002
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Bodie E8"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Nodd3 C5",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1140,
+                        "y": 506
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Nodd3 C5"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Heather B7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1484,
+                        "y": 275
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Heather B7"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Matthew H1",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 360,
+                        "y": 1449
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Matthew H1"
+                    }
+                ]
+            },
+            {
+                "name": "NPC crayfish H8",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1712,
+                        "y": 1489
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC crayfish H8"
+                    }
+                ]
+            },
+            {
+                "name": "NPC ghost C3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 739,
+                        "y": 571
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC ghost C3"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Casey H6",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1424,
+                        "y": 1623
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Casey H6"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Cass Iron E3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 672,
+                        "y": 1016
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Cass Iron E3"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Esther E3",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 714,
+                        "y": 857
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Esther E3"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Emilio C4",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 980,
+                        "y": 470
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Emilio C4"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Ruth G2",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 545,
+                        "y": 1280
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Ruth G2"
+                    }
+                ]
+            },
+            {
+                "name": "NPC Amberly G7",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 1449,
+                        "y": 1331
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "NPC Amberly G7"
                     }
                 ]
             }
