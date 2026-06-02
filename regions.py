@@ -19,5 +19,11 @@ class GatorSurfaceRegionName(GatorRegionName):
 
 class GatorITDRegionName(GatorRegionName):
     UNDERGROUND_ENTRANCE = "Underground Entrance"
-
+    MINES = "Mines"
+    MINES_BREAKABLES = "Mines Breakables"
+    DRIP = "Flowstone Caverns"
+    DRIP_BREAKABLES = "Flowstone Caverns Breakables"
+    ROOTS = "Big Roots"
+    ROOTS_BREAKABLES = "Big Roots Breakables"
+    # TODO: split up regions more?
 

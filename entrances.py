@@ -25,7 +25,7 @@ surface_entrances: List[GatorEntrance] = [
 ]
 
 underground_entrances: List[GatorEntrance] = [
-
+    GatorEntrance(SR.TUTORIAL_ISLAND, UR.UNDERGROUND_ENTRANCE, can_clear_tutorial) # TODO: include DLC option
 ]
 
 entrances = surface_entrances + underground_entrances
