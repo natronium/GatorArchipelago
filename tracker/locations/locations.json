@@ -2454,37 +2454,22 @@
         "name": "Underground Entrance",
         "children": [
             {
-                "name": "Jar 598 G4",
+                "name": "Pickaxe Pickup",
                 "map_locations": [
                     {
                         "map": "the_underground",
-                        "x": 1023,
-                        "y": 1296
+                        "x": 636,
+                        "y": 555
                     }
                 ],
                 "sections": [
                     {
-                        "name": "Jar 598 G4"
+                        "name": "Underground Entrance - Pickaxe Pickup"
                     }
                 ]
             },
             {
-                "name": "Jar 1180 E5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1089,
-                        "y": 849
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1180 E5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 981 H2",
+                "name": "Big Roots - Jar (H2) up on rock at intersection of branches south-southeast from Dave Matthew Band (Marching Ants)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2494,27 +2479,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 981 H2"
+                        "name": "Big Roots - Jar (H2) up on rock at intersection of branches south-southeast from Dave Matthew Band (Marching Ants)"
                     }
                 ]
             },
             {
-                "name": "Jar 595 G5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1040,
-                        "y": 1306
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 595 G5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 907 G5",
+                "name": "Jars Roots Flowstone border",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2524,12 +2494,18 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 907 G5"
+                        "name": "Lighthouse - Jar (G5) on Roots and Caverns border (lower, large)"
+                    },
+                    {
+                        "name": "Lighthouse - Jar (G5) on Roots and Caverns border (upper)"
+                    },
+                    {
+                        "name": "Lighthouse - Jar (G5) on Roots and Caverns border (lower, small)"
                     }
                 ]
             },
             {
-                "name": "Jar 906 F4",
+                "name": "Lighthouse - Jar (F4) on cliff Roots side of gathering space",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2539,132 +2515,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 906 F4"
+                        "name": "Lighthouse - Jar (F4) on cliff Roots side of gathering space"
                     }
                 ]
             },
             {
-                "name": "Jar 894 G5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1074,
-                        "y": 1249
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 894 G5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 1153 H6",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1305,
-                        "y": 1447
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1153 H6"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 876 F3",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 754,
-                        "y": 1205
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 876 F3"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 874 F4",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 893,
-                        "y": 1053
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 874 F4"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 1170 I7",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1637,
-                        "y": 1643
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1170 I7"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 597 G5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1038,
-                        "y": 1319
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 597 G5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 1168 H7",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1598,
-                        "y": 1545
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1168 H7"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 801 C5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1132,
-                        "y": 517
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 801 C5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 1161 H7",
+                "name": "Flowstone Caverns - Jar (H7) in the middle of Amberly's racetrack",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2674,72 +2530,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 1161 H7"
+                        "name": "Flowstone Caverns - Jar (H7) in the middle of Amberly's racetrack (large)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (H7) in the middle of Amberly's racetrack (small)"
                     }
                 ]
             },
             {
-                "name": "Jar 1171 I8",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1653,
-                        "y": 1646
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1171 I8"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 908 G5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1042,
-                        "y": 1247
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 908 G5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 1148 H6",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1316,
-                        "y": 1436
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1148 H6"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 602 G5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1035,
-                        "y": 1313
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 602 G5"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 580 G8",
+                "name": "Flowstone Caverns - Jar (G8) east of tallest pillar in Caverns",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2749,12 +2548,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 580 G8"
+                        "name": "Flowstone Caverns - Jar (G8) east of tallest pillar in Caverns"
                     }
                 ]
             },
             {
-                "name": "Jar 873 F4",
+                "name": "Lighthouse - Jar (F4) on cliff southwest of gathering space",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2764,27 +2563,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 873 F4"
+                        "name": "Lighthouse - Jar (F4) on cliff southwest of gathering space (lower)"
+                    },
+                    {
+                        "name": "Lighthouse - Jar (F4) on cliff southwest of gathering space (upper)"
                     }
                 ]
             },
             {
-                "name": "Jar 1166 H6",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1342,
-                        "y": 1526
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1166 H6"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 1167 H6",
+                "name": "Flowstone Caverns - Jar (H6) along cliffs by water pipe",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2794,12 +2581,18 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 1167 H6"
+                        "name": "Flowstone Caverns - Jar (H6) along cliffs by water pipe (upper, small)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (H6) along cliffs by water pipe (upper, large)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (H6) along cliffs by water pipe (lower)"
                     }
                 ]
             },
             {
-                "name": "Jar 1213 E5",
+                "name": "Jars under overhang between Mines and Flowstone",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2809,12 +2602,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 1213 E5"
+                        "name": "Mines - Jar (E5) under boardwalks in southern path between Mines and Flowstone Caverns (small)"
+                    },
+                    {
+                        "name": "Mines - Jar (E5) under boardwalks in southern path between Mines and Flowstone Caverns (large)"
                     }
                 ]
             },
             {
-                "name": "Jar 931 G3",
+                "name": "Big Roots - Jar (G3) on rock intersecting with branches between Nodd and Arlotte (small)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2824,12 +2620,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 931 G3"
+                        "name": "Big Roots - Jar (G3) on rock intersecting with branches between Nodd and Arlotte (small)"
+                    },
+                    {
+                        "name": "Big Roots - Jar (G3) on rock intersecting with branches between Nodd and Arlotte (large)"
                     }
                 ]
             },
             {
-                "name": "Jar 576 H6",
+                "name": "Flowstone Caverns - Jar (H6) on cliff south of Nodd ",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2839,27 +2638,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 576 H6"
+                        "name": "Flowstone Caverns - Jar (H6) on cliff south of Nodd (Cryptid Hunter Axolotl)'s Flowstone Caverns site (lower)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (H6) on cliff south of Nodd (Cryptid Hunter Axolotl)'s Flowstone Caverns site (upper)"
                     }
                 ]
             },
             {
-                "name": "Jar 579 I8",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1641,
-                        "y": 1667
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 579 I8"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 578 H8",
+                "name": "Flowstone Caverns - Jar (H8) east of tallest pillar in Caverns",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2869,12 +2656,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 578 H8"
+                        "name": "Flowstone Caverns - Jar (H8) east of tallest pillar in Caverns"
                     }
                 ]
             },
             {
-                "name": "Jar 890 G4",
+                "name": "Big Roots - Jar (G4) above wood slat path from Lighthouse to Roots",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2884,27 +2671,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 890 G4"
+                        "name": "Big Roots - Jar (G4) above wood slat path from Lighthouse to Roots"
                     }
                 ]
             },
             {
-                "name": "Jar 1334 E3",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 627,
-                        "y": 823
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 1334 E3"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 577 I8",
+                "name": "Flowstone Caverns - Jar (I8) in cliffside nook",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2914,12 +2686,21 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 577 I8"
+                        "name": "Flowstone Caverns - Jar (I8) in cliffside nook (rigthmost)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (I8) in cliffside nook (middle)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (I8) in cliffside nook (leftmost)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jar (I7) fallen from cliffside nook"
                     }
                 ]
             },
             {
-                "name": "Jar 875 F3",
+                "name": "Big Roots - Jar (F3) on cliff edge northwest of Arlotte (thin)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2929,27 +2710,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 875 F3"
+                        "name": "Big Roots - Jar (F3) on cliff edge northwest of Arlotte (thin)"
+                    },
+                    {
+                        "name": "Big Roots - Jar (F3) on cliff edge northwest of Arlotte (wide)"
                     }
                 ]
             },
             {
-                "name": "Jar 945 G3",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 713,
-                        "y": 1314
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 945 G3"
-                    }
-                ]
-            },
-            {
-                "name": "Jar 910 F2",
+                "name": "Big Roots - Jar (F2) on cliff between two waterfalls",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2959,12 +2728,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 910 F2"
+                        "name": "Big Roots - Jar (F2) on cliff between two waterfalls (upper)"
+                    },
+                    {
+                        "name": "Big Roots - Jar (F2) on cliff between two waterfalls (lower)"
                     }
                 ]
             },
             {
-                "name": "Jar 760 B4",
+                "name": "Mines - Jar (B4) west of Emilio's stage",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2974,12 +2746,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 760 B4"
+                        "name": "Mines - Jar (B4) west of Emilio's stage"
                     }
                 ]
             },
             {
-                "name": "Jar 792 C5",
+                "name": "Tipped Jars",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -2989,27 +2761,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "Jar 792 C5"
+                        "name": "Mines - Jar (C5) tipped over in pool (north)"
+                    },
+                    {
+                        "name": "Mines - Jar (C5) tipped over in pool (south)"
                     }
                 ]
             },
             {
-                "name": "Jar 840 F2",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 608,
-                        "y": 1107
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Jar 840 F2"
-                    }
-                ]
-            },
-            {
-                "name": "Chest 909 G2",
+                "name": "Big Roots - Chest (G2) in high crook of tree branch near ceiling overlooking Nodd (Cryptid Hunter Axolotl)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3019,12 +2779,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Chest 909 G2"
+                        "name": "Big Roots - Chest (G2) in high crook of tree branch near ceiling overlooking Nodd (Cryptid Hunter Axolotl)"
                     }
                 ]
             },
             {
-                "name": "Chest 594 G5",
+                "name": "Big Roots - Chest (G5) near ceiling in cluster of jars",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3034,12 +2794,25 @@
                 ],
                 "sections": [
                     {
-                        "name": "Chest 594 G5"
+                        "name": "Big Roots - Chest (G5) near ceiling in cluster of jars"
+                    },
+                    {
+                        "name": "Big Roots - Jar (G5) near ceiling in cluster of jars (shortest east of chest)"
+                    },
+                    {
+                        "name": "Big Roots - Jar (G5) near ceiling in cluster of jars (west of chest)"
+                    },
+                    {
+                        "name": "Big Roots - Jar (G5) near ceiling in cluster of jars (widest east of chest)"
+                    },
+                    {
+                        "name": "Big Roots - Jar (G5) near ceiling in cluster of jars (tallest east of chest)"
                     }
+                    
                 ]
             },
             {
-                "name": "Chest 604 A5",
+                "name": "Mines - Chest (A5) among wires intersecting with ground, dramatically lit in red",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3049,12 +2822,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Chest 604 A5"
+                        "name": "Mines - Chest (A5) among wires intersecting with ground, dramatically lit in red"
                     }
                 ]
             },
             {
-                "name": "Chest 968 H3",
+                "name": "Big Roots - Chest (H3) near ceiling on roots above path of pools to Val (Scaredy Clam)'s starting location",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3064,12 +2837,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Chest 968 H3"
+                        "name": "Big Roots - Chest (H3) near ceiling on roots above path of pools to Val (Scaredy Clam)'s starting location"
                     }
                 ]
             },
             {
-                "name": "Chest 610 B4",
+                "name": "Mines - Chest (B4) behind fan in northwest corner of Mines",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3079,12 +2852,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Chest 610 B4"
+                        "name": "Mines - Chest (B4) behind fan in northwest corner of Mines"
                     }
                 ]
             },
             {
-                "name": "Chest 601 G7",
+                "name": "Flowstone Caverns - Chest (G7) hidden in a middle layer of tallest pillar in Caverns, guarded by Shielded Green Crystal Monster",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3094,12 +2867,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Chest 601 G7"
+                        "name": "Flowstone Caverns - Chest (G7) hidden in a middle layer of tallest pillar in Caverns, guarded by Shielded Green Crystal Monster"
                     }
                 ]
             },
             {
-                "name": "Race 417 B5",
+                "name": "Mines - Race (B5) at bottom of rail up to Emilio's stage",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3109,12 +2882,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 417 B5"
+                        "name": "Mines - Race (B5) at bottom of rail up to Emilio's stage"
                     }
                 ]
             },
             {
-                "name": "Race 499 H8",
+                "name": "Flowstone Caverns - Race (H7) southwest of Pater (Cursed Crayfish)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3124,12 +2897,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 499 H8"
+                        "name": "Flowstone Caverns - Race (H7) southwest of Pater (Cursed Crayfish)"
                     }
                 ]
             },
             {
-                "name": "Race 418 G2",
+                "name": "Big Roots - Race (G1) west of light beams coming from ceiling",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3139,12 +2912,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 418 G2"
+                        "name": "Big Roots - Race (G1) west of light beams coming from ceiling"
                     }
                 ]
             },
             {
-                "name": "Race 491 G7",
+                "name": "Flowstone Caverns - Race (G7) behind Amberly's barricade",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3154,12 +2927,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 491 G7"
+                        "name": "Flowstone Caverns - Race (G7) behind Amberly's barricade"
                     }
                 ]
             },
             {
-                "name": "Race 484 D6",
+                "name": "Flowstone Caverns - Race (D6) west of Lola (Queen Marten)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3169,12 +2942,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 484 D6"
+                        "name": "Flowstone Caverns - Race (D6) west of Lola (Queen Marten)"
                     }
                 ]
             },
             {
-                "name": "Race 413 H2",
+                "name": "Big Roots - Race (H2) in southwest corner of Roots",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3184,12 +2957,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 413 H2"
+                        "name": "Big Roots - Race (H2) in southwest corner of Roots"
                     }
                 ]
             },
             {
-                "name": "Race 468 B4",
+                "name": "Mines - Race (B4) starting at top of rails in north of Mines",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3199,12 +2972,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 468 B4"
+                        "name": "Mines - Race (B4) starting at top of rails in north of Mines"
                     }
                 ]
             },
             {
-                "name": "Race 503 F8",
+                "name": "Flowstone Caverns - Race (F8) east-northeast of tallest pillar and pointed toward metal boardwalk",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3214,12 +2987,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Race 503 F8"
+                        "name": "Flowstone Caverns - Race (F8) east-northeast of tallest pillar and pointed toward metal boardwalk"
                     }
                 ]
             },
             {
-                "name": "Wall 121 H1",
+                "name": "Dave and Matthew",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3229,12 +3002,33 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 121 H1"
+                        "name": "Big Roots - Rock bridge (H1) in south section of river marched around by Dave and Matthew (Marching Band Ants)"
+                    },
+                    {
+                        "name": "Big Roots - Rock bridge (H2) in middle section of river marched around by Dave and Matthew (Marching Band Ants)"
+                    },
+                    {
+                        "name": "Big Roots - Rock bridge (H2) in east section of river marched around by Dave and Matthew (Marching Band Ants)"
+                    },
+                    {
+                        "name": "Big Roots - Rock bridge (H1) in south section of river marched around by Dave and Matthew (Marching Band Ants)"
+                    },
+                    {
+                        "name": "Big Roots - Dave (Marching Band Ant) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Matthew (Marching Band Ant) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Matthew (Marching Band Ant) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Dave Matthew Band (Marching Ants) Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "Wall 132 B6",
+                "name": "Flowstone Caverns - Rock wall (B6) west of Heather (Hiding Bluebird)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3244,12 +3038,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 132 B6"
+                        "name": "Flowstone Caverns - Rock wall (B6) west of Heather (Hiding Bluebird)"
                     }
                 ]
             },
             {
-                "name": "Wall 119 E6",
+                "name": "Flowstone Caverns - Rock wall (E6) south of Jane (Ant Queen)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3259,12 +3053,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 119 E6"
+                        "name": "Flowstone Caverns - Rock wall (E6) south of Jane (Ant Queen)"
                     }
                 ]
             },
             {
-                "name": "Wall 126 D4",
+                "name": "Mines - Rock wall (D4) above waterfall south of Emilio's stage",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3274,12 +3068,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 126 D4"
+                        "name": "Mines - Rock wall (D4) above waterfall south of Emilio's stage"
                     }
                 ]
             },
             {
-                "name": "Wall 130 B6",
+                "name": "Mines - Rock wall (B6) east of fan at center north of Mines",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3289,27 +3083,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 130 B6"
+                        "name": "Mines - Rock wall (B6) east of fan at center north of Mines"
                     }
                 ]
             },
             {
-                "name": "Wall 146 B5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1116,
-                        "y": 373
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Wall 146 B5"
-                    }
-                ]
-            },
-            {
-                "name": "Wall 175 F8",
+                "name": "Flowstone Caverns - Rock wall (F8) south of Bodie (High Concept Octopus) tucked in corner",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3319,12 +3098,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 175 F8"
+                        "name": "Flowstone Caverns - Rock wall (F8) south of Bodie (High Concept Octopus) tucked in corner"
                     }
                 ]
             },
             {
-                "name": "Wall 148 B5",
+                "name": "Mines - Rock wall (B5) blocking top segment of rails in north of Mines (Dru's Quest)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3334,12 +3113,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 148 B5"
+                        "name": "Mines - Rock wall (B5) blocking top segment of rails in north of Mines (Dru's Quest)"
                     }
                 ]
             },
             {
-                "name": "Wall 117 F6",
+                "name": "Flowstone Caverns - Rock wall (F6) northeast of Jessie",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3349,12 +3128,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 117 F6"
+                        "name": "Flowstone Caverns - Rock wall (F6) northeast of Jessie"
                     }
                 ]
             },
             {
-                "name": "Wall 177 G8",
+                "name": "Flowstone Caverns - Rock wall (G8) overlooking tallest pillar from the east",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3364,12 +3143,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 177 G8"
+                        "name": "Flowstone Caverns - Rock wall (G8) overlooking tallest pillar from the east"
                     }
                 ]
             },
             {
-                "name": "Wall 181 H6",
+                "name": "Flowstone Caverns - Rock wall (H6) west of Casey (exposed)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3379,12 +3158,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 181 H6"
+                        "name": "Flowstone Caverns - Rock wall (H6) west of Casey (exposed)"
                     }
                 ]
             },
             {
-                "name": "Wall 135 G1",
+                "name": "Big Roots - Rock wall (G1) southwest of light beams coming through ceiling",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3394,12 +3173,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 135 G1"
+                        "name": "Big Roots - Rock wall (G1) southwest of light beams coming through ceiling"
                     }
                 ]
             },
             {
-                "name": "Wall 180 I6",
+                "name": "Flowstone Caverns - Rock wall (I6) west of Casey (hidden)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3409,12 +3188,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 180 I6"
+                        "name": "Flowstone Caverns - Rock wall (I6) west of Casey (hidden)"
                     }
                 ]
             },
             {
-                "name": "Wall 209 C7",
+                "name": "Flowstone Caverns - Rock wall (C7) southeast of Heather (Hiding Bluebird)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3424,12 +3203,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 209 C7"
+                        "name": "Flowstone Caverns - Rock wall (C7) southeast of Heather (Hiding Bluebird)"
                     }
                 ]
             },
             {
-                "name": "Wall 129 C6",
+                "name": "Flowstone Caverns - Rock wall (C6) southwest of Heather (Hiding Bluebird)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3439,12 +3218,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 129 C6"
+                        "name": "Flowstone Caverns - Rock wall (C6) southwest of Heather (Hiding Bluebird)"
                     }
                 ]
             },
             {
-                "name": "Wall 138 F1",
+                "name": "Big Roots - Rock wall (F1) west of light beams coming through ceiling",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3454,12 +3233,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 138 F1"
+                        "name": "Big Roots - Rock wall (F1) west of light beams coming through ceiling"
                     }
                 ]
             },
             {
-                "name": "Wall 127 E4",
+                "name": "Lighthouse - Rock wall (E4) overlooking central area",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3469,27 +3248,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 127 E4"
+                        "name": "Lighthouse - Rock wall (E4) overlooking central area"
                     }
                 ]
             },
             {
-                "name": "Wall 125 D2",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 525,
-                        "y": 698
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Wall 125 D2"
-                    }
-                ]
-            },
-            {
-                "name": "Wall 208 C7",
+                "name": "Flowstone Caverns - Rock wall (C7) east-southeast from Lola (Queen Marten)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3499,12 +3263,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 208 C7"
+                        "name": "Flowstone Caverns - Rock wall (C7) east-southeast from Lola (Queen Marten)"
                     }
                 ]
             },
             {
-                "name": "Wall 149 B5",
+                "name": "Mines - Rock wall (B5) following rail line up from Dru (Miner Turtle) (Dru's Quest)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3514,12 +3278,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 149 B5"
+                        "name": "Mines - Rock wall (B5) following rail line up from Dru (Miner Turtle) (Dru's Quest)"
                     }
                 ]
             },
             {
-                "name": "Wall 201 I2",
+                "name": "Big Roots - Rock wall (I2) top of waterfall in southern area of Roots",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3529,12 +3293,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 201 I2"
+                        "name": "Big Roots - Rock wall (I2) top of waterfall in southern area of Roots"
                     }
                 ]
             },
             {
-                "name": "Wall 137 F2",
+                "name": "Big Roots - Rock wall (F2) north of light beams coming through ceiling",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3544,12 +3308,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 137 F2"
+                        "name": "Big Roots - Rock wall (F2) north of light beams coming through ceiling"
                     }
                 ]
             },
             {
-                "name": "Wall 131 B6",
+                "name": "Mines - Rock wall (B6) east of Dru's delivery route",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3559,12 +3323,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 131 B6"
+                        "name": "Mines - Rock wall (B6) east of Dru's delivery route"
                     }
                 ]
             },
             {
-                "name": "Wall 128 E5",
+                "name": "Flowstone Caverns - Rock Wall (E5) overlooking boardwalk from Lighthouse",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3574,12 +3338,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 128 E5"
+                        "name": "Flowstone Caverns - Rock Wall (E5) overlooking boardwalk from Lighthouse"
                     }
                 ]
             },
             {
-                "name": "Wall 136 E1",
+                "name": "Wall 136 E1 Darklord Wall",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3594,7 +3358,7 @@
                 ]
             },
             {
-                "name": "Wall 134 E7",
+                "name": "Flowstone Caverns - Rock Wall (E7) southeast of Jane (Ant Queen)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3604,12 +3368,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 134 E7"
+                        "name": "Flowstone Caverns - Rock Wall (E7) southeast of Jane (Ant Queen)"
                     }
                 ]
             },
             {
-                "name": "Wall 207 I1",
+                "name": "Big Roots - Rock wall (I1) tucked in southwest corner of Roots",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3619,27 +3383,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 207 I1"
+                        "name": "Big Roots - Rock wall (I1) tucked in southwest corner of Roots"
                     }
                 ]
             },
             {
-                "name": "Wall 120 H2",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 465,
-                        "y": 1467
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Wall 120 H2"
-                    }
-                ]
-            },
-            {
-                "name": "Wall 147 B5",
+                "name": "Mines - Rock wall (B5) blocking segment pre-ramp of rails in north of Mines (Dru's Quest)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3649,12 +3398,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 147 B5"
+                        "name": "Mines - Rock wall (B5) blocking segment pre-ramp of rails in north of Mines (Dru's Quest)"
                     }
                 ]
             },
             {
-                "name": "Wall 179 H5",
+                "name": "Big Roots - Rock wall (H5) at far end of Val (Scaredy Clam)'s path",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3664,12 +3413,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 179 H5"
+                        "name": "Big Roots - Rock wall (H5) at far end of Val (Scaredy Clam)'s path"
                     }
                 ]
             },
             {
-                "name": "Wall 133 E7",
+                "name": "Flowstone Caverns - Rock wall (E7) west of Bodie (High Concept Octopus)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3679,27 +3428,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 133 E7"
+                        "name": "Flowstone Caverns - Rock wall (E7) west of Bodie (High Concept Octopus)"
                     }
                 ]
             },
             {
-                "name": "Wall 123 G1",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 377,
-                        "y": 1426
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Wall 123 G1"
-                    }
-                ]
-            },
-            {
-                "name": "Wall 118 F7",
+                "name": "Flowstone Caverns - Rock wall (F7) overlooking metal boardwalk between sections of the Caverns",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3709,27 +3443,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 118 F7"
+                        "name": "Flowstone Caverns - Rock wall (F7) overlooking metal boardwalk between sections of the Caverns"
                     }
                 ]
             },
             {
-                "name": "Wall 122 H2",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 425,
-                        "y": 1461
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "Wall 122 H2"
-                    }
-                ]
-            },
-            {
-                "name": "Wall 176 H6",
+                "name": "Flowstone Caverns - Rock wall (H6) above waterfall with water pipe",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3739,12 +3458,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Wall 176 H6"
+                        "name": "Flowstone Caverns - Rock wall (H6) above waterfall with water pipe"
                     }
                 ]
             },
             {
-                "name": "Cryptid Holy B5",
+                "name": "Mines - Bird of Big Island (Cryptid) on fan at center north edge of Mines",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3754,12 +3473,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Holy B5"
+                        "name": "Mines - Bird of Big Island (Cryptid) on fan at center north edge of Mines"
                     }
                 ]
             },
             {
-                "name": "Cryptid Looky C5",
+                "name": "Mines - Peep Goblin (Cryptid) above and south of Madson (Breaking Badger)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3769,12 +3488,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Looky C5"
+                        "name": "Mines - Peep Goblin (Cryptid) above and south of Madson (Breaking Badger)"
                     }
                 ]
             },
             {
-                "name": "Cryptid Floofy F4",
+                "name": "Big Roots - Barber Worm (Cryptid) on branches near Arlotte",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3784,12 +3503,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Floofy F4"
+                        "name": "Big Roots - Barber Worm (Cryptid) on branches near Arlotte"
                     }
                 ]
             },
             {
-                "name": "Cryptid Drippy G5",
+                "name": "Flowstone Caverns - Wellerdropple (Cryptid) on platform near ceiling with stalactites above Jessie (Fighting Xolo)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3799,12 +3518,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Drippy G5"
+                        "name": "Flowstone Caverns - Wellerdropple (Cryptid) on platform near ceiling with stalactites above Jessie (Fighting Xolo)"
                     }
                 ]
             },
             {
-                "name": "Cryptid Treey E2",
+                "name": "Big Roots - Yarrowling (Cryptid) on cliff above waterfall next to Cass Iron",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3814,12 +3533,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Treey E2"
+                        "name": "Big Roots - Yarrowling (Cryptid) on cliff above waterfall next to Cass Iron"
                     }
                 ]
             },
             {
-                "name": "Cryptid Finny G8",
+                "name": "Flowstone Caverns - Gulfcoaster (Cryptid) east of tallest pillar in Caverns",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3829,12 +3548,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Finny G8"
+                        "name": "Flowstone Caverns - Gulfcoaster (Cryptid) east of tallest pillar in Caverns"
                     }
                 ]
             },
             {
-                "name": "Cryptid Bubbly G7",
+                "name": "Flowstone Caverns - Orbhound (Cryptid) on tallest pillar in Caverns",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3844,12 +3563,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Bubbly G7"
+                        "name": "Flowstone Caverns - Orbhound (Cryptid) on tallest pillar in Caverns"
                     }
                 ]
             },
             {
-                "name": "Cryptid Cakey B4",
+                "name": "Mines - Iced Liar (Cryptid) overlooking fan in northwest corner of Mines",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3859,12 +3578,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Cakey B4"
+                        "name": "Mines - Iced Liar (Cryptid) overlooking fan in northwest corner of Mines"
                     }
                 ]
             },
             {
-                "name": "Cryptid Thorny G2",
+                "name": "Big Roots - Bramble Stalker (Cryptid) on tree branch above Dave and Matthew (Marching Band Ants)",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3874,57 +3593,52 @@
                 ],
                 "sections": [
                     {
-                        "name": "Cryptid Thorny G2"
+                        "name": "Big Roots - Bramble Stalker (Cryptid) on tree branch above Dave and Matthew (Marching Band Ants)"
                     }
                 ]
             },
             {
-                "name": "NPC Val1 G3",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 632,
-                        "y": 1431
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Val1 G3"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Nodd1 G2",
+                "name": "Nodd NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
                         "x": 602,
                         "y": 1391
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Nodd1 G2"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Hai D3",
-                "map_locations": [
+                    },
                     {
                         "map": "the_underground",
-                        "x": 754,
-                        "y": 627
+                        "x": 1427,
+                        "y": 1431
+                    },
+                    {
+                        "map": "the_underground",
+                        "x": 1140,
+                        "y": 525
                     }
                 ],
                 "sections": [
                     {
-                        "name": "NPC Hai D3"
+                        "name": "Underground - Nodd (Cryptid Hunter Axolotl) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Underground - Nodd (Cryptid Hunter Axolotl) Quest Completion Item"
+                    },
+                    {
+                        "name": "Underground - Turn in 1 Cryptid to Nodd"
+                    },
+                    {
+                        "name": "Underground - Turn in 3 Cryptids to Nodd"
+                    },
+                    {
+                        "name": "Underground - Turn in 5 Cryptids to Nodd"
+                    },
+                    {
+                        "name": "Underground - Turn in 7 Cryptids to Nodd"
                     }
                 ]
             },
             {
-                "name": "NPC Madson C5",
+                "name": "Mines - Madson (Breaking Badger) Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3934,27 +3648,18 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Madson C5"
+                        "name": "Mines - Madson (Breaking Badger) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Mines - Madson (Breaking Badger) Quest Completion Item 1"
+                    },
+                    {
+                        "name": "Mines - Madson (Breaking Badger) Quest Completion Item 2"
                     }
                 ]
             },
             {
-                "name": "NPC Dave H2",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 469,
-                        "y": 1463
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Dave H2"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Jessie G5",
+                "name": "Flowstone Caverns - Jessie (Battle Xolo) Quest Completion",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3964,12 +3669,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Jessie G5"
+                        "name": "Flowstone Caverns - Jessie (Battle Xolo) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Jessie (Battle Xolo) Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "NPC turtle B5",
+                "name": "Mines - Dru (Miner Turtle) Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3979,12 +3687,21 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC turtle B5"
+                        "name": "Mines - Dru (Miner Turtle) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Mines - Dru (Miner Turtle) Quest Completion Item 1"
+                    },
+                    {
+                        "name": "Mines - Dru (Miner Turtle) Quest Completion Item 2"
+                    },
+                    {
+                        "name": "Mines - Rock wall (B5) nearest Dru (Miner Turtle) (Dru's Quest)"
                     }
                 ]
             },
             {
-                "name": "NPC Arlotte G4",
+                "name": "Big Roots - Arlotte (Tangled Spider) Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -3994,27 +3711,50 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Arlotte G4"
+                        "name": "Big Roots - Arlotte (Tangled Spider) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Arlotte (Tangled Spider) Quest Completion Item 1"
+                    },
+                    {
+                        "name": "Big Roots - Arlotte (Tangled Spider) Quest Completion Item 2"
                     }
                 ]
             },
             {
-                "name": "NPC Jane D6",
+                "name": "Queen Beef",
                 "map_locations": [
                     {
                         "map": "the_underground",
                         "x": 1375,
                         "y": 716
+                    },
+                    {
+                        "map": "the_underground",
+                        "x": 1490,
+                        "y": 522
                     }
                 ],
                 "sections": [
                     {
-                        "name": "NPC Jane D6"
+                        "name": "Flowstone Caverns - Jane (Queen Ant) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Lola (Queen Marten) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Queen Beef Quest Completion Item"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Receive Queen's Secret Letter (Queen Beef between Jane and Lola)"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Receive Other Queen's Secret Letter (Queen Beef between Jane and Lola)"
                     }
                 ]
             },
             {
-                "name": "NPC Val2 H5",
+                "name": "Val",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4024,57 +3764,18 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Val2 H5"
+                        "name": "Big Roots - Val (Scaredy Clam) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Val (Scaredy Clam) Quest Completion Item"
+                    },
+                    {
+                        "name": "Big Roots - Clam Item (Val, Scaredy Clam)"
                     }
                 ]
             },
             {
-                "name": "NPC Lola C7",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1490,
-                        "y": 522
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Lola C7"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Harren D3",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 791,
-                        "y": 617
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Harren D3"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Nodd2 G6",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1427,
-                        "y": 1431
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Nodd2 G6"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Bodie E8",
+                "name": "Bodie",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4084,27 +3785,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Bodie E8"
+                        "name": "Flowstone Caverns - Bodie (High Concept Octopus) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Bodie (High Concept Octopus) Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "NPC Nodd3 C5",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 1140,
-                        "y": 506
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Nodd3 C5"
-                    }
-                ]
-            },
-            {
-                "name": "NPC Heather B7",
+                "name": "Flowstone Caverns - Heather (Hiding Bluebird) Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4114,27 +3803,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Heather B7"
+                        "name": "Flowstone Caverns - Heather (Hiding Bluebird) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Heather (Hiding Bluebird) Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "NPC Matthew H1",
-                "map_locations": [
-                    {
-                        "map": "the_underground",
-                        "x": 360,
-                        "y": 1449
-                    }
-                ],
-                "sections": [
-                    {
-                        "name": "NPC Matthew H1"
-                    }
-                ]
-            },
-            {
-                "name": "NPC crayfish H8",
+                "name": "Pater",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4144,12 +3821,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC crayfish H8"
+                        "name": "Flowstone Caverns - Pater (Cursed Crayfish) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Rubber Ball Gift (Pater, Cursed Crayfish)"
                     }
                 ]
             },
             {
-                "name": "NPC ghost C3",
+                "name": "Mines - o.o (Ghost) Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4159,12 +3839,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC ghost C3"
+                        "name": "Mines - o.o (Ghost) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Mines - o.o (Ghost) Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "NPC Casey H6",
+                "name": "Flowstone Caverns - Casey (Flying Squirrel) Quest Completion",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4174,12 +3857,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Casey H6"
+                        "name": "Flowstone Caverns - Casey (Flying Squirrel) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Drone Gift (Casey, Flying Squirrel)"
                     }
                 ]
             },
             {
-                "name": "NPC Cass Iron E3",
+                "name": "Big Roots - Cass Iron (Scared-of-Disappointment Snail) Quest Completion",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4189,12 +3875,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Cass Iron E3"
+                        "name": "Big Roots - Cass Iron (Scared-of-Disappointment Snail) Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Cass Iron (Scared-of-Disappointment Snail) Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "NPC Esther E3",
+                "name": "Esther (Directions Deer) Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4204,12 +3893,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Esther E3"
+                        "name": "Underground Entrance - Esther (Directions Deer) Quest Completion NPC"
                     }
                 ]
             },
             {
-                "name": "NPC Emilio C4",
+                "name": "Mines - Emilio Main Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4219,12 +3908,12 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Emilio C4"
+                        "name": "Mines - Emilio Main Quest Completion NPC"
                     }
                 ]
             },
             {
-                "name": "NPC Ruth G2",
+                "name": "Big Roots - Ruth Main Quest Completion NPC",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4234,12 +3923,15 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Ruth G2"
+                        "name": "Big Roots - Ruth Main Quest Completion NPC"
+                    },
+                    {
+                        "name": "Big Roots - Ruth Main Quest Completion Item"
                     }
                 ]
             },
             {
-                "name": "NPC Amberly G7",
+                "name": "Flowstone Caverns - Amberly Main Quest Completion",
                 "map_locations": [
                     {
                         "map": "the_underground",
@@ -4249,7 +3941,50 @@
                 ],
                 "sections": [
                     {
-                        "name": "NPC Amberly G7"
+                        "name": "Flowstone Caverns - Amberly Main Quest Completion NPC"
+                    },
+                    {
+                        "name": "Flowstone Caverns - Amberly Main Quest Completion Item"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Underground Entrance Breakables",
+        "children": [
+            {
+                "name": "Underground Entrance - Jar (E3) on top of cliff between Esther (Directions Deer) and the entrance to the underground",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 627,
+                        "y": 823
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Underground Entrance - Jar (E3) on top of cliff between Esther (Directions Deer) and the entrance to the underground"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Mines",
+        "children": [
+            {
+                "name": "Harren (Behind You Beetle) Quest Completion NPC",
+                "map_locations": [
+                    {
+                        "map": "the_underground",
+                        "x": 770,
+                        "y": 622
+                    }
+                ],
+                "sections": [
+                    {
+                        "name": "Mines - Harren (Behind You Beetle) and Hai (Hiding Hedgehog) Quest Completion NPCs"
                     }
                 ]
             }

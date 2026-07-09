@@ -3,9 +3,10 @@ from typing import Any, Dict, List
 
 from rule_builder.rules import True_
 from .entrances import entrances
-from .locations import location_table, location_name_to_id
+from .locations import location_table, location_name_to_id, LocationGroup as LG
+from .items import GatorItemName as I
 
-from .rules import gator_location_rules
+from .rules import Has, gator_location_rules, no_pot_break_item
 import json
 
 
@@ -75,10 +76,19 @@ def generate_rule_json():
         rule_dict["location_id"] = location_data.location_id
         rule_dict["region"] = location_data.region
         rule_dict["coords"] = id_to_coord[location_data.location_id]
-        if rule is not None:
-            rule_dict["rule_json"] = rule.to_dict()
-        else:
-            rule_dict["rule_json"] = True_().to_dict()
+        if rule is None:
+            rule = True_()
+        if LG.OoT_Pot in location_data.location_groups:
+            rule = rule & (no_pot_break_item | Has(I.GUITAR))
+        elif LG.MC_Pot in location_data.location_groups:
+            rule = rule & (no_pot_break_item | Has(I.GIANT_SOCKS))
+        elif LG.LA_Pot in location_data.location_groups:
+            rule = rule & (no_pot_break_item | Has(I.SLEEP_MASK))
+        elif LG.TP_Pot in location_data.location_groups:
+            rule = rule & (no_pot_break_item | Has(I.TIGER_FORM))
+        elif LG.WW_Pot in location_data.location_groups:
+            rule = rule & (no_pot_break_item | Has(I.OAR))
+        rule_dict["rule_json"] = rule.to_dict()
         location_json_accumulator.append(rule_dict)
 
     with open("LocationRules.json", "w") as f:

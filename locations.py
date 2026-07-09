@@ -3,6 +3,7 @@ from typing import Dict, NamedTuple, Set, List
 
 from .regions import (
     GatorRegionName as R,
+    GatorStartingRegionName as StR,
     GatorSurfaceRegionName as SR,
     GatorITDRegionName as UR,
 )
@@ -12,6 +13,8 @@ class LocationGroup(Enum):
     Pot = auto()
     Chest = auto()
     Race = auto()
+    Wall = auto()
+    Cryptid = auto()
     Main_Quest = auto()
     Side_Quest = auto()
     Shop = auto()
@@ -385,118 +388,219 @@ class GatorLocationName(str, Enum):
 
     # Underground
     PICKAXE_PICKUP = "Underground Entrance - Pickaxe Pickup"
-    JAR_1168_H7 = "Jar 1168 H7"
-    JAR_801_C5 = "Jar 801 C5"
-    JAR_1161_H7 = "Jar 1161 H7"
-    JAR_1171_I8 = "Jar 1171 I8"
-    JAR_908_G5 = "Jar 908 G5"
-    JAR_1148_H6 = "Jar 1148 H6"
-    JAR_602_G5 = "Jar 602 G5"
-    JAR_580_G8 = "Jar 580 G8"
-    JAR_873_F4 = "Jar 873 F4"
-    JAR_1166_H6 = "Jar 1166 H6"
-    JAR_1167_H6 = "Jar 1167 H6"
-    JAR_1213_E5 = "Jar 1213 E5"
-    JAR_931_G3 = "Jar 931 G3"
-    JAR_576_H6 = "Jar 576 H6"
-    JAR_579_I8 = "Jar 579 I8"
-    JAR_578_H8 = "Jar 578 H8"
-    JAR_890_G4 = "Jar 890 G4"
-    JAR_1334_E3 = "Jar 1334 E3"
-    JAR_577_I8 = "Jar 577 I8"
-    JAR_875_F3 = "Jar 875 F3"
-    JAR_945_G3 = "Jar 945 G3"
-    JAR_910_F2 = "Jar 910 F2"
-    JAR_760_B4 = "Jar 760 B4"
-    JAR_792_C5 = "Jar 792 C5"
-    JAR_840_F2 = "Jar 840 F2"
-    CHEST_909_G2 = "Chest 909 G2"
-    CHEST_594_G5 = "Chest 594 G5"
-    CHEST_604_A5 = "Chest 604 A5"
-    CHEST_968_H3 = "Chest 968 H3"
-    CHEST_610_B4 = "Chest 610 B4"
-    CHEST_601_G7 = "Chest 601 G7"
-    RACE_417_B5 = "Race 417 B5"
-    RACE_499_H8 = "Race 499 H8"
-    RACE_418_G2 = "Race 418 G2"
-    RACE_491_G7 = "Race 491 G7"
-    RACE_484_D6 = "Race 484 D6"
-    RACE_413_H2 = "Race 413 H2"
-    RACE_468_B4 = "Race 468 B4"
-    RACE_503_F8 = "Race 503 F8"
-    WALL_121_H1 = "Wall 121 H1"
-    WALL_132_B6 = "Wall 132 B6"
-    WALL_119_E6 = "Wall 119 E6"
-    WALL_126_D4 = "Wall 126 D4"
-    WALL_130_B6 = "Wall 130 B6"
-    WALL_146_B5 = "Wall 146 B5"
-    WALL_175_F8 = "Wall 175 F8"
-    WALL_148_B5 = "Wall 148 B5"
-    WALL_117_F6 = "Wall 117 F6"
-    WALL_177_G8 = "Wall 177 G8"
-    WALL_181_H6 = "Wall 181 H6"
-    WALL_135_G1 = "Wall 135 G1"
-    WALL_180_I6 = "Wall 180 I6"
-    WALL_209_C7 = "Wall 209 C7"
-    WALL_129_C6 = "Wall 129 C6"
-    WALL_138_F1 = "Wall 138 F1"
-    WALL_127_E4 = "Wall 127 E4"
-    WALL_125_D2 = "Wall 125 D2"
-    WALL_208_C7 = "Wall 208 C7"
-    WALL_149_B5 = "Wall 149 B5"
-    WALL_201_I2 = "Wall 201 I2"
-    WALL_137_F2 = "Wall 137 F2"
-    WALL_131_B6 = "Wall 131 B6"
-    WALL_128_E5 = "Wall 128 E5"
-    WALL_136_E1 = "Wall 136 E1"
-    WALL_134_E7 = "Wall 134 E7"
-    WALL_207_I1 = "Wall 207 I1"
-    WALL_120_H2 = "Wall 120 H2"
-    WALL_147_B5 = "Wall 147 B5"
-    WALL_179_H5 = "Wall 179 H5"
-    WALL_133_E7 = "Wall 133 E7"
-    WALL_123_G1 = "Wall 123 G1"
-    WALL_118_F7 = "Wall 118 F7"
-    WALL_122_H2 = "Wall 122 H2"
-    WALL_176_H6 = "Wall 176 H6"
-    CRYPTID_HOLY_B5 = "Cryptid Holy B5"
-    CRYPTID_LOOKY_C5 = "Cryptid Looky C5"
-    CRYPTID_FLOOFY_F4 = "Cryptid Floofy F4"
-    CRYPTID_DRIPPY_G5 = "Cryptid Drippy G5"
-    CRYPTID_TREEY_E2 = "Cryptid Treey E2"
-    CRYPTID_FINNY_G8 = "Cryptid Finny G8"
-    CRYPTID_BUBBLY_G7 = "Cryptid Bubbly G7"
-    CRYPTID_CAKEY_B4 = "Cryptid Cakey B4"
-    CRYPTID_THORNY_G2 = "Cryptid Thorny G2"
-    NPC_VAL1_G3 = "NPC Val1 G3"
-    NPC_NODD1_G2 = "NPC Nodd1 G2"
-    NPC_HAI_D3 = "NPC Hai D3"
-    NPC_MADSON_C5 = "NPC Madson C5"
-    NPC_DAVE_H2 = "NPC Dave H2"
-    NPC_JESSIE_G5 = "NPC Jessie G5"
-    NPC_TURTLE_B5 = "NPC turtle B5"
-    NPC_ARLOTTE_G4 = "NPC Arlotte G4"
-    NPC_JANE_D6 = "NPC Jane D6"
-    NPC_VAL2_H5 = "NPC Val2 H5"
-    NPC_LOLA_C7 = "NPC Lola C7"
-    NPC_HARREN_D3 = "NPC Harren D3"
-    NPC_NODD2_G6 = "NPC Nodd2 G6"
-    NPC_BODIE_E8 = "NPC Bodie E8"
-    NPC_NODD3_C5 = "NPC Nodd3 C5"
-    NPC_HEATHER_B7 = "NPC Heather B7"
-    NPC_MATTHEW_H1 = "NPC Matthew H1"
-    NPC_CRAYFISH_H8 = "NPC crayfish H8"
-    NPC_GHOST_C3 = "NPC ghost C3"
-    NPC_CASEY_H6 = "NPC Casey H6"
-    NPC_CASSIRON_E3 = "NPC Cass Iron E3"
-    NPC_ESTHER_E3 = "NPC Esther E3"
-    NPC_EMILIO_C4 = "NPC Emilio C4"
-    NPC_RUTH_G2 = "NPC Ruth G2"
-    NPC_AMBERLY_G7 = "NPC Amberly G7"
+    JAR_1168_H7 = (
+        "Flowstone Caverns - Jar (H7) in the middle of Amberly's racetrack (small)"
+    )
+    JAR_801_C5 = "Mines - Jar (C5) tipped over in pool (south)"
+    JAR_1161_H7 = (
+        "Flowstone Caverns - Jar (H7) in the middle of Amberly's racetrack (large)"
+    )
+    JAR_1171_I8 = "Flowstone Caverns - Jar (I8) in cliffside nook (leftmost)"
+    JAR_908_G5 = "Lighthouse - Jar (G5) on Roots and Caverns border (upper)"
+    JAR_907_G5 = "Lighthouse - Jar (G5) on Roots and Caverns border (lower, large)"
+    JAR_894_G5 = "Lighthouse - Jar (G5) on Roots and Caverns border (lower, small)"
+    JAR_1148_H6 = "Flowstone Caverns - Jar (H6) along cliffs by water pipe (lower)"
+    JAR_602_G5 = (
+        "Big Roots - Jar (G5) near ceiling in cluster of jars (shortest east of chest)"
+    )
+    JAR_598_G5 = "Big Roots - Jar (G5) near ceiling in cluster of jars (west of chest)"
+    JAR_597_G5 = (
+        "Big Roots - Jar (G5) near ceiling in cluster of jars (widest east of chest)"
+    )
+    JAR_595_G5 = (
+        "Big Roots - Jar (G5) near ceiling in cluster of jars (tallest east of chest)"
+    )
+    JAR_580_G8 = "Flowstone Caverns - Jar (G8) east of tallest pillar in Caverns"
+    JAR_873_F4 = "Lighthouse - Jar (F4) on cliff southwest of gathering space (lower)"
+    JAR_874_F4 = "Lighthouse - Jar (F4) on cliff southwest of gathering space (upper)"
+    JAR_906_F4 = "Lighthouse - Jar (F4) on cliff Roots side of gathering space"
+    JAR_1166_H6 = "Flowstone Caverns - Jar (H6) on cliff south of Nodd (Cryptid Hunter Axolotl)'s Flowstone Caverns site (lower)"
+    JAR_1167_H6 = (
+        "Flowstone Caverns - Jar (H6) along cliffs by water pipe (upper, small)"
+    )
+    JAR_1153_H6 = (
+        "Flowstone Caverns - Jar (H6) along cliffs by water pipe (upper, large)"
+    )
+    JAR_1180_E5 = "Mines - Jar (E5) under boardwalks in southern path between Mines and Flowstone Caverns (large)"
+    JAR_1213_E5 = "Mines - Jar (E5) under boardwalks in southern path between Mines and Flowstone Caverns (small)"
+    JAR_931_G3 = "Big Roots - Jar (G3) on rock intersecting with branches between Nodd and Arlotte (small)"
+    JAR_576_H6 = "Flowstone Caverns - Jar (H6) on cliff south of Nodd (Cryptid Hunter Axolotl)'s Flowstone Caverns site (upper)"
+    JAR_579_I8 = "Flowstone Caverns - Jar (I8) in cliffside nook (rigthmost)"
+    JAR_1170_I7 = "Flowstone Caverns - Jar (I7) fallen from cliffside nook"
+    JAR_578_H8 = "Flowstone Caverns - Jar (H8) east of tallest pillar in Caverns"
+    JAR_890_G4 = "Big Roots - Jar (G4) above wood slat path from Lighthouse to Roots"
+    JAR_1334_E3 = "Underground Entrance - Jar (E3) on top of cliff between Esther (Directions Deer) and the entrance to the underground"
+    JAR_577_I8 = "Flowstone Caverns - Jar (I8) in cliffside nook (middle)"
+    JAR_875_F3 = "Big Roots - Jar (F3) on cliff edge northwest of Arlotte (thin)"
+    JAR_876_F3 = "Big Roots - Jar (F3) on cliff edge northwest of Arlotte (wide)"
+    JAR_945_G3 = "Big Roots - Jar (G3) on rock intersecting with branches between Nodd and Arlotte (large)"
+    JAR_910_F2 = "Big Roots - Jar (F2) on cliff between two waterfalls (upper)"
+    JAR_760_B4 = "Mines - Jar (B4) west of Emilio's stage"
+    JAR_792_C5 = "Mines - Jar (C5) tipped over in pool (north)"
+    JAR_840_F2 = "Big Roots - Jar (F2) on cliff between two waterfalls (lower)"
+    JAR_981_H2 = "Big Roots - Jar (H2) up on rock at intersection of branches south-southeast from Dave Matthew Band (Marching Ants)"
+    CHEST_909_G2 = "Big Roots - Chest (G2) in high crook of tree branch near ceiling overlooking Nodd (Cryptid Hunter Axolotl)"
+    CHEST_594_G5 = "Big Roots - Chest (G5) near ceiling in cluster of jars"
+    CHEST_604_A5 = "Mines - Chest (A5) among wires intersecting with ground, dramatically lit in red"
+    CHEST_968_H3 = "Big Roots - Chest (H3) near ceiling on roots above path of pools to Val (Scaredy Clam)'s starting location"
+    CHEST_610_B4 = "Mines - Chest (B4) behind fan in northwest corner of Mines"
+    CHEST_601_G7 = "Flowstone Caverns - Chest (G7) hidden in a middle layer of tallest pillar in Caverns, guarded by Shielded Green Crystal Monster"
+    RACE_417_B5 = "Mines - Race (B5) at bottom of rail up to Emilio's stage"
+    RACE_499_H8 = "Flowstone Caverns - Race (H7) southwest of Pater (Cursed Crayfish)"
+    RACE_418_G2 = "Big Roots - Race (G1) west of light beams coming from ceiling"
+    RACE_491_G7 = "Flowstone Caverns - Race (G7) behind Amberly's barricade"
+    RACE_484_D6 = "Flowstone Caverns - Race (D6) west of Lola (Queen Marten)"
+    RACE_413_H2 = "Big Roots - Race (H2) in southwest corner of Roots"
+    RACE_468_B4 = "Mines - Race (B4) starting at top of rails in north of Mines"
+    RACE_503_F8 = "Flowstone Caverns - Race (F8) east-northeast of tallest pillar and pointed toward metal boardwalk"
+    WALL_121_H1 = "Big Roots - Rock bridge (H1) in south section of river marched around by Dave and Matthew (Marching Band Ants)"
+    WALL_132_B6 = "Flowstone Caverns - Rock wall (B6) west of Heather (Hiding Bluebird)"
+    WALL_119_E6 = "Flowstone Caverns - Rock wall (E6) south of Jane (Ant Queen)"
+    WALL_126_D4 = "Mines - Rock wall (D4) above waterfall south of Emilio's stage"
+    WALL_130_B6 = "Mines - Rock wall (B6) east of fan at center north of Mines"
+    WALL_146_B5 = "Mines - Rock wall (B5) nearest Dru (Miner Turtle) (Dru's Quest)"
+    WALL_175_F8 = "Flowstone Caverns - Rock wall (F8) south of Bodie (High Concept Octopus) tucked in corner"
+    WALL_148_B5 = "Mines - Rock wall (B5) blocking top segment of rails in north of Mines  (Dru's Quest)"
+    WALL_117_F6 = "Flowstone Caverns - Rock wall (F6) northeast of Jessie"
+    WALL_177_G8 = (
+        "Flowstone Caverns - Rock wall (G8) overlooking tallest pillar from the east"
+    )
+    WALL_181_H6 = "Flowstone Caverns - Rock wall (H6) west of Casey (exposed)"
+    WALL_135_G1 = (
+        "Big Roots - Rock wall (G1) southwest of light beams coming through ceiling"
+    )
+    WALL_180_I6 = "Flowstone Caverns - Rock wall (I6) west of Casey (hidden)"
+    WALL_209_C7 = (
+        "Flowstone Caverns - Rock wall (C7) southeast of Heather (Hiding Bluebird)"
+    )
+    WALL_129_C6 = (
+        "Flowstone Caverns - Rock wall (C6) southwest of Heather (Hiding Bluebird)"
+    )
+    WALL_138_F1 = (
+        "Big Roots - Rock wall (F1) west of light beams coming through ceiling"
+    )
+    WALL_127_E4 = "Lighthouse - Rock wall (E4) overlooking central area"
+    WALL_208_C7 = (
+        "Flowstone Caverns - Rock wall (C7) east-southeast from Lola (Queen Marten)"
+    )
+    WALL_149_B5 = "Mines - Rock wall (B5) following rail line up from Dru (Miner Turtle) (Dru's Quest)"
+    WALL_201_I2 = (
+        "Big Roots - Rock wall (I2) top of waterfall in southern area of Roots"
+    )
+    WALL_137_F2 = (
+        "Big Roots - Rock wall (F2) north of light beams coming through ceiling"
+    )
+    WALL_131_B6 = "Mines - Rock wall (B6) east of Dru's delivery route"
+    WALL_128_E5 = (
+        "Flowstone Caverns - Rock Wall (E5) overlooking boardwalk from Lighthouse"
+    )
+    WALL_134_E7 = "Flowstone Caverns - Rock Wall (E7) southeast of Jane (Ant Queen)"
+    WALL_207_I1 = "Big Roots - Rock wall (I1) tucked in southwest corner of Roots"
+    WALL_120_H2 = "Big Roots - Rock bridge (H2) in east section of river marched around by Dave and Matthew (Marching Band Ants)"
+    WALL_147_B5 = "Mines - Rock wall (B5) blocking segment pre-ramp of rails in north of Mines (Dru's Quest)"
+    WALL_179_H5 = "Big Roots - Rock wall (H5) at far end of Val (Scaredy Clam)'s path"
+    WALL_133_E7 = (
+        "Flowstone Caverns - Rock wall (E7) west of Bodie (High Concept Octopus)"
+    )
+    WALL_123_G1 = "Big Roots - Rock bridge (G1) in north section of river marched around by Dave and Matthew (Marching Band Ants)"
+    WALL_118_F7 = "Flowstone Caverns - Rock wall (F7) overlooking metal boardwalk between sections of the Caverns"
+    WALL_122_H2 = "Big Roots - Rock bridge (H1) in middle section of river marched around by Dave and Matthew (Marching Band Ants)"
+    WALL_176_H6 = "Flowstone Caverns - Rock wall (H6) above waterfall with water pipe"
+    CRYPTID_HOLY_B5 = (
+        "Mines - Bird of Big Island (Cryptid) on fan at center north edge of Mines"
+    )
+    CRYPTID_LOOKY_C5 = (
+        "Mines - Peep Goblin (Cryptid) above and south of Madson (Breaking Badger)"
+    )
+    CRYPTID_FLOOFY_F4 = (
+        "Big Roots - Barber Worm (Cryptid) on branches near Arlotte (Tangled Spider)"
+    )
+    CRYPTID_DRIPPY_G5 = "Flowstone Caverns - Wellerdropple (Cryptid) on platform near ceiling with stalactites above Jessie (Fighting Xolo)"
+    CRYPTID_TREEY_E2 = (
+        "Big Roots - Yarrowling (Cryptid) on cliff above waterfall next to Cass Iron"
+    )
+    CRYPTID_FINNY_G8 = (
+        "Flowstone Caverns - Gulfcoaster (Cryptid) east of tallest pillar in Caverns"
+    )
+    CRYPTID_BUBBLY_G7 = (
+        "Flowstone Caverns - Orbhound (Cryptid) on tallest pillar in Caverns"
+    )
+    CRYPTID_CAKEY_B4 = (
+        "Mines - Iced Liar (Cryptid) overlooking fan in northwest corner of Mines"
+    )
+    CRYPTID_THORNY_G2 = "Big Roots - Bramble Stalker (Cryptid) on tree branch above Dave and Matthew (Marching Band Ants)"
+    NPC_VAL_NPC = "Big Roots - Val (Scaredy Clam) Quest Completion NPC"
+    NPC_VAL_ITEM = "Big Roots - Val (Scaredy Clam) Quest Completion Item"
+    CLAM_ITEM = "Big Roots - Clam Item (Val, Scaredy Clam)"
+    NPC_NODD_NPC = "Underground - Nodd (Cryptid Hunter Axolotl) Quest Completion NPC"
+    NPC_NODD_ITEM = "Underground - Nodd (Cryptid Hunter Axolotl) Quest Completion Item"
+    NPC_NODD_1_CRYPTID = "Underground - Turn in 1 Cryptid to Nodd"
+    NPC_NODD_3_CRYPTID = "Underground - Turn in 3 Cryptids to Nodd"
+    NPC_NODD_5_CRYPTID = "Underground - Turn in 5 Cryptids to Nodd"
+    NPC_NODD_7_CRYPTID = "Underground - Turn in 7 Cryptids to Nodd"
+    NPC_MADSON_C5 = "Mines - Madson (Breaking Badger) Quest Completion NPC"
+    NPC_MADSON_HAT = "Mines - Madson (Breaking Badger) Quest Completion Item 1"
+    NPC_MADSON_HOVER = "Mines - Madson (Breaking Badger) Quest Completion Item 2"
+    NPC_DAVE_NPC = "Big Roots - Dave (Marching Band Ant) Quest Completion NPC"
+    NPC_MATTHEW_NPC = "Big Roots - Matthew (Marching Band Ant) Quest Completion NPC"
+    NPC_DAVE_MATTHEW_ITEM = (
+        "Big Roots - Dave Matthew Band (Marching Ants) Quest Completion Item"
+    )
+    NPC_JESSIE_NPC = "Flowstone Caverns - Jessie (Fighting Xolo) Quest Completion NPC"
+    NPC_JESSIE_ITEM = "Flowstone Caverns - Jessie (Fighting Xolo) Quest Completion Item"
+    NPC_TURTLE_NPC = "Mines - Dru (Miner Turtle) Quest Completion NPC"
+    NPC_TURTLE_ITEM_1 = "Mines - Dru (Miner Turtle) Quest Completion Item 1"
+    NPC_TURTLE_ITEM_2 = "Mines - Dru (Miner Turtle) Quest Completion Item 2"
+    NPC_ARLOTTE_NPC = "Big Roots - Arlotte (Tangled Spider) Quest Completion NPC"
+    NPC_ARLOTTE_ITEM_1 = "Big Roots - Arlotte (Tangled Spider) Quest Completion Item 1"
+    NPC_ARLOTTE_ITEM_2 = "Big Roots - Arlotte (Tangled Spider) Quest Completion Item 2"
+    NPC_JANE_D6 = "Flowstone Caverns - Jane (Queen Ant) Quest Completion NPC"
+    NPC_LOLA_C7 = "Flowstone Caverns - Lola (Queen Marten) Quest Completion NPC"
+    NPC_JANE_LOLA_LETTER_1 = "Flowstone Caverns - Receive Queen's Secret Letter (Queen Beef between Jane and Lola)"
+    NPC_JANE_LOLA_LETTER_2 = "Flowstone Caverns - Receive Other Queen's Secret Letter (Queen Beef between Jane and Lola)"
+    NPC_JANE_LOLA_ITEM = "Flowstone Caverns - Queen Beef Quest Completion Item"
+    NPC_HARREN_D3 = "Mines - Harren (Behind You Beetle) and Hai (Hiding Hedgehog) Quest Completion NPCs"
+    NPC_BODIE_NPC = (
+        "Flowstone Caverns - Bodie (High Concept Octopus) Quest Completion NPC"
+    )
+    NPC_BODIE_ITEM = (
+        "Flowstone Caverns - Bodie (High Concept Octopus) Quest Completion Item"
+    )
+    NPC_HEATHER_NPC = (
+        "Flowstone Caverns - Heather (Hiding Bluebird) Quest Completion NPC"
+    )
+    NPC_HEATHER_ITEM = (
+        "Flowstone Caverns - Heather (Hiding Bluebird) Quest Completion Item"
+    )
+    NPC_CRAYFISH_NPC = (
+        "Flowstone Caverns - Pater (Cursed Crayfish) Quest Completion NPC"
+    )
+    NPC_CRAYFISH_ITEM = "Flowstone Caverns - Rubber Ball Gift (Pater, Cursed Crayfish)"
+    NPC_GHOST_NPC = "Mines - o.o (Ghost) Quest Completion NPC"
+    NPC_GHOST_ITEM = "Mines - o.o (Ghost) Quest Completion Item"
+    NPC_CASEY_H6 = "Flowstone Caverns - Casey (Flying Squirrel) Quest Completion NPC"
+    DRONE_GIFT = "Flowstone Caverns - Drone Gift (Casey, Flying Squirrel)"
+    NPC_CASSIRON_NPC = (
+        "Big Roots - Cass Iron (Scared-of-Disappointment Snail) Quest Completion NPC"
+    )
+    NPC_CASSIRON_ITEM = (
+        "Big Roots - Cass Iron (Scared-of-Disappointment Snail) Quest Completion Item"
+    )
+
+    NPC_ESTHER_E3 = (
+        "Underground Entrance - Esther (Directions Deer) Quest Completion NPC"
+    )
+    NPC_EMILIO_NPC = "Mines - Emilio Main Quest Completion NPC"
+    NPC_EMILIO_ITEM = "Mines - Emilio Main Quest Completion Item"
+    NPC_RUTH_NPC = "Big Roots - Ruth Main Quest Completion NPC"
+    NPC_RUTH_ITEM = "Big Roots - Ruth Main Quest Completion Item"
+    NPC_AMBERLY_NPC = "Flowstone Caverns - Amberly Main Quest Completion NPC"
+    NPC_AMBERLY_ITEM = "Flowstone Caverns - Amberly Main Quest Completion Item"
 
 
 class GatorEventLocationName(str, Enum):
     PLAYGROUND = "Complete the Playground"
+    DARKLORD = "Confront Darklord"
 
 
 class GatorLocationData(NamedTuple):
@@ -586,7 +690,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -597,7 +700,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -608,7 +710,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -619,7 +720,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -630,7 +730,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -773,7 +872,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -784,7 +882,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -795,7 +892,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -806,7 +902,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -817,7 +912,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -828,7 +922,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -839,7 +932,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -850,7 +942,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -861,7 +952,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -872,7 +962,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -883,7 +972,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -894,7 +982,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -965,7 +1052,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -976,7 +1062,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -987,7 +1072,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -998,7 +1082,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1009,7 +1092,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1020,7 +1102,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1031,7 +1112,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1042,7 +1122,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1053,7 +1132,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1064,7 +1142,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1159,7 +1236,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1170,7 +1246,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1181,7 +1256,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1192,7 +1266,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1203,7 +1276,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1214,7 +1286,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1225,7 +1296,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1236,7 +1306,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1247,7 +1316,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1258,7 +1326,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1269,7 +1336,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1280,7 +1346,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1291,7 +1356,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1302,7 +1366,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1313,7 +1376,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1324,7 +1386,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1335,7 +1396,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1346,7 +1406,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1357,7 +1416,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1626,7 +1684,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1637,7 +1694,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1648,7 +1704,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1659,7 +1714,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1670,9 +1724,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1683,9 +1735,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1696,9 +1746,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1709,7 +1757,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1720,7 +1767,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1731,7 +1777,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1742,7 +1787,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1753,9 +1797,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1766,7 +1808,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -1777,9 +1818,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1790,9 +1829,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1803,9 +1840,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1816,9 +1851,7 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.Side_Quest,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1829,7 +1862,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1840,7 +1872,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1893,7 +1924,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -1904,7 +1934,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -1915,7 +1944,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -1926,7 +1954,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -1937,26 +1964,25 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
     GatorLocationData(
         GatorLocationName.TI_AVERY,
         100002193,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Main_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_AVERY_HAT_RECIPE,
         100002192,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Main_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_BRACELET_MONKEY_TUTORIAL,
         100002291,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
@@ -1986,31 +2012,31 @@ surface_location_table: List[GatorLocationData] = [
     GatorLocationData(
         GatorLocationName.TI_FRANNY_ITEM,
         100002200,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_FRANNY_NPC,
         100002199,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_GERALD_ITEM,
         100002202,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_GERALD_NPC,
         100002201,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_MARTIN,
         100002196,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Main_Quest],
     ),
     GatorLocationData(
@@ -2020,7 +2046,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2031,7 +2056,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2042,7 +2066,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -2053,7 +2076,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2064,7 +2086,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -2075,7 +2096,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -2086,7 +2106,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -2097,7 +2116,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2108,7 +2126,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -2119,7 +2136,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -2130,7 +2146,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2141,7 +2156,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2152,7 +2166,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2163,7 +2176,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -2174,7 +2186,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -2185,7 +2196,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -2196,7 +2206,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -2207,7 +2216,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.WW_Pot,
         ],
     ),
@@ -2218,7 +2226,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.LA_Pot,
         ],
     ),
@@ -2229,7 +2236,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.OoT_Pot,
         ],
     ),
@@ -2240,7 +2246,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
@@ -2251,7 +2256,6 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.TP_Pot,
         ],
     ),
@@ -2262,14 +2266,13 @@ surface_location_table: List[GatorLocationData] = [
         [
             LocationGroup.Surface,
             LocationGroup.Pot,
-            LocationGroup.Surface,
             LocationGroup.MC_Pot,
         ],
     ),
     GatorLocationData(
         GatorLocationName.TI_POT_Q,
         100002195,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Main_Quest],
     ),
     GatorLocationData(
@@ -2287,29 +2290,881 @@ surface_location_table: List[GatorLocationData] = [
     GatorLocationData(
         GatorLocationName.TI_SIMON_ITEM,
         100002198,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_SIMON_NPC,
         100002197,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Side_Quest],
     ),
     GatorLocationData(
         GatorLocationName.TI_STICK,
         100002194,
-        SR.TUTORIAL_ISLAND,
+        StR.TUTORIAL_ISLAND,
         [LocationGroup.Surface, LocationGroup.Main_Quest],
     ),
 ]
 
 underground_location_table: List[GatorLocationData] = [
     GatorLocationData(
+        GatorLocationName.PICKAXE_PICKUP,
+        200010001,
+        UR.UNDERGROUND_ENTRANCE,
+        [LocationGroup.Underground],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1168_H7,
+        200001168,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_801_C5,
+        200000801,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1161_H7,
+        200001161,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1171_I8,
+        200001171,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_908_G5,
+        200000908,
+        UR.LIGHTHOUSE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_907_G5,
+        200000907,
+        UR.LIGHTHOUSE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_894_G5,
+        200000894,
+        UR.LIGHTHOUSE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1148_H6,
+        200001148,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_602_G5,
+        200000602,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_595_G5,
+        200000595,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_598_G5,
+        200000598,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_597_G5,
+        200000597,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_580_G8,
+        200000580,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_873_F4,
+        200000873,
+        UR.LIGHTHOUSE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_874_F4,
+        200000874,
+        UR.LIGHTHOUSE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_906_F4,
+        200000906,
+        UR.LIGHTHOUSE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_981_H2,
+        200000981,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1166_H6,
+        200001166,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1167_H6,
+        200001167,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1153_H6,
+        200001153,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1180_E5,
+        200001180,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1213_E5,
+        200001213,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.TP_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_931_G3,
+        200000931,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_576_H6,
+        200000576,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_579_I8,
+        200000579,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1170_I7,
+        200001170,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_578_H8,
+        200000578,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_890_G4,
+        200000890,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_1334_E3,
+        200001334,
+        UR.UNDERGROUND_ENTRANCE_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_577_I8,
+        200000577,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_875_F3,
+        200000875,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_876_F3,
+        200000876,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_945_G3,
+        200000945,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_910_F2,
+        200000910,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_760_B4,
+        200000760,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.LA_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_792_C5,
+        200000792,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.WW_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.JAR_840_F2,
+        200000840,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Pot, LocationGroup.OoT_Pot],
+    ),
+    GatorLocationData(
+        GatorLocationName.CHEST_909_G2,
+        200000909,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Chest],
+    ),
+    GatorLocationData(
+        GatorLocationName.CHEST_594_G5,
+        200000594,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Chest],
+    ),
+    GatorLocationData(
+        GatorLocationName.CHEST_604_A5,
+        200000604,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Chest],
+    ),
+    GatorLocationData(
+        GatorLocationName.CHEST_968_H3,
+        200000968,
+        UR.ROOTS_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Chest],
+    ),
+    GatorLocationData(
+        GatorLocationName.CHEST_610_B4,
+        200000610,
+        UR.MINES_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Chest],
+    ),
+    GatorLocationData(
+        GatorLocationName.CHEST_601_G7,
+        200000601,
+        UR.DRIP_BREAKABLES,
+        [LocationGroup.Underground, LocationGroup.Chest],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_417_B5,
+        200000417,
+        UR.MINES_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_499_H8,
+        200000499,
+        UR.DRIP_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_418_G2,
+        200000418,
+        UR.ROOTS_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_491_G7,
+        200000491,
+        UR.DRIP_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_484_D6,
+        200000484,
+        UR.DRIP_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_413_H2,
+        200000413,
+        UR.ROOTS_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_468_B4,
+        200000468,
+        UR.MINES_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.RACE_503_F8,
+        200000503,
+        UR.DRIP_RACES,
+        [LocationGroup.Underground, LocationGroup.Race],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_121_H1,
+        200000121,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_132_B6,
+        200000132,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_119_E6,
+        200000119,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_126_D4,
+        200000126,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_130_B6,
+        200000130,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_146_B5,
+        200000146,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_175_F8,
+        200000175,
+        UR.UNDERGROUND_ENTRANCE,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_148_B5,
+        200000148,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_117_F6,
+        200000117,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_177_G8,
+        200000177,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_181_H6,
+        200000181,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_135_G1,
+        200000135,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_180_I6,
+        200000180,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_209_C7,
+        200000209,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_129_C6,
+        200000129,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_138_F1,
+        200000138,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_127_E4,
+        200000127,
+        UR.LIGHTHOUSE,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_208_C7,
+        200000208,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_149_B5,
+        200000149,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_201_I2,
+        200000201,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_137_F2,
+        200000137,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_131_B6,
+        200000131,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_128_E5,
+        200000128,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    # GatorLocationData(
+    #     GatorLocationName.WALL_136_E1,
+    #     200000136,
+    #     UR.UNDERGROUND_ENTRANCE,
+    #     [LocationGroup.Underground, LocationGroup.Wall],
+    # ), # for Darklord area
+    GatorLocationData(
+        GatorLocationName.WALL_134_E7,
+        200000134,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_207_I1,
+        200000207,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_120_H2,
+        200000120,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_147_B5,
+        200000147,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_179_H5,
+        200000179,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_133_E7,
+        200000133,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_123_G1,
+        200000123,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_118_F7,
+        200000118,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_122_H2,
+        200000122,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.WALL_176_H6,
+        200000176,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Wall],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_HOLY_B5,
+        200010002,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_LOOKY_C5,
+        200010003,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_FLOOFY_F4,
+        200010004,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_DRIPPY_G5,
+        200010005,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_TREEY_E2,
+        200010006,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_FINNY_G8,
+        200010007,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_BUBBLY_G7,
+        200010008,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_CAKEY_B4,
+        200010009,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.CRYPTID_THORNY_G2,
+        200010010,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Cryptid],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_VAL_NPC,
+        200010011,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_VAL_ITEM,
+        200010012,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.CLAM_ITEM,
+        200010042,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_NODD_NPC,
+        200020001,
+        UR.UNDERGROUND,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_NODD_ITEM,
+        200020000,
+        UR.UNDERGROUND,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_NODD_1_CRYPTID,
+        200020002,
+        UR.UNDERGROUND,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_NODD_3_CRYPTID,
+        200020003,
+        UR.UNDERGROUND,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_NODD_5_CRYPTID,
+        200020004,
+        UR.UNDERGROUND,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_NODD_7_CRYPTID,
+        200020005,
+        UR.UNDERGROUND,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_MADSON_C5,
+        200010014,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_MADSON_HAT,
+        200010040,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_MADSON_HOVER,
+        200010041,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_DAVE_NPC,
+        200010015,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_JESSIE_NPC,
+        200010016,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_JESSIE_ITEM,
+        200010070,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_TURTLE_NPC,
+        200010017,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_TURTLE_ITEM_1,
+        200010077,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_TURTLE_ITEM_2,
+        200010078,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_ARLOTTE_NPC,
+        200010018,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_ARLOTTE_ITEM_1,
+        200010073,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_ARLOTTE_ITEM_2,
+        200010074,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_JANE_D6,
+        200010019,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_LOLA_C7,
+        200010021,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_JANE_LOLA_LETTER_1,
+        200010061,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_JANE_LOLA_LETTER_2,
+        200010062,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_JANE_LOLA_ITEM,
+        200010063,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_HARREN_D3,
+        200010022,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_BODIE_NPC,
+        200010024,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_BODIE_ITEM,
+        200010025,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_HEATHER_NPC,
+        200010026,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_HEATHER_ITEM,
+        200010013,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_MATTHEW_NPC,
+        200010027,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_DAVE_MATTHEW_ITEM,
+        200010076,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_CRAYFISH_NPC,
+        200010028,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_CRAYFISH_ITEM,
+        200010072,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_GHOST_NPC,
+        200010029,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_GHOST_ITEM,
+        200010079,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_CASEY_H6,
+        200010030,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.DRONE_GIFT,
+        200010071,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_CASSIRON_NPC,
+        200010031,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_CASSIRON_ITEM,
+        200010075,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
         GatorLocationName.NPC_ESTHER_E3,
-        200000001,
+        200010032,
         UR.UNDERGROUND_ENTRANCE,
         [LocationGroup.Underground, LocationGroup.Side_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_EMILIO_NPC,
+        200010033,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Main_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_EMILIO_ITEM,
+        200010050,
+        UR.MINES,
+        [LocationGroup.Underground, LocationGroup.Main_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_RUTH_NPC,
+        200010034,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Main_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_RUTH_ITEM,
+        200010052,
+        UR.ROOTS,
+        [LocationGroup.Underground, LocationGroup.Main_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_AMBERLY_NPC,
+        200010035,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Main_Quest],
+    ),
+    GatorLocationData(
+        GatorLocationName.NPC_AMBERLY_ITEM,
+        200010051,
+        UR.DRIP,
+        [LocationGroup.Underground, LocationGroup.Main_Quest],
     ),
 ]
 

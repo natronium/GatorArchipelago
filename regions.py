@@ -3,8 +3,10 @@ from enum import Enum
 class GatorRegionName(str, Enum):
     pass
 
-class GatorSurfaceRegionName(GatorRegionName):
+class GatorStartingRegionName(GatorRegionName):
     TUTORIAL_ISLAND = "Tutorial Island"
+
+class GatorSurfaceRegionName(GatorRegionName):
     PLAYGROUND = "Playground"
     POTS_SHOOTABLE_FROM_TUTORIAL_ISLAND = "Pots Shootable from Tutorial Island"
     TUTORIAL_ISLAND_RACES = "Tutorial Island Races"
@@ -18,12 +20,18 @@ class GatorSurfaceRegionName(GatorRegionName):
     BIG_ISLAND_BRACELET_SHOPS = "Big Island Bracelet Shops"
 
 class GatorITDRegionName(GatorRegionName):
+    UNDERGROUND = "Underground"
     UNDERGROUND_ENTRANCE = "Underground Entrance"
+    UNDERGROUND_ENTRANCE_BREAKABLES = "Underground Entrance Breakables"
+    LIGHTHOUSE = "Lighthouse"
+    LIGHTHOUSE_BREAKABLES = "Lighthouse Breakables"
     MINES = "Mines"
     MINES_BREAKABLES = "Mines Breakables"
+    MINES_RACES = "Mines Races"
     DRIP = "Flowstone Caverns"
     DRIP_BREAKABLES = "Flowstone Caverns Breakables"
+    DRIP_RACES = "Flowstone Caverns Races"
     ROOTS = "Big Roots"
     ROOTS_BREAKABLES = "Big Roots Breakables"
-    # TODO: split up regions more?
+    ROOTS_RACES = "Big Roots Races"
 

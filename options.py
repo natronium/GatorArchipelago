@@ -11,28 +11,74 @@ from Options import (
     StartInventoryPool,
     PerGameCommonOptions,
     OptionGroup,
+    Choice,
 )
 
+class Goal(Choice):
+    """Choose whether your goal is to complete the main story, the In the Dark story, both, or either one. If you choose anything other than main story only, you must own and have installed the DLC to be able to connect to your slot."""
 
-class IncludeITD(Toggle):
-    """Include In the Dark DLC in randomization. Only set to true if you own the In the Dark DLC, the mod WILL NOT connect to a slot that has In the Dark enabled if the DLC is not installed."""
+    internal_name = "goal"
+    display_name = "Goal"
 
-    internal_name = "include_itd"
-    display_name = "Include In the Dark"
+    option_main_story_only = 0
+    option_in_the_dark_story_only = 1
+    option_both_stories = 2
+    option_either = 3
+    default = 0
 
+
+class ItemsIncluded(Choice):
+    """Choose which items you want included in your itempool: main game, In the Dark, or both. If you choose In the Dark or both, you must own and have installed the DLC to be able to connect to your slot."""
+
+    internal_name = "items_included"
+    display_name = "Items Included"
+
+    option_main_items_only = 0
+    option_in_the_dark_items_only = 1
+    option_both_items = 2
+    default = 0
+
+class LocationsIncluded(Choice):
+    """Choose which locations you want included in your slot: main game, In the Dark, or both. If you choose In the Dark or both, you must own and have installed the DLC to be able to connect to your slot."""
+
+    internal_name = "items_included"
+    display_name = "Items Included"
+
+    option_main_locations_only = 0
+    option_in_the_dark_locations_only = 1
+    option_both_locations = 2
+    default = 0
+
+class IncludeBraceletsIfITDOnly(Toggle):
+    """If playing with only In the Dark items setting on Items Included, then this option being true will include the 4 bracelets in the itempool anyway. Does nothing if main game is included in items."""
+
+    internal_name = "include_bracelets"
+    display_name = "Include Bracelets if In the Dark Items Only"
+
+class IncludeGliderIfITDOnly(Toggle):
+    """If playing with only In the Dark items setting on Items Included, then this option being true will include the glider in the itempool anyway. Does nothing if main game is included in items."""
+
+    internal_name = "include_glider"
+    display_name = "Include Glider if In the Dark Items Only"
 
 class StartWithFreeplay(Toggle):
-    """Start with no barrier around Tutorial Island and thus the ability to access checks on the main island."""
+    """Start with no barrier around Tutorial Island and thus the ability to access checks on the main island. This option will be forced on if only locations from the DLC are included (since Tutorial Island may not be completable under those conditions)."""
 
     internal_name = "start_with_freeplay"
     display_name = "Start With Freeplay"
 
+class RequireVerticalForITD(DefaultOnToggle):
+    """Require bracelet or spin jump for the majority of In the Dark to be in logic. Recommended for folks getting used to the underground layout. If false, the logic will assume that you will try lots of silly jumps and use Reset Position often in the underground. If true, and bracelets are not otherwise included via Items Included or Include Bracelets If ITD Only, then 1 bracelet will be added into the pool."""
 
-class RequireShieldJump(Toggle):
-    """Logic may require you to execute a shield jump (jump, then press shield button) to progress."""
+    internal_name = "require_vertical_for_itd"
+    display_name = "Require Vertical for In the Dark"
 
-    internal_name = "require_shield_jump"
-    display_name = "Require Shield Jump"
+
+class RequireShieldFlip(Toggle):
+    """Logic may require you to execute a shield flip (jump, then press shield button) to reach some high places."""
+
+    internal_name = "require_shield_flip"
+    display_name = "Require Shield Flip"
 
 
 class HarderRangedQuests(Toggle):
@@ -70,11 +116,11 @@ class StartWithCheckFinders(DefaultOnToggle):
     display_name = "Start With Check Finders"
 
 
-class MakeAwkwardCardboardDestroyersProgression(Toggle):
-    """Marks Sticky Hand, Balloon, Bubble Gum, and Ragdoll as progression, which means the generator can put them as your first logical Cardboard Destroyer."""
+class MakeAwkwardItemsProgression(Toggle):
+    """Marks Sticky Hand, Balloon, Bubble Gum, Ragdoll, and Firework as progression, which means the generator can make them required for certain checks."""
 
     internal_name = "awkward_progression"
-    display_name = "Make Awkward Cardboard Destroyers Progression"
+    display_name = "Make Awkward Items Progression"
 
 
 # Trap Chance and Trap Type Weights from Ixrec's Outer Wilds implementation
@@ -85,6 +131,7 @@ class TrapChance(Range):
     If you don't want any traps, set this to 0."""
 
     display_name = "Trap Chance"
+
     range_start = 0
     range_end = 100
     default = 0
@@ -106,66 +153,76 @@ class TrapTypeWeights(OptionDict):
         }
     )
     display_name = "Trap Type Weights"
+
     default = {
         "Stumble Trap": 2,
         "Dialogue Trap": 2,
         "Float Trap": 1,
         "Sneak Trap": 1,
-        "Pixel Trap": 0,
+        "Pixel Trap": 1,
     }
-
 
 @dataclass
 class GatorOptions(PerGameCommonOptions):
-    include_itd: IncludeITD
+    goal: Goal
+    items_included: ItemsIncluded
+    locations_included: LocationsIncluded
+    include_bracelets: IncludeBraceletsIfITDOnly
+    include_glider: IncludeGliderIfITDOnly
     start_with_freeplay: StartWithFreeplay
-    require_shield_jump: RequireShieldJump
+    require_vertical_for_itd: RequireVerticalForITD
+    require_shield_flip: RequireShieldFlip
     harder_ranged_quests: HarderRangedQuests
     lock_pots_behind_items: LockPotsBehindItems
     lock_chests_behind_key: LockChestsBehindKey
     lock_races_behind_flag: LockRacesBehindFlag
     start_with_checkfinders: StartWithCheckFinders
-    awkward_progression: MakeAwkwardCardboardDestroyersProgression
+    awkward_progression: MakeAwkwardItemsProgression
     start_inventory_from_pool: StartInventoryPool
     trap_chance: TrapChance
     trap_type_weights: TrapTypeWeights
 
 
 gator_options_presets: dict[str, dict[str, Any]] = {
-    "Maximal Accessibility": {
-        "start_with_freeplay": True,
-        "require_shield_jump": False,
-        "harder_ranged_quests": False,
-        "lock_pots_behind_items": False,
-        "lock_chests_behind_key": False,
-        "lock_races_behind_flag": False,
-        "start_with_checkfinders": True,
-        "awkward_progression": False,
-    },
-    "Locked Down": {
-        "start_with_freeplay": False,
-        "require_shield_jump": False,
-        "harder_ranged_quests": False,
-        "lock_pots_behind_items": True,
-        "lock_chests_behind_key": True,
-        "lock_races_behind_flag": True,
-        "start_with_checkfinders": True,
-        "awkward_progression": False,
-    },
+    # "Maximal Accessibility": {
+    #     "start_with_freeplay": True,
+    #     "require_shield_flip": False,
+    #     "harder_ranged_quests": False,
+    #     "lock_pots_behind_items": False,
+    #     "lock_chests_behind_key": False,
+    #     "lock_races_behind_flag": False,
+    #     "start_with_checkfinders": True,
+    #     "awkward_progression": False,
+    # },
+    # "Locked Down": {
+    #     "start_with_freeplay": False,
+    #     "require_shield_flip": False,
+    #     "harder_ranged_quests": False,
+    #     "lock_pots_behind_items": True,
+    #     "lock_chests_behind_key": True,
+    #     "lock_races_behind_flag": True,
+    #     "start_with_checkfinders": True,
+    #     "awkward_progression": False,
+    # },
 }
 
 gator_option_groups: list[OptionGroup] = [
     OptionGroup(
         "Logic Options",
         [
-            IncludeITD,
+            Goal,
+            ItemsIncluded,
+            LocationsIncluded,
+            IncludeBraceletsIfITDOnly,
+            IncludeGliderIfITDOnly,
             StartWithFreeplay,
-            RequireShieldJump,
+            RequireVerticalForITD,
+            RequireShieldFlip,
             HarderRangedQuests,
             LockPotsBehindItems,
             LockChestsBehindKey,
             LockRacesBehindFlag,
-            MakeAwkwardCardboardDestroyersProgression,
+            MakeAwkwardItemsProgression,
         ],
     ),
     OptionGroup("Convenience Options", [StartWithCheckFinders]),
